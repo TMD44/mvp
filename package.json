@@ -1,0 +1,33 @@
+{
+  "name": "mvp",
+  "productName": "Multimedia Visualization Platform",
+  "version": "0.1.0",
+  "description": "Multimedia Visualization Platform",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "nm": "nodemon --exec electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TMD44/mvp.git"
+  },
+  "keywords": [],
+  "author": "TMD44",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TMD44/mvp/issues"
+  },
+  "homepage": "https://github.com/TMD44/mvp#readme",
+  "devDependencies": {
+    "electron": "^11.3.0",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "electron-window-state": "^5.0.3",
+    "node-themoviedb": "^0.2.7"
+  }
+}
