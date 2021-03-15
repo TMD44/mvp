@@ -4,9 +4,9 @@ const path = require("path");
 
 //ASYNCHRONOUS
 async function scanDir(directoryName, filter, callback) {
-    let files = await fsp.readdir(directoryName, { withFileTypes: true });
+    const files = await fsp.readdir(directoryName, { withFileTypes: true });
     for (let f of files) {
-        let fullPath = path.join(directoryName, f.name);
+        const fullPath = path.join(directoryName, f.name);
         if (f.isDirectory()) {
             await scanDir(fullPath, filter, callback);
         } else if (filter.includes(path.extname(fullPath))) {
@@ -16,9 +16,9 @@ async function scanDir(directoryName, filter, callback) {
 }
 /*
 async function scanDir(directoryName, regex, callback) {
-    let files = await fsp.readdir(directoryName, { withFileTypes: true });
+    const files = await fsp.readdir(directoryName, { withFileTypes: true });
     for (let f of files) {
-        let fullPath = path.join(directoryName, f.name);
+        const fullPath = path.join(directoryName, f.name);
         if (f.isDirectory()) {
             await scanDir(fullPath, filter, callback);
         } else if (regex.test(fullPath)) {
