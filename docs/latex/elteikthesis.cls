@@ -83,6 +83,8 @@
 \NewDocumentCommand{\proposal}{m}{\newcommand{\prop}{#1}}
 \NewDocumentCommand{\cityproposal}{m}{\newcommand{\propcity}{#1}}
 \DeclareDocumentCommand{\dateproposal}{m}{\newcommand{\propdate}{#1}\renewcommand{\@date}{#1}}
+
+\NewDocumentCommand{\acknowledgmentstext}{m}{\newcommand{\acknowledgment}{#1}}
 % ------------------------------
 
 % ------------------------------
@@ -535,6 +537,24 @@
 		\vspace*{\fill}
 	%\end{center}
 
+
+	\cleardoublepage
+	%\setcounter{page}{1}
+}
+% ------------------------------
+
+% ------------------------------
+% Köszönetnyilvánítás
+\newcommand{\acknowledgments}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+
+	{\bf \huge {Köszönetnyilvánítás}}
+
+	\vspace*{\fill}
+	{\acknowledgment}
+
+	\vspace*{\fill}
 
 	\cleardoublepage
 	\setcounter{page}{1}
