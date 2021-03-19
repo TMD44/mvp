@@ -1,8 +1,9 @@
+const { createLog } = require("../../../../log");
+
 let tempFileName = "";
 let numberOfFoundAttributes = 0;
 
-let fnr_patterns = {
-
+const fnr_patterns = {
     resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-\_\ ]?[X][.\-\_\ ]?[0-9]{3,4}/gi, //720p, 1080p, 1920x1080, 1920X1080, 1920_x-1080, 1920.X 1080,
     year: /((?:19[3-9]|20[0123])[0-9])/g, //1901, 1938, 1987, 2000, 2010, 2020, 2030, !!! above 2039 NO !!!     /[\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?/g
     languages: /[.\-\_\ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi, //|FRE|RUS|ITA|SPA|POL
@@ -19,9 +20,10 @@ let fnr_patterns = {
     widescreen: /[.,\-\_\ ]WS[.,\-\_\ \n]/gi,
     filetype: /[.,\-\_\ ]MKV[.,\-\_\ \n]|[.,\-\_\ ]AVI[.,\-\_\ \n]|[.,\-\_\ ]MP4[.,\-\_\ \n]/gi,
     group: /(- ?([^-]+(?:-={[^-]+-?$)?))$/g,
+    imdb_title: /tt[0-9]{7}/gi,
     others: /[.,\-\_\ ](AMZN|REPACK|RETAIL|REMUX|CUSTOM[\.\_\-\ ]?(PAL)?|UNRATED|PROPER|INTERNAL|READ[.\_\-\ ]?NFO|R[0-9])[.,\-\_\ ]/gi,
-    brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|\<(.*?)\>/g //this has to be the last before the name
-}
+    brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|\<(.*?)\>/g, //this has to be the last before the name
+};
 
 function process(JSON_cleaned_obj, itemFound, pattern, JSON_item_name, toWhat, printToJSON = true, toUpperCase = false) {
     itemFound = tempFileName.match(pattern);
@@ -41,9 +43,9 @@ function process(JSON_cleaned_obj, itemFound, pattern, JSON_item_name, toWhat, p
                 }
             }
         } else if (toWhat == "toInt") {
-            let intArray = String(itemFound).trim().split('-');
-            let startNum = parseInt(String(intArray[0]).match(/\d+/));
-            let endNum = parseInt(String(intArray[intArray.length - 1]).match(/\d+/));
+            const intArray = String(itemFound).trim().split('-');
+            const startNum = parseInt(String(intArray[0]).match(/\d+/));
+            const endNum = parseInt(String(intArray[intArray.length - 1]).match(/\d+/));
             if (intArray.length == 1 || intArray[0].toUpperCase() == intArray[1].toUpperCase()) {
                 if (printToJSON) JSON_cleaned_obj[JSON_item_name] = parseInt(String(itemFound).match(/\d+/));
                 tempFileName = deleteFromFileName(tempFileName, itemFound);
@@ -88,6 +90,7 @@ function fnr(paramFileName) {
         process(cleanedDataJSON, episodeFound, fnr_patterns.episode, "episode", "toInt", true);
         process(cleanedDataJSON, foundPattern, fnr_patterns.quality, "quality", "toString", true);
         process(cleanedDataJSON, foundPattern, fnr_patterns.bluray, "bluray", "toString", true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.imdb_title, 'imdb_id', 'toString', true);
         process(cleanedDataJSON, foundPattern, fnr_patterns.extended, "extendedCut", "toBool", true);
         process(cleanedDataJSON, foundPattern, fnr_patterns.directors, "directorsCut", "toBool", true);
         process(cleanedDataJSON, foundPattern, fnr_patterns.hdr, "hdr", "toBool", true);
@@ -105,15 +108,16 @@ function fnr(paramFileName) {
         }
 
         //RAW DATA
-        //cleanedDataJSON["_RAW_"] = paramFileName;
+        cleanedDataJSON["_RAW_"] = paramFileName;
 
         //tempFileName BEFORE TITLE RECOGNITION
-        //cleanedDataJSON["CLEAN"] = tempFileName;
+        cleanedDataJSON["CLEAN"] = tempFileName;
 
         //NUMBER OF KEYS
         //cleanedDataJSON["NUMBER_OF_KEYS"] = numberOfFoundAttributes+1;
     } catch (err) {
-        console.log("Error was found at recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
+        //console.log("Error was found at recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
+        createLog(err.name, err.message);
     }
 
     try {
@@ -142,7 +146,8 @@ function fnr(paramFileName) {
         }
 
     } catch (err) {
-        console.log("Error was found at Title recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
+        //console.log("Error was found at Title recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
+        createLog(err.name, err.message, err.fileName, err.LineNumber, new Error());
     }
 
     numberOfFoundAttributes = 0;

@@ -1,7 +1,7 @@
-function nfoFinder(media, array) {
+function nfoFinder(media, { nfo }) {
     let resultArray = [];
 
-    array.nfo.forEach(nfo => {
+    nfo.forEach(nfo => {
         if (nfo.path.concat(nfo.fn) == media.path.concat(media.fn)) {
             resultArray.push(nfo.full);
         }

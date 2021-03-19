@@ -1,7 +1,7 @@
-function subFinder(media, array) {
+function subFinder(media, { sub }) {
     let resultArray = [];
     
-    array.sub.forEach(sub => {
+    sub.forEach(sub => {
         if (sub.path.concat(sub.fn) == media.path.concat(media.fn)) {
             resultArray.push(sub.full);
         }

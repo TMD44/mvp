@@ -9,9 +9,10 @@ FOR RUN THE TEST USE THE test() FUNCTION!
 
 function test(){
     let dataToWrite = [];
-    for (let i = 0; i < torrent_movie_names.length; i++) {
-        //dataToWrite += JSON.stringify(fnr(torrent_series_names[i]));
-        dataToWrite += JSON.stringify(fnr(torrent_movie_names[i]));
+    for (let i = 0; i < torrent_series_names.length; i++) {
+    //for (let i = 0; i < torrent_movie_names.length; i++) {
+        dataToWrite += JSON.stringify(fnr(torrent_series_names[i]));
+        //dataToWrite += JSON.stringify(fnr(torrent_movie_names[i]));
     }
 
     fs.writeFileSync('./exports/test_cleaned_data.json', dataToWrite);
