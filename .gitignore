@@ -3,5 +3,7 @@ node_modules/
 
 docs/_elteikthesis/
 exports/
-resources/api/
+assets/api/
 out/
+log/
+config/config.json
