@@ -1,25 +1,41 @@
 const fs = require('fs');
-const { fnr } = require('./additions/fnr/fnr');
-const { subFinder } = require('./additions/sub');
-const { nfor, nfoFinder } = require('./additions/nfo');
-const { getHashID } = require('./hashID');
-const { getDateAndTime } = require('./date');
+const { fnr } = require('./tools/fnr/fnr');
+const { subFinder } = require('./tools/sub');
+const { nfoFinder } = require('./tools/nfo');
+const { getHashID } = require('./tools/hashID');
+const { getDateAndTime } = require('./tools/date');
+const { id_finder } = require('./tools/movie_IDs');
 
 function mediaJSONGenerator(media, array) {
     let mediaInJSON = {};
 
-    let hashID = getHashID(media.fn);
+    const hashID = getHashID(media.full);
     //mediaInJSON[hashID] = {
     mediaInJSON = {
         id: hashID,
-        mediaName: media.fn,
+        media_name: media.fn,
         extension: media.ext,
         path: media.path,
-        fullPath: media.full,
+        full_path: media.full,
         subtitles: subFinder(media, array),
-        nfoPath: nfoFinder(media, array),
-        imdb: nfor(media, array),
-        recognizedFromTitle: fnr(media.fn),
+        nfo: nfoFinder(media, array),
+        movieDB_id: id_finder(media, array),
+        /*metadata: {
+            editable: true,
+            title: "",
+            creation_date: "",
+            description: "",
+            genres: "",
+            images: {},
+            resolution: "",
+        },*/
+        unsure_metadata: {
+            imdb_data: {},
+            tmdb_data: {},
+            wiki_data: {},
+            filename_data: fnr(media.fn),
+            nfo_data: /*id_finder(media, array)*/{},
+        },
     };
 
     return mediaInJSON;
@@ -30,6 +46,9 @@ function completeJSONGenerator(mediaInJSON) {
         generation_time: getDateAndTime(),
         version: '1.0',
         media: mediaInJSON,
+        tv_series: {},
+        movie_series: {},
+        playlists: {},
     };
 
     return completeJSON;
