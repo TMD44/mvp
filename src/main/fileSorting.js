@@ -1,11 +1,11 @@
 const path = require('path');
 
-function fileSorting(file, filter, reply) {
-    if (filter.media.includes(path.extname(file))) {
+function fileSorting(file, media, sub, nfo, reply) {
+    if (media.includes(path.extname(file))) {
         reply.media.push(objTemplate(file));
-    } else if (filter.sub.includes(path.extname(file))) {
+    } else if (sub.includes(path.extname(file))) {
         reply.sub.push(objTemplate(file));
-    } else if (filter.nfo.includes(path.extname(file))) {
+    } else if (nfo.includes(path.extname(file))) {
         reply.nfo.push(objTemplate(file));
     }
 }

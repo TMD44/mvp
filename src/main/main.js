@@ -1,15 +1,14 @@
-const { app, BrowserWindow, dialog, ipcMain } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 
-const { scanDir } = require('../renderer/sourceImport/scanDir');
-const { fileSorting } = require('./fileSorting');
+const { ipcMainCommunication } = require('./ipcMainCommunication');
 
 function createWindow() {
     let mainWindowState = windowStateKeeper({
         defaultWidth: 1200,
         defaultHeight: 1000,
     });
-    const mainWindow = new BrowserWindow({
+    /*const mainWindow = new BrowserWindow({
         x: mainWindowState.x,
         y: mainWindowState.y,
         width: mainWindowState.width,
@@ -19,60 +18,36 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
         },
-    });
-    //mainWindow.maximize()
+    });*/
 
-    const directorySelectorWindow = new BrowserWindow({
-        width: 1200,
-        height: 1000,
+    const sourceImportWindow = new BrowserWindow({
+        width: 1000,
+        height: 800,
         icon: app.getAppPath() + '/resources/icons/icon_128x128.ico',
+        //parent: mainWindow,
+        //modal: true,
+        //show: false,
         webPreferences: {
             nodeIntegration: true,
-            enableRemoteModule: true,
         },
     });
 
-    mainWindowState.manage(mainWindow);
+    //mainWindowState.manage(mainWindow);
 
-    mainWindow.webContents.openDevTools();
+    //mainWindow.webContents.openDevTools();
 
-    directorySelectorWindow.webContents.openDevTools();
+    sourceImportWindow.webContents.openDevTools();
 
-    ipcMain.on('openDir_async', (event, arg) => {
-        let reply = {
-            media: [],
-            sub: [],
-            nfo: [],
-        };
-        dialog
-            .showOpenDialog(directorySelectorWindow, {
-                properties: ['openDirectory', 'multiSelections'],
-            })
-            .then(result => {
-                if (result.canceled === false) {
-                    result.filePaths.forEach(async dirs => {
-                        await scanDir(
-                            dirs,
-                            [arg.media, arg.sub, arg.nfo].flat(),
-                            file => {
-                                fileSorting(file, arg, reply);
-                            }
-                        );
-                        event.reply('openDir_async_reply', reply);
-                    });
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    });
+    //mainWindow.loadFile('src/renderer/mainWindow/mainWindow.html');
+    //mainWindow.removeMenu();
 
-    mainWindow.loadFile('src/renderer/mainWindow/mainWindow.html');
-    mainWindow.removeMenu();
-    directorySelectorWindow.loadFile(
-        'src/renderer/sourceImport/sourceImporter.html'
-    );
-    directorySelectorWindow.removeMenu();
+    sourceImportWindow.loadFile('src/renderer/sourceImport/sourceImporter.html');
+    //sourceImportWindow.removeMenu();
+    /*sourceImportWindow.once('ready-to-show', () => {
+        sourceImportWindow.show();
+    });*/
+
+    ipcMainCommunication(sourceImportWindow);
 }
 
 app.whenReady().then(createWindow);
