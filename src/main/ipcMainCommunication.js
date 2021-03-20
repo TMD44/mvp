@@ -2,10 +2,10 @@ const { app, ipcMain, dialog } = require('electron');
 
 const { scanDir } = require('../renderer/sourceImport/tools/scanDir');
 const { fileSorting } = require('./fileSorting');
-const { getScanPaths, addScanPath, getFileTypes, setScanResults } = require('../configuration');
+const { getScanPaths, addScanPath, getFileTypes, setScanResults } = require('./configuration');
 
 function ipcMainCommunication(mainWindow, importWindow) {
-    ipcMain.handle('setup_config', async (event, args) => {
+    /*ipcMain.handle('setup_config', async (event, args) => {
         let info_reply = {
             appName: app.getName(),
             appVersion: app.getVersion(),
@@ -29,7 +29,7 @@ function ipcMainCommunication(mainWindow, importWindow) {
             },
         };
         return info_reply;
-    });
+    });*/
 
     ipcMain.on('openDir_async', (event, arg) => {
         let reply = {

@@ -1,4 +1,4 @@
-const { getScanResults } = require("../../../configuration");
+const { getScanResults } = require("./../../../main/configuration");
 
 function subFinder(media) {
     let resultArray = [];

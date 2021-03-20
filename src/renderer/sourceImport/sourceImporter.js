@@ -1,9 +1,9 @@
 const { ipcRenderer } = require('electron');
-const { ipcRenderer_setupConfig } = require('../ipcRendererCommunication');
-ipcRenderer_setupConfig();
+/*const { ipcRenderer_setupConfig } = require('../ipcRendererCommunication');
+ipcRenderer_setupConfig();*/
 
 const { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } = require('./json');
-const { getScanPaths, getFileTypes, purgeScanPaths, purgeScanResults, getScanResults } = require('../../configuration');
+const { getScanPaths, getFileTypes, purgeScanPaths, purgeScanResults, getScanResults } = require('./../../main/configuration');
 
 let completeJSON = {};
 let mediaInJSON = {};

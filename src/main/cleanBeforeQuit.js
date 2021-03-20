@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function cleanBeforeQuit(data = true,config = false) {
+function cleanBeforeQuit(data = true,config = true) {
   if (data) {
     fs.unlink('E:\\GIT\\mvp\\exports\\movieData.json', err => {
         if (err) {

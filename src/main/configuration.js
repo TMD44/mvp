@@ -1,5 +1,5 @@
+const { app } = require('electron');
 const fs = require('fs');
-const { ipcRenderer_setupConfig } = require('./renderer/ipcRendererCommunication');
 
 function addScanPath(array) {
     array.forEach(res => {
@@ -50,17 +50,38 @@ function getFileTypes() {
 }
 
 function readConfig() {
-    return JSON.parse(fs.readFileSync('./config/config.json' /*'E:/GIT/mvp/config/config.json'*/)); 
+    return JSON.parse(fs.readFileSync('./config/config.json' /*'E:/GIT/mvp/config/config.json'*/));
 }
 
 function writeConfig(json) {
     fs.writeFileSync('./config/config.json', JSON.stringify(json, null, 4));
 }
 
-function setupConfig(appInfo) {
-    let defaultConfig = {
+function setupConfig() {
+    let defaultConfigurations = {
         name: 'Anonymous',
-        appInfo: appInfo,
+        appInfo: {
+            appName: app.getName(),
+            appVersion: app.getVersion(),
+            appCurrentDirectory: app.getAppPath(),
+            appLocale: app.getLocale(),
+            appLocaleCountryCode: app.getLocaleCountryCode(),
+            appPaths: {
+                home: app.getPath('home'),
+                userData: app.getPath('userData'),
+                appData: app.getPath('appData'),
+                desktop: app.getPath('desktop'),
+                downloads: app.getPath('downloads'),
+                documents: app.getPath('documents'),
+                pictures: app.getPath('pictures'),
+                videos: app.getPath('videos'),
+                music: app.getPath('music'),
+                temp: app.getPath('temp'),
+                recent: app.getPath('recent'),
+                exe: app.getPath('exe'),
+                crashDumps: app.getPath('crashDumps'),
+            },
+        },
         ui_preferences: {
             ui_language: 'en-US',
         },
@@ -89,7 +110,7 @@ function setupConfig(appInfo) {
         },
     };
 
-    writeConfig(defaultConfig);
+    writeConfig(defaultConfigurations);
     console.log('Config file has been created!');
 }
 
