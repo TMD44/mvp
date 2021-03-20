@@ -1,11 +1,13 @@
 const path = require('path');
+const { getFileTypes } = require('../../main/configuration');
 
-function fileSorting(file, media, sub, nfo, reply) {
-    if (media.includes(path.extname(file))) {
+
+function fileSorting(file, reply) {
+    if (getFileTypes().media.includes(path.extname(file))) {
         reply.media.push(objTemplate(file));
-    } else if (sub.includes(path.extname(file))) {
+    } else if (getFileTypes().sub.includes(path.extname(file))) {
         reply.sub.push(objTemplate(file));
-    } else if (nfo.includes(path.extname(file))) {
+    } else if (getFileTypes().nfo.includes(path.extname(file))) {
         reply.nfo.push(objTemplate(file));
     }
 }
