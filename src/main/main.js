@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 
 const { ipcMainCommunication } = require('./ipcMainCommunication');
+const { cleanBeforeQuit } = require('./cleanBeforeQuit');
 
 function createWindow() {
     let mainWindowState = windowStateKeeper({
@@ -54,6 +55,7 @@ app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
+        cleanBeforeQuit();
         app.quit();
     }
 });
