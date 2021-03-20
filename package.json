@@ -2,7 +2,7 @@
   "name": "mvp",
   "productName": "Multimedia Visualization Platform",
   "version": "0.1.0",
-  "description": "Multimedia Visualization Platform",
+  "description": "Create your own streaming service, offline.",
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron .",
@@ -28,6 +28,7 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "electron-window-state": "^5.0.3",
-    "node-themoviedb": "^0.2.7"
+    "node-themoviedb": "^0.2.7",
+    "wikijs": "^6.0.1"
   }
 }
