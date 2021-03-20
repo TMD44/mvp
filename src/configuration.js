@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { ipcRenderer_setupConfig } = require('./ipcRendererCommunication');
+const { ipcRenderer_setupConfig } = require('./renderer/ipcRendererCommunication');
 
 function addScanPath(array) {
     array.forEach(res => {
@@ -25,6 +25,22 @@ function purgeScanPaths() {
     writeConfig(temp);
 }
 
+function getScanResults() {
+    return readConfig().scan_preferences.scan_results;
+}
+
+function setScanResults(obj) {
+    let temp = readConfig();
+    temp.scan_preferences.scan_results = obj;
+    writeConfig(temp);
+}
+
+function purgeScanResults() {
+    let temp = readConfig();
+    temp.scan_preferences.scan_results = {};
+    writeConfig(temp);
+}
+
 function getScanLanguage() {
     return readConfig().scan_preferences.scan_language;
 }
@@ -34,7 +50,7 @@ function getFileTypes() {
 }
 
 function readConfig() {
-    return JSON.parse(fs.readFileSync('./config/config.json' /*'E:/GIT/mvp/config/config.json'*/));
+    return JSON.parse(fs.readFileSync('./config/config.json' /*'E:/GIT/mvp/config/config.json'*/)); 
 }
 
 function writeConfig(json) {
@@ -45,6 +61,13 @@ function setupConfig(appInfo) {
     let defaultConfig = {
         name: 'Anonymous',
         appInfo: appInfo,
+        ui_preferences: {
+            ui_language: 'en-US',
+        },
+        backup_preferences: {
+            create_backups: false,
+            backup_file_number: 3,
+        },
         scan_preferences: {
             scan_language: 'en-US',
             scan_paths: [],
@@ -62,13 +85,7 @@ function setupConfig(appInfo) {
             },
             source_priority_queue: ['FINAL_DATA', 'manual_data', 'filtered_data', 'imdb_data', 'tmdb_data', 'wiki_data', 'filename_data', 'nfo_data'],
             save_data_json_next_to_file: false,
-        },
-        ui_preferences: {
-            ui_language: 'en-US',
-        },
-        backup_preferences: {
-            create_backups: false,
-            backup_file_number: 3,
+            scan_results: {},
         },
     };
 
@@ -76,7 +93,8 @@ function setupConfig(appInfo) {
     console.log('Config file has been created!');
 }
 
-function deleteConfig(createConfig = true) {
+//CSAK ÓVATOSAN EZZEL A METÓDUSSAL, MERT MINDENT A CONFIG FÁJLBÓL VESZ A PROGI
+/*function deleteConfig(createConfig = true) {
     fs.unlink('./config/config.json', err => {
         if (err) {
             console.error(err);
@@ -86,13 +104,16 @@ function deleteConfig(createConfig = true) {
     });
 
     if (createConfig) ipcRenderer_setupConfig();
-}
+}*/
 
 module.exports.addScanPath = addScanPath;
 module.exports.setScanPaths = setScanPaths;
 module.exports.purgeScanPaths = purgeScanPaths;
 module.exports.getScanPaths = getScanPaths;
 module.exports.setupConfig = setupConfig;
-module.exports.deleteConfig = deleteConfig;
+//module.exports.deleteConfig = deleteConfig;
 module.exports.getFileTypes = getFileTypes;
 module.exports.getScanLanguage = getScanLanguage;
+module.exports.setScanResults = setScanResults;
+module.exports.getScanResults = getScanResults;
+module.exports.purgeScanResults = purgeScanResults;

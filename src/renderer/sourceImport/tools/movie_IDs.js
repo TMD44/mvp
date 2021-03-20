@@ -1,10 +1,9 @@
 const fs = require('fs');
-const { tmdb_get_external_IDs } = require('../movieDB/tmdb/tmdb');
 const { nfoFinder } = require('./nfo');
 const { imdbFinder } = require('../movieDB/imdb/imdb');
 
-function id_finder(media, array) {
-    const nfoPath = nfoFinder(media, array);
+function id_finder(media) {
+    const nfoPath = nfoFinder(media);
     if (nfoPath == undefined) return;
 
     return imdbFinder(fs.readFileSync(String(nfoPath), 'utf8'));

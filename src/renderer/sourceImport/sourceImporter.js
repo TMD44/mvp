@@ -3,33 +3,34 @@ const { ipcRenderer_setupConfig } = require('../ipcRendererCommunication');
 ipcRenderer_setupConfig();
 
 const { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } = require('./json');
-const { getScanPaths, getFileTypes, purgeScanPaths } = require('../configuration');
+const { getScanPaths, getFileTypes, purgeScanPaths, purgeScanResults, getScanResults } = require('../../configuration');
 
 let completeJSON = {};
 let mediaInJSON = {};
 
-let scanResults = {};
-
 document.getElementById('openDirButton').addEventListener('click', event => {
+    purgeScanResults();
     ipcRenderer.send('openDir_async');
 });
 
-ipcRenderer.on('openDir_async_reply', (event, arg) => {
+/*ipcRenderer.on('openDir_async_reply', (event, arg) => {
     scanResults = arg;
     console.log('Scan results: ', scanResults);
-});
+});*/
 
 document.getElementById('importSourcesButton').addEventListener('click', event => {
     //if (getScanPaths() > 0) console.log('Válassz ki egy mappát');
 
-    scanResults.media.forEach(file => {
-        let mediaItem = mediaJSONGenerator(file, scanResults);
+    getScanResults().media.forEach(file => {
+        let mediaItem = mediaJSONGenerator(file);
         //let media2 = offline_data_selection(media1);
         mediaInJSON[mediaItem.id] = mediaItem;
     });
 
     completeJSON = completeJSONGenerator(mediaInJSON);
     printJSONToFile('./exports/movieData.json', completeJSON);
+
+    purgeScanResults();
 
     document.getElementById('importDone').innerHTML = 'Import is done!';
 });

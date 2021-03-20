@@ -1,7 +1,9 @@
-function nfoFinder(media, { nfo }) {
+const { getScanResults } = require('../../../configuration');
+
+function nfoFinder(media) {
     let resultArray = [];
 
-    nfo.forEach(nfo => {
+    getScanResults().nfo.forEach(nfo => {
         if (nfo.path.concat(nfo.fn) == media.path.concat(media.fn)) {
             resultArray.push(nfo.full);
         }

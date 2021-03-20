@@ -1,7 +1,9 @@
-function subFinder(media, { sub }) {
+const { getScanResults } = require("../../../configuration");
+
+function subFinder(media) {
     let resultArray = [];
     
-    sub.forEach(sub => {
+    getScanResults().sub.forEach(sub => {
         if (sub.path.concat(sub.fn) == media.path.concat(media.fn)) {
             resultArray.push(sub.full);
         }

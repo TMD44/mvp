@@ -6,7 +6,7 @@ const { getHashID } = require('./tools/hashID');
 const { getDateAndTime } = require('./tools/date');
 const { id_finder } = require('./tools/movie_IDs');
 
-function mediaJSONGenerator(media, array) {
+function mediaJSONGenerator(media) {
     let mediaInJSON = {};
 
     const hashID = getHashID(media.full);
@@ -17,9 +17,9 @@ function mediaJSONGenerator(media, array) {
         extension: media.ext,
         path: media.path,
         full_path: media.full,
-        subtitles: subFinder(media, array),
-        nfo: nfoFinder(media, array),
-        movieDB_id: id_finder(media, array),
+        subtitles: subFinder(media),
+        nfo: nfoFinder(media),
+        movieDB_id: id_finder(media),
         /*metadata: {
             editable: true,
             title: "",
@@ -32,7 +32,6 @@ function mediaJSONGenerator(media, array) {
         unsure_metadata: {
             imdb_data: {},
             tmdb_data: {},
-            wiki_data: {},
             filename_data: fnr(media.fn),
             nfo_data: /*id_finder(media, array)*/{},
         },
