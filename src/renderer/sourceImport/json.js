@@ -5,6 +5,7 @@ const { nfoFinder } = require('./tools/nfo');
 const { getHashID } = require('./tools/hashID');
 const { getDateAndTime } = require('./tools/date');
 const { id_finder } = require('./tools/movie_IDs');
+const { tmdb_multiSearch } = require('./movieDB/tmdb/tmdb');
 
 function mediaJSONGenerator(media) {
     let mediaInJSON = {};
@@ -31,11 +32,15 @@ function mediaJSONGenerator(media) {
         },*/
         unsure_metadata: {
             imdb_data: {},
-            tmdb_data: {},
             filename_data: fnr(media.fn),
             nfo_data: /*id_finder(media, array)*/{},
         },
     };
+
+    /*tmdb_multiSearch(mediaInJSON.unsure_metadata.filename_data.title).then(result => {
+        mediaInJSON.unsure_metadata["tmdb_data"] = result.data.results;
+    });
+    console.log('mediaInJSON: ', mediaInJSON);*/
 
     return mediaInJSON;
 }

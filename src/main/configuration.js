@@ -89,6 +89,10 @@ function setupConfig() {
             create_backups: false,
             backup_file_number: 3,
         },
+        api_keys: {
+            tmdb_api_key: "",
+            omdb_api_key: "",
+        },
         scan_preferences: {
             scan_language: 'en-US',
             scan_paths: [],

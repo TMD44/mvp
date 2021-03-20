@@ -1,70 +1,61 @@
 const MovieDB = require('node-themoviedb');
 const { tmdb_api_key } = require('../../../../../assets/api/apiKeys');
-//const { getScanLanguage } = require('../../../configuration');
+const { getScanLanguage } = require('./../../../../main/configuration');
 
-//const mdb = new MovieDB(tmdb_api_key, getScanLanguage());
+const mdb = new MovieDB(tmdb_api_key, getScanLanguage());
 
 //mdb.setLanguage(configJSON.scan_preferences.scan_language);
 
-async function tmdb(media) {
-    const args = {
-        pathParameters: {
-            // path parameters for query, i.e. tv_id
-            movie_id: '',
-            tv_id: '',
-        },
-        query: {
-            // query string, i.e. session_id
-            // NOTE: api_key and language will be added to query by default, don't need specify these values
-            external_source: external_source,
-        },
-        body: {
-            // data for request body
-        },
-    };
-
-    if (movie.movieDB_id != undefined) {
-        if (movie.movieDB_id.imdb_id != undefined) {
-            args.pathParameters.movie_id = movie.movieDB_id.imdb_id;
-        }
-    }
-}
-
-async function tmdb_multiSearch(id, lang = 'en-US', external_source = 'imdb_id') {
+async function tmdb_multiSearch(query, region = '', adult = false) {
     const args = {
         query: {
-            external_source: external_source,
-            query: '',
+            query: query,
             page: 1,
-            include_adult: false,
-            region: '',
+            region: region,
+            include_adult: adult,
         },
     };
 
-    const result = await mdb.search.multi(args);
+    return result = await mdb.search.multi(args);
 
-    console.log('tmdb_find_by_external_source: ', m.data);
+    //console.log('tmdb_multiSearchDATA: ', result.data);
+
+    //return result.data;
 }
 
-async function tmdb_seachForMovies(id, lang = 'en-US', external_source = 'imdb_id') {
+async function tmdb_seachForMovies(query, year, release_year, region = '', adult = false) {
     const args = {
         query: {
-            external_source: external_source,
-            query: '',
+            query: query,
             page: 1,
-            include_adult: false,
-            region: '',
-            year: '',
-            primary_release_year: "",
+            year: year,
+            primary_release_year: release_year,
+            region: region,
+            include_adult: adult,
         },
     };
 
-    const result = await mdb.find.byExternalID(args);
+    const result = await mdb.search.movies(args);
 
-    console.log('tmdb_find_by_external_source: ', m.data);
+    console.log('tmdb_seachForMovies: ', result.data);
 }
 
-async function tmdb_get_external_IDs(id, language = 'en-US', type = 'movie') {
+async function tmdb_seachForTV(query, year, adult = false) {
+    const args = {
+        query: {
+            query: query,
+            page: 1,
+            first_air_date_year: year,
+            include_adult: adult,
+        },
+    };
+
+    const result = await mdb.search.movies(args);
+
+    console.log('tmdb_seachForMovies: ', result.data);
+}
+
+async function tmdb_get_external_IDs(id, type = 'movie') {
     const args = {
         pathParameters: {
             // path parameters for query, i.e. tv_id
@@ -78,40 +69,16 @@ async function tmdb_get_external_IDs(id, language = 'en-US', type = 'movie') {
         },
     };
     
-    const m = await mdb.movie.getExternalIDs(args);
+    const result = await mdb.movie.getExternalIDs(args);
 
-    console.log('tmdb_get_external_IDs', m.data);
-    /*
-    let movie_url = 'https://api.themoviedb.org/3/movie/' + id + '/external_ids?api_key=' + tmdb_api_key;
-    let tv_url = 'https://api.themoviedb.org/3/tv/tt8111088/external_ids?api_key=' + tmdb_api_key + '&language=' + language.match(/([a-z]{2})-([A-Z]{2})/g) ? language : 'en-US';
-
-    fetch(type == 'movie' ? movie_url : tv_url)
-        .then(response => response.json())
-        .then(data => {
-            let result = {};
-            Object.entries(data).forEach(source => {
-                if (source[1] != null) {
-                    let key = source[0] == 'id' ? 'tmdb_id' : source[0];
-                    result[key] = String(source[1]);
-                }
-            });
-            console.log('tmdb_get_external_IDs: ', result);
-            //return result;
-        });*/
+    console.log('tmdb_get_external_IDs', result.data);
 }
 
 async function tmdb_get_images(id, language = 'en-US') {
-    let url = 'https://api.themoviedb.org/3/movie/' + id + '/images?api_key=' + tmdb_api_key + '&language=en-US';
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log('tmdb_get_images: ', data);
-            //return data;
-        });
 }
 
-async function tmdb_find_by_external_source(id, lang = 'en-US', external_source = 'imdb_id') {
+async function tmdb_find_by_external_source(id, external_source = 'imdb_id') {
     const args = {
         pathParameters: {
             external_id: id,
@@ -121,20 +88,13 @@ async function tmdb_find_by_external_source(id, lang = 'en-US', external_source 
         },
     };
 
-    const m = await mdb.find.byExternalID(args);
+    const result = await mdb.find.byExternalID(args);
 
-    console.log('tmdb_find_by_external_source: ', m.data);
-    /*
-    let url = 'https://api.themoviedb.org/3/find/' + id + '?api_key=' + tmdb_api_key + '&language=' + language + '&external_source=' + external_source;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log('tmdb_find_by_external_source: ', data);
-            //return data;
-        });*/
+    console.log('tmdb_find_by_external_source: ', result.data);
 }
 
-module.exports.tmdb_get_images = tmdb_get_images;
+module.exports.tmdb_seachForTV = tmdb_seachForTV;
+module.exports.tmdb_multiSearch = tmdb_multiSearch;
+module.exports.tmdb_seachForMovies = tmdb_seachForMovies;
 module.exports.tmdb_find_by_external_source = tmdb_find_by_external_source;
 module.exports.tmdb_get_external_IDs = tmdb_get_external_IDs;
