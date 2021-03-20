@@ -2,39 +2,16 @@ const { app, ipcMain, dialog } = require('electron');
 
 const { scanDir } = require('../renderer/sourceImport/tools/scanDir');
 const { fileSorting } = require('./fileSorting');
-const { getScanPaths, addScanPath, getFileTypes } = require('./../renderer/configuration');
+const { getScanPaths, addScanPath, getFileTypes, setScanResults } = require('../configuration');
 
 function ipcMainCommunication(mainWindow, importWindow) {
-    /*ipcMain.on('setup_configuration', (event, args) => {
-        let info_reply = {
-            appName: app.getName(),
-            appVersion: app.getVersion(),
-            appCurrentDirectory: app.getAppPath(),
-            appLocale: app.getLocale(),
-            appPaths: {
-                home: app.getPath('home'),
-                userData: app.getPath('userData'),
-                appData: app.getPath('appData'),
-                desktop: app.getPath('desktop'),
-                downloads: app.getPath('downloads'),
-                documents: app.getPath('documents'),
-                pictures: app.getPath('pictures'),
-                videos: app.getPath('videos'),
-                temp: app.getPath('temp'),
-                recent: app.getPath('recent'),
-                exe: app.getPath('exe'),
-            },
-        };
-        console.log("HIIII: ", info_reply)
-        //return info_reply;
-        event.reply('setup_configuration_reply', info_reply);
-    });*/
     ipcMain.handle('setup_config', async (event, args) => {
         let info_reply = {
             appName: app.getName(),
             appVersion: app.getVersion(),
             appCurrentDirectory: app.getAppPath(),
             appLocale: app.getLocale(),
+            appLocaleCountryCode: app.getLocaleCountryCode(),
             appPaths: {
                 home: app.getPath('home'),
                 userData: app.getPath('userData'),
@@ -44,9 +21,11 @@ function ipcMainCommunication(mainWindow, importWindow) {
                 documents: app.getPath('documents'),
                 pictures: app.getPath('pictures'),
                 videos: app.getPath('videos'),
+                music: app.getPath('music'),
                 temp: app.getPath('temp'),
                 recent: app.getPath('recent'),
                 exe: app.getPath('exe'),
+                crashDumps: app.getPath('crashDumps'),
             },
         };
         return info_reply;
@@ -74,7 +53,7 @@ function ipcMainCommunication(mainWindow, importWindow) {
                             fileSorting(file, media, sub, nfo, reply);
                         });
 
-                        event.reply('openDir_async_reply', reply);
+                        setScanResults(reply);
                     });
                 }
             })
