@@ -1,10 +1,9 @@
 const { ipcRenderer } = require('electron');
+const { ipcRenderer_setupConfig } = require('../ipcRendererCommunication');
+ipcRenderer_setupConfig();
+
 const { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } = require('./json');
 const { getScanPaths, getFileTypes, purgeScanPaths } = require('../configuration');
-const { ipcRenderer_setupConfig } = require('../ipcRendererCommunication');
-const { tmdb_get_external_IDs, tmdb_find_by_external_source } = require('./movieDB/tmdb/tmdb');
-
-ipcRenderer_setupConfig();
 
 let completeJSON = {};
 let mediaInJSON = {};
@@ -21,9 +20,7 @@ ipcRenderer.on('openDir_async_reply', (event, arg) => {
 });
 
 document.getElementById('importSourcesButton').addEventListener('click', event => {
-    if (getScanPaths() > 0) console.log('Válassz ki egy mappát');
-
-    
+    //if (getScanPaths() > 0) console.log('Válassz ki egy mappát');
 
     scanResults.media.forEach(file => {
         let mediaItem = mediaJSONGenerator(file, scanResults);
