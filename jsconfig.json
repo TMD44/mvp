@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "Assets/*": ["./Assets/*"],
+      "Config/*": ["./Config/*"],
+      "Exports/*": ["./Exports/*"],
+      "Log/*": ["./Log/*"],
+      "MainProc/*": ["./src/main/*"],
+      "RenderProc/*": ["./src/renderer/*"],
+    }
+  }
+}
