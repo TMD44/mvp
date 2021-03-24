@@ -1,0 +1,5 @@
+
+
+function getLanguage(key) {
+  
+}

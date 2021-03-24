@@ -470,7 +470,6 @@ let torrent_movie_names = [
     'Cooking.with.Love.2018.1080p.WEB-DL.DD+5.1.H264.HuN-No1',
     'Crusoe.1988.1080p.AMZN.WEB-DL.H.264.HUN-DOZSO',
     'ParaNorman',
-    'Best of Heti Hetes 1.',
     'The.Ninth.2019.BDRip.x264.HuN-No1',
     'The.Ninth.2019.720p.BluRay.DD5.1.x264.HuN-No1',
     'The.Ninth.2019.1080p.BluRay.DD5.1.x264.HuN-No1',
@@ -504,12 +503,12 @@ let torrent_movie_names = [
     'Phoenix.Oregon.2020.1080p.WEB-DL.H264.AC3-EVO',
     'Vad India - A dzsungel királyai 1080i',
     'Cigányok ideje 1080p',
-    'Az utolsó Pápa?',
+    'Az utolsó Pápa',
     'Cigányok ideje 720p',
     'The.Good.Guy.2009.BDRip.x264.DD2.0.HuN-BaKeR',
     'The.Good.Guy.2009.720p.BluRay.x264.DD2.0.HuN-BaKeR',
     'The.Good.Guy.2009.1080p.BluRay.x264.DD2.0.HuN-BaKeR',
-    'Az utolsó Pápa? 720p',
+    'Az utolsó Pápa 720p',
     'Looker.1981.720p.BluRay.AAC2.0.x264.Hun-boOk',
     'The.Bride.with.White.Hair.2.1993.iNTERNAL.BDRip.x264-MANiC',
     'Punishment.Park.1971.iNTERNAL.BDRip.x264-MANiC',
@@ -1145,7 +1144,7 @@ let torrent_movie_names = [
     'Baby.Bumps.2017.RETAiL.HUN.PAL.DVDR-No1',
     'Gyilkologep.1994.DVDRip.x264.HUN-Iquana',
     'Any.Given.Sunday.Directors.Cut.[1999].BDRemux.1080p.VC-1.TrueHD5.1.HuN -d69a74',
-    'Hozzámjössz? 1080p',
+    'Hozzámjössz 1080p',
     'Timescape.1992.DVDRip.x264.HUN-Iquana',
     'King.Arthur.Legend.of.the.Sword.2017.Open.Matte.1080p.WEB.DL.DD.H.264.Hun-PlusUltra',
     'A.kiraly.neveben.2.-Ket.vilag.BDRip.x264.HuN-BaKeR',
@@ -1490,7 +1489,7 @@ let torrent_movie_names = [
     'A.Midsummer.Nights.Dream.1999.720p.WEB-DL.DD5.1.H.264.HuN-LiLBOX',
     'A 13-as rendőrőrs ostroma 1080p',
     'The.Hooligan.Factory.2014.BDRip.XviD.HuN-No1',
-    'Mi a franc van?',
+    'Mi a franc van',
     'The.Hot.Chick.2002.1080p.WEB-DL.DD5.1.H.264.HuN-LiLBOX',
     'The.Hooligan.Factory.2014.BDRip.x264.HuN-No1',
     'Rám se ránts',
@@ -1730,7 +1729,7 @@ let torrent_movie_names = [
     'Stromboli',
     'The.Last.King.of.Scotland.2006.BluRay.720p.DTS.x264.dxva-FLAWL3SS',
     'Wedding.Wars.2006.TVRip.XviD.Hun-SLN',
-    'Lesz egyszer egy Ifipark?',
+    'Lesz egyszer egy Ifipark',
     'Womb.2010.720p.BluRay.DTS.x264.Hungarian-HuSync',
     'American.Reunion.UNRATED.720p.BluRay.X264-BLOW',
     'Blitz.2011.Hun.PAL.DVDR-Gazdi',
@@ -1821,7 +1820,7 @@ let torrent_movie_names = [
     'A függetlenség napja 1080p',
     'Én és a hercegem 3. - Királyi mézeshetek',
     'The.Wind.That.Shakes.the.Barley.2006.720p.HDTV.H.264.DUAL-N&R',
-    'Despicable Me: 3 Mini-Movies 1080p',
+    'Despicable Me 3 Mini-Movies 1080p',
     'Én és a gengszter',
     'Overboard.1987.720p.BluRay.x264.DTS.HUN-N&R',
     'Az aztékok kincse II. - A napisten piramisa',
@@ -1895,7 +1894,7 @@ let torrent_movie_names = [
     'A.kard.mestere.1990.HUN.DVDRip.Xvid-retro',
     'Szezám Utca - Jó Éjt Szezám Utca',
     'Nacho Libre 1080p',
-    'Dalai Láma - Együttérzés: A boldogság művészete - Nyilvános tanítás',
+    'Dalai Láma - Együttérzés A boldogság művészete - Nyilvános tanítás',
     'Dalai Láma - Csenrézi (A Szeretet Buddhája) - meghatalmazás és áldás',
     'Dalai Láma - Bevezetés a tibeti buddhizmusba I.',
     'Ne hagyd magad, Pitkin',
@@ -1945,12 +1944,12 @@ let torrent_movie_names = [
     'Asterix.az.Olimpian.2008.HUN.DVDRip.XviD-capuletto',
     'Gyemantvadaszok.1949.Custom.DVDRip.XviD.Hun-unearth',
     'Az.utolso.bevetes.2005.DVDRip.Xvid.HUN-BiTZoNe',
-    'Koncz Zsuzsa: Dalok - Találomra',
+    'Koncz Zsuzsa Dalok - Találomra',
     'Aludj csak, én álmodom 720p',
     'A grófnő',
     'The.Yes.Men.Fix.The.World.P2P.Edition.2010.Xvid-VODO',
     'Mar.Megint.Egy.Dilis.Amcsi.Film.2001.DVDRip.HunDub.Xvid-Mingan',
-    'Csupasz pisztoly 33 1/3: Az utolsó merénylet',
+    'Csupasz pisztoly 33 13 Az utolsó merénylet',
     'Törvénytől sújtva',
     'Plots.With.A.View.2002.DVDRip.Xvid.Hun-BTW',
     'Iron.Man.2.2010.iNT.720p.RETAiL.BluRay.HUN.x264-AiR',
@@ -1979,7 +1978,7 @@ let torrent_movie_names = [
     'Hosszú.forró.nyár.1958.DVDRip.XviD.HUN-TeRaCoD',
     'Kung.Fu.Panda.2008.1080p.BluRay.DTS.x264.HuN-TRiNiTY',
     'The.Prestige.2006.1080p.BluRay.DTS.x264.HuN-TRiNiTY',
-    'Mi a csudát tudunk a világról? 2. - Le a nyúl üregébe',
+    'Mi a csudát tudunk a világról 2. - Le a nyúl üregébe',
     'A Titanic elveszett testvérhajója',
     'Transformers',
     'The.Golden.Compass.2007.BDRip.XviD.Hun-B9R',
@@ -2222,7 +2221,7 @@ let torrent_movie_names = [
     'Az arany bűvöletében',
     'The.Chronicles.of.Riddick.Dark.Fury.2004.RETAIL.DVDRiP.XviD.HUN-DynamicLife',
     'Gyáróriások II. - A BMW',
-    //from different source here:
+    //from different source here
     'The Walking Dead S05E03 720p HDTV x264-ASAP[ettv]',
     'Hercules (2014) 1080p BrRip H264 - YIFY',
     'Dawn.of.the.Planet.of.the.Apes.2014.HDRip.XViD-EVO',
@@ -2238,7 +2237,7 @@ let torrent_movie_names = [
     'Guardians Of The Galaxy 2014 R6 720p HDCAM x264-JYK',
     "Marvel's.Agents.of.S.H.I.E.L.D.S02E01.Shadows.1080p.WEB-DL.DD5.1",
     'Marvels Agents of S.H.I.E.L.D. S02E06 HDTV x264-KILLERS[ettv]',
-    'Guardians of the Galaxy (CamRip / 2014)',
+    'Guardians of the Galaxy (CamRip 2014)',
     'The.Walking.Dead.S05E03.1080p.WEB-DL.DD5.1.H.264-Cyphanix[rartv]',
     'Brave.2012.R5.DVDRip.XViD.LiNE-UNiQUE',
     'Lets.Be.Cops.2014.BRRip.XViD-juggs[ETRG]',
@@ -2251,8 +2250,8 @@ let torrent_movie_names = [
     'The Flash 2014 S01E03 HDTV x264-LOL[ettv]',
     'The Flash 2014 S01E01 HDTV x264-LOL[ettv]',
     'Lucy 2014 Dual-Audio WEBRip 1400Mb',
-    'Teenage Mutant Ninja Turtles (HdRip / 2014)',
-    'Teenage Mutant Ninja Turtles (unknown_release_type / 2014)',
+    'Teenage Mutant Ninja Turtles (HdRip 2014)',
+    'Teenage Mutant Ninja Turtles (unknown_release_type 2014)',
     'The Simpsons S26E05 HDTV x264 PROPER-LOL [eztv]',
     '2047 - Sights of Death (2014) 720p BrRip x264 - YIFY',
     'Two and a Half Men S12E01 HDTV x264 REPACK-LOL [eztv]',
@@ -2291,7 +2290,7 @@ let torrent_movie_names = [
     'Ant-Man.2015.3D.1080p.BRRip.Half-SBS.x264.AAC-m2g',
     'Ice.Age.Collision.Course.2016.READNFO.720p.HDRIP.X264.AC3.TiTAN',
     'Red.Sonja.Queen.Of.Plagues.2016.BDRip.x264-W4F[PRiME]',
-    'The Purge: Election Year (2016) HC - 720p HDRiP - 900MB - ShAaNi',
+    'The Purge Election Year (2016) HC - 720p HDRiP - 900MB - ShAaNi',
     'War Dogs (2016) HDTS 600MB - NBY',
     'The Hateful Eight (2015) 720p BluRay - x265 HEVC - 999MB - ShAaN',
     'The.Boss.2016.UNRATED.720p.BRRip.x264.AAC-ETRG',
@@ -2826,12 +2825,12 @@ A.stopposok.reme.1989.HUN.DVDRip.x264-TOXI
 Phoenix.Oregon.2020.1080p.WEB-DL.H264.AC3-EVO
 Vad India - A dzsungel királyai 1080i
 Cigányok ideje 1080p
-Az utolsó Pápa?
+Az utolsó Pápa
 Cigányok ideje 720p
 The.Good.Guy.2009.BDRip.x264.DD2.0.HuN-BaKeR
 The.Good.Guy.2009.720p.BluRay.x264.DD2.0.HuN-BaKeR
 The.Good.Guy.2009.1080p.BluRay.x264.DD2.0.HuN-BaKeR
-Az utolsó Pápa? 720p
+Az utolsó Pápa 720p
 Looker.1981.720p.BluRay.AAC2.0.x264.Hun-boOk
 The.Bride.with.White.Hair.2.1993.iNTERNAL.BDRip.x264-MANiC
 Punishment.Park.1971.iNTERNAL.BDRip.x264-MANiC
@@ -3467,7 +3466,7 @@ Time.Freak.2018.1080p.BluRay.DTS-HD.MA5.1.X264-iFT
 Baby.Bumps.2017.RETAiL.HUN.PAL.DVDR-No1
 Gyilkologep.1994.DVDRip.x264.HUN-Iquana
 Any.Given.Sunday.Directors.Cut.[1999].BDRemux.1080p.VC-1.TrueHD5.1.HuN -d69a74
-Hozzámjössz? 1080p
+Hozzámjössz 1080p
 Timescape.1992.DVDRip.x264.HUN-Iquana
 King.Arthur.Legend.of.the.Sword.2017.Open.Matte.1080p.WEB.DL.DD.H.264.Hun-PlusUltra
 A.kiraly.neveben.2.-Ket.vilag.BDRip.x264.HuN-BaKeR
@@ -3812,7 +3811,7 @@ Turkisch.fur.Anfanger.2012.CUSTOM.DVDRip.XviD.Hun-SLN
 A.Midsummer.Nights.Dream.1999.720p.WEB-DL.DD5.1.H.264.HuN-LiLBOX
 A 13-as rendőrőrs ostroma 1080p
 The.Hooligan.Factory.2014.BDRip.XviD.HuN-No1
-Mi a franc van?
+Mi a franc van
 The.Hot.Chick.2002.1080p.WEB-DL.DD5.1.H.264.HuN-LiLBOX
 The.Hooligan.Factory.2014.BDRip.x264.HuN-No1
 Rám se ránts
@@ -4052,7 +4051,7 @@ A.Dangerous.Method.2011.PROPER.DVDRip.XviD-EXViD
 Stromboli
 The.Last.King.of.Scotland.2006.BluRay.720p.DTS.x264.dxva-FLAWL3SS
 Wedding.Wars.2006.TVRip.XviD.Hun-SLN
-Lesz egyszer egy Ifipark?
+Lesz egyszer egy Ifipark
 Womb.2010.720p.BluRay.DTS.x264.Hungarian-HuSync
 American.Reunion.UNRATED.720p.BluRay.X264-BLOW
 Blitz.2011.Hun.PAL.DVDR-Gazdi
@@ -4143,7 +4142,7 @@ Lemmy
 A függetlenség napja 1080p
 Én és a hercegem 3. - Királyi mézeshetek
 The.Wind.That.Shakes.the.Barley.2006.720p.HDTV.H.264.DUAL-N&R
-Despicable Me: 3 Mini-Movies 1080p
+Despicable Me 3 Mini-Movies 1080p
 Én és a gengszter
 Overboard.1987.720p.BluRay.x264.DTS.HUN-N&R
 Az aztékok kincse II. - A napisten piramisa
@@ -4217,7 +4216,7 @@ Bound.1996.BluRay.1080p.DUBBED.DTS.HUN.x264-Girnyo
 A.kard.mestere.1990.HUN.DVDRip.Xvid-retro
 Szezám Utca - Jó Éjt Szezám Utca
 Nacho Libre 1080p
-Dalai Láma - Együttérzés: A boldogság művészete - Nyilvános tanítás
+Dalai Láma - Együttérzés A boldogság művészete - Nyilvános tanítás
 Dalai Láma - Csenrézi (A Szeretet Buddhája) - meghatalmazás és áldás
 Dalai Láma - Bevezetés a tibeti buddhizmusba I.
 Ne hagyd magad, Pitkin
@@ -4267,12 +4266,12 @@ A keménymag
 Asterix.az.Olimpian.2008.HUN.DVDRip.XviD-capuletto
 Gyemantvadaszok.1949.Custom.DVDRip.XviD.Hun-unearth
 Az.utolso.bevetes.2005.DVDRip.Xvid.HUN-BiTZoNe
-Koncz Zsuzsa: Dalok - Találomra
+Koncz Zsuzsa Dalok - Találomra
 Aludj csak, én álmodom 720p
 A grófnő
 The.Yes.Men.Fix.The.World.P2P.Edition.2010.Xvid-VODO
 Mar.Megint.Egy.Dilis.Amcsi.Film.2001.DVDRip.HunDub.Xvid-Mingan
-Csupasz pisztoly 33 1/3: Az utolsó merénylet
+Csupasz pisztoly 33 1/3 Az utolsó merénylet
 Törvénytől sújtva
 Plots.With.A.View.2002.DVDRip.Xvid.Hun-BTW
 Iron.Man.2.2010.iNT.720p.RETAiL.BluRay.HUN.x264-AiR
@@ -4301,7 +4300,7 @@ Barbárfivérek
 Hosszú.forró.nyár.1958.DVDRip.XviD.HUN-TeRaCoD
 Kung.Fu.Panda.2008.1080p.BluRay.DTS.x264.HuN-TRiNiTY
 The.Prestige.2006.1080p.BluRay.DTS.x264.HuN-TRiNiTY
-Mi a csudát tudunk a világról? 2. - Le a nyúl üregébe
+Mi a csudát tudunk a világról 2. - Le a nyúl üregébe
 A Titanic elveszett testvérhajója
 Transformers
 The.Golden.Compass.2007.BDRip.XviD.Hun-B9R
