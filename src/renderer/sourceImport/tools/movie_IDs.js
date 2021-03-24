@@ -1,12 +1,14 @@
-const fs = require('fs');
+const fsp = require('fs').promises;
 const { nfoFinder } = require('./nfo');
 const { imdbFinder } = require('../movieDB/imdb/imdb');
+const { tmdb } = require('../movieDB/tmdb/tmdbRequests');
 
-function id_finder(media) {
-    const nfoPath = nfoFinder(media);
+async function idFinder(media) {
+    const nfoPath = await nfoFinder(media);
     if (nfoPath == undefined) return;
 
-    return imdbFinder(fs.readFileSync(String(nfoPath), 'utf8'));
+    const nfoContent = await fsp.readFile(String(nfoPath), 'utf8');
+    return imdbFinder(nfoContent);
 }
 
-module.exports.id_finder = id_finder;
+module.exports.idFinder = idFinder;

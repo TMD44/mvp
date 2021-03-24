@@ -2,7 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 
 const { ipcMainCommunication } = require('./ipcMainCommunication');
-const { setupConfig } = require('./configuration');
+const { config } = require('./configuration');
 const { cleanBeforeQuit } = require('./cleanBeforeQuit');
 
 function createWindow() {
@@ -49,7 +49,7 @@ function createWindow() {
         sourceImportWindow.show();
     });*/
     
-    setupConfig();
+    config.setup();
     ipcMainCommunication(sourceImportWindow);
 }
 

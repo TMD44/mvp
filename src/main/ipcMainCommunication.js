@@ -1,9 +1,8 @@
 const { ipcMain, dialog } = require('electron');
 
-const { addScanPath } = require('./configuration');
+const { config } = require('./configuration');
 
-function ipcMainCommunication(mainWindow, importWindow) {
-
+function ipcMainCommunication(importWindow) {
     ipcMain.on('openDir_async', (event, arg) => {
         let reply = {
             media: [],
@@ -16,7 +15,7 @@ function ipcMainCommunication(mainWindow, importWindow) {
             })
             .then(result => {
                 if (result.canceled === false) {
-                    addScanPath(result.filePaths);
+                    config.addScanPath(result.filePaths);
                 }
             })
             .catch(err => {

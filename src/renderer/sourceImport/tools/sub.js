@@ -1,9 +1,11 @@
-const { getScanResults } = require("./../../../main/configuration");
+const { config } = require("./../../../main/configuration");
 
-function subFinder(media) {
+async function subFinder(media) {
     let resultArray = [];
+
+    const results = await config.getScanResults();
     
-    getScanResults().sub.forEach(sub => {
+    results.sub.forEach(sub => {
         if (sub.path.concat(sub.fn) == media.path.concat(media.fn)) {
             resultArray.push(sub.full);
         }

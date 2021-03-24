@@ -1,71 +1,57 @@
 const { app } = require('electron');
-const fsp = require('fs').promises;
+const fs = require('fs');
 
 const config = {
     //SCAN PATHS
-    addScanPath: async results => {
-        const scanPaths = await config.getScanPaths();
-        results.forEach(result => {
-            if (!scanPaths.includes(result)) {
-                config.setScanPaths(result);
+    addScanPath: array => {
+        array.forEach(res => {
+            if (!config.getScanPaths().includes(res)) {
+                config.setScanPaths(res);
             }
         });
     },
-    getScanPaths: async () => {
-        let confFile = await config.readFile();
-        return confFile.scan_preferences.scan_paths;
+    getScanPaths: () => {
+        return config.readFile().scan_preferences.scan_paths;
     },
-    setScanPaths: async path => {
-        const confFile = await config.readFile();
-        confFile.scan_preferences.scan_paths.push(path);
-        await config.writeFile(confFile);
+    setScanPaths: path => {
+        let temp = config.readFile();
+        temp.scan_preferences.scan_paths.push(path);
+        config.writeFile(temp);
     },
-    purgeScanPaths: async () => {
-        const confFile = await config.readFile();
-        confFile.scan_preferences.scan_paths.length = 0;
-        await config.writeFile(confFile);
+    purgeScanPaths: () => {
+        let temp = config.readFile();
+        temp.scan_preferences.scan_paths.length = 0;
+        config.writeFile(temp);
     },
     //SCAN RESULTS
-    getScanResults: async () => {
-        const confFile = await config.readFile();
-        return confFile.scan_preferences.scan_results;
+    getScanResults: () => {
+        return config.readFile().scan_preferences.scan_results;
     },
-    setScanResults: async obj => {
-        const confFile = await config.readFile();
-        confFile.scan_preferences.scan_results = obj;
-        await config.writeFile(confFile);
+    setScanResults: obj => {
+        let temp = config.readFile();
+        temp.scan_preferences.scan_results = obj;
+        config.writeFile(temp);
     },
-    purgeScanResults: async () => {
-        const confFile = await config.readFile();
-        confFile.scan_preferences.scan_results = {};
-        await config.writeFile(confFile);
+    purgeScanResults: () => {
+        let temp = config.readFile();
+        temp.scan_preferences.scan_results = {};
+        config.writeFile(temp);
     },
     //SCAN LANGUAGE
-    getScanLanguage: async () => {
-        const confFile = await config.readFile();
-        return confFile.scan_preferences.scan_language;
+    getScanLanguage: () => {
+        return config.readFile().scan_preferences.scan_language;
     },
     //SCAN FILETYPES
-    getFileTypes: async () => {
-        const confFile = await config.readFile();
-        return confFile.scan_preferences.scan_file_types;
+    getFileTypes: () => {
+        return config.readFile().scan_preferences.scan_file_types;
     },
 
     //READ & WRITE FILE
-    readFile: async () => {
-        const data = await fsp.readFile('./config/config.json', 'utf8');
-        return JSON.parse(data);
+    readFile: () => {
+        return JSON.parse(fs.readFileSync('./config/config.json' /*'E:/GIT/mvp/config/config.json'*/));
     },
-
-    writeFile: async json => {
-        //fs.writeFileSync('./config/config.json', );
-        await fsp.writeFile('./config/config.json', JSON.stringify(json, null, 4), 'utf8');
-        /*.then(() => {
-                console.log('write successful');
-            })
-            .catch(err => {
-                console.error(err);
-            });*/
+    writeFile: json => {
+        fs.writeFileSync('./config/config.json', JSON.stringify(json, null, 4));
     },
 
     //SETUP
@@ -138,18 +124,19 @@ const config = {
         config.writeFile(defaultConfigurations);
         console.log('Config file has been created!');
     },
-    //CSAK ÓVATOSAN EZZEL A METÓDUSSAL, MERT MINDENT A CONFIG FÁJLBÓL OLVAS KI A PROGRAM
-    /*deleteConfig: (createConfig = true) => {
-        fs.unlink('./config/config.json', err => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            console.log('Config file removed!');
-        });
-
-        if (createConfig) config.setup();
-    },*/
 };
+
+//CSAK ÓVATOSAN EZZEL A METÓDUSSAL, MERT MINDENT A CONFIG FÁJLBÓL VESZ A PROGI
+/*function deleteConfig(createConfig = true) {
+    fs.unlink('./config/config.json', err => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Config file removed!');
+    });
+
+    if (createConfig) ipcRenderer_setupConfig();
+}*/
 
 module.exports.config = config;

@@ -1,9 +1,10 @@
-const { getScanResults } = require('./../../../main/configuration');
+const { config } = require('./../../../main/configuration');
 
-function nfoFinder(media) {
+async function nfoFinder(media) {
     let resultArray = [];
-
-    getScanResults().nfo.forEach(nfo => {
+    const results = await config.getScanResults();
+    
+    results.nfo.forEach(nfo => {
         if (nfo.path.concat(nfo.fn) == media.path.concat(media.fn)) {
             resultArray.push(nfo.full);
         }
