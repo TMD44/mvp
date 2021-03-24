@@ -3,31 +3,7 @@ const fsp = require("fs").promises;
 const path = require("path");
 
 //ASYNCHRONOUS
-async function scanDir(directoryName, filter, callback) {
-    const files = await fsp.readdir(directoryName, { withFileTypes: true });
-    for (let f of files) {
-        const fullPath = path.join(directoryName, f.name);
-        if (f.isDirectory()) {
-            await scanDir(fullPath, filter, callback);
-        } else if (filter.includes(path.extname(fullPath))) {
-            callback(fullPath);
-        }
-    }
-}
-/*
-async function scanDir(directoryName, regex, callback) {
-    const files = await fsp.readdir(directoryName, { withFileTypes: true });
-    for (let f of files) {
-        const fullPath = path.join(directoryName, f.name);
-        if (f.isDirectory()) {
-            await scanDir(fullPath, filter, callback);
-        } else if (regex.test(fullPath)) {
-            callback(fullPath);
-        }
-    }
-}
-*/
-/*
+//Base code from Stackoverflow, minor changes have been made:
 //https://stackoverflow.com/questions/56583365/async-and-recursive-directory-scan-for-file-listing-in-nodejs-and-expressjs
 async function scanDir(directoryName, filter, results = []) {
     let files = await fsp.readdir(directoryName, { withFileTypes: true });
@@ -41,10 +17,35 @@ async function scanDir(directoryName, filter, results = []) {
     }
     return results;
 }
+/*
+async function scanDir(directoryName, filter, callback) {
+    const files = await fsp.readdir(directoryName, { withFileTypes: true });
+    for (let f of files) {
+        const fullPath = path.join(directoryName, f.name);
+        if (f.isDirectory()) {
+            await scanDir(fullPath, filter, callback);
+        } else if (filter.includes(path.extname(fullPath))) {
+            callback(fullPath);
+        }
+    }
+}*/
+/*
+async function scanDir(directoryName, regex, callback) {
+    const files = await fsp.readdir(directoryName, { withFileTypes: true });
+    for (let f of files) {
+        const fullPath = path.join(directoryName, f.name);
+        if (f.isDirectory()) {
+            await scanDir(fullPath, filter, callback);
+        } else if (regex.test(fullPath)) {
+            callback(fullPath);
+        }
+    }
+}
 */
 
 //SYNCHRONOUS
 /*
+//Base code from Stackoverflow, minor changes have been made:
 //https://stackoverflow.com/questions/25460574/find-files-by-extension-html-under-a-folder-in-nodejs
 function scanDir(startPath, filter, callback) {
     if (!fs.existsSync(startPath)) {
