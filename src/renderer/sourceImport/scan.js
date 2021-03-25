@@ -29,8 +29,9 @@ const scan = {
 
         await config.setScanResults(scanResults);
         const results = await config.getScanResults();
+        
         for (const file in results.media) {
-            const result = await mediaJSONGenerator(results.media[file]);
+            const result = await mediaJSONGenerator(results.media[file], results);
             scan.mediaInJSON[result.id] = result;
         }
         scan.completeJSON = await completeJSONGenerator(scan.mediaInJSON);
@@ -41,20 +42,10 @@ const scan = {
     },
 
     onlineScan: () => {
-        Object.values(completeJSON.media).forEach(movie => {
-            //console.log(movie);
-
-            if (movie.movieDB_id.imdb_id != undefined) {
-                return tmdb.getExternalIDs(movie.movieDB_id.imdb_id).then(result => {
-                    return result;
-                });
-            }
-
-            return tmdb.multiSearch(mediaInJSON.unsure_metadata.filename_data.title).then(result => {
-                mediaInJSON.unsure_metadata['tmdb_data'] = result.data.results[0];
-                console.log('mediaInJSON: ', mediaInJSON);
-                return mediaInJSON;
-            });
+        return tmdb.multiSearch(mediaInJSON.unsure_metadata.filename_data.title).then(result => {
+            mediaInJSON.unsure_metadata['tmdb_data'] = result.data.results[0];
+            console.log('mediaInJSON: ', mediaInJSON);
+            return mediaInJSON;
         });
     },
 };
