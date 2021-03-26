@@ -58,14 +58,7 @@ const config = {
     },
 
     writeFile: async json => {
-        //fs.writeFileSync('./config/config.json', );
         await fsp.writeFile('./config/config.json', JSON.stringify(json, null, 4), 'utf8');
-        /*.then(() => {
-                console.log('write successful');
-            })
-            .catch(err => {
-                console.error(err);
-            });*/
     },
 
     //SETUP
@@ -127,6 +120,7 @@ const config = {
                     'imdb_data',
                     'tmdb_data',
                     'wiki_data',
+                    'folder_data',
                     'filename_data',
                     'nfo_data',
                 ],

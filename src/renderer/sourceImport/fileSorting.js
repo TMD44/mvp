@@ -19,4 +19,10 @@ function objTemplate(file) {
     };
 }
 
+function excludedFromScan(file) {
+    const regex = /SAMPLE/gi;
+    return regex.test(file);
+}
+
 module.exports.fileSorting = fileSorting;
+module.exports.excludedFromScan = excludedFromScan;

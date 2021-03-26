@@ -11,7 +11,7 @@
         "build-win": "electron-builder --win nsis:ia32",
         "build-linux": "electron-builder --linux deb tar.xz",
         "build-mac": "electron-builder --mac",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "node test/test.js"
     },
     "build": {
         "directories": {
@@ -33,6 +33,7 @@
         "electron": "^11.3.0",
         "electron-builder": "^22.10.5",
         "nodemon": "^2.0.7",
+        "rimraf": "^3.0.2",
         "typescript": "^4.2.3"
     },
     "dependencies": {
@@ -40,6 +41,8 @@
         "electron-log": "^4.3.2",
         "electron-updater": "^4.3.8",
         "electron-window-state": "^5.0.3",
-        "node-themoviedb": "^0.2.7"
+        "ffprobe-static": "^3.0.0",
+        "node-themoviedb": "^0.2.7",
+        "tinyurl": "^1.1.7"
     }
 }

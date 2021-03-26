@@ -16,7 +16,7 @@ function createWindow() {
         width: mainWindowState.width,
         height: mainWindowState.height,
         backgroundColor: '#ffffff', //TO-DO: MAKE THE SAME COLOR AS THE APP BACKGROUND COLOR
-        icon: app.getAppPath() + '/resources/icons/icon_128x128.ico',
+        icon: app.getAppPath() + '/assets/icons/icon_128x128.ico',
         webPreferences: {
             nodeIntegration: true,
         },
@@ -25,7 +25,7 @@ function createWindow() {
     const sourceImportWindow = new BrowserWindow({
         width: 1000,
         height: 800,
-        icon: app.getAppPath() + '/resources/icons/icon_128x128.ico',
+        icon: app.getAppPath() + '/assets/icons/icon_128x128.ico',
         //parent: mainWindow,
         //modal: true,
         //show: false,

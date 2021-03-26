@@ -1,7 +1,7 @@
 const { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } = require('./json');
 const { config } = require('./../../main/configuration');
 const { scanDir } = require('./tools/scanDir');
-const { fileSorting } = require('./fileSorting');
+const { fileSorting, excludedFromScan } = require('./fileSorting');
 
 const scan = {
     completeJSON: {},
@@ -18,11 +18,11 @@ const scan = {
 
         const paths = await config.getScanPaths();
 
-        for (const dir in paths) {
-            const files = await scanDir(paths[dir], [media, sub, nfo].flat());
-            for (const file in files) {
-                if (!/SAMPLE/gi.test(files[file])) {
-                    await fileSorting(files[file], media, sub, nfo, scanResults);
+        for (const i in paths) {
+            const files = await scanDir(paths[i], [media, sub, nfo].flat());
+            for (const j in files) {
+                if (!excludedFromScan(files[j])) {
+                    await fileSorting(files[j], media, sub, nfo, scanResults);
                 }
             }
         }
@@ -34,6 +34,7 @@ const scan = {
             const result = await mediaJSONGenerator(results.media[file], results);
             scan.mediaInJSON[result.id] = result;
         }
+
         scan.completeJSON = await completeJSONGenerator(scan.mediaInJSON);
         await printJSONToFile('./exports/movieData.json', scan.completeJSON);
 
