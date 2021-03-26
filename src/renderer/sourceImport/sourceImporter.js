@@ -1,6 +1,5 @@
 const { config } = require('./../../main/configuration');
 const { ipcRendererCommunication } = require('../ipcRendererCommunication');
-const { mediaMaker } = require('./tools/fnr/fnr_test/test');
 const { scan } = require('./scan');
 
 document.getElementById('openDirButton').addEventListener('click', event => {

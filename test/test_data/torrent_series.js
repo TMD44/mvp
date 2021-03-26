@@ -156,9 +156,9 @@ let torrent_series_names = [
     'Burden.of.Truth.S04E03.1080p.WEBRip.x264-BAE',
     'Burden.of.Truth.S04E03.720p.WEBRip.x264-BAE',
     'Burden.of.Truth.S04E03.WEBRip.x264-BAE',
-    'Kézilabda - Női K&H Liga - MTK Budapest vs. Győri Audi ETO KC 2021.02.10.',
+    'Kézilabda - Női K&H Liga - MTK Budapest vs. Győri Audi ETO KC 2021.02.10',
     'Kézilabda - Férfi BL - RK Celje Pivovarna Lasko vs. Telekom Veszprém HC 2021.02.11. 720p',
-    'Kézilabda - Férfi BL - MOL-Pick Szeged vs. FC Porto Sofarma 2021.02.11.',
+    'Kézilabda - Férfi BL - MOL-Pick Szeged vs. FC Porto Sofarma 2021.02.11',
     'Kézilabda - Férfi BL - MOL-Pick Szeged vs. FC Porto Sofarma 2021.02.11. 720p',
     'Rent-a-Girlfriend S01 1080p',
     'Rent-a-Girlfriend S01 1080p REMUX',
@@ -173,7 +173,7 @@ let torrent_series_names = [
     'When They Cry S01-S04 1080p REMUX',
     'Dr. Ramune Mysterious Disease Specialist S01E03 1080p',
     'Bottom-Tier Character Tomozaki S01E04 1080p',
-    "So I'm a Spider, So What? S01E02 1080p",
+    "So I'm a Spider, So What S01E02 1080p",
     'Welcome to the Ballroom S01 1080p',
     'Flying Witch S01 1080p REMUX',
     'Log Horizon 3 - Destruction of the Round Table S03E01 1080p',
@@ -219,7 +219,7 @@ let torrent_series_names = [
     'That Time I Got Reincarnated as a Slime S02E02 1080p',
     'School-Live! S01 1080p REMUX',
     'Golden Boy S01',
-    "So I'm a Spider, So What? S01E01 1080p",
+    "So I'm a Spider, So What S01E01 1080p",
     'Redo of Healer S01E01 1080p',
     'Cells at Work! S01 1080p REMUX',
     'Otherside Picnic S01E02 1080p',
@@ -248,10 +248,10 @@ let torrent_series_names = [
     'Adachi and Shimamura S01 720p',
     'Unbreakable Machine Doll S01 1080p REMUX',
     'Toriko S01 720p',
-    'Oresuki - Are you the only one who loves me? S01 1080p',
+    'Oresuki - Are you the only one who loves me S01 1080p',
     'Magic Teacher Negima! S01-S02 1080p REMUX',
     'Attack on Titan S01-S03 1080p',
-    'Oresuki - Are you the only one who loves me? S01 720p',
+    'Oresuki - Are you the only one who loves me S01 720p',
     'The Master of Ragnarok and Blesser of Einherjar S01 1080p REMUX',
     'Actually, I Am... S01 1080p REMUX',
     'The Master of Ragnarok & Blesser of Einherjar S01 720p',
@@ -286,7 +286,7 @@ let torrent_series_names = [
     'Trinity Seven S01 1080p REMUX',
     'Elfen Lied S01 1080p',
     "Astarotte's Toy S01 1080p",
-    "As Long As There's Love, It Doesn't Matter If He Is My Brother, Right!? S01 1080p",
+    "As Long As There's Love, It Doesn't Matter If He Is My Brother, Right! S01 1080p",
     'No Game, No Life S01 1080p',
     'Those Who Hunt Elves S02',
     'Those Who Hunt Elves S01',
@@ -353,7 +353,7 @@ let torrent_series_names = [
     'Dummy Girl S01 1080p',
     "Armed Girl's Machiavellism S01 720p",
     'Combined Fleet Girls Collection S01 1080p',
-    'WorldEnd - What do you do at the end of the world? Are you busy? Will you save us? S01 1080p',
+    'WorldEnd - What do you do at the end of the world Are you busy Will you save us S01 1080p',
     'Eromanga-sensei S01 720p',
     'Yuki Yuna is a Hero - Hero Chapter S01 720p',
     'Yuki Yuna Is a Hero - Washio Sumi Chapter S01 720p',
@@ -404,7 +404,7 @@ let torrent_series_names = [
     '4.Blocks.S03.720p.BluRay.DD5.1.x264.HUN.GER-SFY',
     '4.Blocks.S03.BDRip.x264.HUN.GER-SFY',
     'NBA - Inside the NBA 2021.02.04. 720p',
-    "So I'm a Spider, So What? S01E02 1080p",
+    "So I'm a Spider, So What S01E02 1080p",
     'NBA - Los Angeles Lakers vs. Denver Nuggets 2021.02.04. 720p',
     'Shadowhunters.The.Mortal.Instruments.S02.COMPLETE.BDRip.x264.Hun-BNR',
     'Shadowhunters.The.Mortal.Instruments.S02.COMPLETE.720p.BluRay.x264.Eng.Hun-BNR',
@@ -536,7 +536,7 @@ let torrent_series_names = [
     'Call.Me.Kat.S01E06.1080p.WEB.H264-CAKES',
     'Call.Me.Kat.S01E06.720p.WEB.H264-CAKES',
     'Doktor.Balaton.S01E29.WEB-DLRip.x264.AAC2.0.Hun-TheMilkyWay',
-    'Kosárlabda - Női EB-selejtező - Szlovákia vs. Magyarország 2021.02.04.',
+    'Kosárlabda - Női EB-selejtező - Szlovákia vs. Magyarország 2021.02.04',
     'Kosárlabda - Női EB-selejtező - Szlovákia vs. Magyarország 2021.02.04. 720p',
     'Szerelem.Rabsagaban.S01E05.WEB-DLRip.x264.HUN-Drax',
     'Az én lányom E024',
@@ -601,7 +601,7 @@ let torrent_series_names = [
     'A.csodadoktor.S01E11.WEB-DLRip.x264.Hun-Picar',
     'Az én lányom E011 720p',
     'A.Csodadoktor.S01E11.720p.WEB-DL.x264.HUN-Drax',
-    'NBA - Dallas Mavericks vs. Chicago Bulls 2021.01.17.',
+    'NBA - Dallas Mavericks vs. Chicago Bulls 2021.01.17',
     'NBA - Dallas Mavericks vs. Chicago Bulls 2021.01.17. 720p',
     'Doktor.Balaton.S01E16.720p.WEB-DL.x264.HUN-EKG',
     'Morgan Freeman - A féreglyukon át S05',
@@ -656,7 +656,7 @@ let torrent_series_names = [
     'Batwoman.S02E01.1080p.WEB.H264-CAKES',
     'Batwoman.S02E01.720p.WEB.H264-CAKES',
     'Family.Guy.S19E10.WEB.h264-BAE',
-    'Kézilabda - Harmadik félidő 2021.01.17.',
+    'Kézilabda - Harmadik félidő 2021.01.17',
     'The.Watch.2021.S01E04.WEBRip.x264-BAE',
     'Elsopro.szerelem.E05.720p.WEB-DL.H264.AAC2.0.Hun-TheMilkyWay',
     'Elsopro.szerelem.E05.WEB-DLRip.x264.Hun-Picar',
@@ -689,13 +689,13 @@ let torrent_series_names = [
     'Blood of the Clans S01 1080p',
     'NBA - Philadelphia 76ers vs. Washington Wizards 2020.12.23. 1080p',
     'NBA - Boston Celtics vs. Milwaukee Bucks 2020.12.23. 1080p',
-    'Futball - Olasz bajnokság - AC Milan vs. SS Lazio 2020.12.23.',
-    'Futball - Olasz bajnokság - AS Roma vs. Cagliari Calcio 2020.12.23.',
-    ' Futball - Olasz bajnokság - Hellas Verona FC vs. FC Internazionale Milano 2020.12.23.',
+    'Futball - Olasz bajnokság - AC Milan vs. SS Lazio 2020.12.23',
+    'Futball - Olasz bajnokság - AS Roma vs. Cagliari Calcio 2020.12.23',
+    ' Futball - Olasz bajnokság - Hellas Verona FC vs. FC Internazionale Milano 2020.12.23',
     'Született Álmodozó E027',
     'Második esély E153 720p',
     'Darts - PDC VB 2021 - 2020.12.23. 2. rész 1080i',
-    'NBA - Los Angeles Lakers vs. Los Angeles Clippers 2020.12.22.',
+    'NBA - Los Angeles Lakers vs. Los Angeles Clippers 2020.12.22',
     'Mystic S01 720p',
     'NBA - Los Angeles Lakers vs. Los Angeles Clippers 2020.12.22. 720p',
     'Második esély E152 720p',
@@ -726,7 +726,7 @@ let torrent_series_names = [
     'Pawn.Stars.S17E02.A.Show.About.Nothing.1080i.HDTV.H.264.Hungarian-NFC',
     'One Punch Man S02 1080p',
     'Batman of the Future S01-S03 720p',
-    'NBA - Brooklyn Nets vs. Golden State Warriors 2020.12.22.',
+    'NBA - Brooklyn Nets vs. Golden State Warriors 2020.12.22',
     'Futball.2020.12.23.Serie.A.TIM.Verona.vs.Internazionale.HDTV.1080i.Hun-BLG',
     'NeXt.2020.S01.WEB.h264-BAE',
     'Dragon Quest - The Adventure of Dai S01E12 720p',
@@ -854,7 +854,7 @@ let torrent_series_names = [
     'Mintaapak.S02E34.720p.WEB-DL.x264.AAC2.0.Hun-TheMilkyWay',
     'Mintaapak.S02E34.WEB-DLRip.x264.AAC2.0.Hun-TheMilkyWay',
     'Preacher - S03 - The Complete 3rd Season [ 3 BD50 ] 2018 Blu-ray AVC DTS-HD MA5.1 - d69a74',
-    'NBA - Miami Heat vs. Los Angeles Lakers 2020.10.06.',
+    'NBA - Miami Heat vs. Los Angeles Lakers 2020.10.06',
     'Gazdag fiúk Indiában S01',
     'NBA - Miami Heat vs. Los Angeles Lakers 2020.10.06. 720p',
     'Oak Island átka Speciál S07',
@@ -932,7 +932,7 @@ let torrent_series_names = [
     'Saturday.Night.Live.S46E01.Chris.Rock.720p.WEB.h264-WEBTUBE',
     'The.Healing.Powers.of.Dude.S01.COMPLETE.REPACK.1080p.NF.WEB-DL.DDP5.1.x264-Mys',
     'Squirrel.Boy.S01.480p.WEB-DL.AAC2.0.H.264.HUN-GS88',
-    'Önök kérték! 2020.01.14.',
+    'Önök kérték! 2020.01.14',
     'Bűbájos boszorkák S02 720p',
     'Joban.Rosszban.2020.01.15.720p.WEBRip.x264.Hun-TheMilkyWay',
     'Joban.Rosszban.2020.01.15.WEBRip.x264.Hun-TheMilkyWay',
@@ -945,7 +945,7 @@ let torrent_series_names = [
     'Formula 1 - 2019 Spanyol nagydíj - Verseny 720p',
     'Formula1.2019.05.12.Barcelona.Race.HDTV.720p.x264.Hun-BLG',
     'Kézilabda - Női EHF-kupa - Siófok KC vs. Team Esbjerg 2019.05.11. 720p',
-    'Kézilabda - Női BL - Győri Audi ETO KC vs. Vipers Kristiansand 2019.05.11.',
+    'Kézilabda - Női BL - Győri Audi ETO KC vs. Vipers Kristiansand 2019.05.11',
     'Dragon Ball Super S05E31 1080p',
     'Dragon Ball Super S05E35 1080p',
     'Dragon Ball Super S05E34 1080p',
@@ -970,7 +970,7 @@ let torrent_series_names = [
     'Line.Of.Duty.S05.HDTV.x264-MiXGROUP',
     'Line.of.Duty.S05.1080p.HDTV.H264-MTB',
     'Ransom.S03E11.WEB.x264-TBS',
-    'Darts - Van Gerwen közelről 2019.05.09.',
+    'Darts - Van Gerwen közelről 2019.05.09',
     'The.Son.S02E03.WEB.h264-TBS',
     'IndyCar - 2019 INDYCAR Grand Prix 720p',
     'DuckTales.2017.S02E11.WEB.x264-TBS',
@@ -1038,13 +1038,13 @@ let torrent_series_names = [
     'Superstore.S04E20.720p.HDTV.x264-AVS',
     'Vad Chile S01 1080i',
     'Black Clover E117 720p',
-    'Ki ez a lány? S01-S04',
+    'Ki ez a lány S01-S04',
     'Orange.Is.the.New.Black.S07.NF.WEBRip.x264.HUN-SFY',
     'Orange.Is.the.New.Black.S07.720p.NF.WEBRip.DDP5.1.x264.HUN.ENG-PTHD',
     'Így működik a Világegyetem S07',
     'A hegyi doktor - Újra rendel S03E13 720p',
     'A halál árnyéka S01',
-    'Futball - Olasz bajnokság - AS Roma vs. Juventus FC 2020.01.12.',
+    'Futball - Olasz bajnokság - AS Roma vs. Juventus FC 2020.01.12',
     'Father.Brown.2013.S08E07.720p.WEBRip.x264-KOMPOST',
     'Emergence.S01E11.HDTV.x264-SVA',
     'This.Is.Us.S04E10.HDTV.x264-SVA',
@@ -1053,7 +1053,7 @@ let torrent_series_names = [
     'NCIS.S17E12.HDTV.x264-SVA',
     'Dakar Rali 2020 - 09. szakasz összefoglaló 2020.01.14. 720p',
     'Team.Kaylie.S01.720p.NF.WEB-DL.DDP5.1.H.264.HUN.ENG-SFY',
-    'Dakar Rali 2020 - 08. szakasz összefoglaló 2020.01.13.',
+    'Dakar Rali 2020 - 08. szakasz összefoglaló 2020.01.13',
     'Dakar Rali 2020 - 08. szakasz összefoglaló 2020.01.13. 720p',
     'Vad Mongólia S01',
     'Black Sails - S01 - The Complete 1st Season [ 3 BD ] 2014 Blu-ray AVC DTS-HD MA5.1 - D69A74',
@@ -1073,13 +1073,13 @@ let torrent_series_names = [
     'Manifest.S02E02.HDTV.x264-SVA',
     'Murdoch.Mysteries.S13E11.WEBRip.x264-CookieMonster',
     'Kézilabda - Férfi EB - Magyarország vs. Dánia 2020.01.13. 720p',
-    'Kézilabda - Férfi EB - Magyarország vs. Dánia 2020.01.13.',
+    'Kézilabda - Férfi EB - Magyarország vs. Dánia 2020.01.13',
     'Kézilabda - Férfi EB - Magyarország vs. Dánia 2020.01.13. 1080i',
     'Joban.Rosszban.2020.01.13.720p.WEBRip.x264.Hun-TheMilkyWay',
     'Joban.Rosszban.2020.01.13.WEBRip.x264.Hun-TheMilkyWay',
     'A hegyi doktor - Újra rendel S03E12 720p',
     'Truth Be Told S01',
-    'Dakar Rali 2020 - 07. szakasz összefoglaló 2020.01.12.',
+    'Dakar Rali 2020 - 07. szakasz összefoglaló 2020.01.12',
     'River.Monsters.S09.1080p.AMZN.WEBRip.DDP2.0.x264-VLAD',
     'River.Monsters.S01.1080p.AMZN.WEB-DL.DDP2.0.H.264-NTb',
     'Dakar Rali 2020 - 07. szakasz összefoglaló 2020.01.12. 720p',
@@ -1105,27 +1105,27 @@ let torrent_series_names = [
     'Batwoman.S01E04.AMZN.WEBRip.x264.Hun-Update94',
     'NFL.2020.01.12.Houston.Texans.vs.Kansas.City.Chiefs.720p.WEBRip.x264.HUN-VND',
     'Batwoman.S01E04.1080p.AMZN.WEBRip.DDP5.1.x264.Hun.Eng-ARROW',
-    'Futball - Spanyol Szuperkupa - Real Madrid CF vs. Club Atlético de Madrid SAD 2020.01.12.',
+    'Futball - Spanyol Szuperkupa - Real Madrid CF vs. Club Atlético de Madrid SAD 2020.01.12',
     'Dare.Me.S01E03.720p.WEBRip.x264-TBS',
     'Dare.Me.S01E03.WEBRip.x264-TBS',
     'Bobs.Burgers.S10E11.1080p.WEB.x264-XLF',
     'Bobs.Burgers.S10E11.720p.WEB.x264-XLF',
     'Bobs.Burgers.S10E11.WEB.x264-TRUMP',
     'NFL - Green Bay Packers vs. Seattle Seahawks 2020.01.12. 720p',
-    'NFL - Green Bay Packers vs. Seattle Seahawks 2020.01.12.',
+    'NFL - Green Bay Packers vs. Seattle Seahawks 2020.01.12',
     'Futball - Spanyol Szuperkupa - Real Madrid CF vs. Club Atlético de Madrid SAD 2020.01.12. 720p',
     'God.Friended.Me.S02E12.720p.HDTV.x264-AVS',
     'God.Friended.Me.S02E12.HDTV.x264-SVA',
     'The.Trial.Of.Christine.Keeler.S01E04.HDTV.x264-MTB',
     'Call.The.Midwife.S09E02.HDTV.x264-MTB',
     'Call.the.Midwife.S09E01.HDTV.x264-BRISK',
-    'Magyarország, szeretlek! 2020.01.12.',
+    'Magyarország, szeretlek! 2020.01.12',
     'FlashForward - A jövő emlékei S01 720p',
     'Mondj egy mesét S01 1080p',
     'Mondj egy mesét S01 720p',
     'Az agy titkai S01E06',
     'Agatha Raisin S02E02 720p',
-    'NBA - Minnesota Timberwolves vs. Los Angeles Lakers 2019.01.06.',
+    'NBA - Minnesota Timberwolves vs. Los Angeles Lakers 2019.01.06',
     'Spirit.Riding.Free.S02.WEBRip.x264.HUN-POGGERS',
     'Spirit.Riding.Free.S02.1080p.NF.WEB-DL.DDP5.1.x264.HUN.ENG-POGGERS',
     'Spirit.Riding.Free.S01.WEBRip.x264.HUN-POGGERS',
@@ -1136,13 +1136,13 @@ let torrent_series_names = [
     'Exatlon.Hungary.2019.01.06.720p.HDTV.x264.Hun-ufo',
     'Buszkeseg.es.balitelet.1995.1080p.BluRay.x264.HUN.ENG-FOX',
     'NFL.2019.01.06.Los.Angeles.Chargers.vs.Baltimore.Ravens.1080p.WEBRip.x264.HUN-VND',
-    'Dakar Rali 2019 - Előzetes 2019.01.06.',
+    'Dakar Rali 2019 - Előzetes 2019.01.06',
     'Dakar Rali 2019 - Előzetes 2019.01.06. 720p',
     'NFL.2019.01.06.Philadelphia.Eagles.vs.Chicago.Bears.360p.WEBRip.x264.HUN-VND',
     'Az.elnok.embere.S01E20.WEB-DL.720p.H.264.HUN-nubira',
     'NFL.2019.01.06.Philadelphia.Eagles.vs.Chicago.Bears.720p.WEBRip.x264.HUN-VND',
     'Az.elnok.embere.S01E19.WEB-DL.720p.H.264.HUN-nubira',
-    'Futball - Spanyol bajnokság - Villarreal CF vs. Real Madrid CF 2019.01.03.',
+    'Futball - Spanyol bajnokság - Villarreal CF vs. Real Madrid CF 2019.01.03',
     'Madam.Secretary.S05E11.HDTV.x264-BATV',
     'Family.Guy.S17E10.WEB.x264-TBS',
     'NFL.2019.01.06.Los.Angeles.Chargers.vs.Baltimore.Ravens.360p.WEBRip.x264.HUN-VND',
@@ -1298,10 +1298,10 @@ let torrent_series_names = [
     'Storage.Wars.Miami.S01E01.HDTV.x264.Hungarian-NFC',
     'The.Powerpuff.Girls.2016.S01E02.WEB-DLRIP.x264.HUN-RAZOR',
     'Dragon Ball Super E40 720p',
-    'Gasztroangyal 2016.04.23.',
+    'Gasztroangyal 2016.04.23',
     'Gasztroangyal 2016.04.23. 1080i',
     'HBO.Boxing.Golovkin.vs.Wade.HDTV.x264-SZLS',
-    'Street Kitchen 2016.04.23.',
+    'Street Kitchen 2016.04.23',
     'The Garden of Sinners S01 720p',
     'TotalCar.S08E02.HUN.PDTV.x264-DOKHU',
     'Top.Gear.S21E01.720p.HDTV.x264.HUN-Astyle',
@@ -1314,7 +1314,7 @@ let torrent_series_names = [
     'A Biblia titkai S01',
     'The Garden of Sinners S01 1080p',
     'Top.Gear.S21E01.HUN.HDTV.x264-DOKHU',
-    'Hagyjál főzni! 2016.04.22.',
+    'Hagyjál főzni! 2016.04.22',
     'The.Powerpuff.Girls.2016.S01E10.WEB-DL.x264.HUN-RAZOR',
     'Álomhotel S01E10',
     'Animals.S01.HDTV.x264-MiXGROUP',
@@ -1328,7 +1328,7 @@ let torrent_series_names = [
     'Megtort.szivek.E047.WEBRip.x264-kicsi1030',
     'Veszelyes.utakon.az.iskolaba.2013.S01.PDTV.x264.AC3.Hun-MrX',
     'Outsiders S01 1080p',
-    'Hagyjál főzni! 2016.04.21.',
+    'Hagyjál főzni! 2016.04.21',
     'Psych - Dilis detektívek S08 720p',
     'Ausztrália életmentő mérgei S01 1080p',
     'Erdészház Falkenauban S01E03',
@@ -1340,9 +1340,9 @@ let torrent_series_names = [
     'The.Powerpuff.Girls.2016.S01E01.WEB-DL.x264.HUN.ENG-SPENCER',
     'Naruto Shippuuden E457 1080p',
     'Naruto Shippuuden E457 720p',
-    'Hagyjál főzni! 2016.04.18.',
-    'Hagyjál főzni! 2016.04.19.',
-    'Hagyjál főzni! 2016.04.20.',
+    'Hagyjál főzni! 2016.04.18',
+    'Hagyjál főzni! 2016.04.19',
+    'Hagyjál főzni! 2016.04.20',
     'A természetfilmezés mesterei S06 1080p',
     'Erdészház Falkenauban S01E02',
     'Torzsutas.a.vadonban.2014.S01.PDTV.x264.AC3.Hun-MrX',
@@ -1390,10 +1390,10 @@ let torrent_series_names = [
     'Az a titokzatos kilenc hónap S01E02',
     'Time.After.Time.US.S01E01E02.720p.HDTV.X264-DIMENSION',
     'Milliárdosok vakációja S01',
-    'Esti Showder 2006.10.12.',
+    'Esti Showder 2006.10.12',
     'This.Is.Us.S01E03.720p.WEB-DL.H.264.Hun.Eng-HHD',
-    'Ki vagy, Doki? S09E11 1080p',
-    'Ki vagy, Doki? S09E10 1080p',
+    'Ki vagy, Doki S09E11 1080p',
+    'Ki vagy, Doki S09E10 1080p',
     'Dragon Ball Super E81 720p',
     'SIX.S01.720p.BluRay.x264-DEMAND',
     'Mary.Kills.People.S01.720p.HDTV.x264-MiXGROUP',
@@ -1402,7 +1402,7 @@ let torrent_series_names = [
     'Irány Dínóföld! S02E48',
     'SIX.S01.BDRip.x264-DEMAND',
     'Dragon Ball Super E81 1080p',
-    'Esti Showder 2005.02.10.',
+    'Esti Showder 2005.02.10',
     'Megtört szívek E239',
     'Dzsungelbanda - Mentés indul! S01E01',
     'Ripper.Street.S05.AMZN.WEBRip.x264-FUM',
@@ -1466,7 +1466,7 @@ let torrent_series_names = [
     'Top_Gear.2014_Special.Patagonia_Part_One.720p_HDTV_x264-FoV',
     'Top_Gear.2014_Special.Patagonia_Part_One.HDTV_x264-FoV',
     'Bubbi Guppik S03E19 720p',
-    'Gasztroangyal 2014.12.27.',
+    'Gasztroangyal 2014.12.27',
     'Gasztroangyal 2014.12.27. 1080i',
     'Full House S01',
     'Mozart in the Jungle S01 720p',
@@ -1516,7 +1516,7 @@ let torrent_series_names = [
     'Nigella.Bites.S02E04.Hungarian.TVRip.XviD-LBAS',
     'Gary.Unmarried.S01.HUN.DVDRip.XviD-HSF',
     'The.Witches.of.Oz.Part.1-2.HUN.DVDRip.XviD-HSF',
-    'Fate/Stay Night S01',
+    'Fate Stay Night S01',
     'Magyar népmesék - A csudamadár',
     'A magyar vizsla S01',
     'Gépek a Holdon - A parancsnoki modul',
@@ -1537,7 +1537,7 @@ let torrent_series_names = [
     'A természet nagy eseményei S01 720p',
     'Bekasztlizva külföldön III - A mexikói pénzgyáros',
     'A láthatatlan madárfotós S01',
-    'Gasztroangyal 2011.12.28.',
+    'Gasztroangyal 2011.12.28',
     'A láthatatlan madárfotós S01 1080p',
     'Magyar népmesék - Sárkányölő Sebestyén',
     'Farscape.S02.720p.BluRay.X264.HUN.ENG-WORLD',
@@ -1557,7 +1557,7 @@ let torrent_series_names = [
     'Watts 2011',
     'Óriások földjén',
     'The.Middle.S02.Hungarian.DVDRip.XviD-LBAS',
-    'Poén Péntek 2011.12.23.',
+    'Poén Péntek 2011.12.23',
     'Magyar népmesék - Szóló szőlő, mosolygó alma, csengő barack',
     'Doctor_Who_2005.Christmas_Special_2011.The_Doctor_The_Widow_And_The_Wardrobe.HDTV_XviD-FoV',
     'Doctor_Who_2005.Christmas_Special_2011.The_Doctor_The_Widow_And_The_Wardrobe.720p_HDTV_x264-FoV',
@@ -1569,7 +1569,7 @@ let torrent_series_names = [
     'Magyar népmesék - A kőszívű ember',
     'Cities.Of.The.Underworld.S02E13.TVRiP.XviD.Hungarian-D0Ctor',
     'Merlin kalandjai S04',
-    'Gasztroangyal 2011.12.24.',
+    'Gasztroangyal 2011.12.24',
     'Spooks.S08.HUN.DVDRip.XviD-HNZ',
     'Smallville S09 720p',
     'A.Simpson.csalad.S14.BRrip.XviD.CUSTOM.HUN-RH',
@@ -1605,14 +1605,14 @@ let torrent_series_names = [
     'Sandokan visszatér S01',
     'Flash.Gordon.2007.S01.HUN.ENG.DVDRip.XviD-MiXGROUP',
     '101 kiscica S03',
-    'Gasztroangyal 2011.12.17.',
+    'Gasztroangyal 2011.12.17',
     'Doc Martin S05',
     'Nigella.Bites.S02E02.Hungarian.TVRip.XviD-LBAS',
     'Nigella.Bites.S02E01.Hungarian.TVRip.XviD-LBAS',
     'Two.and.a.Half.Men.S08.HUN.DVDRip.XviD-blackmamba',
     'Katasztrófák nyomában S01E08',
     'Katasztrófák nyomában S03E01',
-    'TOP GEAR - Őrült Száguldások 1-2.',
+    'TOP GEAR - Őrült Száguldások 1-2',
     'Katasztrófák nyomában S02E13',
     'Ray Mears túlélőtudománya - Amerika',
     'Katasztrófák nyomában S01E01',
@@ -1672,7 +1672,7 @@ let torrent_series_names = [
     'Derrick S11E04',
     'Squid Girl S01 1080p',
     'Valkyria Chronicles S01 720p',
-    'Casper, a barátságos szellem 1.',
+    'Casper, a barátságos szellem 1',
     'Inuyasha - Black Tessaiga',
     'Derrick S16E07',
     'Derrick S11E11',
@@ -1701,7 +1701,7 @@ let torrent_series_names = [
     'T-Rex Expressz S02E18',
     'Városfejlesztési osztály S03',
     'Magyar Mezőgazdasági Művelődési Társaság Filmújságja E07',
-    'Star.Trek.The.Next.Generation.SEASON3.NTSC.DVD.DD5.1.x264-JCH-Szaki.',
+    'Star.Trek.The.Next.Generation.SEASON3.NTSC.DVD.DD5.1.x264-JCH-Szaki',
     'Star.Trek.The.Next.Generation.SEASON2.NTSC.DVD.DD5.1.x264-JCH-Szaki',
     'Pimp My Ride S03',
     'Dead.Like.Me.S01-S02.DVDRip XviD-MixGroup',
@@ -1713,7 +1713,7 @@ let torrent_series_names = [
     'Star.Trek.Enterprise.Season.1.Disc.1.DVD9.Javitott.by.Borgmedve',
     'Hősök S02',
     'The.Mask.S01.TVRip.XviD.Hungarian-LBAS',
-    'Box - Lennox Lewis vs. Mike Tyson 2002.06.08.',
+    'Box - Lennox Lewis vs. Mike Tyson 2002.06.08',
     'Asu no Yoichi! S01 720p',
     'Őslények kalandorai S03',
     'BBC.Az.Élet.S01.720p.DD.5.1-EX.hun-VaporX',
@@ -1742,7 +1742,7 @@ let torrent_series_names = [
     'Misfits.S01.DVDRip.XviD-P0W4DVD',
     'Tini nindzsa teknőcök S02',
     'Star.Trek.Enterprise.All.4.Season.DVD9.by.Borgmedve',
-    'Marsupilami 4.',
+    'Marsupilami 4',
     'Tini nindzsa teknőcök S03E38',
     'Hitler.Elsullyedt.Hadititkai.HunDub.XViD.TVRiP-lXl',
     'A haladás csapdái',
@@ -1761,7 +1761,7 @@ let torrent_series_names = [
     'Family Guy S07',
     'Dexter - Early Cuts S02 720p',
     'Hawking-A.Vilagegyetem.TVRip.DiscSci.DivX-Chary',
-    'Heti hetes 2010.11.28.',
+    'Heti hetes 2010.11.28',
     'Lip Service S01',
     'Baby Einstein S01',
     'Thomas, a gőzmozdony - Teljes gőzzel előre',
@@ -1789,12 +1789,12 @@ let torrent_series_names = [
     'Édesek és mostohák S01',
     'Tabu-Kivulallok.HUN.TVRiP.XviD-TVRec',
     'Devil May Cry S01 720p',
-    'II. Világháború: Elveszett filmek S01',
+    'II. Világháború Elveszett filmek S01',
     'Most és mindörökké S01',
     'Pókember S01',
     'Visitors.The.Original.Series.S1.DVDRip.DivX.HunEng-AXIOME',
     'Dark.Angel.S02.Complete.DVDRip.Dual.XviD_X5-494',
-    'Corpse Princess: Dark S02 720p',
+    'Corpse Princess Dark S02 720p',
     'Deadwood.S01.720p.BluRay.x264-SCC',
     'DearS S01',
     'Cake.Boss.S03E05.TvRip.XviD.Hungarian-PTV',
@@ -1804,7 +1804,7 @@ let torrent_series_names = [
     'Overhaulin.S02.IPTV-Rip.Hun_OPR',
     'Phineas és Ferb S01',
     'Heti Hetes 1999-2000',
-    'Disney kollekcio: A teljes PLUTO',
+    'Disney kollekcio A teljes PLUTO',
     'Varázsceruza 3',
     'Gyilkos elmék S01-S04',
     'Igenis, Miniszter Úr!',
@@ -1825,7 +1825,7 @@ let torrent_series_names = [
     'Főzz Élőben Gordon Ramsay-vel S01E05',
     'Főzz Élőben Gordon Ramsay-vel S01E04',
     'Gordon.Ramsays.Cookalong.Live.S01E01.HUN.TVRiP.XViD-iNSULiN',
-    'Eperke és barátai 1-18.',
+    'Eperke és barátai 1-18',
     'Dawsons.Creek.The.Complete.S06.DVDRip.HUN.ENG.XviD-KSN',
     'Bob a mester 2. - Bob születésnapja',
     'Friends Extras',
@@ -1840,7 +1840,7 @@ let torrent_series_names = [
     'Tom.es.Jerry.Gyujtemeny.1-12-SeriesLand',
     'Nigella falatozója 5. rész',
     'Discovery.Channel.FBIs.10.Most.Wanted.HUN.WS.TVRiP.XViD-kispatak',
-    'Hogyan működik? S01',
+    'Hogyan működik S01',
     'Dharma és Greg - S02',
     'Rozsa.Sandor.1971.DVDRip.XviD.HUN-TeRaCoD',
     'Ally.Mcbeal.S04.DVDRip.XviD.Dual-ICX',
@@ -1859,7 +1859,7 @@ let torrent_series_names = [
     'A.legkisebb.Ugrifules.S01.2004.HUN.DVDRip.Xvid-4Ever',
     'T-akták.A.Zseniális.Tesla.TvRIP.XviD.mURPHY',
     'Two.And.A.Half.Men.S05.HUN.DVDRip.XviD-SRT',
-    'Ginga Densetsu Weed 1-26.',
+    'Ginga Densetsu Weed 1-26',
     'Harpers.Island.S01.DVDRip.Dual.Xvid-HmX',
     'Legendak.Nyomaban.Rejtelyek.Es.Mitoszok.A.Tortenelemben.Sorozat.01-22.HUN.DVDRip.XviD-koontar',
     'Nigella falatozója E04',
@@ -1921,7 +1921,7 @@ let torrent_series_names = [
     'Az emlősök élete',
     'Supernatural.S01.DVDRip.XviD.Dual-SzMoRyBoY',
     'Titkok.es.Szerelmek.Full.Pack.xvid.hun.tvrip-son1c',
-    'CSI: A helyszínelők S01-S08',
+    'CSI A helyszínelők S01-S08',
     'Reaper_Season_1_DVDRip_Dual_XviD-CLT',
     'NCIS.S04.DVDRip.HUN-aljasPOD',
     'Beverly Hills 90210 S03',
@@ -1931,10 +1931,10 @@ let torrent_series_names = [
     'Végtelen Határok S04',
     'Life.The.Complete.S01.DVDRip.HUN.ENG.XviD-KSN',
     'Inuyasha S02',
-    'H2O: Egy Vízcsepp elég! S02',
-    'Hogyan Készültek? E01-E252',
+    'H2O Egy Vízcsepp elég! S02',
+    'Hogyan Készültek E01-E252',
     'Mesék a kriptából  S02',
-    'Elmo világa 2.',
+    'Elmo világa 2',
     'Szeretünk Raymond S01-07',
     'Jóbarátok S01-S10',
     'Piszkos munkák S05',
@@ -1950,7 +1950,7 @@ let torrent_series_names = [
     'A Sógun  e04',
     'Mad Men S01',
     'The Simpsons Season S01-S18',
-    'Én kicsi pónim sorozat 1.',
+    'Én kicsi pónim sorozat 1',
     'A hivatal S01-S04',
     'Grace klinika   s01',
     'Futballhuligánok  s01',
@@ -1988,11 +1988,11 @@ let torrent_series_names = [
     'Vakáción a Mézga család E01-E13',
     'NCIS S03',
     'Trigun S01',
-    'Süsü a sárkány 2.',
+    'Süsü a sárkány 2',
     'Süsü, a sárkány kalandjai',
     'Full Metal Panic  s02',
     'Dragon.Ball.GT.Full.DVDRip.JapDub.HunSub-Fugitive',
-    'Sam, a tűzoltó 1.',
+    'Sam, a tűzoltó 1',
     'Jackass S01-S03',
     'Büszkeség és balítélet S01',
     'Ally McBeal  S01',
@@ -2180,7 +2180,7 @@ Redo of Healer S01E04 1080p
 When They Cry S01-S04 1080p REMUX
 Dr. Ramune Mysterious Disease Specialist S01E03 1080p
 Bottom-Tier Character Tomozaki S01E04 1080p
-So I'm a Spider, So What? S01E02 1080p
+So I'm a Spider, So What S01E02 1080p
 Welcome to the Ballroom S01 1080p
 Flying Witch S01 1080p REMUX
 Log Horizon 3 - Destruction of the Round Table S03E01 1080p
@@ -2226,7 +2226,7 @@ Mushoku Tensei - Jobless Reincarnation S01E02 1080p
 That Time I Got Reincarnated as a Slime S02E02 1080p
 School-Live! S01 1080p REMUX
 Golden Boy S01
-So I'm a Spider, So What? S01E01 1080p
+So I'm a Spider, So What S01E01 1080p
 Redo of Healer S01E01 1080p
 Cells at Work! S01 1080p REMUX
 Otherside Picnic S01E02 1080p
@@ -2255,10 +2255,10 @@ Talentless Nana S01 720p
 Adachi and Shimamura S01 720p
 Unbreakable Machine Doll S01 1080p REMUX
 Toriko S01 720p
-Oresuki - Are you the only one who loves me? S01 1080p
+Oresuki - Are you the only one who loves me S01 1080p
 Magic Teacher Negima! S01-S02 1080p REMUX
 Attack on Titan S01-S03 1080p
-Oresuki - Are you the only one who loves me? S01 720p
+Oresuki - Are you the only one who loves me S01 720p
 The Master of Ragnarok and Blesser of Einherjar S01 1080p REMUX
 Actually, I Am... S01 1080p REMUX
 The Master of Ragnarok & Blesser of Einherjar S01 720p
@@ -2293,7 +2293,7 @@ One Piece S01
 Trinity Seven S01 1080p REMUX
 Elfen Lied S01 1080p
 Astarotte's Toy S01 1080p
-As Long As There's Love, It Doesn't Matter If He Is My Brother, Right!? S01 1080p
+As Long As There's Love, It Doesn't Matter If He Is My Brother, Right! S01 1080p
 No Game, No Life S01 1080p
 Those Who Hunt Elves S02
 Those Who Hunt Elves S01
@@ -2360,7 +2360,7 @@ Armed Girl's Machiavellism S01 1080p
 Dummy Girl S01 1080p
 Armed Girl's Machiavellism S01 720p
 Combined Fleet Girls Collection S01 1080p
-WorldEnd - What do you do at the end of the world? Are you busy? Will you save us? S01 1080p
+WorldEnd - What do you do at the end of the world Are you busy Will you save us S01 1080p
 Eromanga-sensei S01 720p
 Yuki Yuna is a Hero - Hero Chapter S01 720p
 Yuki Yuna Is a Hero - Washio Sumi Chapter S01 720p
@@ -2411,7 +2411,7 @@ WandaVision.S01E05.1080p.WEB.H264-STRONTiUM
 4.Blocks.S03.720p.BluRay.DD5.1.x264.HUN.GER-SFY
 4.Blocks.S03.BDRip.x264.HUN.GER-SFY
 NBA - Inside the NBA 2021.02.04. 720p
-So I'm a Spider, So What? S01E02 1080p
+So I'm a Spider, So What S01E02 1080p
 NBA - Los Angeles Lakers vs. Denver Nuggets 2021.02.04. 720p
 Shadowhunters.The.Mortal.Instruments.S02.COMPLETE.BDRip.x264.Hun-BNR
 Shadowhunters.The.Mortal.Instruments.S02.COMPLETE.720p.BluRay.x264.Eng.Hun-BNR
@@ -3045,7 +3045,7 @@ NBA - Philadelphia 76ers vs. Toronto Raptors 2019.05.09. 720p
 Superstore.S04E20.720p.HDTV.x264-AVS
 Vad Chile S01 1080i
 Black Clover E117 720p
-Ki ez a lány? S01-S04
+Ki ez a lány S01-S04
 Orange.Is.the.New.Black.S07.NF.WEBRip.x264.HUN-SFY
 Orange.Is.the.New.Black.S07.720p.NF.WEBRip.DDP5.1.x264.HUN.ENG-PTHD
 Így működik a Világegyetem S07
@@ -3399,8 +3399,8 @@ Time.After.Time.US.S01E01E02.720p.HDTV.X264-DIMENSION
 Milliárdosok vakációja S01
 Esti Showder 2006.10.12.
 This.Is.Us.S01E03.720p.WEB-DL.H.264.Hun.Eng-HHD
-Ki vagy, Doki? S09E11 1080p
-Ki vagy, Doki? S09E10 1080p
+Ki vagy, Doki S09E11 1080p
+Ki vagy, Doki S09E10 1080p
 Dragon Ball Super E81 720p
 SIX.S01.720p.BluRay.x264-DEMAND
 Mary.Kills.People.S01.720p.HDTV.x264-MiXGROUP
@@ -3796,12 +3796,12 @@ Star.Trek.The.Animated.Series.1973-1975.DVDRiP.x264-dart
 Édesek és mostohák S01
 Tabu-Kivulallok.HUN.TVRiP.XviD-TVRec
 Devil May Cry S01 720p
-II. Világháború: Elveszett filmek S01
+II. Világháború Elveszett filmek S01
 Most és mindörökké S01
 Pókember S01
 Visitors.The.Original.Series.S1.DVDRip.DivX.HunEng-AXIOME
 Dark.Angel.S02.Complete.DVDRip.Dual.XviD_X5-494
-Corpse Princess: Dark S02 720p
+Corpse Princess Dark S02 720p
 Deadwood.S01.720p.BluRay.x264-SCC
 DearS S01
 Cake.Boss.S03E05.TvRip.XviD.Hungarian-PTV
@@ -3811,7 +3811,7 @@ Discovery.Channel.X.Machines.S01E02.HUN.WS.TVRiP.XViD-kispatak
 Overhaulin.S02.IPTV-Rip.Hun_OPR
 Phineas és Ferb S01
 Heti Hetes 1999-2000
-Disney kollekcio: A teljes PLUTO
+Disney kollekcio A teljes PLUTO
 Varázsceruza 3
 Gyilkos elmék S01-S04
 Igenis, Miniszter Úr!
@@ -3847,7 +3847,7 @@ Sabrina a tiniboszorkány S01-S07
 Tom.es.Jerry.Gyujtemeny.1-12-SeriesLand
 Nigella falatozója 5. rész
 Discovery.Channel.FBIs.10.Most.Wanted.HUN.WS.TVRiP.XViD-kispatak
-Hogyan működik? S01
+Hogyan működik S01
 Dharma és Greg - S02
 Rozsa.Sandor.1971.DVDRip.XviD.HUN-TeRaCoD
 Ally.Mcbeal.S04.DVDRip.XviD.Dual-ICX
@@ -3928,7 +3928,7 @@ Full Metal Panic S01
 Az emlősök élete
 Supernatural.S01.DVDRip.XviD.Dual-SzMoRyBoY
 Titkok.es.Szerelmek.Full.Pack.xvid.hun.tvrip-son1c
-CSI: A helyszínelők S01-S08
+CSI A helyszínelők S01-S08
 Reaper_Season_1_DVDRip_Dual_XviD-CLT
 NCIS.S04.DVDRip.HUN-aljasPOD
 Beverly Hills 90210 S03
@@ -3938,8 +3938,8 @@ Végtelen Határok S06
 Végtelen Határok S04
 Life.The.Complete.S01.DVDRip.HUN.ENG.XviD-KSN
 Inuyasha S02
-H2O: Egy Vízcsepp elég! S02
-Hogyan Készültek? E01-E252
+H2O Egy Vízcsepp elég! S02
+Hogyan Készültek E01-E252
 Mesék a kriptából  S02
 Elmo világa 2.
 Szeretünk Raymond S01-07

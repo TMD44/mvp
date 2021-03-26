@@ -1,4 +1,4 @@
-const { createLog } = require("../../../../log");
+const { createLog } = require("../../../log");
 
 let tempFileName = "";
 let numberOfFoundAttributes = 0;
