@@ -1,32 +1,27 @@
 const fs = require('fs');
-const { getDateAndTime } = require('./renderer/sourceImport/tools/date');
+const log = require('electron-log');
 
-function createLog(error, message = '', file = '', line = '', e) {
-    let logger = fs.createWriteStream('./log/log.txt', {
-        flags: 'a', // 'a' means appending (old data will be preserved)
-    });
-    logger.write(
-        'DATE: ' +
-            getDateAndTime() +
-            '\nERROR: ' +
-            error +
-            ' - MESSAGE: ' +
-            message +
-            thisLine(e) +
-            '\n----------------------------------------------------------------------------------------------------\n'
-    );
-
+function createLog(logType = 'info', message = '') {
+    switch (logType) {
+        case 'error':
+            console.log(message);
+            log.error(message);
+            break;
+        case 'info':
+            console.log(message);
+            log.info(message);
+            break;
+        case 'warn':
+            console.log(message);
+            log.warn(message);
+            break;
+        default:
+            break;
+    }
 }
 
 function clearLog() {
     return fs.writeFileSync('./log/log.txt', '');
-}
-
-function thisLine(e) {
-    //const e = new Error();
-    const regex = /\((.*):(\d+):(\d+)\)$/;
-    const match = regex.exec(e.stack.split('\n')[2]);
-    return '\nFILE: ' + match[1] + ':' + match[2] + ':' + match[3];
 }
 
 module.exports.createLog = createLog;

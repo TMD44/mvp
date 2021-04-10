@@ -1,25 +1,29 @@
 const fsp = require('fs').promises;
-const { fnr } = require('./tools/fnr/fnr');
+const { fnr } = require('./tools/fnr');
 const { subFinder } = require('./tools/sub');
-const { nfoFinder } = require('./tools/nfo');
+const { nfoFileFinder, nfoIdFinder } = require('./tools/nfo');
 const { getHashID } = require('./tools/hashID');
 const { getDateAndTime } = require('./tools/date');
-const { idFinder } = require('./tools/movie_IDs');
 const { tmdb } = require('./movieDB/tmdb/tmdbRequests');
 
-async function mediaJSONGenerator(media) {
+const { getVideoInfo } = require('./tools/videoInfo');
+
+async function mediaJSONGenerator(media, scanResults) {
     let mediaInJSON = {};
 
-    //const hashID = getHashID(media.full);
+    const subFiles = await subFinder(media, scanResults);
+    const nfoFile = await nfoFileFinder(media, scanResults);
+    const movieIds = await nfoIdFinder(nfoFile);
+
     mediaInJSON = {
         id: getHashID(media.full),
         media_name: media.fn,
         extension: media.ext,
         path: media.path,
         full_path: media.full,
-        subtitles: await subFinder(media),
-        nfo: await nfoFinder(media),
-        movieDB_id: await idFinder(media),
+        subtitles: subFiles,
+        nfo: nfoFile,
+        movieDB_id: movieIds,
         /*metadata: {
             editable: true,
             title: "",
@@ -30,12 +34,16 @@ async function mediaJSONGenerator(media) {
             resolution: "",
         },*/
         unsure_metadata: {
-            imdb_data: {},
+            folder_data: fnr(/[^\\]*$/.exec(media.path)[0]),
             filename_data: fnr(media.fn),
             nfo_data: /*idFinder(media, array)*/ {},
         },
     };
-    
+
+    let result = await getVideoInfo(media.full);
+    console.log(result)
+    mediaInJSON['ffprobe'] = result;
+
     return mediaInJSON;
 }
 
@@ -53,8 +61,7 @@ async function completeJSONGenerator(mediaInJSON) {
 }
 
 async function printJSONToFile(path, jsonToPrint) {
-    //fs.writeFileSync(path, JSON.stringify(jsonToPrint, null, 4));
-    await fsp.writeFile(path, JSON.stringify(jsonToPrint, null, 4), 'utf8');
+    fsp.writeFile(path, JSON.stringify(jsonToPrint, null, 4), 'utf8');
 }
 
 module.exports.mediaJSONGenerator = mediaJSONGenerator;
