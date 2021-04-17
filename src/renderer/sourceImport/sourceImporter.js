@@ -1,6 +1,6 @@
-const { config } = require('./../../main/configuration');
-const { ipcRendererCommunication } = require('../ipcRendererCommunication');
-const { scan } = require('./scan');
+import { config } from './../../main/configuration';
+import { ipcRendererCommunication } from '../ipcRendererCommunication';
+import { scan } from './scan';
 
 document.getElementById('openDirButton').addEventListener('click', event => {
     config.purgeScanResults();

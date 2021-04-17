@@ -1,11 +1,11 @@
-const path = require('path');
+import { extname } from 'path';
 
-async function fileSorting(file, media, sub, nfo, reply) {
-    if (media.includes(path.extname(file))) {
+export async function fileSorting(file, media, sub, nfo, reply) {
+    if (media.includes(extname(file))) {
         reply.media.push(objTemplate(file));
-    } else if (sub.includes(path.extname(file))) {
+    } else if (sub.includes(extname(file))) {
         reply.sub.push(objTemplate(file));
-    } else if (nfo.includes(path.extname(file))) {
+    } else if (nfo.includes(extname(file))) {
         reply.nfo.push(objTemplate(file));
     }
 }
@@ -13,16 +13,13 @@ async function fileSorting(file, media, sub, nfo, reply) {
 function objTemplate(file) {
     return {
         fn: file.substring(file.lastIndexOf('\\') + 1, file.lastIndexOf('.')),
-        ext: path.extname(file),
+        ext: extname(file),
         path: file.substring(0, file.lastIndexOf('\\')),
         full: file,
     };
 }
 
-function excludedFromScan(file) {
+export function excludedFromScan(file) {
     const regex = /SAMPLE/gi;
     return regex.test(file);
 }
-
-module.exports.fileSorting = fileSorting;
-module.exports.excludedFromScan = excludedFromScan;

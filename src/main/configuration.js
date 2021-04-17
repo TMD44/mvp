@@ -1,7 +1,7 @@
-const { app } = require('electron');
-const fsp = require('fs').promises;
+import { app } from 'electron';
+import { promises as fsp } from 'fs';
 
-const config = {
+export const config = {
     //SCAN PATHS
     addScanPath: async results => {
         const scanPaths = await config.getScanPaths();
@@ -145,5 +145,3 @@ const config = {
         if (createConfig) config.setup();
     },*/
 };
-
-module.exports.config = config;

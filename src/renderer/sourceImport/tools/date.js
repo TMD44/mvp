@@ -5,7 +5,7 @@ const date = new Date();
  * * 'pretty' => 2021.01.21. 12:01:21 (default)
  * * 'bulk'   => 20210121120121
  */
-function getDateAndTime(format = 'pretty') {
+export function getDateAndTime(format = 'pretty') {
     const year = date.getFullYear();
     const month = ('0' + (date.getMonth() + 1)).slice(-2);
     const day = ('0' + date.getDate()).slice(-2);
@@ -19,5 +19,3 @@ function getDateAndTime(format = 'pretty') {
         return year + month + day + hour + min + sec;
     }
 }
-
-module.exports.getDateAndTime = getDateAndTime;

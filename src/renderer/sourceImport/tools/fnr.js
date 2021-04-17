@@ -1,6 +1,6 @@
-const { createLog } = require("../../../log");
+import { createLog } from '../../../log';
 
-let tempFileName = "";
+let tempFileName = '';
 let numberOfFoundAttributes = 0;
 
 const fnr_patterns = {
@@ -28,10 +28,13 @@ const fnr_patterns = {
 function process(JSON_cleaned_obj, itemFound, pattern, JSON_item_name, toWhat, printToJSON = true, toUpperCase = false) {
     itemFound = tempFileName.match(pattern);
     if (itemFound != null) {
-        if (toWhat == "toString") {
+        if (toWhat == 'toString') {
             //TODO: if more than [0] and [1] element there is
             if (itemFound.length == 1 || itemFound[0].toUpperCase() == itemFound[1].toUpperCase()) {
-                if (printToJSON) JSON_cleaned_obj[JSON_item_name] = toUpperCase ? removeNoise(itemFound[itemFound.length - 1]).toUpperCase() : removeNoise(itemFound[itemFound.length - 1]);
+                if (printToJSON)
+                    JSON_cleaned_obj[JSON_item_name] = toUpperCase
+                        ? removeNoise(itemFound[itemFound.length - 1]).toUpperCase()
+                        : removeNoise(itemFound[itemFound.length - 1]);
                 tempFileName = deleteFromFileName(tempFileName, itemFound);
             } else {
                 let resultStringArray = [];
@@ -42,7 +45,7 @@ function process(JSON_cleaned_obj, itemFound, pattern, JSON_item_name, toWhat, p
                     tempFileName = deleteFromFileName(tempFileName, itemFound[k]);
                 }
             }
-        } else if (toWhat == "toInt") {
+        } else if (toWhat == 'toInt') {
             const intArray = String(itemFound).trim().split('-');
             const startNum = parseInt(String(intArray[0]).match(/\d+/));
             const endNum = parseInt(String(intArray[intArray.length - 1]).match(/\d+/));
@@ -58,8 +61,7 @@ function process(JSON_cleaned_obj, itemFound, pattern, JSON_item_name, toWhat, p
                 if (printToJSON) JSON_cleaned_obj[JSON_item_name] = resultIntArray;
                 tempFileName = deleteFromFileName(tempFileName, itemFound);
             }
-
-        } else if (toWhat == "toBool") {
+        } else if (toWhat == 'toBool') {
             if (printToJSON) JSON_cleaned_obj[JSON_item_name] = true;
             tempFileName = deleteFromFileName(tempFileName, itemFound);
         }
@@ -68,50 +70,50 @@ function process(JSON_cleaned_obj, itemFound, pattern, JSON_item_name, toWhat, p
 
 function deleteFromFileName(from, what) {
     numberOfFoundAttributes++;
-    return String(from).replace(String(what), "_");
+    return String(from).replace(String(what), '_');
 }
 
 function removeNoise(str) {
-    return str.replace(/^[.,\-\_\ ]|[.,\-\_\ ]$/g, "");
+    return str.replace(/^[.,\-\_\ ]|[.,\-\_\ ]$/g, '');
 }
 
-function fnr(paramFileName) {
+export function fnr(paramFileName) {
     let cleanedDataJSON = {};
     tempFileName = paramFileName;
     let foundPattern, titleFound, episodeFound, seasonFound;
 
     try {
-        process(cleanedDataJSON, foundPattern, fnr_patterns.languages, "languages", "toString", true, true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.resolution, "resolution", "toString", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.year, "year", "toInt", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.codec, "codec", "toString", true, true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.audio, "audio", "toString", true, true);
-        process(cleanedDataJSON, seasonFound, fnr_patterns.season, "season", "toInt", true);
-        process(cleanedDataJSON, episodeFound, fnr_patterns.episode, "episode", "toInt", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.quality, "quality", "toString", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.bluray, "bluray", "toString", true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.languages, 'languages', 'toString', true, true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.resolution, 'resolution', 'toString', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.year, 'year', 'toInt', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.codec, 'codec', 'toString', true, true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.audio, 'audio', 'toString', true, true);
+        process(cleanedDataJSON, seasonFound, fnr_patterns.season, 'season', 'toInt', true);
+        process(cleanedDataJSON, episodeFound, fnr_patterns.episode, 'episode', 'toInt', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.quality, 'quality', 'toString', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.bluray, 'bluray', 'toString', true);
         process(cleanedDataJSON, foundPattern, fnr_patterns.imdb_title, 'imdb_id', 'toString', true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.extended, "extendedCut", "toBool", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.directors, "directorsCut", "toBool", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.hdr, "hdr", "toBool", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.widescreen, "widescreen", "toBool", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.threeDimension, "3D", "toBool", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.filetype, "filetype", "toString", true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.others, "others", "toString", false, true);
-        process(cleanedDataJSON, foundPattern, fnr_patterns.brackets, "brackets", "toString", false);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.extended, 'extendedCut', 'toBool', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.directors, 'directorsCut', 'toBool', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.hdr, 'hdr', 'toBool', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.widescreen, 'widescreen', 'toBool', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.threeDimension, '3D', 'toBool', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.filetype, 'filetype', 'toString', true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.others, 'others', 'toString', false, true);
+        process(cleanedDataJSON, foundPattern, fnr_patterns.brackets, 'brackets', 'toString', false);
         //if (numberOfFoundAttributes >= 2) dataCleaner(cleanedDataJSON, foundPattern, fnr_patterns.group, "group", "toString", false);
 
-        if ("episode" in cleanedDataJSON || "season" in cleanedDataJSON) {
-            cleanedDataJSON["mediaType"] = "series";
+        if ('episode' in cleanedDataJSON || 'season' in cleanedDataJSON) {
+            cleanedDataJSON['mediaType'] = 'series';
         } else {
-            cleanedDataJSON["mediaType"] = "movie";
+            cleanedDataJSON['mediaType'] = 'movie';
         }
 
         //RAW DATA
-        cleanedDataJSON["_RAW_"] = paramFileName;
+        cleanedDataJSON['_RAW_'] = paramFileName;
 
         //tempFileName BEFORE TITLE RECOGNITION
-        cleanedDataJSON["CLEAN"] = tempFileName;
+        cleanedDataJSON['CLEAN'] = tempFileName;
 
         //NUMBER OF KEYS
         //cleanedDataJSON["NUMBER_OF_KEYS"] = numberOfFoundAttributes+1;
@@ -121,30 +123,20 @@ function fnr(paramFileName) {
     }
 
     try {
-        let replaced
+        let replaced;
         if (tempFileName != null) {
             if (numberOfFoundAttributes < 2) {
-                let replaced = tempFileName.replace(/([\. \_]){1,2}/g, " ");
-                cleanedDataJSON["title"] = removeNoise(
-                    replaced.charAt(0).toUpperCase() + replaced.slice(1)
-                );
+                let replaced = tempFileName.replace(/([\. \_]){1,2}/g, ' ');
+                cleanedDataJSON['title'] = removeNoise(replaced.charAt(0).toUpperCase() + replaced.slice(1));
             } else {
                 numberOfFoundAttributes++;
                 //Removes non alphabetical caracters before title. For example: " __ . -Title.2021"
-                tempFileName = tempFileName.substring(
-                    tempFileName.indexOf(tempFileName.match(/[a-zA-Z0-9]/).pop())
-                );
-                titleFound = tempFileName.substr(
-                    0,
-                    tempFileName.indexOf(tempFileName.match(/([\. \_\/]){2,}/g)[0])
-                );
-                replaced = titleFound.replace(/([\. \_]){1,2}/g, " ");
-                cleanedDataJSON["title"] = removeNoise(
-                    replaced.charAt(0).toUpperCase() + replaced.slice(1)
-                );
+                tempFileName = tempFileName.substring(tempFileName.indexOf(tempFileName.match(/[a-zA-Z0-9]/).pop()));
+                titleFound = tempFileName.substr(0, tempFileName.indexOf(tempFileName.match(/([\. \_\/]){2,}/g)[0]));
+                replaced = titleFound.replace(/([\. \_]){1,2}/g, ' ');
+                cleanedDataJSON['title'] = removeNoise(replaced.charAt(0).toUpperCase() + replaced.slice(1));
             }
         }
-
     } catch (err) {
         //console.log("Error was found at Title recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
         createLog(err.name, err.message, err.fileName, err.LineNumber, new Error());
@@ -154,5 +146,3 @@ function fnr(paramFileName) {
 
     return cleanedDataJSON;
 }
-
-module.exports.fnr = fnr;

@@ -1,18 +1,17 @@
-const MovieDB = require('node-themoviedb');
-const { tmdb_api_key } = require('../../../../../assets/private/apiKeys');
-const { config } = require('../../../../main/configuration');
+import MovieDB from 'node-themoviedb';
+import { tmdb_api_key } from '../../../../../assets/private/apiKeys';
+import { config } from '../../../../main/configuration';
 
 const mdb = new MovieDB();
 mdb.setApiKey(tmdb_api_key);
 mdb.setLanguage(config.getScanLanguage());
 
 //tmdb namespace
-const tmdb = {
-
+export const tmdb = {
     getExternalIDs: async (id, type = 'movie') => {
         const args = {
             pathParameters: {
-                movie_id: id
+                movie_id: id,
             },
         };
         try {
@@ -78,5 +77,3 @@ const tmdb = {
         return await mdb.search.TVShows(args);
     },
 };
-
-module.exports.tmdb = tmdb;

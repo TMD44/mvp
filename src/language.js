@@ -1,5 +1,1 @@
-
-
-function getLanguage(key) {
-  
-}
+function getLanguage(key) {}

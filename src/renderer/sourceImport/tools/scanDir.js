@@ -1,17 +1,17 @@
-const fs = require("fs");
-const fsp = require("fs").promises;
-const path = require("path");
+import fs from 'fs';
+import { promises as fsp } from 'fs';
+import { join, extname } from 'path';
 
 //ASYNCHRONOUS
 //Base code from Stackoverflow, minor changes have been made:
 //https://stackoverflow.com/questions/56583365/async-and-recursive-directory-scan-for-file-listing-in-nodejs-and-expressjs
-async function scanDir(directoryName, filter, results = []) {
+export async function scanDir(directoryName, filter, results = []) {
     let files = await fsp.readdir(directoryName, { withFileTypes: true });
     for (let f of files) {
-        let fullPath = path.join(directoryName, f.name);
+        let fullPath = join(directoryName, f.name);
         if (f.isDirectory()) {
             await scanDir(fullPath, filter, results);
-        } else if (filter.includes(path.extname(fullPath))) {
+        } else if (filter.includes(extname(fullPath))) {
             results.push(fullPath);
         }
     }
@@ -80,5 +80,3 @@ function scanDir(startPath, regex, callback) {
     }
 }
 */
-
-module.exports.scanDir = scanDir;

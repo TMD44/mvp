@@ -1,18 +1,18 @@
-const fs = require('fs');
-const { tmdb_api_key } = require('../../../../../assets/api/apiKeys');
+import { writeFileSync } from 'fs';
+import { tmdb_api_key } from '../../../../../assets/api/apiKeys';
 
 const url = [
     'https://api.themoviedb.org/3/genre/movie/list?api_key=' + tmdb_api_key + '&language=hu-HU' /*MOVIE GENRES*/,
     'https://api.themoviedb.org/3/genre/tv/list?api_key=' + tmdb_api_key + '&language=hu-HU' /*TV GENRES*/,
 ];
 
-async function foo() {
+export async function foo() {
     let i = 1;
     url.forEach(item => {
         fetch(item)
             .then(response => response.json())
             .then(data => {
-                fs.writeFileSync('./exports/genres' + i++ + '.json', JSON.stringify(data, null, 4));
+                writeFileSync('./exports/genres' + i++ + '.json', JSON.stringify(data, null, 4));
             });
     });
 }
@@ -76,4 +76,3 @@ const tmdb_genres = [
 "name_hu": "War & Politics"
 "name_hu": "Western"
 */
-module.exports.foo = foo;

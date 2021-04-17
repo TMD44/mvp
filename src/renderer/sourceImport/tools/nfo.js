@@ -1,5 +1,5 @@
-const fsp = require('fs').promises;
-const tinyURL = require('tinyurl');
+import { promises as fsp } from 'fs';
+import tinyURL from 'tinyurl';
 
 const nfo_patterns = {
     year: /(DATE|TIME).*/gi,
@@ -12,7 +12,7 @@ const nfo_patterns = {
     imdb_list: /li[0-9]{7}/gi,
 };
 
-async function nfoFileFinder(media, results) {
+export async function nfoFileFinder(media, results) {
     let resultArray = [];
 
     results.nfo.forEach(nfo => {
@@ -44,13 +44,10 @@ async function nfoPatternFinder(data) {
     return result;
 }
 
-async function nfoIdFinder(nfoPath) {
+export async function nfoIdFinder(nfoPath) {
     //const nfoPath = await nfoFileFinder(media);
     if (nfoPath == undefined) return;
 
     const nfoContent = await fsp.readFile(String(nfoPath), 'utf8');
     return nfoPatternFinder(nfoContent);
 }
-
-module.exports.nfoFileFinder = nfoFileFinder;
-module.exports.nfoIdFinder = nfoIdFinder;

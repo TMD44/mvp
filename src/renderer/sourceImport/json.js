@@ -1,14 +1,14 @@
-const fsp = require('fs').promises;
-const { fnr } = require('./tools/fnr');
-const { subFinder } = require('./tools/sub');
-const { nfoFileFinder, nfoIdFinder } = require('./tools/nfo');
-const { getHashID } = require('./tools/hashID');
-const { getDateAndTime } = require('./tools/date');
-const { tmdb } = require('./movieDB/tmdb/tmdbRequests');
+import { promises as fsp } from 'fs';
+import { fnr } from './tools/fnr';
+import { subFinder } from './tools/sub';
+import { nfoFileFinder, nfoIdFinder } from './tools/nfo';
+import { getHashID } from './tools/hashID';
+import { getDateAndTime } from './tools/date';
+import { tmdb } from './movieDB/tmdb/tmdbRequests';
 
-const { getVideoInfo } = require('./tools/videoInfo');
+import { getVideoInfo } from './tools/videoInfo';
 
-async function mediaJSONGenerator(media, scanResults) {
+export async function mediaJSONGenerator(media, scanResults) {
     let mediaInJSON = {};
 
     const subFiles = await subFinder(media, scanResults);
@@ -41,13 +41,13 @@ async function mediaJSONGenerator(media, scanResults) {
     };
 
     let result = await getVideoInfo(media.full);
-    console.log(result)
+    console.log(result);
     mediaInJSON['ffprobe'] = result;
 
     return mediaInJSON;
 }
 
-async function completeJSONGenerator(mediaInJSON) {
+export async function completeJSONGenerator(mediaInJSON) {
     let completeJSON = {
         generation_time: getDateAndTime(),
         version: '1.0',
@@ -60,10 +60,6 @@ async function completeJSONGenerator(mediaInJSON) {
     return completeJSON;
 }
 
-async function printJSONToFile(path, jsonToPrint) {
+export async function printJSONToFile(path, jsonToPrint) {
     fsp.writeFile(path, JSON.stringify(jsonToPrint, null, 4), 'utf8');
 }
-
-module.exports.mediaJSONGenerator = mediaJSONGenerator;
-module.exports.completeJSONGenerator = completeJSONGenerator;
-module.exports.printJSONToFile = printJSONToFile;

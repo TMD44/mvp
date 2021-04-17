@@ -1,7 +1,5 @@
-const { ipcRenderer } = require('electron');
+import { ipcRenderer } from 'electron';
 
-function ipcRendererCommunication() {
+export function ipcRendererCommunication() {
     ipcRenderer.send('openDir_async');
 }
-
-module.exports.ipcRendererCommunication = ipcRendererCommunication;

@@ -1,9 +1,9 @@
-const { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } = require('./json');
-const { config } = require('./../../main/configuration');
-const { scanDir } = require('./tools/scanDir');
-const { fileSorting, excludedFromScan } = require('./fileSorting');
+import { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } from './json';
+import { config } from './../../main/configuration';
+import { scanDir } from './tools/scanDir';
+import { fileSorting, excludedFromScan } from './fileSorting';
 
-const scan = {
+export const scan = {
     completeJSON: {},
     mediaInJSON: {},
 
@@ -29,7 +29,7 @@ const scan = {
 
         await config.setScanResults(scanResults);
         const results = await config.getScanResults();
-        
+
         for (const file in results.media) {
             const result = await mediaJSONGenerator(results.media[file], results);
             scan.mediaInJSON[result.id] = result;
@@ -50,5 +50,3 @@ const scan = {
         });
     },
 };
-
-module.exports.scan = scan;

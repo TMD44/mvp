@@ -1,4 +1,4 @@
-let torrent_movie_names = [
+export const torrent_movie_names = [
     'The.Zero.Theorem.2013.1080I.ReaD.NfO.BDRip.x264.DD5.1.HuN-BaKeR',
     'The.Zero.Theorem.2013.1080p.BluRay.ReMuX.AvC.DD5.1.HuN-BaKeR',
     'The.Zero.Theorem.2013.1080i.ReaD.NfO.BDRip.x264.DD5.1.HuN-BaKeR',
@@ -2316,9 +2316,6 @@ let torrent_movie_names = [
     'Avangers.The.Infinity.War.S05E04.2018.x264.DTS.HUN.ENG.GER.2014p.EXTENDED.AMZN.HDTV.BDRip.REPACK.WS.MKV.[BULSHIT]-ThisIsTheGroup',
     'Sortűz egy fekete bivalyért 1080i',
 ];
-
-//EXPORTS
-module.exports.torrent_movie_names = torrent_movie_names;
 
 //PLAIN TEXT
 /*

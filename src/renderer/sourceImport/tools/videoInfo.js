@@ -1,9 +1,9 @@
-const util = require('util');
-const { exec } = require('child_process');
-const execProm = util.promisify(exec);
-const ffprobe = require('ffprobe-static').path;
+import { promisify } from 'util';
+import { exec } from 'child_process';
+const execProm = promisify(exec);
+import { path as ffprobe } from 'ffprobe-static';
 
-async function getVideoInfo(video) {
+export async function getVideoInfo(video) {
     let result;
     try {
         result = await execProm(`${ffprobe} -v quiet -print_format json -show_format -show_streams -show_chapters -show_data ${video}`);
@@ -60,5 +60,3 @@ function filterFfprobe(data) {
 
     return filteredVideoInfo;
 }
-
-module.exports.getVideoInfo = getVideoInfo;

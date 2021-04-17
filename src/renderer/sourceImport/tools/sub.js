@@ -1,4 +1,4 @@
-async function subFinder(media, results) {
+export async function subFinder(media, results) {
     let resultArray = [];
 
     results.sub.forEach(sub => {
@@ -9,5 +9,3 @@ async function subFinder(media, results) {
 
     return resultArray;
 }
-
-module.exports.subFinder = subFinder;

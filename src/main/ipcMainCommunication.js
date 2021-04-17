@@ -1,8 +1,7 @@
-const { ipcMain, dialog } = require('electron');
+import { ipcMain, dialog } from 'electron';
+import { config } from './configuration';
 
-const { config } = require('./configuration');
-
-function ipcMainCommunication(importWindow) {
+export function ipcMainCommunication(importWindow) {
     ipcMain.on('openDir_async', (event, arg) => {
         let reply = {
             media: [],
@@ -23,5 +22,3 @@ function ipcMainCommunication(importWindow) {
             });
     });
 }
-
-module.exports.ipcMainCommunication = ipcMainCommunication;
