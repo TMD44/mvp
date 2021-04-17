@@ -1,0 +1,19 @@
+{
+    "name": "mvp",
+    "productName": "Multimedia Visualization Platform",
+    "version": "0.1.0",
+    "description": "Create your own streaming service, completely offline.",
+    "main": "./main/main.prod.js",
+    "author": {
+        "name": "TMD44",
+        "email": "tmd44@outlook.hu",
+        "url": "https://github.com/TMD44/mvp"
+    },
+    "scripts": {
+        "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
+        "postinstall": "yarn electron-rebuild"
+    },
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {}
+}
