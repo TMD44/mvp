@@ -1,4 +1,4 @@
-export const torrent_movie_names = [
+export const torrentMovieNames = [
     'The.Zero.Theorem.2013.1080I.ReaD.NfO.BDRip.x264.DD5.1.HuN-BaKeR',
     'The.Zero.Theorem.2013.1080p.BluRay.ReMuX.AvC.DD5.1.HuN-BaKeR',
     'The.Zero.Theorem.2013.1080i.ReaD.NfO.BDRip.x264.DD5.1.HuN-BaKeR',
@@ -2221,7 +2221,7 @@ export const torrent_movie_names = [
     'Az arany bűvöletében',
     'The.Chronicles.of.Riddick.Dark.Fury.2004.RETAIL.DVDRiP.XviD.HUN-DynamicLife',
     'Gyáróriások II. - A BMW',
-    //from different source here
+    // from different source here
     'The Walking Dead S05E03 720p HDTV x264-ASAP[ettv]',
     'Hercules (2014) 1080p BrRip H264 - YIFY',
     'Dawn.of.the.Planet.of.the.Apes.2014.HDRip.XViD-EVO',
@@ -2317,7 +2317,7 @@ export const torrent_movie_names = [
     'Sortűz egy fekete bivalyért 1080i',
 ];
 
-//PLAIN TEXT
+// PLAIN TEXT
 /*
 TLotR.The.Fellowship.of.the.Ring.2001.EE.UHD.BluRay.2160p.TrueHD.7.1.DoVi.x265.HuN-TRiNiTY
 Go.Trabi.Go.2.1992.DVDRip.x264.HUN-GEO

@@ -1,4 +1,4 @@
-export const torrent_series_names = [
+export const torrentSeriesNames = [
     'Tough.As.Nails.S02E01.1080p.WEB.h264-KOGi',
     'Futball.2021.02.13.Serie.A.TIM.Torino.vs.Genoa.HDTV.720p.x264.Hun-BLG',
     'Futball.2021.02.13.Serie.A.TIM.Torino.vs.Genoa.HDTV.1080i.Hun-BLG',
@@ -2001,7 +2001,7 @@ export const torrent_series_names = [
     'Inuyasha S03',
 ];
 
-//PLAIN TEXT
+// PLAIN TEXT
 /*
 Tough.As.Nails.S02E01.1080p.WEB.h264-KOGi
 Futball.2021.02.13.Serie.A.TIM.Torino.vs.Genoa.HDTV.720p.x264.Hun-BLG
