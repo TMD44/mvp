@@ -4,7 +4,6 @@ import { subFinder } from './tools/sub';
 import { nfoFileFinder, nfoIdFinder } from './tools/nfo';
 import { getHashID } from './tools/hashID';
 import { getDateAndTime } from './tools/date';
-import { tmdb } from './movieDB/tmdb/tmdbRequests';
 
 import { getVideoInfo } from './tools/videoInfo';
 
@@ -24,7 +23,7 @@ export async function mediaJSONGenerator(media, scanResults) {
         subtitles: subFiles,
         nfo: nfoFile,
         movieDB_id: movieIds,
-        /*metadata: {
+        /* metadata: {
             editable: true,
             title: "",
             creation_date: "",
@@ -32,23 +31,23 @@ export async function mediaJSONGenerator(media, scanResults) {
             genres: "",
             images: {},
             resolution: "",
-        },*/
+        }, */
         unsure_metadata: {
             folder_data: fnr(/[^\\]*$/.exec(media.path)[0]),
             filename_data: fnr(media.fn),
-            nfo_data: /*idFinder(media, array)*/ {},
+            nfo_data: /* idFinder(media, array) */ {},
         },
     };
 
-    let result = await getVideoInfo(media.full);
+    const result = await getVideoInfo(media.full);
     console.log(result);
-    mediaInJSON['ffprobe'] = result;
+    mediaInJSON.ffprobe = result;
 
     return mediaInJSON;
 }
 
 export async function completeJSONGenerator(mediaInJSON) {
-    let completeJSON = {
+    const completeJSON = {
         generation_time: getDateAndTime(),
         version: '1.0',
         media: mediaInJSON,

@@ -1,14 +1,24 @@
-import { mediaJSONGenerator, completeJSONGenerator, printJSONToFile } from './json';
-import { config } from './../../main/configuration';
+// PROBLEMS WITH FORs: TODO
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-await-in-loop */
+
+import {
+    mediaJSONGenerator,
+    completeJSONGenerator,
+    printJSONToFile,
+} from './json';
+import { config } from '../../main/configuration';
 import { scanDir } from './tools/scanDir';
 import { fileSorting, excludedFromScan } from './fileSorting';
+import { tmdb } from './movieDB/tmdb/tmdbRequests';
 
 export const scan = {
     completeJSON: {},
     mediaInJSON: {},
 
     offlineScan: async () => {
-        let scanResults = {
+        const scanResults = {
             media: [],
             sub: [],
             nfo: [],
@@ -31,22 +41,28 @@ export const scan = {
         const results = await config.getScanResults();
 
         for (const file in results.media) {
-            const result = await mediaJSONGenerator(results.media[file], results);
+            const result = await mediaJSONGenerator(
+                results.media[file],
+                results
+            );
             scan.mediaInJSON[result.id] = result;
         }
 
         scan.completeJSON = await completeJSONGenerator(scan.mediaInJSON);
         await printJSONToFile('./exports/movieData.json', scan.completeJSON);
 
-        //purgeScanResults();
+        // purgeScanResults();
         document.getElementById('importDone').innerHTML = 'Import is done!';
     },
 
     onlineScan: () => {
-        return tmdb.multiSearch(mediaInJSON.unsure_metadata.filename_data.title).then(result => {
-            mediaInJSON.unsure_metadata['tmdb_data'] = result.data.results[0];
-            console.log('mediaInJSON: ', mediaInJSON);
-            return mediaInJSON;
-        });
+        /* return tmdb
+            .multiSearch(scan.mediaInJSON.unsure_metadata.filename_data.title)
+            .then((result) => {
+                scan.mediaInJSON.unsure_metadata.tmdb_data =
+                    result.data.results[0];
+                console.log('mediaInJSON: ', scan.mediaInJSON);
+                return scan.mediaInJSON;
+            }); */
     },
 };
