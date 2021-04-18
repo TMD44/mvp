@@ -2,7 +2,7 @@
 import { ipcMain, dialog } from 'electron';
 import { config } from './configuration';
 
-export function ipcMainCommunication(importWindow) {
+export function ipcMainCommunication(window: Electron.BrowserWindow) {
     ipcMain.on('openDir_async', (event, arg) => {
         const reply = {
             media: [],
@@ -10,7 +10,7 @@ export function ipcMainCommunication(importWindow) {
             nfo: [],
         };
         dialog
-            .showOpenDialog(importWindow, {
+            .showOpenDialog(window, {
                 properties: ['openDirectory', 'multiSelections'],
             })
             .then((result) => {

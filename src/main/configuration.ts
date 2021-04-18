@@ -3,7 +3,7 @@ import { promises as fsp } from 'fs';
 
 export const config = {
     // SCAN PATHS
-    addScanPath: async (results) => {
+    addScanPath: async (results: any[]) => {
         const scanPaths = await config.getScanPaths();
         results.forEach((result) => {
             if (!scanPaths.includes(result)) {
@@ -15,7 +15,7 @@ export const config = {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_paths;
     },
-    setScanPaths: async (path) => {
+    setScanPaths: async (path: any) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_paths.push(path);
         await config.writeFile(confFile);
@@ -30,7 +30,7 @@ export const config = {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_results;
     },
-    setScanResults: async (obj) => {
+    setScanResults: async (obj: any) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_results = obj;
         await config.writeFile(confFile);
@@ -57,7 +57,7 @@ export const config = {
         return JSON.parse(data);
     },
 
-    writeFile: async (json) => {
+    writeFile: async (json: any) => {
         await fsp.writeFile(
             './config/config.json',
             JSON.stringify(json, null, 4),

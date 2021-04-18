@@ -17,7 +17,7 @@ function nfoContent() {
     return result;
 }
 
-export function mediaMaker(path) {
+export function mediaMaker(path: string) {
     const baseDir = path;
     const ext = ['.mkv', '.mkv', '.mkv', '.avi', '.mp4'];
     const sub = ['.srt', '.srt', '.srt', '.vtt', '.ass', '.sub'];

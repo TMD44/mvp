@@ -8,30 +8,30 @@ import { cleanBeforeQuit } from './cleanBeforeQuit';
 // pl. menu.ts-t fel lehet használni!
 
 function createWindow() {
-    const mainWindowState = windowStateKeeper({
-        defaultWidth: 1200,
-        defaultHeight: 1000,
+    const appWindowState = windowStateKeeper({
+        defaultWidth: 1000,
+        defaultHeight: 800,
     });
 
-    const mainWindow = new BrowserWindow({
-        x: mainWindowState.x,
-        y: mainWindowState.y,
-        width: mainWindowState.width,
-        height: mainWindowState.height,
+    const appWindow = new BrowserWindow({
+        x: appWindowState.x,
+        y: appWindowState.y,
+        width: appWindowState.width,
+        height: appWindowState.height,
         icon: `${app.getAppPath()}/assets/icons/icon_128x128.ico`,
         webPreferences: {
             nodeIntegration: true,
         },
     });
 
-    mainWindowState.manage(mainWindow);
+    appWindowState.manage(appWindow);
 
-    mainWindow.loadFile('../renderer/App/index.html');
+    appWindow.loadFile('../renderer/App/index.html');
 
-    mainWindow.webContents.openDevTools();
+    appWindow.webContents.openDevTools();
 
     config.setup();
-    ipcMainCommunication(mainWindow);
+    ipcMainCommunication(appWindow);
 }
 
 app.whenReady().then(createWindow).catch(console.log);

@@ -13,7 +13,8 @@
         "start": "node -r @babel/register ./.erb/scripts/CheckPortInUse.js && yarn start:renderer",
         "start:main": "cross-env NODE_ENV=development electron -r ./.erb/scripts/BabelRegister ./src/main/main.dev.ts",
         "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.config.renderer.dev.babel.js",
-        "test": "jest"
+        "test": "jest",
+        "generate-media": "node src/__test__/test.ts"
     },
     "homepage": "https://github.com/TMD44/mvp#readme",
     "repository": {
@@ -166,7 +167,7 @@
         "@types/history": "4.7.6",
         "@types/jest": "^26.0.15",
         "@types/node": "14.14.10",
-        "@types/react": "^16.9.44",
+        "@types/react": "^17.0.3",
         "@types/react-dom": "^16.9.9",
         "@types/react-router-dom": "^5.1.6",
         "@types/react-test-renderer": "^16.9.3",
@@ -246,6 +247,7 @@
         "node-themoviedb": "^0.2.7",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
+        "react-pro-sidebar": "^0.6.0",
         "react-router-dom": "^5.2.0",
         "regenerator-runtime": "^0.13.5",
         "source-map-support": "^0.5.19",
