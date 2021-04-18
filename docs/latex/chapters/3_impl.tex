@@ -1,115 +1,56 @@
 \chapter{Fejlesztői dokumentáció} % Developer guide
 \label{ch:impl}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nibh leo, dapibus in elementum nec, aliquet id sem. Suspendisse potenti. Nullam sit amet consectetur nibh. Donec scelerisque varius turpis at tincidunt.
+\section{TODO}
+\subsection{Tartalom}
+\begin{itemize}
+    \item probléma részletes specifikációja
+	\item felhasznált módszerek részletes leírása, a használt fogalmak definíciója
+	\item program logikai és fizikai szerkezetének leírása (adatszerkezetek, adatbázisok, modulfelbontás)
+	\item bemutatni a program rétegeit, adatbázist, táblákat, osztályokat, modulokat, fontosabb függvényeket, algoritmusokat, felhasználói eseteket, hálózati kommunikációt, fejlesztői környezetet
+	\item osztálydiagramok, UML ábrák
+	\item üzemeltetésről információk
+	\item milyen időzített folyamatok vannak, hol van a logolás, használ-e felhő rendszereket, API-kat
+	\item tesztelési terv és a tesztelés eredményei (egység tesztek, felületi tesztek, integrációs tesztek)
+	\item ha nem lehet automatikus tesztet írni a programra, akkor írj teszt jegyzőkönyvet (milyen funciót tesztelt, mi a bemenet, mi az elvárt kimenet, mi a tényleges kimenet)
+\end{itemize}
 
+\subsection{Bírálati szempontok}
+\subsection{Megoldási terv}
+Ez a fejlesztői leírás része, a rendszerterv, amelyből az alkalmazás célja, felépítése és működése megérthető, ez alapján az alkalmazás forráskódja lényegében elkészíthető.
+    Tartalmazza a következő elemeket:
+\begin{itemize}
+    \item Rendszer architektúrájának leírását (alrendszerek, rétegek bemutatása, az alkalmazott szabványok, technológiák, fejlesztő módszerek megadása, felhasznált eszközök és kész komponensek definiálása). Az értékelésnél vegyük figyelembe, hogy mennyire válnak szét az alkalmazás rétegei (például felhasználói felület, logika, adatforrás)?
+    \item Az adatbázis – feltéve, hogy van – leírását. Érdemes egy áttekintő diagammal szemléltetni a táblákat és a köztük levő kapcsolatokat, majd külön táblázatokban megadni az egyes táblák mezőszerkezeti leírását, az esetleges tárolt eljárások, függvények, triggerek, stb leírását.
+    \item Modul és/vagy osztályszerkezet (fontosabb modulok és/vagy osztályok és azok metódusai, továbbá ezek kapcsolatának) leírását. Az egyes csomagok fő eljárásait illetve a fontos osztályok fő metódusait bemenő-, kimenőadat, tevékenység hármassal jellemezni kell.
+    \item A felhasználói felület – feltéve, hogy van –  tervét (a képernyő- és listaterveket, valamint a menütervet). Legyen egy áttekintő ábra, amely mutatja a képernyők (ablakok, weblapok) közti navigálási lehetőségeket, irányokat. Ki kell emelni a fontosabb felhasználói eseménykezeléseket.
+\end{itemize}
 
-\section{Tételek, definíciók, megjegyzések} % Theorem-like items
+\subsection{Megvalósítás}
+A fejlesztői leírásnak a megvalósításról szóló része bemutatja, hogy milyen döntéseket kellett hozni a terv megvalósítása során (adatábrázolás, felhasznált komponensek, kódban alkalmazott nyelvi elemek, stb). A dokumentáció ne tartalmazza a forrásprogramot (legfeljebb csak fontosnak ítélt részleteit), elég azt a mellékelt adathordozón elhelyezni. A megvalósítás a fentieken kívül tartalmazza a komponens tervet (az alkalmazás fizikai komponenseinek kapcsolatrendszerét) és azok telepítésének módját.
+    Az értékelésnél vegyük figyelembe:
+\begin{itemize}
+    \item A forráskód tartalma, szerkezete megfelel-e a tervnek?
+    \item Mennyire ismeri a hallgató az adott fejlesztő eszközt (pl. korszerű, hatékony nyelvi elemek vannak-e túlsúlyban, vagy ehelyett bonyolult, nehézkes, körülményes és leginkább terjengős forráskódot eredményező nyelvi elemek jellemzik a kódot)? Indokoltak-e a választott nyelvi elemek használata?
+    \item Milyen a forráskód külalakja, mennyire áttekinthető (strukturáltság, bekezdések, tagolások, kommentezés stb.)?
+    \item Mennyire módosítható a kód. Alkalmazza-e a hallgató a kód-újrafelhasználás nyelvi eszközeit (függvények, származtatás, generikus elemek)?
+    \item Törekszik-e a hatékony adatábrázolásra?
+    \item Mennyire öndokumentáló a kód, vagyis a választott azonosítók (pl. változónevek) mennyire beszédesek, konvencionálisak, a megjegyzések mennyire segítik a kódértést?
+    \item Tartalmazza a szükséges ellenőrzési, hibakezelési funkciókat, általában megoldott-e a kivételkezelés?
+    \item Mennyire gazdálkodik jól az emberi és gépi erőforrásokkal, így például a felhasználó idejével és türelmével, a lemezkapacitással és a memóriakapacitással?
+\end{itemize}
 
-\begin{definition}
-Mauris tristique sollicitudin ultrices. Etiam tristique quam sit amet metus dictum imperdiet. Nunc id lorem sed nisl pulvinar aliquet vitae quis arcu. Morbi iaculis eleifend porttitor.
-\end{definition}
+\subsection{Tesztelés}
+Ez is a fejlesztői leírás része, amelynek a tesztelési szempontokat kell bemutatnia, és a tesztelés során szerzett tapasztalatokat összegeznie valamint a szoftver skálázhatóságáról készített elemzést kell tartalmaznia.
+    Az értékelésnél vegyük figyelembe, hogy a dokumentáció:
+\begin{itemize}
+    \item Tartalmaz-e tesztelési terveket, teszteseteket (Ezeket csoportosíthatja rendszerteszt és modultesztek szerint illetve fekete és fehérdoboz megközelítéssel)?
+    \item Beszámol-e olyan tanulságokról, amelyek alapján meg kellett változtatni a korábbi implementációs döntéseket, esetleg a terv egyes elemeit (az ilyen tapasztalatok nem rontják a dolgozat értékét)?
+    \item Tartalmazza-e nagy adattömeg melletti futtatások értékelését?
+    \item Elemzi-e a program által adott eredmény helyességét (különösen olyan optimalizációs feladatok esetén, ahol több helyes megoldást valamilyen célfüggvénnyel lehet rangsorolni)?
+    \item Elemzi-e a program futásának hatékonyságát?
 
-Maecenas rutrum eros sem, pharetra interdum nulla porttitor sit amet. In vitae viverra ante. Maecenas sit amet placerat orci, sed tincidunt velit. Vivamus mattis, enim vel suscipit elementum, quam odio venenatis elit, et mollis nulla nunc a risus. Praesent purus magna, tristique sed lacus sit amet, convallis malesuada magna. Phasellus faucibus varius purus, nec tristique enim porta vitae.
+\end{itemize}
 
-\begin{theorem}
-Nulla finibus ante vel arcu tincidunt, ut consectetur ligula finibus. Mauris mollis lectus sed ipsum bibendum, ac ultrices erat dictum. Suspendisse faucibus euismod lacinia. Etiam vel odio ante.
-\end{theorem}
-\begin{proof}
-Etiam pulvinar nibh quis massa auctor congue. Pellentesque quis odio vitae sapien molestie vestibulum sit amet et quam. Pellentesque vel dui eget enim hendrerit finibus at sit amet libero. Quisque sollicitudin ultrices enim, nec porta magna imperdiet vitae. Cras condimentum nunc dui.
-\end{proof}
-
-Donec dapibus sodales ante, at scelerisque nunc laoreet sit amet. Mauris porttitor tincidunt neque, vel ullamcorper neque pulvinar et. Integer eu lorem euismod, faucibus lectus sed, accumsan felis. 
-
-\begin{remark}
-Nunc ornare mi at augue vulputate, eu venenatis magna mollis. Nunc sed posuere dui, et varius nulla. Sed mollis nibh augue, eget scelerisque eros ornare nec. Praesent porta, metus eget eleifend consequat, eros ligula eleifend ex, a pellentesque mi est vitae urna. Vivamus turpis nunc, iaculis non leo eget, mattis vulputate tellus.
-\end{remark}
-
-Fusce in aliquet neque, in pretium sem. Donec tincidunt tellus id lectus pretium fringilla. Nunc faucibus, erat pretium tempus tempor, tortor mi fringilla neque, ac congue ex dui vitae mauris. Donec pretium et quam a cursus.
-
-\begin{note}
-Aliquam vehicula luctus mi a pretium. Nulla quam neque, maximus nec velit in, aliquam mollis tortor. Aliquam erat volutpat. Curabitur vitae laoreet turpis. Integer id diam ligula.
-\end{note}
-
-Ut sollicitudin tempus urna et mollis. Aliquam et aliquam turpis, sed fermentum mauris. Nulla eget ex diam. Donec eget tellus pharetra, semper neque eget, rutrum diam.
-
-\subsection{Egyenletek, matematika} % Equations, formulas
-
-Duis suscipit ipsum nec urna blandit, $2 + 2 = 4$ pellentesque vehicula quam fringilla. Vivamus euismod, lectus sit amet euismod viverra, dolor metus consequat sapien, ut hendrerit nisl nulla id nisi. Nam in leo eu quam sollicitudin semper a quis velit.
-
-$$a^2 + b^2 = c^2$$
-
-Phasellus mollis, elit sed convallis feugiat, dolor quam dapibus nibh, suscipit consectetur lacus risus quis sem. Vivamus scelerisque porta odio, vitae euismod dolor accumsan ut.
-
-In mathematica, identitatem Euleri (equation est scriptor vti etiam notum) sit aequalitatem Equation~\ref{eq:euler}:
-\begin{equation}\label{eq:euler}
-e^{i \times \pi} + 1 = 0
-\end{equation}
-
-
-\section{Forráskódok} % Source code samples
-
-Nulla sodales purus id mi consequat, eu venenatis odio pharetra. Cras a arcu quam. Suspendisse augue risus, pulvinar a turpis et, commodo aliquet turpis. Nulla aliquam scelerisque mi eget pharetra. Mauris sed posuere elit, ac lobortis metus. Proin lacinia sit amet diam sed auctor. Nam viverra orci id sapien sollicitudin, a aliquam lacus suscipit. Quisque ac tincidunt leo Code~\ref{src:cpp} and \ref{src:csharp}:
-
-\lstset{caption={Hello World in C++}, label=src:cpp}
-\begin{lstlisting}[language={C++}]
-#include <stdio>
-
-int main() 
-{
-	int c;
-	std::cout << "Hello World!" << std::endl;
-
-	std::cout << "Press any key to exit." << std::endl;
-	std::cin >> c;
-	
-	return 0;
-}
-\end{lstlisting}
-
-\lstset{caption={Hello World in C\#}, label=src:csharp}
-\begin{lstlisting}[language={[Sharp]C}]
-using System;
-namespace HelloWorld
-{
-	class Hello 
-	{
-		static void Main() 
-		{
-			Console.WriteLine("Hello World!");
-			
-			Console.WriteLine("Press any key to exit.");
-			Console.ReadKey();
-		}
-	}
-}
-\end{lstlisting}
-
-\subsection{Algoritmusok} % Algorithms
-
-A general Interval Branch and Bound algorithm is shown in Algorithm~\ref{alg:ibb}. One of the following selection rules is applied in Step \ref{step:selrule}.\\
-Példa forrása: \href{https://www.inf.u-szeged.hu/actacybernetica/}{Acta Cybernetica (ez egy link)}.
-
-\begin{algorithm}[H]
-\caption{A general interval B\&B algorithm} 
-\label{alg:ibb} 
-\textbf{\underline{Funct}} IBB($S,f$)
-\begin{algorithmic}[1] % sorszámok megjelenítése minden n. sor előtt, most n = 1
-\STATE Set the working list ${\cal L}_W$ := $\{S\}$ and the final list ${\cal L}_Q$ := $\{\}$     
-\WHILE{( ${\cal L}_W \neq \emptyset$ )} \label{alg:igoend}
-	\STATE  Select an interval $X$ from ${\cal L}_W$ \label{step:selrule}\COMMENT{Selection rule}  
-	\STATE Compute $lbf(X)$ \COMMENT{Bounding rule}		  
-	\IF[Elimination rule]{$X$ cannot be eliminated}
-		\STATE Divide $X$ into $X^j,\ j=1,\dots, p$, subintervals   \COMMENT{Division rule}
-		\FOR{$j=1,\ldots,p$}
-			\IF[Termination rule]{$X^j$ satisfies the termination criterion}
-				\STATE Store $X^j$ in ${\cal L}_W$ 
-			\ELSE
-				\STATE Store $X^j$ in ${\cal L}_W$ 
-			\ENDIF
-		\ENDFOR  
-	\ENDIF
-\ENDWHILE
-\STATE \textbf{return} ${\cal L}_Q$
-\end{algorithmic}
-\end{algorithm}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+% -------------- ITT KEZDŐDIK A LÉNYEGI RÉSZ ------------------------

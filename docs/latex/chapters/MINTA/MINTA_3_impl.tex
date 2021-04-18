@@ -1,10 +1,10 @@
-\chapter{Fejlesztői dokumentáció} % Developer guide
+\chapter{MINTA Fejlesztői dokumentáció} % Developer guide
 \label{ch:impl}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nibh leo, dapibus in elementum nec, aliquet id sem. Suspendisse potenti. Nullam sit amet consectetur nibh. Donec scelerisque varius turpis at tincidunt.
 
 
-\section{Tételek, definíciók, megjegyzések} % Theorem-like items
+\section{MINTA Tételek, definíciók, megjegyzések} % Theorem-like items
 
 \begin{definition}
 Mauris tristique sollicitudin ultrices. Etiam tristique quam sit amet metus dictum imperdiet. Nunc id lorem sed nisl pulvinar aliquet vitae quis arcu. Morbi iaculis eleifend porttitor.
@@ -19,7 +19,7 @@ Nulla finibus ante vel arcu tincidunt, ut consectetur ligula finibus. Mauris mol
 Etiam pulvinar nibh quis massa auctor congue. Pellentesque quis odio vitae sapien molestie vestibulum sit amet et quam. Pellentesque vel dui eget enim hendrerit finibus at sit amet libero. Quisque sollicitudin ultrices enim, nec porta magna imperdiet vitae. Cras condimentum nunc dui.
 \end{proof}
 
-Donec dapibus sodales ante, at scelerisque nunc laoreet sit amet. Mauris porttitor tincidunt neque, vel ullamcorper neque pulvinar et. Integer eu lorem euismod, faucibus lectus sed, accumsan felis. 
+Donec dapibus sodales ante, at scelerisque nunc laoreet sit amet. Mauris porttitor tincidunt neque, vel ullamcorper neque pulvinar et. Integer eu lorem euismod, faucibus lectus sed, accumsan felis.
 
 \begin{remark}
 Nunc ornare mi at augue vulputate, eu venenatis magna mollis. Nunc sed posuere dui, et varius nulla. Sed mollis nibh augue, eget scelerisque eros ornare nec. Praesent porta, metus eget eleifend consequat, eros ligula eleifend ex, a pellentesque mi est vitae urna. Vivamus turpis nunc, iaculis non leo eget, mattis vulputate tellus.
@@ -33,7 +33,7 @@ Aliquam vehicula luctus mi a pretium. Nulla quam neque, maximus nec velit in, al
 
 Ut sollicitudin tempus urna et mollis. Aliquam et aliquam turpis, sed fermentum mauris. Nulla eget ex diam. Donec eget tellus pharetra, semper neque eget, rutrum diam.
 
-\subsection{Egyenletek, matematika} % Equations, formulas
+\subsection{MINTA Egyenletek, matematika} % Equations, formulas
 
 Duis suscipit ipsum nec urna blandit, $2 + 2 = 4$ pellentesque vehicula quam fringilla. Vivamus euismod, lectus sit amet euismod viverra, dolor metus consequat sapien, ut hendrerit nisl nulla id nisi. Nam in leo eu quam sollicitudin semper a quis velit.
 
@@ -47,7 +47,7 @@ e^{i \times \pi} + 1 = 0
 \end{equation}
 
 
-\section{Forráskódok} % Source code samples
+\section{MINTA Forráskódok} % Source code samples
 
 Nulla sodales purus id mi consequat, eu venenatis odio pharetra. Cras a arcu quam. Suspendisse augue risus, pulvinar a turpis et, commodo aliquet turpis. Nulla aliquam scelerisque mi eget pharetra. Mauris sed posuere elit, ac lobortis metus. Proin lacinia sit amet diam sed auctor. Nam viverra orci id sapien sollicitudin, a aliquam lacus suscipit. Quisque ac tincidunt leo Code~\ref{src:cpp} and \ref{src:csharp}:
 
@@ -55,14 +55,14 @@ Nulla sodales purus id mi consequat, eu venenatis odio pharetra. Cras a arcu qua
 \begin{lstlisting}[language={C++}]
 #include <stdio>
 
-int main() 
+int main()
 {
 	int c;
 	std::cout << "Hello World!" << std::endl;
 
 	std::cout << "Press any key to exit." << std::endl;
 	std::cin >> c;
-	
+
 	return 0;
 }
 \end{lstlisting}
@@ -72,12 +72,12 @@ int main()
 using System;
 namespace HelloWorld
 {
-	class Hello 
+	class Hello
 	{
-		static void Main() 
+		static void Main()
 		{
 			Console.WriteLine("Hello World!");
-			
+
 			Console.WriteLine("Press any key to exit.");
 			Console.ReadKey();
 		}
@@ -85,29 +85,29 @@ namespace HelloWorld
 }
 \end{lstlisting}
 
-\subsection{Algoritmusok} % Algorithms
+\subsection{MINTA Algoritmusok} % Algorithms
 
 A general Interval Branch and Bound algorithm is shown in Algorithm~\ref{alg:ibb}. One of the following selection rules is applied in Step \ref{step:selrule}.\\
 Példa forrása: \href{https://www.inf.u-szeged.hu/actacybernetica/}{Acta Cybernetica (ez egy link)}.
 
 \begin{algorithm}[H]
-\caption{A general interval B\&B algorithm} 
-\label{alg:ibb} 
+\caption{A general interval B\&B algorithm}
+\label{alg:ibb}
 \textbf{\underline{Funct}} IBB($S,f$)
 \begin{algorithmic}[1] % sorszámok megjelenítése minden n. sor előtt, most n = 1
-\STATE Set the working list ${\cal L}_W$ := $\{S\}$ and the final list ${\cal L}_Q$ := $\{\}$     
+\STATE Set the working list ${\cal L}_W$ := $\{S\}$ and the final list ${\cal L}_Q$ := $\{\}$
 \WHILE{( ${\cal L}_W \neq \emptyset$ )} \label{alg:igoend}
-	\STATE  Select an interval $X$ from ${\cal L}_W$ \label{step:selrule}\COMMENT{Selection rule}  
-	\STATE Compute $lbf(X)$ \COMMENT{Bounding rule}		  
+	\STATE  Select an interval $X$ from ${\cal L}_W$ \label{step:selrule}\COMMENT{Selection rule}
+	\STATE Compute $lbf(X)$ \COMMENT{Bounding rule}
 	\IF[Elimination rule]{$X$ cannot be eliminated}
 		\STATE Divide $X$ into $X^j,\ j=1,\dots, p$, subintervals   \COMMENT{Division rule}
 		\FOR{$j=1,\ldots,p$}
 			\IF[Termination rule]{$X^j$ satisfies the termination criterion}
-				\STATE Store $X^j$ in ${\cal L}_W$ 
+				\STATE Store $X^j$ in ${\cal L}_W$
 			\ELSE
-				\STATE Store $X^j$ in ${\cal L}_W$ 
+				\STATE Store $X^j$ in ${\cal L}_W$
 			\ENDIF
-		\ENDFOR  
+		\ENDFOR
 	\ENDIF
 \ENDWHILE
 \STATE \textbf{return} ${\cal L}_Q$

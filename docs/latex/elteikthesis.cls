@@ -62,7 +62,9 @@
 % ------------------------------
 % Metaadatok
 \DeclareDocumentCommand{\author}{m}{\newcommand{\authorname}{#1}\renewcommand{\@author}{#1}}
+\NewDocumentCommand{\neptun}{m}{\newcommand{\neptuncode}{#1}}
 \NewDocumentCommand{\degree}{m}{\newcommand{\degreename}{#1}}
+\NewDocumentCommand{\educationtype}{m}{\newcommand{\studytype}{#1}}
 
 \NewDocumentCommand{\supervisor}{m}{\newcommand{\supname}{#1}}
 \NewDocumentCommand{\affiliation}{m}{\newcommand{\supaff}{#1}}
@@ -524,7 +526,20 @@
 	%\begin{center}
 		\vspace*{\fill}
 
+        %{\sc \Large \makecell{\univname}} \vspace{0.3cm}
+		%{\sc \Large \makecell{\facname}} \vspace{0.5cm}
+
 		{\bf \huge \proptitle}
+
+        %\vspace{0.3cm}
+        %\begin{tabular}{ c}
+        %{\bf {Hallgató adatai:}}\\
+        %{Név: } \authorname\\
+        %{Neptun kód: } \neptuncode\\
+        %{\bf {Képzési adatok:}}\\
+        %{Szak: } \degreename\\
+        %{Tagozat: Nappali}\\
+        %\end{tabular}
 
 		\vspace*{\fill}
 		%{\large \declarationplaceholder}
