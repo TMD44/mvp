@@ -2,9 +2,9 @@ import { unlink } from 'fs';
 
 export function cleanBeforeQuit(data = true, config = true) {
     if (data) {
-        unlink('E:\\GIT\\mvp\\exports\\movieData.json', err => {
+        unlink('G:\\mvp\\exports\\movieData.json', (err) => {
             if (err) {
-                //console.error('\x1b[35m%s\x1b[0m', err);
+                // console.error('\x1b[35m%s\x1b[0m', err);
                 console.log('\x1b[35m%s\x1b[0m', 'MovieData file not found!');
                 return;
             }
@@ -12,9 +12,9 @@ export function cleanBeforeQuit(data = true, config = true) {
         });
     }
     if (config) {
-        unlink('E:\\GIT\\mvp\\config\\config.json', err => {
+        unlink('G:\\mvp\\config\\config.json', (err) => {
             if (err) {
-                //console.error('\x1b[35m%s\x1b[0m', err);
+                // console.error('\x1b[35m%s\x1b[0m', err);
                 console.log('\x1b[35m%s\x1b[0m', 'Config file not found!');
                 return;
             }

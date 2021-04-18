@@ -2,20 +2,20 @@ import { app } from 'electron';
 import { promises as fsp } from 'fs';
 
 export const config = {
-    //SCAN PATHS
-    addScanPath: async results => {
+    // SCAN PATHS
+    addScanPath: async (results) => {
         const scanPaths = await config.getScanPaths();
-        results.forEach(result => {
+        results.forEach((result) => {
             if (!scanPaths.includes(result)) {
                 config.setScanPaths(result);
             }
         });
     },
     getScanPaths: async () => {
-        let confFile = await config.readFile();
+        const confFile = await config.readFile();
         return confFile.scan_preferences.scan_paths;
     },
-    setScanPaths: async path => {
+    setScanPaths: async (path) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_paths.push(path);
         await config.writeFile(confFile);
@@ -25,12 +25,12 @@ export const config = {
         confFile.scan_preferences.scan_paths.length = 0;
         await config.writeFile(confFile);
     },
-    //SCAN RESULTS
+    // SCAN RESULTS
     getScanResults: async () => {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_results;
     },
-    setScanResults: async obj => {
+    setScanResults: async (obj) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_results = obj;
         await config.writeFile(confFile);
@@ -40,30 +40,34 @@ export const config = {
         confFile.scan_preferences.scan_results = {};
         await config.writeFile(confFile);
     },
-    //SCAN LANGUAGE
+    // SCAN LANGUAGE
     getScanLanguage: async () => {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_language;
     },
-    //SCAN FILETYPES
+    // SCAN FILETYPES
     getFileTypes: async () => {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_file_types;
     },
 
-    //READ & WRITE FILE
+    // READ & WRITE FILE
     readFile: async () => {
         const data = await fsp.readFile('./config/config.json', 'utf8');
         return JSON.parse(data);
     },
 
-    writeFile: async json => {
-        await fsp.writeFile('./config/config.json', JSON.stringify(json, null, 4), 'utf8');
+    writeFile: async (json) => {
+        await fsp.writeFile(
+            './config/config.json',
+            JSON.stringify(json, null, 4),
+            'utf8'
+        );
     },
 
-    //SETUP
+    // SETUP
     setup: () => {
-        let defaultConfigurations = {
+        const defaultConfigurations = {
             name: 'Anonymous',
             appInfo: {
                 appName: app.getName(),
@@ -103,7 +107,15 @@ export const config = {
                 scan_paths: [],
                 scan_file_types: {
                     media: ['.mkv', '.mp4', '.avi'],
-                    sub: ['.srt', '.ass', '.vtt', '.ssa', '.sub', '.stl', '.scc'],
+                    sub: [
+                        '.srt',
+                        '.ass',
+                        '.vtt',
+                        '.ssa',
+                        '.sub',
+                        '.stl',
+                        '.scc',
+                    ],
                     nfo: ['.nfo'],
                 },
                 scan_components: {
@@ -132,8 +144,8 @@ export const config = {
         config.writeFile(defaultConfigurations);
         console.log('Config file has been created!');
     },
-    //CSAK ÓVATOSAN EZZEL A METÓDUSSAL, MERT MINDENT A CONFIG FÁJLBÓL OLVAS KI A PROGRAM
-    /*deleteConfig: (createConfig = true) => {
+    // CSAK ÓVATOSAN EZZEL A METÓDUSSAL, MERT MINDENT A CONFIG FÁJLBÓL OLVAS KI A PROGRAM
+    /* deleteConfig: (createConfig = true) => {
         fs.unlink('./config/config.json', err => {
             if (err) {
                 console.error(err);
@@ -143,5 +155,5 @@ export const config = {
         });
 
         if (createConfig) config.setup();
-    },*/
+    }, */
 };

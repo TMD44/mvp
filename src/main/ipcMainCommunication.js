@@ -1,9 +1,10 @@
+/* eslint-disable promise/always-return */
 import { ipcMain, dialog } from 'electron';
 import { config } from './configuration';
 
 export function ipcMainCommunication(importWindow) {
     ipcMain.on('openDir_async', (event, arg) => {
-        let reply = {
+        const reply = {
             media: [],
             sub: [],
             nfo: [],
@@ -12,12 +13,12 @@ export function ipcMainCommunication(importWindow) {
             .showOpenDialog(importWindow, {
                 properties: ['openDirectory', 'multiSelections'],
             })
-            .then(result => {
+            .then((result) => {
                 if (result.canceled === false) {
                     config.addScanPath(result.filePaths);
                 }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
             });
     });
