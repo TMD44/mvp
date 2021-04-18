@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const date = new Date();
 
 /**
@@ -7,15 +8,16 @@ const date = new Date();
  */
 export function getDateAndTime(format = 'pretty') {
     const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
+    const month = `0${date.getMonth() + 1}`.slice(-2);
+    const day = `0${date.getDate()}`.slice(-2);
     const hour = (date.getHours() < 10 ? '0' : '') + date.getHours();
     const min = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
     const sec = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
 
-    if (format == 'pretty') {
-        return year + '.' + month + '.' + day + '. ' + hour + ':' + min + ':' + sec;
-    } else if (format == 'bulk') {
+    if (format === 'pretty') {
+        return `${year}.${month}.${day}. ${hour}:${min}:${sec}`;
+    }
+    if (format === 'bulk') {
         return year + month + day + hour + min + sec;
     }
 }

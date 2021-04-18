@@ -1,12 +1,13 @@
+/* eslint-disable no-return-await */
 import MovieDB from 'node-themoviedb';
-import { tmdb_api_key } from '../../../../../assets/private/apiKeys';
+import { tmdbApiKey } from '../../../../../assets/private/apiKeys';
 import { config } from '../../../../main/configuration';
 
 const mdb = new MovieDB();
-mdb.setApiKey(tmdb_api_key);
+mdb.setApiKey(tmdbApiKey);
 mdb.setLanguage(config.getScanLanguage());
 
-//tmdb namespace
+// tmdb namespace
 export const tmdb = {
     getExternalIDs: async (id, type = 'movie') => {
         const args = {
@@ -14,11 +15,7 @@ export const tmdb = {
                 movie_id: id,
             },
         };
-        try {
-            return await mdb.movie.getExternalIDs(args);
-        } catch (err) {
-            console.log(err.message);
-        }
+        return await mdb.movie.getExternalIDs(args);
     },
 
     findByExternalID: async (id, external_source = 'imdb_id') => {
@@ -27,7 +24,7 @@ export const tmdb = {
                 external_id: id,
             },
             query: {
-                external_source: external_source,
+                external_source,
             },
         };
 
@@ -39,9 +36,9 @@ export const tmdb = {
     multiSearch: async (query, region = '', adult = false) => {
         const args = {
             query: {
-                query: query,
+                query,
                 page: 1,
-                region: region,
+                region,
                 include_adult: adult,
             },
         };
@@ -49,14 +46,20 @@ export const tmdb = {
         return await mdb.search.multi(args);
     },
 
-    seachForMovies: async (query, year, release_year, region = '', adult = false) => {
+    seachForMovies: async (
+        query,
+        year,
+        release_year,
+        region = '',
+        adult = false
+    ) => {
         const args = {
             query: {
-                query: query,
+                query,
                 page: 1,
-                year: year,
+                year,
                 primary_release_year: release_year,
-                region: region,
+                region,
                 include_adult: adult,
             },
         };
@@ -67,7 +70,7 @@ export const tmdb = {
     searchForTV: async (query, year, adult = false) => {
         const args = {
             query: {
-                query: query,
+                query,
                 page: 1,
                 first_air_date_year: year,
                 include_adult: adult,

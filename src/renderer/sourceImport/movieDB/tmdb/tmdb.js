@@ -1,10 +1,5 @@
-
 /*
-function 
-
-
-
-
+function
 
 Object.values(completeJSON.media).forEach(movie => {
             //console.log(movie);
@@ -19,4 +14,4 @@ if (imdb.imdb_id != undefined) {
     return tmdb.getExternalIDs(imdb.imdb_id).then(result => {
         return result;
     });
-}*/
+} */

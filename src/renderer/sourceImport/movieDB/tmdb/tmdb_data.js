@@ -1,23 +1,28 @@
+/* eslint-disable promise/always-return */
 import { writeFileSync } from 'fs';
-import { tmdb_api_key } from '../../../../../assets/api/apiKeys';
+import { tmdbApiKey } from '../../../../../assets/private/apiKeys';
 
 const url = [
-    'https://api.themoviedb.org/3/genre/movie/list?api_key=' + tmdb_api_key + '&language=hu-HU' /*MOVIE GENRES*/,
-    'https://api.themoviedb.org/3/genre/tv/list?api_key=' + tmdb_api_key + '&language=hu-HU' /*TV GENRES*/,
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${tmdbApiKey}&language=hu-HU` /* MOVIE GENRES */,
+    `https://api.themoviedb.org/3/genre/tv/list?api_key=${tmdbApiKey}&language=hu-HU` /* TV GENRES */,
 ];
 
 export async function foo() {
     let i = 1;
-    url.forEach(item => {
+    url.forEach((item) => {
         fetch(item)
-            .then(response => response.json())
-            .then(data => {
-                writeFileSync('./exports/genres' + i++ + '.json', JSON.stringify(data, null, 4));
-            });
+            .then((response) => response.json())
+            .then((data) => {
+                writeFileSync(
+                    `./exports/genres${i++}.json`,
+                    JSON.stringify(data, null, 4)
+                );
+            })
+            .catch((err) => console.error(err));
     });
 }
 
-const tmdb_genres = [
+export const tmdbGenres = [
     { id: 10759, name: 'Action & Adventure' },
     { id: 16, name: 'Animation' },
     { id: 35, name: 'Comedy' },

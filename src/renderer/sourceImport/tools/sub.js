@@ -1,8 +1,8 @@
 export async function subFinder(media, results) {
-    let resultArray = [];
+    const resultArray = [];
 
-    results.sub.forEach(sub => {
-        if (sub.path.concat(sub.fn) == media.path.concat(media.fn)) {
+    results.sub.forEach((sub) => {
+        if (sub.path.concat(sub.fn) === media.path.concat(media.fn)) {
             resultArray.push(sub.full);
         }
     });

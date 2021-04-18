@@ -1,32 +1,21 @@
 import { promisify } from 'util';
 import { exec } from 'child_process';
-const execProm = promisify(exec);
 import { path as ffprobe } from 'ffprobe-static';
 
-export async function getVideoInfo(video) {
-    let result;
-    try {
-        result = await execProm(`${ffprobe} -v quiet -print_format json -show_format -show_streams -show_chapters -show_data ${video}`);
-    } catch (err) {
-        console.log('ERROR FROM videoInfo.js');
-        return;
-    }
-    console.log(JSON.parse(result.stdout));
-    return filterFfprobe(JSON.parse(result.stdout));
-}
+const execProm = promisify(exec);
 
 function filterFfprobe(data) {
-    let filteredVideoInfo = {};
+    const filteredVideoInfo = {};
 
-    //FORMAT
-    const format = data.format;
+    // FORMAT
+    const { format } = data;
     if (data.format) {
-        filteredVideoInfo['file_size'] = format.size;
-        filteredVideoInfo['duration'] = format.duration;
-        filteredVideoInfo['bit_rate'] = format.bit_rate;
+        filteredVideoInfo.file_size = format.size;
+        filteredVideoInfo.duration = format.duration;
+        filteredVideoInfo.bit_rate = format.bit_rate;
     }
 
-    //STREAMS
+    // STREAMS
     /*
     const streams = data.streams;
     let video = [];
@@ -40,7 +29,7 @@ function filterFfprobe(data) {
 
                     }
                     break;
-                
+
                 case 'audio':
                     break;
 
@@ -56,7 +45,22 @@ function filterFfprobe(data) {
                     break;
             }
         })
-    }*/
+    } */
 
     return filteredVideoInfo;
+}
+
+export async function getVideoInfo(video) {
+    let result;
+    try {
+        result = await execProm(
+            `${ffprobe} -v quiet -print_format json -show_format -show_streams -show_chapters -show_data ${video}`
+        );
+    } catch (err) {
+        console.log('ERROR FROM videoInfo.js');
+        return;
+    }
+    console.log(JSON.parse(result.stdout));
+    // eslint-disable-next-line consistent-return
+    return filterFfprobe(JSON.parse(result.stdout));
 }

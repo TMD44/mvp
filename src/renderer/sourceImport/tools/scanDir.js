@@ -1,14 +1,17 @@
-import fs from 'fs';
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
+
+// import fs from 'fs';
 import { promises as fsp } from 'fs';
 import { join, extname } from 'path';
 
-//ASYNCHRONOUS
-//Base code from Stackoverflow, minor changes have been made:
-//https://stackoverflow.com/questions/56583365/async-and-recursive-directory-scan-for-file-listing-in-nodejs-and-expressjs
+// ASYNCHRONOUS
+// Base code from Stackoverflow, minor changes have been made:
+// https://stackoverflow.com/questions/56583365/async-and-recursive-directory-scan-for-file-listing-in-nodejs-and-expressjs
 export async function scanDir(directoryName, filter, results = []) {
-    let files = await fsp.readdir(directoryName, { withFileTypes: true });
-    for (let f of files) {
-        let fullPath = join(directoryName, f.name);
+    const files = await fsp.readdir(directoryName, { withFileTypes: true });
+    for (const f of files) {
+        const fullPath = join(directoryName, f.name);
         if (f.isDirectory()) {
             await scanDir(fullPath, filter, results);
         } else if (filter.includes(extname(fullPath))) {
@@ -28,7 +31,8 @@ async function scanDir(directoryName, filter, callback) {
             callback(fullPath);
         }
     }
-}*/
+}
+*/
 /*
 async function scanDir(directoryName, regex, callback) {
     const files = await fsp.readdir(directoryName, { withFileTypes: true });
@@ -43,10 +47,10 @@ async function scanDir(directoryName, regex, callback) {
 }
 */
 
-//SYNCHRONOUS
+// SYNCHRONOUS
 /*
-//Base code from Stackoverflow, minor changes have been made:
-//https://stackoverflow.com/questions/25460574/find-files-by-extension-html-under-a-folder-in-nodejs
+// Base code from Stackoverflow, minor changes have been made:
+// https://stackoverflow.com/questions/25460574/find-files-by-extension-html-under-a-folder-in-nodejs
 function scanDir(startPath, filter, callback) {
     if (!fs.existsSync(startPath)) {
         console.log("Error: no dir found! ", startPath);
