@@ -1,7 +1,8 @@
 {
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig",
-    "msjsdiag.debugger-for-chrome"
-  ]
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "EditorConfig.EditorConfig",
+        "msjsdiag.debugger-for-chrome"
+    ]
 }

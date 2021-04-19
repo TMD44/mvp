@@ -524,26 +524,33 @@
 \newcommand{\thesisproposal}{
 	\thispagestyle{empty}
 	%\begin{center}
-		\vspace*{\fill}
+		%\vspace*{\fill}
 
-        %{\sc \Large \makecell{\univname}} \vspace{0.3cm}
-		%{\sc \Large \makecell{\facname}} \vspace{0.5cm}
+		{\bf \huge {Szakdolgozati témabejelentő}}
 
-		{\bf \huge \proptitle}
+        \begin{flushleft}
+            {\bf {Hallgató adatai:}}\\
+            \> \> \> \> {\emph {Név: }} \authorname\\
+            \> \> \> \> {\emph {Neptun kód: }} \neptuncode\\
+            \vspace{0.3cm}
+            {\bf {Képzési adatok:}}\\
+            \> \> \> \> {\emph {Szak: }} \degreename\\
+            \> \> \> \> {\emph {Tagozat: }} \studytype\\
+            \vspace{0.3cm}
+            {\bf {Témavezető neve:}} \supname\\
+            \> \> \> \> {\emph {Munkahelyének neve, tanszéke: }}\\
+            \> \> \> \> \> \> \> \> {\small {ELTE Informatikai Kar, Adattudományi és Adattechnológiai Tanszék}}\\
+            \> \> \> \> {\emph {Munkahelyének címe: }}\\
+            \> \> \> \> \> \> \> \> {\small {117 Budapest, Pázmány Péter sétány 1/C., 2. emelet, 2.420-as szoba}}\\
+            \> \> \> \> {\emph {Beosztás és iskolai végzettsége: }} {\small \supaff}\\
+        \end{flushleft}
 
-        %\vspace{0.3cm}
-        %\begin{tabular}{ c}
-        %{\bf {Hallgató adatai:}}\\
-        %{Név: } \authorname\\
-        %{Neptun kód: } \neptuncode\\
-        %{\bf {Képzési adatok:}}\\
-        %{Szak: } \degreename\\
-        %{Tagozat: Nappali}\\
-        %\end{tabular}
+		\vspace{0.5cm}
 
-		\vspace*{\fill}
-		%{\large \declarationplaceholder}
-		{\prop}
+        {\bf {A szakdolgozat címe:}} \proptitle\\
+        \vspace{1cm}
+        \> \> {\bf {A szakdolgozat témája:}}\\
+        {\prop}
 
 		\vspace*{\fill}
 

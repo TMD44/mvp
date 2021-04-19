@@ -52,7 +52,6 @@ export const scan = {
         await printJSONToFile('./exports/movieData.json', scan.completeJSON);
 
         // purgeScanResults();
-        document.getElementById('importDone').innerHTML = 'Import is done!';
     },
 
     onlineScan: () => {
