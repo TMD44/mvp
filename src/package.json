@@ -15,5 +15,8 @@
     },
     "license": "MIT",
     "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {
+        "@types/react": "^17.0.3",
+        "@types/react-modal": "^3.12.0"
+    }
 }

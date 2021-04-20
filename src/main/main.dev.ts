@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, shell } from 'electron';
 import windowStateKeeper from 'electron-window-state';
 import { ipcMainCommunication } from './ipcMainCommunication';
 import { config } from './configuration';
@@ -18,7 +18,7 @@ function createWindow() {
         y: appWindowState.y,
         width: appWindowState.width,
         height: appWindowState.height,
-        icon: `${app.getAppPath()}/assets/icons/icon_128x128.ico`,
+        icon: '../../assets/icons/icon.svg',
         webPreferences: {
             nodeIntegration: true,
         },
@@ -29,6 +29,14 @@ function createWindow() {
     appWindow.loadFile('../renderer/App/index.html');
 
     appWindow.webContents.openDevTools();
+
+    appWindow.removeMenu();
+
+    // Opens link on user's the default browser
+    appWindow.webContents.on('new-window', (event, url) => {
+        event.preventDefault();
+        shell.openExternal(url);
+    });
 
     config.setup();
     ipcMainCommunication(appWindow);

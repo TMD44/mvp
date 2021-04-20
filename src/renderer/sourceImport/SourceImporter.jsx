@@ -4,24 +4,24 @@ import { config } from '../../main/configuration';
 import { ipcRendererCommunication } from '../ipcRendererCommunication';
 import { scan } from './scan';
 
+export function openDirButton() {
+    config.purgeScanResults();
+    ipcRendererCommunication();
+}
+
+export function importSourcesButton() {
+    scan.offlineScan();
+}
+
+export function importWithMetadata() {
+    scan.onlineScan();
+}
+
+export function deleteDirs() {
+    config.purgeScanPaths();
+}
+
 export function SourceImporter() {
-    function openDirButton() {
-        config.purgeScanResults();
-        ipcRendererCommunication();
-    }
-
-    function importSourcesButton() {
-        scan.offlineScan();
-    }
-
-    function importWithMetadata() {
-        scan.onlineScan();
-    }
-
-    function deleteDirs() {
-        config.purgeScanPaths();
-    }
-
     return (
         <div>
             <h1>Source Import</h1>
