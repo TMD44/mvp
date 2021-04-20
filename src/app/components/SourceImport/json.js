@@ -1,10 +1,10 @@
 import { promises as fsp } from 'fs';
+import { getExportPath } from '@main/getPaths';
 import { fnr } from './tools/fnr';
 import { subFinder } from './tools/sub';
 import { nfoFileFinder, nfoIdFinder } from './tools/nfo';
 import { getHashID } from './tools/hashID';
 import { getDateAndTime } from './tools/date';
-
 import { getVideoInfo } from './tools/videoInfo';
 
 export async function mediaJSONGenerator(media, scanResults) {
@@ -61,4 +61,9 @@ export async function completeJSONGenerator(mediaInJSON) {
 
 export async function printJSONToFile(path, jsonToPrint) {
     fsp.writeFile(path, JSON.stringify(jsonToPrint, null, 4), 'utf8');
+}
+
+export async function getJson() {
+    const data = await fsp.readFile(getExportPath('movieData.json'), 'utf8');
+    return JSON.parse(data);
 }

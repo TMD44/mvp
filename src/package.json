@@ -22,7 +22,6 @@
     "bugs": {
         "url": "https://github.com/TMD44/mvp/issues"
     },
-
     "dependencies": {},
     "devDependencies": {
         "@types/core-js": "^2.5.4",

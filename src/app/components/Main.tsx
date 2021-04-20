@@ -1,11 +1,10 @@
 import React from 'react';
 import { config } from '../../main/configuration';
+import { getJson } from './SourceImport/json';
 
-async function appName() {
-    const result1 = await config.getAny('appInfo', 'appName');
-    console.log('APP NAME: ', result1);
-    const result2 = await config.getAny('appInfo', 'appVersion');
-    console.log('APP VERSION: ', result2);
+async function gj() {
+    const data = await getJson();
+    console.log('DATA: ', data);
 }
 
 export function Main() {
@@ -14,7 +13,7 @@ export function Main() {
             <header>HEADER</header>
             <section>
                 SECTION TAG
-                <button type="button" onClick={appName}>
+                <button type="button" onClick={gj}>
                     APP NAME
                 </button>
             </section>

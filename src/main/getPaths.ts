@@ -8,12 +8,12 @@ const ASSETS_PATH =
 const CONFIG_PATH =
     process.env.NODE_ENV === 'production'
         ? path.join(process.resourcesPath, '../resources/assets/config')
-        : path.join(__dirname, '../../config');
+        : path.join(__dirname, '../../assets/config');
 
-const EXPORTS_PATH =
+const EXPORT_PATH =
     process.env.NODE_ENV === 'production'
         ? path.join(process.resourcesPath, '../resources/assets/export')
-        : path.join(__dirname, '../../export');
+        : path.join(__dirname, '../../assets/export');
 
 export const getAssetsPath = (...paths: string[]): string => {
     return path.join(ASSETS_PATH, ...paths);
@@ -24,5 +24,5 @@ export const getConfigPath = (...paths: string[]): string => {
 };
 
 export const getExportPath = (...paths: string[]): string => {
-    return path.join(EXPORTS_PATH, ...paths);
+    return path.join(EXPORT_PATH, ...paths);
 };

@@ -38,6 +38,11 @@ const installExtensions = async () => {
         .catch(console.log);
 };
 
+const quitApp = () => {
+    cleanBeforeQuit();
+    app.quit();
+};
+
 const createWindow = async () => {
     if (isDevelopmentMode) {
         await installExtensions();
@@ -69,16 +74,16 @@ const createWindow = async () => {
         appWindow.loadFile('../app/index.html');
     }
 
-    if (isDevelopmentMode) {
+    /* if (isDevelopmentMode) {
         appWindow.webContents.openDevTools();
-    }
+    } */
+    appWindow.webContents.openDevTools();
 
     // const menuBuilder = new MenuBuilder(appWindow);
     // menuBuilder.buildMenu();
 
     appWindow.on('closed', () => {
-        cleanBeforeQuit();
-        app.quit();
+        quitApp();
     });
 
     // Opens URLs in user's the default browser
@@ -95,8 +100,7 @@ app.whenReady().then(createWindow).catch(console.log);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        cleanBeforeQuit();
-        app.quit();
+        quitApp();
     }
 });
 

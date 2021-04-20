@@ -64,7 +64,10 @@ export function VideoPlayerModal({
                     srcLang="hu"
                     label="Hungarian"
                 />
-                <source src={getAssetsPath('SAMPLE.mp4')} type="video/mp4" />
+                <source
+                    src={getAssetsPath('sample/SAMPLE.mp4')}
+                    type="video/mp4"
+                />
             </video>
         </Modal>
     );

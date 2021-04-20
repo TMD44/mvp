@@ -3,16 +3,16 @@
     "productName": "Multimedia Visualization Platform",
     "description": "Create your own streaming service, completely offline.",
     "scripts": {
+        "package": "yarn clean && yarn build && electron-builder build --publish never",
         "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
         "build:main": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.main.prod.babel.js",
         "build:renderer": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.renderer.prod.babel.js",
         "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir src",
-        "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
-        "package": "yarn clean && yarn build && electron-builder build --publish never",
         "postinstall": "node -r @babel/register .erb/scripts/CheckNativeDep.js && electron-builder install-app-deps && yarn cross-env NODE_ENV=development webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.babel.js && opencollective-postinstall && yarn-deduplicate yarn.lock",
         "start": "node -r @babel/register ./.erb/scripts/CheckPortInUse.js && yarn start:renderer",
         "start:main": "cross-env NODE_ENV=development electron -r ./.erb/scripts/BabelRegister ./src/main/main.dev.ts",
         "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.config.renderer.dev.babel.js",
+        "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
         "test": "jest",
         "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js",
         "generate-media": "node src/__test__/test.ts"
@@ -257,6 +257,7 @@
         "react-router-dom": "^5.2.0",
         "react-switch": "^6.0.0",
         "regenerator-runtime": "^0.13.5",
+        "sass": "^1.32.11",
         "semantic-ui-react": "^2.0.3",
         "source-map-support": "^0.5.19",
         "tinyurl": "^1.1.7"

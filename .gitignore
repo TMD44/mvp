@@ -1,6 +1,9 @@
 # Private folder
 assets/private/
 
+# Sample files
+assets/sample
+
 # Package-lock file
 package-lock.json
 

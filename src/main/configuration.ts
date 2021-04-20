@@ -1,6 +1,6 @@
 import { app } from 'electron';
 import { promises as fsp } from 'fs';
-import { getAssetsPath } from './getPaths';
+import { getConfigPath } from './getPaths';
 
 export const config = {
     // TODO: FURTHER DEVELOPMENT REQUIRED
@@ -64,14 +64,14 @@ export const config = {
 
     // READ & WRITE FILE
     readFile: async () => {
-        const data = await fsp.readFile(getAssetsPath('config.json'), 'utf8');
+        const data = await fsp.readFile(getConfigPath('config.json'), 'utf8');
         return JSON.parse(data);
     },
 
     writeFile: async (json: unknown) => {
         try {
             await fsp.writeFile(
-                getAssetsPath('config.json'),
+                getConfigPath('/config.json'),
                 JSON.stringify(json, null, 4),
                 'utf8'
             );
