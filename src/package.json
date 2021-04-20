@@ -1,22 +1,32 @@
 {
     "name": "mvp",
     "productName": "Multimedia Visualization Platform",
-    "version": "0.1.0",
     "description": "Create your own streaming service, completely offline.",
+    "version": "0.1.0",
     "main": "./main/main.prod.js",
+    "scripts": {
+        "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
+        "postinstall": "yarn electron-rebuild"
+    },
+    "homepage": "https://github.com/TMD44/mvp#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TMD44/mvp.git"
+    },
     "author": {
         "name": "TMD44",
         "email": "tmd44@outlook.hu",
         "url": "https://github.com/TMD44/mvp"
     },
-    "scripts": {
-        "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
-        "postinstall": "yarn electron-rebuild"
-    },
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/TMD44/mvp/issues"
+    },
+
     "dependencies": {},
     "devDependencies": {
-        "@types/react": "^17.0.3",
-        "@types/react-modal": "^3.12.0"
+        "@types/core-js": "^2.5.4",
+        "@types/react-modal": "^3.12.0",
+        "@types/regenerator-runtime": "^0.13.0"
     }
 }

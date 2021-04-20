@@ -8,12 +8,13 @@
         "build:renderer": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.renderer.prod.babel.js",
         "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir src",
         "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
-        "package": "rm -rf src/dist && yarn build && electron-builder build --publish never",
+        "package": "yarn clean && yarn build && electron-builder build --publish never",
         "postinstall": "node -r @babel/register .erb/scripts/CheckNativeDep.js && electron-builder install-app-deps && yarn cross-env NODE_ENV=development webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.babel.js && opencollective-postinstall && yarn-deduplicate yarn.lock",
         "start": "node -r @babel/register ./.erb/scripts/CheckPortInUse.js && yarn start:renderer",
         "start:main": "cross-env NODE_ENV=development electron -r ./.erb/scripts/BabelRegister ./src/main/main.dev.ts",
         "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.config.renderer.dev.babel.js",
         "test": "jest",
+        "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js",
         "generate-media": "node src/__test__/test.ts"
     },
     "homepage": "https://github.com/TMD44/mvp#readme",
@@ -52,14 +53,13 @@
         ]
     },
     "build": {
-        "productName": "mvp",
+        "productName": "Multimedia Visualization Platform",
         "appId": "hu.tmd44.mvp",
         "copyright": "Copyright © 2021 MVP",
         "files": [
             "dist/",
             "node_modules/",
-            "index.html",
-
+            "app/index.html",
             "main/main.prod.js",
             "main/main.prod.js.map",
             "package.json"
@@ -228,6 +228,7 @@
         "sass-loader": "^10.1.0",
         "style-loader": "^2.0.0",
         "terser-webpack-plugin": "^5.0.3",
+        "tsconfig-paths-webpack-plugin": "^3.5.1",
         "typescript": "^4.2.3",
         "url-loader": "^4.1.0",
         "webpack": "^5.5.1",

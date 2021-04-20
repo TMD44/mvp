@@ -4,11 +4,6 @@ import { config } from './configuration';
 
 export function ipcMainCommunication(window: Electron.BrowserWindow) {
     ipcMain.on('openDir_async', (event, arg) => {
-        const reply = {
-            media: [],
-            sub: [],
-            nfo: [],
-        };
         dialog
             .showOpenDialog(window, {
                 properties: ['openDirectory', 'multiSelections'],

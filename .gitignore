@@ -1,6 +1,9 @@
 # Private folder
 assets/private/
 
+# Package-lock file
+package-lock.json
+
 # Logs
 logs
 *.log

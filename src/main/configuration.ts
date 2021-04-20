@@ -1,7 +1,15 @@
 import { app } from 'electron';
 import { promises as fsp } from 'fs';
+import { getAssetsPath } from './getPaths';
 
 export const config = {
+    // TODO: FURTHER DEVELOPMENT REQUIRED
+    getAny: async (f: string, s: string) => {
+        const confFile = await config.readFile();
+        if (!confFile[f]) return 'ERROR';
+        return confFile[f][s];
+    },
+
     // SCAN PATHS
     addScanPath: async (results: unknown[]) => {
         const scanPaths = await config.getScanPaths();
@@ -25,6 +33,7 @@ export const config = {
         confFile.scan_preferences.scan_paths.length = 0;
         await config.writeFile(confFile);
     },
+
     // SCAN RESULTS
     getScanResults: async () => {
         const confFile = await config.readFile();
@@ -40,11 +49,13 @@ export const config = {
         confFile.scan_preferences.scan_results = {};
         await config.writeFile(confFile);
     },
+
     // SCAN LANGUAGE
     getScanLanguage: async () => {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_language;
     },
+
     // SCAN FILETYPES
     getFileTypes: async () => {
         const confFile = await config.readFile();
@@ -53,16 +64,20 @@ export const config = {
 
     // READ & WRITE FILE
     readFile: async () => {
-        const data = await fsp.readFile('./config/config.json', 'utf8');
+        const data = await fsp.readFile(getAssetsPath('config.json'), 'utf8');
         return JSON.parse(data);
     },
 
     writeFile: async (json: unknown) => {
-        await fsp.writeFile(
-            './config/config.json',
-            JSON.stringify(json, null, 4),
-            'utf8'
-        );
+        try {
+            await fsp.writeFile(
+                getAssetsPath('config.json'),
+                JSON.stringify(json, null, 4),
+                'utf8'
+            );
+        } catch (error) {
+            console.error(error);
+        }
     },
 
     // SETUP

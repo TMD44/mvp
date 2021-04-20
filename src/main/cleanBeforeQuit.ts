@@ -1,10 +1,10 @@
 import { unlink } from 'fs';
+import { getConfigPath, getExportPath } from './getPaths';
 
 export function cleanBeforeQuit(data = true, config = true) {
     if (data) {
-        unlink('G:\\mvp\\exports\\movieData.json', (err) => {
+        unlink(getExportPath('movieData.json'), (err) => {
             if (err) {
-                // console.error('\x1b[35m%s\x1b[0m', err);
                 console.log('\x1b[35m%s\x1b[0m', 'MovieData file not found!');
                 return;
             }
@@ -12,9 +12,8 @@ export function cleanBeforeQuit(data = true, config = true) {
         });
     }
     if (config) {
-        unlink('G:\\mvp\\config\\config.json', (err) => {
+        unlink(getConfigPath('config.json'), (err) => {
             if (err) {
-                // console.error('\x1b[35m%s\x1b[0m', err);
                 console.log('\x1b[35m%s\x1b[0m', 'Config file not found!');
                 return;
             }
