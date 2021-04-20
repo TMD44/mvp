@@ -10,6 +10,8 @@
     "javascript.format.enable": false,
     "typescript.format.enable": false,
 
+    "terminal.integrated.cwd": "",
+
     "search.exclude": {
         ".git": true,
         ".eslintcache": true,

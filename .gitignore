@@ -1,10 +1,5 @@
-#FROM OLD MVP - TODO!
-docs/_elteikthesis/
-exports/
+# Private folder
 assets/private/
-out/
-dist/
-config/config.json
 
 # Logs
 logs
@@ -42,6 +37,8 @@ node_modules
 release
 src/main.prod.js
 src/main.prod.js.map
+src/main/main.prod.js
+src/main/main.prod.js.map
 src/renderer.prod.js
 src/renderer.prod.js.map
 src/style.css

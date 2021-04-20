@@ -1,7 +1,6 @@
 {
     "name": "mvp",
     "productName": "Multimedia Visualization Platform",
-    "version": "0.1.0",
     "description": "Create your own streaming service, completely offline.",
     "scripts": {
         "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
@@ -55,12 +54,14 @@
     "build": {
         "productName": "mvp",
         "appId": "hu.tmd44.mvp",
+        "copyright": "Copyright © 2021 MVP",
         "files": [
             "dist/",
             "node_modules/",
             "index.html",
-            "main.prod.js",
-            "main.prod.js.map",
+
+            "main/main.prod.js",
+            "main/main.prod.js.map",
             "package.json"
         ],
         "afterSign": ".erb/scripts/Notarize.js",

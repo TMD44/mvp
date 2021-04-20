@@ -3,9 +3,9 @@ import { promises as fsp } from 'fs';
 
 export const config = {
     // SCAN PATHS
-    addScanPath: async (results: any[]) => {
+    addScanPath: async (results: unknown[]) => {
         const scanPaths = await config.getScanPaths();
-        results.forEach((result) => {
+        results.forEach((result: unknown) => {
             if (!scanPaths.includes(result)) {
                 config.setScanPaths(result);
             }
@@ -15,7 +15,7 @@ export const config = {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_paths;
     },
-    setScanPaths: async (path: any) => {
+    setScanPaths: async (path: unknown) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_paths.push(path);
         await config.writeFile(confFile);
@@ -30,7 +30,7 @@ export const config = {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_results;
     },
-    setScanResults: async (obj: any) => {
+    setScanResults: async (obj: unknown) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_results = obj;
         await config.writeFile(confFile);
@@ -57,7 +57,7 @@ export const config = {
         return JSON.parse(data);
     },
 
-    writeFile: async (json: any) => {
+    writeFile: async (json: unknown) => {
         await fsp.writeFile(
             './config/config.json',
             JSON.stringify(json, null, 4),
