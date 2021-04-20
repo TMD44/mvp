@@ -6,6 +6,8 @@ import path from 'path';
 import webpack from 'webpack';
 import { dependencies as externals } from '../../src/package.json';
 
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 export default {
     externals: [...Object.keys(externals || {})],
 
@@ -36,6 +38,12 @@ export default {
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
         modules: [path.join(__dirname, '../../src'), 'node_modules'],
+        plugins: [
+            new TsconfigPathsPlugin({
+                configFile: path.join(__dirname, '../../tsconfig.json'),
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+            }),
+        ],
     },
 
     plugins: [
