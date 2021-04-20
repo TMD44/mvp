@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Main } from './Main';
 import { ModalController } from './Modals/ModalController';
+import { Main } from './Main';
 import { SideBar } from './SideBar';
 
 export function Layout() {

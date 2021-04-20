@@ -20,12 +20,12 @@ import {
 } from 'react-icons/fa';
 import { MdSettings, MdDelete, MdHelp } from 'react-icons/md';
 import Hamburger from 'hamburger-react';
-import mvp from '../../../../assets/mvp.jpg';
+import mvp from '@assets/images/mvp.jpg';
 import {
     openDirButton,
     deleteDirs,
     importSourcesButton,
-} from '../../sourceImport/SourceImporter';
+} from './SourceImport/SourceImporter';
 
 interface PropsShape {
     collapsed: boolean;

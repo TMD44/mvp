@@ -1,14 +1,21 @@
+// https://github.com/azouaoui-med/react-pro-sidebar
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 $sidebar-bg-color: #1d1d1d;
-$submenu-bg-color: rgba(255, 255, 255, 0.05);
-$submenu-bg-color-collapsed: rgba(29, 29, 29, 0.95);
+$sidebar-color: #adadad;
 $sidebar-width: 300px !default;
 $sidebar-collapsed-width: 80px !default;
-$sidebar-color: #adadad;
+$submenu-bg-color: rgba(255, 255, 255, 0.05);
+$submenu-bg-color-collapsed: rgba(29, 29, 29, 0.95);
 $highlight-color: #d8d8d8;
 $icon-bg-color: rgba(255, 255, 255, 0.05);
 $icon-size: 35px;
+
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 500px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
 
 @import '~react-pro-sidebar/dist/scss/styles.scss';
 
@@ -16,7 +23,6 @@ body {
     margin: 0;
     height: 100vh;
     color: #353535;
-    font-family: 'Roboto', sans-serif;
 }
 
 .app {
