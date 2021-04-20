@@ -34,8 +34,8 @@ export function MessageModal({ closeModal, modalIsOpen, message }: PropsShape) {
         <Modal
             style={customStyles}
             isOpen={modalIsOpen}
-            onAfterOpen={() => setTimeout(() => closeModal(), 1000)}
-            contentLabel="SETTINGS MODAL"
+            onAfterOpen={() => setTimeout(() => closeModal(), 500)}
+            contentLabel="Message"
         >
             <b style={{ color: 'white' }}>{message}</b>
         </Modal>

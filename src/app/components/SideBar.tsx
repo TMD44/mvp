@@ -26,6 +26,7 @@ import {
     deleteDirs,
     importSourcesButton,
 } from './SourceImport/SourceImporter';
+import { ModalType } from './Modals/ModalType';
 
 interface PropsShape {
     collapsed: boolean;
@@ -34,7 +35,7 @@ interface PropsShape {
     handleToggleSidebar: (checked: boolean) => void;
     handleCollapsedChange: (checked: boolean) => void;
     handlePositionChange: (value: boolean) => void;
-    handleModal: (type: string, message?: string) => void;
+    handleModal: (type: ModalType, message?: string) => void;
 }
 
 export function SideBar({
@@ -55,7 +56,7 @@ export function SideBar({
 
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
-        handleModal('MessageModal', 'Copied to clipboard!');
+        handleModal(ModalType.Message, 'Copied to clipboard!');
     };
 
     return (
@@ -117,36 +118,21 @@ export function SideBar({
             <SidebarContent>
                 <Menu iconShape="circle">
                     <MenuItem
-                        onClick={openDirButton}
-                        icon={<FaFolderOpen />}
-                        suffix={<span className="badge green">OPEN</span>}
-                    >
-                        OPEN DIR
-                    </MenuItem>
-                    <MenuItem
-                        onClick={deleteDirs}
-                        icon={<MdDelete />}
-                        suffix={<span className="badge red">DELETE</span>}
-                    >
-                        DELETE DIR
-                    </MenuItem>
-                    <MenuItem
-                        onClick={importSourcesButton}
+                        onClick={() => handleModal(ModalType.SourceImport)}
                         icon={<FaFileImport />}
-                        suffix={<span className="badge blue">IMPORT</span>}
                     >
-                        IMPORT SOURCES
+                        Source importer
                     </MenuItem>
                 </Menu>
                 <Menu iconShape="circle">
                     <MenuItem
-                        onClick={() => handleModal('VideoPlayerModal')}
+                        onClick={() => handleModal(ModalType.Media)}
                         icon={<FaVideo />}
                     >
-                        OPEN VIDEO MODAL
+                        OPEN MEDIA MODAL
                     </MenuItem>
                     <MenuItem
-                        onClick={() => handleModal('SettingsModal')}
+                        onClick={() => handleModal(ModalType.Settings)}
                         icon={<MdSettings />}
                     >
                         OPEN SETTINGS MODAL

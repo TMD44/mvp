@@ -1,13 +1,8 @@
 /* eslint-disable import/prefer-default-export */
-import React from 'react';
+import React, { useState } from 'react';
 import { config } from '@main/configuration';
 import { ipcRendererCommunication } from './ipcRendererCommunication';
 import { scan } from './scan';
-
-export function openDirButton() {
-    config.purgeScanResults();
-    ipcRendererCommunication();
-}
 
 export function importSourcesButton() {
     scan.offlineScan();
@@ -20,8 +15,18 @@ export function importWithMetadata() {
 export function deleteDirs() {
     config.purgeScanPaths();
 }
-/*
+
 export function SourceImporter() {
+    const [selectedScanPaths, setSelectedScanPaths] = useState('');
+
+    const openDirButton = async () => {
+        config.purgeScanResults();
+        ipcRendererCommunication();
+        const result = await config.getScanPaths();
+        console.log('RESULT: ', result);
+        setSelectedScanPaths(result);
+    };
+
     return (
         <div>
             <h1>Source Import</h1>
@@ -47,7 +52,8 @@ export function SourceImporter() {
             </button>
             <p id="selected_paths" />
             <p id="selected_files_length" />
-            <textarea id="selected_files" rows="5" cols="50" readOnly />
+            <h2>Selected scan paths:</h2>
+            <p>{selectedScanPaths}</p>
 
             <button
                 onClick={importSourcesButton}
@@ -71,4 +77,3 @@ export function SourceImporter() {
         </div>
     );
 }
-*/

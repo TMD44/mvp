@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
+import { SourceImporter } from '../SourceImport/SourceImporter';
 
 interface PropsShape {
     customStyles: Record<string, unknown>;
@@ -8,7 +9,7 @@ interface PropsShape {
     modalIsOpen: boolean;
 }
 
-export function DefaultModal({
+export function SourceImportModal({
     customStyles,
     closeModal,
     modalIsOpen,
@@ -18,7 +19,7 @@ export function DefaultModal({
             style={customStyles}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            contentLabel="Default"
+            contentLabel="Source import"
         >
             <FaWindowClose
                 onClick={closeModal}
@@ -33,7 +34,7 @@ export function DefaultModal({
                     cursor: 'pointer',
                 }}
             />
-            <h1 style={{ color: 'black' }}>DEFAULT MODAL</h1>
+            <SourceImporter />
         </Modal>
     );
 }

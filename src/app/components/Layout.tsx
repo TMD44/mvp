@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ModalController } from './Modals/ModalController';
 import { Main } from './Main';
 import { SideBar } from './SideBar';
+import { ModalType } from './Modals/ModalType';
 
 export function Layout() {
     const [position, setPosition] = useState(false);
@@ -9,15 +10,11 @@ export function Layout() {
     const [toggled, setToggled] = useState(false);
 
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [messageModalIsOpen, setMessageModalIsOpen] = useState(false);
-    const [modalType, setModalType] = useState('');
+    const [modalType, setModalType] = useState(ModalType.Default);
     const [modalMessage, setModalMessage] = useState('');
 
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
-
-    const openMessageModal = () => setMessageModalIsOpen(true);
-    const closeMessageModal = () => setMessageModalIsOpen(false);
 
     const handleCollapsedChange = (checked: boolean) => {
         setCollapsed(checked);
@@ -26,23 +23,16 @@ export function Layout() {
     const handlePositionChange = (checked: boolean) => {
         setPosition(checked);
     };
-    /* const handleImageChange = (checked) => {
-        setImage(checked);
-    }; */
 
     const handleToggleSidebar = (value: boolean) => {
         setToggled(value);
     };
 
-    function handleModal(type: string, message?: string) {
+    function handleModal(type: ModalType, message?: string) {
         setModalType(type);
         if (message) setModalMessage(message);
 
-        if (modalType === 'MessageModal') {
-            openMessageModal();
-        } else {
-            openModal();
-        }
+        openModal();
     }
 
     return (
@@ -64,16 +54,8 @@ export function Layout() {
             <Main />
             <ModalController
                 modalType={modalType}
-                closeModal={
-                    modalType === 'MessageModal'
-                        ? closeMessageModal
-                        : closeModal
-                }
-                modalIsOpen={
-                    modalType === 'MessageModal'
-                        ? messageModalIsOpen
-                        : modalIsOpen
-                }
+                closeModal={closeModal}
+                modalIsOpen={modalIsOpen}
                 message={modalMessage}
             />
         </div>

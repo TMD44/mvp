@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
 
 interface PropsShape {
-    customStyles: Record<string, unknown>; // TODO: UTÁNAOLVASNI
+    customStyles: Record<string, unknown>;
     closeModal: () => void;
     modalIsOpen: boolean;
 }
@@ -18,7 +18,7 @@ export function SettingsModal({
             style={customStyles}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            contentLabel="SETTINGS MODAL"
+            contentLabel="Settings"
         >
             <FaWindowClose
                 onClick={closeModal}
