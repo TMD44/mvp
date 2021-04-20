@@ -1,6 +1,6 @@
 /* eslint-disable promise/always-return */
 import { writeFileSync } from 'fs';
-import { tmdbApiKey } from '../../../../../assets/private/apiKeys';
+import { tmdbApiKey } from '@assets/private/apiKeys';
 
 const url = [
     `https://api.themoviedb.org/3/genre/movie/list?api_key=${tmdbApiKey}&language=hu-HU` /* MOVIE GENRES */,

@@ -3,15 +3,15 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-await-in-loop */
 
+import { config } from '@main/configuration';
+import { getExportPath } from '@main/getPaths';
 import {
     mediaJSONGenerator,
     completeJSONGenerator,
     printJSONToFile,
 } from './json';
-import { config } from '../../main/configuration';
 import { scanDir } from './tools/scanDir';
 import { fileSorting, excludedFromScan } from './fileSorting';
-import { tmdb } from './movieDB/tmdb/tmdbRequests';
 
 export const scan = {
     completeJSON: {},
@@ -49,7 +49,10 @@ export const scan = {
         }
 
         scan.completeJSON = await completeJSONGenerator(scan.mediaInJSON);
-        await printJSONToFile('./exports/movieData.json', scan.completeJSON);
+        await printJSONToFile(
+            getExportPath('movieData.json'),
+            scan.completeJSON
+        );
 
         // purgeScanResults();
     },

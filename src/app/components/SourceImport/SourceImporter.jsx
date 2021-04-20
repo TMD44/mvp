@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
-import { config } from '../../main/configuration';
-import { ipcRendererCommunication } from '../ipcRendererCommunication';
+import { config } from '@main/configuration';
+import { ipcRendererCommunication } from './ipcRendererCommunication';
 import { scan } from './scan';
 
 export function openDirButton() {
@@ -20,7 +20,7 @@ export function importWithMetadata() {
 export function deleteDirs() {
     config.purgeScanPaths();
 }
-
+/*
 export function SourceImporter() {
     return (
         <div>
@@ -71,3 +71,4 @@ export function SourceImporter() {
         </div>
     );
 }
+*/

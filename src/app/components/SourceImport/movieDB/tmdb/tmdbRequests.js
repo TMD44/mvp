@@ -1,7 +1,7 @@
 /* eslint-disable no-return-await */
 import MovieDB from 'node-themoviedb';
-import { tmdbApiKey } from '../../../../../assets/private/apiKeys';
-import { config } from '../../../../main/configuration';
+import { tmdbApiKey } from '@assets/private/apiKeys';
+import { config } from '@main/configuration';
 
 const mdb = new MovieDB();
 mdb.setApiKey(tmdbApiKey);
@@ -15,7 +15,8 @@ export const tmdb = {
                 movie_id: id,
             },
         };
-        return await mdb.movie.getExternalIDs(args);
+        // return await mdb.movie.getExternalIDs(args);
+        return mdb.movie.getExternalIDs(args);
     },
 
     findByExternalID: async (id, external_source = 'imdb_id') => {
@@ -27,8 +28,8 @@ export const tmdb = {
                 external_source,
             },
         };
-
-        return await mdb.find.byExternalID(args);
+        // return await mdb.find.byExternalID(args);
+        return mdb.find.byExternalID(args);
     },
 
     getImages: async (id, language = 'en-US') => {},
@@ -42,8 +43,8 @@ export const tmdb = {
                 include_adult: adult,
             },
         };
-
-        return await mdb.search.multi(args);
+        // return await mdb.search.multi(args);
+        return mdb.search.multi(args);
     },
 
     seachForMovies: async (
@@ -63,8 +64,8 @@ export const tmdb = {
                 include_adult: adult,
             },
         };
-
-        return await mdb.search.movies(args);
+        // return await mdb.search.movies(args);
+        return mdb.search.movies(args);
     },
 
     searchForTV: async (query, year, adult = false) => {
@@ -76,7 +77,7 @@ export const tmdb = {
                 include_adult: adult,
             },
         };
-
-        return await mdb.search.TVShows(args);
+        // return await mdb.search.TVShows(args);
+        return mdb.search.TVShows(args);
     },
 };

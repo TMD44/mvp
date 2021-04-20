@@ -1,28 +1,26 @@
-import { createLog } from '../../log';
-
 let tempFileName = '';
 let numberOfFoundAttributes = 0;
 
 const fnrPatterns = {
-    resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-\_\ ]?[X][.\-\_\ ]?[0-9]{3,4}/gi, // 720p, 1080p, 1920x1080, 1920X1080, 1920_x-1080, 1920.X 1080,
+    resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-_ ]?[X][.\-_ ]?[0-9]{3,4}/gi, // 720p, 1080p, 1920x1080, 1920X1080, 1920_x-1080, 1920.X 1080,
     year: /((?:19[3-9]|20[0123])[0-9])/g, // 1901, 1938, 1987, 2000, 2010, 2020, 2030, !!! above 2039 NO !!!     /[\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?/g
-    languages: /[.\-\_\ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi, // |FRE|RUS|ITA|SPA|POL
-    quality: /(HD|BD|BR|DS|TV|CAM|WEB|DVD|VHS|FULL|WEB[\.\_\-\ ]?DL)[\.\_\-\ ]?RIP|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[\.\_\-\ ]?DL|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[\.\_\-\ ]?TS|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[\.\_\-\ ]?TV|BLU[\.\-\ ]?RAY[.\-\_\ ]?(REMUX)?|[\.\_\-\ ]UHD[\.\_\-\ ]|HDTS|OPEN[\.\_\-\ ]?MATTE|H[\.\_\-\ ]?MAX|(DVD)?SCR|DVD[\.\_\-\ ]?[R9]/gi,
+    languages: /[.\-_ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi, // |FRE|RUS|ITA|SPA|POL
+    quality: /(HD|BD|BR|DS|TV|CAM|WEB|DVD|VHS|FULL|WEB[._\- ]?DL)[._\- ]?RIP|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[._\- ]?DL|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[._\- ]?TS|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[._\- ]?TV|BLU[.\- ]?RAY[.\-_ ]?(REMUX)?|[._\- ]UHD[._\- ]|HDTS|OPEN[._\- ]?MATTE|H[._\- ]?MAX|(DVD)?SCR|DVD[._\- ]?[R9]/gi,
     bluray: /BD[0-9]{2}|BD100/gi,
-    season: /[.,\-\_\ ]S([0-9]{1,2})-(S)?([0-9]{1,2})|[.,\-_\ ]S([0-9]{1,2})|[^0-9]([0-9]{1,2})X/gi, // S05E03, s9e4, 1x09, 08X19
-    episode: /[.,\-\_\ ]E([0-9]{1,3})-(E)?([0-9]{1,3})|E([0-9]{1,3})(?:[^0-9]|$)|[Xx]([0-9]{1,3})(?:[^0-9]|$)|(EP|EPISODE)([0-9]{1,3})(?:[^0-9]|$)/gi,
-    extended: /EXTENDED[\.\_\-\ ]?(CUT)?/gi,
-    directors: /DIRECTORS[\.\_\-\ ]?(CUT)?/gi,
-    hdr: /[.\-\_\ ](HDR)[.\-\_\ ]/gi,
-    codec: /XVID|DIVX|AVC|HEVC|X[.\-\_\ ]?26[0-9]|H[.\-\_\ ]?26[0-9]/gi,
-    audio: /(DD|DDP|MA|AC3|AAC|PCM|LPCM|FLAC|DTS[\.\_\-\ ]?(HD)?|TRUEHD[\+\.\_\-\ ]?ATMOS|TRUEHD|ATMOS)[\+\.\_\-\ ]?[0-9]\.?[0-9]|DTS[\.\_\-\ ]?(HD|ES)?|DUAL[\.\_\-\ ]?AUDIO|DOLBY[\+\.\_\-\ ]?(DIGITAL[\+\.\_\-\ ]?(PLUS)?|VISION|ATMOS)|HALF-OU/gi,
-    threeDimension: /[.,\-\_\ ]3D[.,\-\_\ \n]/gi,
-    widescreen: /[.,\-\_\ ]WS[.,\-\_\ \n]/gi,
-    filetype: /[.,\-\_\ ]MKV[.,\-\_\ \n]|[.,\-\_\ ]AVI[.,\-\_\ \n]|[.,\-\_\ ]MP4[.,\-\_\ \n]/gi,
+    season: /[.,\-_ ]S([0-9]{1,2})-(S)?([0-9]{1,2})|[.,\-_ ]S([0-9]{1,2})|[^0-9]([0-9]{1,2})X/gi, // S05E03, s9e4, 1x09, 08X19
+    episode: /[.,\-_ ]E([0-9]{1,3})-(E)?([0-9]{1,3})|E([0-9]{1,3})(?:[^0-9]|$)|[Xx]([0-9]{1,3})(?:[^0-9]|$)|(EP|EPISODE)([0-9]{1,3})(?:[^0-9]|$)/gi,
+    extended: /EXTENDED[._\- ]?(CUT)?/gi,
+    directors: /DIRECTORS[._\- ]?(CUT)?/gi,
+    hdr: /[.\-_ ](HDR)[.\-_ ]/gi,
+    codec: /XVID|DIVX|AVC|HEVC|X[.\-_ ]?26[0-9]|H[.\-_ ]?26[0-9]/gi,
+    audio: /(DD|DDP|MA|AC3|AAC|PCM|LPCM|FLAC|DTS[._\- ]?(HD)?|TRUEHD[+._\- ]?ATMOS|TRUEHD|ATMOS)[+._\- ]?[0-9]\.?[0-9]|DTS[._\- ]?(HD|ES)?|DUAL[._\- ]?AUDIO|DOLBY[+._\- ]?(DIGITAL[+._\- ]?(PLUS)?|VISION|ATMOS)|HALF-OU/gi,
+    threeDimension: /[.,\-_ ]3D[.,\-_ \n]/gi,
+    widescreen: /[.,\-_ ]WS[.,\-_ \n]/gi,
+    filetype: /[.,\-_ ]MKV[.,\-_ \n]|[.,\-_ ]AVI[.,\-_ \n]|[.,\-_ ]MP4[.,\-_ \n]/gi,
     group: /(- ?([^-]+(?:-={[^-]+-?$)?))$/g,
     imdb_title: /tt[0-9]{7}/gi,
-    others: /[.,\-\_\ ](AMZN|REPACK|RETAIL|REMUX|CUSTOM[\.\_\-\ ]?(PAL)?|UNRATED|PROPER|INTERNAL|READ[.\_\-\ ]?NFO|R[0-9])[.,\-\_\ ]/gi,
-    brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|\<(.*?)\>/g, // this has to be the last before the name
+    others: /[.,\-_ ](AMZN|REPACK|RETAIL|REMUX|CUSTOM[._\- ]?(PAL)?|UNRATED|PROPER|INTERNAL|READ[._\- ]?NFO|R[0-9])[.,\-_ ]/gi,
+    brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|<(.*?)>/g, // this has to be the last before the name
 };
 
 function deleteFromFileName(from, what) {
@@ -43,6 +41,7 @@ function process(
     printToJSON = true,
     toUpperCase = false
 ) {
+    // eslint-disable-next-line no-param-reassign
     itemFound = tempFileName.match(pattern);
     if (itemFound != null) {
         if (toWhat === 'toString') {
@@ -75,9 +74,10 @@ function process(
             }
         } else if (toWhat === 'toInt') {
             const intArray = String(itemFound).trim().split('-');
-            const startNum = parseInt(String(intArray[0]).match(/\d+/));
+            const startNum = parseInt(String(intArray[0]).match(/\d+/), 10);
             const endNum = parseInt(
-                String(intArray[intArray.length - 1]).match(/\d+/)
+                String(intArray[intArray.length - 1]).match(/\d+/),
+                10
             );
             if (
                 intArray.length === 1 ||
@@ -85,7 +85,8 @@ function process(
             ) {
                 if (printToJSON)
                     JSON_cleaned_obj[JSON_item_name] = parseInt(
-                        String(itemFound).match(/\d+/)
+                        String(itemFound).match(/\d+/),
+                        10
                     );
                 tempFileName = deleteFromFileName(tempFileName, itemFound);
             } else {
@@ -271,6 +272,7 @@ export function fnr(paramFileName) {
         }
 
         // RAW DATA
+        // eslint-disable-next-line no-underscore-dangle
         cleanedDataJSON._RAW_ = paramFileName;
 
         // tempFileName BEFORE TITLE RECOGNITION
@@ -279,15 +281,21 @@ export function fnr(paramFileName) {
         // NUMBER OF KEYS
         // cleanedDataJSON["NUMBER_OF_KEYS"] = numberOfFoundAttributes+1;
     } catch (err) {
-        // console.log("Error was found at recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
-        createLog(err.name, err.message);
+        console.log(
+            'Error was found at recognition: ',
+            err.name,
+            ',',
+            err.message,
+            '| tempFileName: ',
+            tempFileName
+        );
     }
 
     try {
-        let replaced;
+        let replaced2;
         if (tempFileName != null) {
             if (numberOfFoundAttributes < 2) {
-                const replaced = tempFileName.replace(/([\. \_]){1,2}/g, ' ');
+                const replaced = tempFileName.replace(/([. _]){1,2}/g, ' ');
                 cleanedDataJSON.title = removeNoise(
                     replaced.charAt(0).toUpperCase() + replaced.slice(1)
                 );
@@ -301,24 +309,22 @@ export function fnr(paramFileName) {
                 );
                 titleFound = tempFileName.substr(
                     0,
-                    tempFileName.indexOf(
-                        tempFileName.match(/([\. \_\/]){2,}/g)[0]
-                    )
+                    tempFileName.indexOf(tempFileName.match(/([. _/]){2,}/g)[0])
                 );
-                replaced = titleFound.replace(/([\. _]){1,2}/g, ' ');
+                replaced2 = titleFound.replace(/([. _]){1,2}/g, ' ');
                 cleanedDataJSON.title = removeNoise(
-                    replaced.charAt(0).toUpperCase() + replaced.slice(1)
+                    replaced2.charAt(0).toUpperCase() + replaced2.slice(1)
                 );
             }
         }
     } catch (err) {
-        // console.log("Error was found at Title recognition: ", err.name, ",", err.message, "| tempFileName: ", tempFileName);
-        createLog(
+        console.log(
+            'Error was found at Title recognition: ',
             err.name,
+            ',',
             err.message,
-            err.fileName,
-            err.LineNumber,
-            new Error()
+            '| tempFileName: ',
+            tempFileName
         );
     }
 
