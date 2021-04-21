@@ -1,6 +1,6 @@
 import { promisify } from 'util';
 import { exec } from 'child_process';
-import { path as ffprobe } from 'ffprobe-static';
+// import { path as ffprobe } from 'ffprobe-static';
 
 const execProm = promisify(exec);
 
@@ -51,7 +51,7 @@ function filterFfprobe(data: Record<string, Record<string, unknown>>) {
 }
 
 export async function getVideoInfo(video: string) {
-    let result;
+    /* let result;
     try {
         // TODO: NOT WORKING YET
         result = await execProm(
@@ -63,5 +63,5 @@ export async function getVideoInfo(video: string) {
     }
     console.log('RESULT: ', JSON.parse(result.stdout));
     // eslint-disable-next-line consistent-return
-    return filterFfprobe(JSON.parse(result.stdout));
+    return filterFfprobe(JSON.parse(result.stdout)); */
 }

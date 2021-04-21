@@ -3,6 +3,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
 import { getAssetsPath } from '@main/getPaths';
+import { VideoPlayer } from '../VideoPlayer/VideoPlayer';
 
 interface PropsShape {
     closeVideoPlayer: () => void;
@@ -36,7 +37,8 @@ export function VideoPlayerModal({
                 }}
             />
             <h1 style={{ color: 'white', textAlign: 'center' }}>VIDEO MODAL</h1>
-            <video width="1000" height="500" controls>
+            <VideoPlayer />
+            {/* <video width="1000" height="500" controls>
                 <track
                     src={getAssetsPath('SAMPLE.srt')}
                     kind="subtitles"
@@ -47,7 +49,7 @@ export function VideoPlayerModal({
                     src={getAssetsPath('sample/SAMPLE.mp4')}
                     type="video/mp4"
                 />
-            </video>
+            </video> */}
         </Modal>
     );
 }

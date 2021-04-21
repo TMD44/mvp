@@ -27,6 +27,9 @@
         ],
       ```
 
+2. Line added to get rid of warning by 'keyv'
+    - `new webpack.ContextReplacementPlugin(/keyv/),`
+
 ### webpack.config.eslint.js
 
 ### webpack.config.main.prod.babel.js

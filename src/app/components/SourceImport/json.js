@@ -39,9 +39,9 @@ export async function mediaJSONGenerator(media, scanResults) {
         },
     };
 
-    const result = await getVideoInfo(media.full);
+    /* const result = await getVideoInfo(media.full);
     console.log(result);
-    mediaInJSON.ffprobe = result;
+    mediaInJSON.ffprobe = result; */
 
     return mediaInJSON;
 }
