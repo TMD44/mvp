@@ -46,7 +46,7 @@ export default merge(baseConfig, {
     module: {
         rules: [
             {
-                test: /.s?css$/,
+                test: /.s?(c|a)ss$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
