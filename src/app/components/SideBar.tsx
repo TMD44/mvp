@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import Switch from 'react-switch';
 import {
     ProSidebar,
     Menu,
@@ -29,7 +28,6 @@ interface PropsShape {
     toggled: boolean;
     handleToggleSidebar: (checked: boolean) => void;
     handleCollapsedChange: (checked: boolean) => void;
-    handlePositionChange: (value: boolean) => void;
     handleModal: (type: ModalType, message?: string) => void;
 }
 
@@ -39,7 +37,6 @@ export function SideBar({
     toggled,
     handleToggleSidebar,
     handleCollapsedChange,
-    handlePositionChange,
     handleModal,
 }: PropsShape) {
     const [isOpen, setOpen] = useState(false);
@@ -126,6 +123,8 @@ export function SideBar({
                     >
                         OPEN MEDIA MODAL
                     </MenuItem>
+                </Menu>
+                <Menu iconShape="circle">
                     <MenuItem
                         onClick={() => handleModal(ModalType.Settings)}
                         icon={<MdSettings />}
@@ -134,44 +133,6 @@ export function SideBar({
                     </MenuItem>
                 </Menu>
                 <Menu iconShape="circle">
-                    <SubMenu title="Settings" icon={<MdSettings />}>
-                        <MenuItem
-                            suffix={
-                                <Switch
-                                    height={16}
-                                    width={32}
-                                    checkedIcon={false}
-                                    uncheckedIcon={false}
-                                    onChange={handlePositionChange}
-                                    checked={position}
-                                    onColor="#219de9"
-                                    offColor="#bbbbbb"
-                                />
-                            }
-                        >
-                            Sidebar position
-                        </MenuItem>
-                        <MenuItem>submenu 2 </MenuItem>
-                        <SubMenu title="$submenu 3">
-                            <MenuItem>submenu 3.1 </MenuItem>
-                            <MenuItem>submenu 3.2 </MenuItem>
-                            <SubMenu title="submenu 3.3">
-                                <MenuItem>submenu 3.3.1 </MenuItem>
-                                <MenuItem>submenu 3.3.2 </MenuItem>
-                                <MenuItem>submenu 3.3.3 </MenuItem>
-                                <SubMenu title="submenu 3.4">
-                                    <MenuItem>submenu 3.4.1 </MenuItem>
-                                    <MenuItem>submenu 3.4.2 </MenuItem>
-                                    <MenuItem>submenu 3.4.3 </MenuItem>
-                                    <SubMenu title="submenu 3.5">
-                                        <MenuItem>submenu 3.5.1 </MenuItem>
-                                        <MenuItem>submenu 3.5.2 </MenuItem>
-                                        <MenuItem>submenu 3.5.3 </MenuItem>
-                                    </SubMenu>
-                                </SubMenu>
-                            </SubMenu>
-                        </SubMenu>
-                    </SubMenu>
                     <SubMenu
                         suffix={<span className="badge yellow">3</span>}
                         title="About"

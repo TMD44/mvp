@@ -13,31 +13,10 @@ export function VideoPlayerModal({
     closeVideoPlayer,
     videoPlayerIsOpen,
 }: PropsShape) {
-    const customStyles: Record<string, unknown> = {
-        content: {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            WebkitOverflowScrolling: 'touch',
-            overflow: 'auto',
-            backgroundColor: 'black',
-        },
-        overlay: {
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 9999,
-            backgroundColor: 'rgba(0,0,0,0.8)',
-            backdropFilter: 'blur(5px)',
-        },
-    };
-
     return (
         <Modal
-            style={customStyles}
+            className="modalContent videoPlayer"
+            overlayClassName="modalOverlay videoPlayer"
             isOpen={videoPlayerIsOpen}
             onRequestClose={closeVideoPlayer}
             contentLabel="Video player"

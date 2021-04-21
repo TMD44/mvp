@@ -48,7 +48,6 @@ export function Layout() {
                 toggled={toggled}
                 handleToggleSidebar={handleToggleSidebar}
                 handleCollapsedChange={handleCollapsedChange}
-                handlePositionChange={handlePositionChange}
                 handleModal={handleModal}
             />
             <Main />
@@ -57,6 +56,8 @@ export function Layout() {
                 closeModal={closeModal}
                 modalIsOpen={modalIsOpen}
                 message={modalMessage}
+                handlePositionChange={handlePositionChange}
+                position={position}
             />
         </div>
     );

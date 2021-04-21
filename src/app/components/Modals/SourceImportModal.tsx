@@ -4,19 +4,15 @@ import { FaWindowClose } from 'react-icons/fa';
 import { SourceImporter } from '../SourceImport/SourceImporter';
 
 interface PropsShape {
-    customStyles: Record<string, unknown>;
     closeModal: () => void;
     modalIsOpen: boolean;
 }
 
-export function SourceImportModal({
-    customStyles,
-    closeModal,
-    modalIsOpen,
-}: PropsShape) {
+export function SourceImportModal({ closeModal, modalIsOpen }: PropsShape) {
     return (
         <Modal
-            style={customStyles}
+            className="modalContent sourceImport"
+            overlayClassName="modalOverlay sourceImport"
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             contentLabel="Source import"

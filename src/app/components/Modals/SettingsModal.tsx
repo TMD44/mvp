@@ -1,21 +1,25 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
+import Switch from 'react-switch';
 
 interface PropsShape {
-    customStyles: Record<string, unknown>;
     closeModal: () => void;
     modalIsOpen: boolean;
+    handlePositionChange: (checked: boolean) => void;
+    position: boolean;
 }
 
 export function SettingsModal({
-    customStyles,
     closeModal,
     modalIsOpen,
+    handlePositionChange,
+    position,
 }: PropsShape) {
     return (
         <Modal
-            style={customStyles}
+            className="modalContent settings"
+            overlayClassName="modalOverlay settings"
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             contentLabel="Settings"
@@ -34,6 +38,16 @@ export function SettingsModal({
                 }}
             />
             <h1 style={{ color: 'black' }}>SETTINGS MODAL</h1>
+            <Switch
+                height={16}
+                width={32}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                onChange={handlePositionChange}
+                checked={position}
+                onColor="#219de9"
+                offColor="#bbbbbb"
+            />
         </Modal>
     );
 }

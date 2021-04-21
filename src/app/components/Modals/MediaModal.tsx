@@ -4,7 +4,6 @@ import { FaWindowClose } from 'react-icons/fa';
 import { VideoPlayerModal } from './VideoPlayerModal';
 
 interface PropsShape {
-    customStyles: Record<string, unknown>;
     closeModal: () => void;
     modalIsOpen: boolean;
     videoPlayerIsOpen: boolean;
@@ -13,7 +12,6 @@ interface PropsShape {
 }
 
 export function MediaModal({
-    customStyles,
     closeModal,
     modalIsOpen,
     videoPlayerIsOpen,
@@ -22,7 +20,8 @@ export function MediaModal({
 }: PropsShape) {
     return (
         <Modal
-            style={customStyles}
+            className="modalContent media"
+            overlayClassName="modalOverlay media"
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             contentLabel="Media details"

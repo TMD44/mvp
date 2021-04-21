@@ -3,22 +3,18 @@ import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
 
 interface PropsShape {
-    customStyles: Record<string, unknown>;
     closeModal: () => void;
     modalIsOpen: boolean;
 }
 
-export function DefaultModal({
-    customStyles,
-    closeModal,
-    modalIsOpen,
-}: PropsShape) {
+export function ErrorModal({ closeModal, modalIsOpen }: PropsShape) {
     return (
         <Modal
-            style={customStyles}
+            className="modalContent error"
+            overlayClassName="modalOverlay error"
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            contentLabel="Default"
+            contentLabel="Error"
         >
             <FaWindowClose
                 onClick={closeModal}
@@ -33,7 +29,7 @@ export function DefaultModal({
                     cursor: 'pointer',
                 }}
             />
-            <h1 style={{ color: 'black' }}>DEFAULT MODAL</h1>
+            <h1 style={{ color: 'black' }}>ERROR MODAL</h1>
         </Modal>
     );
 }

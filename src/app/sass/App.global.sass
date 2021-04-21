@@ -1,0 +1,72 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+@import SideBar.sass
+@import Modals.sass
+@import ThemePresets.sass
+
+body
+    position: relative
+    color: white
+    height: 100vh
+    background: linear-gradient(200.96deg, red -29.09%, green 51.77%, blue 129.35%)
+    font-family: sans-serif
+    overflow-y: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+
+#root
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    margin: 0
+
+button
+    background-color: white
+    padding: 10px 20px
+    border-radius: 10px
+    border: none
+    appearance: none
+    font-size: 1.3rem
+    box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12) 0px 18px 88px -4px rgba(24, 39, 75, 0.14)
+    transition: transform ease-in 0.1s
+    cursor: pointer
+
+button:hover
+    transform: scale(1.05)
+
+li
+    list-style: none
+
+a
+    text-decoration: none
+    height: fit-content
+    width: fit-content
+    margin: 10px
+
+a:hover
+    opacity: 1
+    text-decoration: none
+
+.Hello
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 20px 0
+
+// CUSTOM SCROLLBAR
+*::-webkit-scrollbar
+    width: 5px
+    height: 5px
+
+*::-webkit-scrollbar-track
+    background: transparent
+
+*::-webkit-scrollbar-thumb
+    border-radius: 30px
+    background: white
+    border: 5px solid white
