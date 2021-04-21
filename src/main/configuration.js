@@ -15,11 +15,13 @@ export const config = {
     // SCAN PATHS
     addScanPath: async (results) => {
         const scanPaths = await config.getScanPaths();
-        results.forEach((result) => {
-            if (!scanPaths.includes(result)) {
-                config.setScanPaths(result);
+        // eslint-disable-next-line no-restricted-syntax
+        for (const result in results) {
+            if (!scanPaths.includes(results[result])) {
+                // eslint-disable-next-line no-await-in-loop
+                await config.setScanPaths(results[result]);
             }
-        });
+        }
     },
     getScanPaths: async () => {
         const confFile = await config.readFile();
@@ -65,16 +67,25 @@ export const config = {
 
     // READ & WRITE FILE
     readFile: async () => {
-        const data = await fsp.readFile(CONFIG_PATH, 'utf8');
+        let data = {};
+        try {
+            data = await fsp.readFile(CONFIG_PATH, 'utf8');
+        } catch (error) {
+            console.error(error);
+        }
         return JSON.parse(data);
     },
 
     writeFile: async (json) => {
-        // try {
-        await fsp.writeFile(CONFIG_PATH, JSON.stringify(json, null, 4), 'utf8');
-        /* } catch (error) {
+        try {
+            await fsp.writeFile(
+                CONFIG_PATH,
+                JSON.stringify(json, null, 4),
+                'utf8'
+            );
+        } catch (error) {
             console.error(error);
-        } */
+        }
     },
 
     // SETUP
