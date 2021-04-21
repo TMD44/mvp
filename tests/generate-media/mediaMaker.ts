@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { torrentMovieNames } from './test_data/torrent_movies';
-import { torrentSeriesNames } from './test_data/torrent_series';
+import { torrentMovieNames } from './torrent_movies';
+import { torrentSeriesNames } from './torrent_series';
 
 function nfoContent() {
     let result = '';
