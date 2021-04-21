@@ -3,11 +3,12 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { app, BrowserWindow, shell } from 'electron';
 import windowStateKeeper from 'electron-window-state';
-import { ipcMainCommunication } from './ipcMainCommunication';
+import { ipcMain } from './ipcMain';
 import { config } from './configuration';
 import { cleanBeforeQuit } from './cleanBeforeQuit';
 import { getAssetsPath } from './getPaths';
 // import MenuBuilder from './menu';
+// import appUpdater from './appUpdater';
 
 const isProductionMode = process.env.NODE_ENV === 'production';
 const isDevelopmentMode =
@@ -93,7 +94,7 @@ const createWindow = async () => {
     });
 
     config.setup();
-    ipcMainCommunication(appWindow);
+    ipcMain.openDirAsync(appWindow);
 };
 
 app.whenReady().then(createWindow).catch(console.log);

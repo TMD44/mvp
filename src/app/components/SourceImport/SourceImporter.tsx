@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useState } from 'react';
 import { config } from '@main/configuration';
-import { ipcRendererCommunication } from './ipcRendererCommunication';
+import { ipcRenderer } from './ipcRenderer';
 import { scan } from './scan';
 
 export function importSourcesButton() {
@@ -20,8 +20,8 @@ export function SourceImporter() {
     const [selectedScanPaths, setSelectedScanPaths] = useState('');
 
     const openDirButton = () => {
-        // config.purgeScanResults();
-        ipcRendererCommunication();
+        config.purgeScanResults();
+        ipcRenderer.openDirAsync();
         // const result = await config.getScanPaths();
         // console.log('RESULT: ', result);
         // setSelectedScanPaths(result);
@@ -37,7 +37,6 @@ export function SourceImporter() {
                 type="button"
                 className="btn btn-dark"
                 data-bs-toggle="button"
-                autoComplete="off"
             >
                 Open DIR
             </button>
@@ -46,7 +45,6 @@ export function SourceImporter() {
                 type="button"
                 className="btn btn-dark"
                 data-bs-toggle="button"
-                autoComplete="off"
             >
                 Delete DIRs
             </button>
@@ -60,7 +58,6 @@ export function SourceImporter() {
                 type="button"
                 className="btn btn-dark"
                 data-bs-toggle="button"
-                autoComplete="off"
             >
                 Import sources
             </button>
@@ -69,7 +66,6 @@ export function SourceImporter() {
                 type="button"
                 className="btn btn-dark"
                 data-bs-toggle="button"
-                autoComplete="off"
             >
                 Import sources and download metadata
             </button>
