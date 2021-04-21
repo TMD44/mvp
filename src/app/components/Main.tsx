@@ -1,5 +1,4 @@
 import React from 'react';
-import { config } from '../../main/configuration';
 import { getJson } from './SourceImport/json';
 
 async function gj() {

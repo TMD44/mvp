@@ -19,12 +19,12 @@ export function deleteDirs() {
 export function SourceImporter() {
     const [selectedScanPaths, setSelectedScanPaths] = useState('');
 
-    const openDirButton = async () => {
-        config.purgeScanResults();
+    const openDirButton = () => {
+        // config.purgeScanResults();
         ipcRendererCommunication();
-        const result = await config.getScanPaths();
-        console.log('RESULT: ', result);
-        setSelectedScanPaths(result);
+        // const result = await config.getScanPaths();
+        // console.log('RESULT: ', result);
+        // setSelectedScanPaths(result);
     };
 
     return (

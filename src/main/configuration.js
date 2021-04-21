@@ -2,18 +2,20 @@ import { app } from 'electron';
 import { promises as fsp } from 'fs';
 import { getConfigPath } from './getPaths';
 
+const CONFIG_PATH = getConfigPath('config.json');
+
 export const config = {
     // TODO: FURTHER DEVELOPMENT REQUIRED
-    getAny: async (f: string, s: string) => {
+    getAny: async (f, s) => {
         const confFile = await config.readFile();
         if (!confFile[f]) return 'ERROR';
         return confFile[f][s];
     },
 
     // SCAN PATHS
-    addScanPath: async (results: unknown[]) => {
+    addScanPath: async (results) => {
         const scanPaths = await config.getScanPaths();
-        results.forEach((result: unknown) => {
+        results.forEach((result) => {
             if (!scanPaths.includes(result)) {
                 config.setScanPaths(result);
             }
@@ -23,7 +25,7 @@ export const config = {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_paths;
     },
-    setScanPaths: async (path: unknown) => {
+    setScanPaths: async (path) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_paths.push(path);
         await config.writeFile(confFile);
@@ -33,13 +35,12 @@ export const config = {
         confFile.scan_preferences.scan_paths.length = 0;
         await config.writeFile(confFile);
     },
-
     // SCAN RESULTS
     getScanResults: async () => {
         const confFile = await config.readFile();
         return confFile.scan_preferences.scan_results;
     },
-    setScanResults: async (obj: unknown) => {
+    setScanResults: async (obj) => {
         const confFile = await config.readFile();
         confFile.scan_preferences.scan_results = obj;
         await config.writeFile(confFile);
@@ -64,20 +65,16 @@ export const config = {
 
     // READ & WRITE FILE
     readFile: async () => {
-        const data = await fsp.readFile(getConfigPath('config.json'), 'utf8');
+        const data = await fsp.readFile(CONFIG_PATH, 'utf8');
         return JSON.parse(data);
     },
 
-    writeFile: async (json: unknown) => {
-        try {
-            await fsp.writeFile(
-                getConfigPath('/config.json'),
-                JSON.stringify(json, null, 4),
-                'utf8'
-            );
-        } catch (error) {
+    writeFile: async (json) => {
+        // try {
+        await fsp.writeFile(CONFIG_PATH, JSON.stringify(json, null, 4), 'utf8');
+        /* } catch (error) {
             console.error(error);
-        }
+        } */
     },
 
     // SETUP

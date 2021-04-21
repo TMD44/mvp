@@ -35,7 +35,9 @@
     },
     "scan_preferences": {
         "scan_language": "en-US",
-        "scan_paths": [],
+        "scan_paths": [
+            "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)"
+        ],
         "scan_file_types": {
             "media": [".mkv", ".mp4", ".avi"],
             "sub": [".srt", ".ass", ".vtt", ".ssa", ".sub", ".stl", ".scc"],
@@ -60,6 +62,312 @@
             "nfo_data"
         ],
         "save_data_json_next_to_file": false,
-        "scan_results": {}
+        "scan_results": {
+            "media": [
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku o! Kurenai Densetsu (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku o! Kurenai Densetsu (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 05 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 05 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 06 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 06 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 07 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 07 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 08 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 08 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 09 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 09 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 10 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 10 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 11 OVA (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 11 OVA (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 01 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 01 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 02 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 02 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 03 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 03 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 04 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 04 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 05 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 05 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 06 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 06 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 07 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 07 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 08 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 08 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 09 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 09 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 10 (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 10 (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 11 OVA (BD 1280x720 x264 AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 11 OVA (BD 1280x720 x264 AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo!  Vol.01 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo!  Vol.01 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo!  Vol.02 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo!  Vol.02 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo!  Vol.03 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo!  Vol.03 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo!  Vol.04 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo!  Vol.04 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo!  Vol.05 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo!  Vol.05 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo!  Vol.OVA Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo!  Vol.OVA Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.01 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.01 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.02 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.02 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.03 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.03 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.04 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.04 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.05 Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.05 Menu (BD 1280x720 AVC AAC).mkv"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.OVA Menu (BD 1280x720 AVC AAC)",
+                    "ext": ".mkv",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Menu\\Kono Subarashii Sekai ni Shukufuku wo! 2 Vol.OVA Menu (BD 1280x720 AVC AAC).mkv"
+                }
+            ],
+            "sub": [
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku o! Kurenai Densetsu (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku o! Kurenai Densetsu (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 05 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 05 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 06 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 06 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 07 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 07 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 08 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 08 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 09 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 09 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 10 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 10 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! - 11 OVA (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! - 11 OVA (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 01 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 01 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 02 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 02 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 03 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 03 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 04 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 04 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 05 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 05 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 06 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 06 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 07 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 07 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 08 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 08 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 09 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 09 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 10 (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 10 (BD 1280x720 x264 AAC).ass"
+                },
+                {
+                    "fn": "Kono Subarashii Sekai ni Shukufuku wo! 2 - 11 OVA (BD 1280x720 x264 AAC)",
+                    "ext": ".ass",
+                    "path": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)",
+                    "full": "C:\\Users\\tmd-pc\\Downloads\\Kono Subarashii Sekai ni Shukufuku wo! S01-S02 (BD_1280x720)\\Kono Subarashii Sekai ni Shukufuku wo! 2 - 11 OVA (BD 1280x720 x264 AAC).ass"
+                }
+            ],
+            "nfo": []
+        }
     }
 }
