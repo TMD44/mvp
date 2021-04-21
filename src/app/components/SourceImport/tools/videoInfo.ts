@@ -4,8 +4,8 @@ import { path as ffprobe } from 'ffprobe-static';
 
 const execProm = promisify(exec);
 
-function filterFfprobe(data) {
-    const filteredVideoInfo = {};
+function filterFfprobe(data: Record<string, Record<string, unknown>>) {
+    const filteredVideoInfo: Record<string, unknown> = {};
 
     // FORMAT
     const { format } = data;
@@ -50,17 +50,18 @@ function filterFfprobe(data) {
     return filteredVideoInfo;
 }
 
-export async function getVideoInfo(video) {
+export async function getVideoInfo(video: string) {
     let result;
     try {
+        // TODO: NOT WORKING YET
         result = await execProm(
             `${ffprobe} -v quiet -print_format json -show_format -show_streams -show_chapters -show_data ${video}`
         );
     } catch (err) {
-        console.log('ERROR FROM videoInfo.js');
+        console.error('ERROR FROM videoInfo.js: ', err);
         return;
     }
-    console.log(JSON.parse(result.stdout));
+    console.log('RESULT: ', JSON.parse(result.stdout));
     // eslint-disable-next-line consistent-return
     return filterFfprobe(JSON.parse(result.stdout));
 }

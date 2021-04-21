@@ -3,13 +3,22 @@ import MovieDB from 'node-themoviedb';
 import { tmdbApiKey } from '@assets/private/apiKeys';
 import { config } from '@main/configuration';
 
-const mdb = new MovieDB();
-mdb.setApiKey(tmdbApiKey);
-mdb.setLanguage(config.getScanLanguage());
+const mdb = new MovieDB(tmdbApiKey);
+mdb.setLanguage(await config.getScanLanguage());
+
+type ExternalSource =
+    | 'imdb_id'
+    | 'freebase_mid'
+    | 'freebase_id'
+    | 'tvdb_id'
+    | 'tvrage_id'
+    | 'facebook_id'
+    | 'twitter_id'
+    | 'instagram_id';
 
 // tmdb namespace
 export const tmdb = {
-    getExternalIDs: async (id, type = 'movie') => {
+    getExternalIDs: async (id: string, type = 'movie') => {
         const args = {
             pathParameters: {
                 movie_id: id,
@@ -19,7 +28,10 @@ export const tmdb = {
         return mdb.movie.getExternalIDs(args);
     },
 
-    findByExternalID: async (id, external_source = 'imdb_id') => {
+    findByExternalID: async (
+        id: string,
+        external_source: ExternalSource = 'imdb_id'
+    ) => {
         const args = {
             pathParameters: {
                 external_id: id,
@@ -32,9 +44,9 @@ export const tmdb = {
         return mdb.find.byExternalID(args);
     },
 
-    getImages: async (id, language = 'en-US') => {},
+    getImages: async (id: string, language = 'en-US') => {},
 
-    multiSearch: async (query, region = '', adult = false) => {
+    multiSearch: async (query: string, region = '', adult = false) => {
         const args = {
             query: {
                 query,
@@ -48,9 +60,9 @@ export const tmdb = {
     },
 
     seachForMovies: async (
-        query,
-        year,
-        release_year,
+        query: string,
+        year: number,
+        release_year: number,
         region = '',
         adult = false
     ) => {
@@ -68,7 +80,7 @@ export const tmdb = {
         return mdb.search.movies(args);
     },
 
-    searchForTV: async (query, year, adult = false) => {
+    searchForTV: async (query: string, year: number, adult = false) => {
         const args = {
             query: {
                 query,

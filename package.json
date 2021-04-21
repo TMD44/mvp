@@ -13,7 +13,8 @@
         "start:main": "cross-env NODE_ENV=development electron -r ./.erb/scripts/BabelRegister ./src/main/main.dev.ts",
         "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.config.renderer.dev.babel.js",
         "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
-        "clean": "rm -rf src/dist && rm -rf release && rm -rf .erb/dll && rm -f -- src/main/main.prod.js",
+        "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js",
+        "clean:all": "rm -rf src/dist && rm -rf release && rm -rf .erb/dll && rm -f -- src/main/main.prod.js",
         "test": "jest",
         "test-media": "node src/__test__/test.ts"
     },
@@ -240,6 +241,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.9.2",
+        "@types/ffprobe-static": "^2.0.0",
         "bootstrap": "^5.0.0-beta3",
         "electron-debug": "^3.2.0",
         "electron-log": "^4.3.2",

@@ -8,10 +8,14 @@ import { join, extname } from 'path';
 // ASYNCHRONOUS
 // Base code from Stackoverflow, minor changes have been made:
 // https://stackoverflow.com/questions/56583365/async-and-recursive-directory-scan-for-file-listing-in-nodejs-and-expressjs
-export async function scanDir(directoryName, filter, results = []) {
+export async function scanDir(
+    directoryName: string,
+    filter: string[],
+    results: string[] = []
+) {
     const files = await fsp.readdir(directoryName, { withFileTypes: true });
     for (const f of files) {
-        const fullPath = join(directoryName, f.name);
+        const fullPath: string = join(directoryName, f.name);
         if (f.isDirectory()) {
             await scanDir(fullPath, filter, results);
         } else if (filter.includes(extname(fullPath))) {
