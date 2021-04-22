@@ -29,7 +29,7 @@ export function ModalController({
     const closeVideoPlayer = () => setVideoPlayerIsOpen(false);
 
     switch (modalType) {
-        case ModalType.Media:
+        case 'Media':
             return (
                 <MediaModal
                     closeModal={closeModal}
@@ -40,7 +40,7 @@ export function ModalController({
                 />
             );
 
-        case ModalType.SourceImport:
+        case 'SourceImport':
             return (
                 <SourceImportModal
                     closeModal={closeModal}
@@ -48,7 +48,7 @@ export function ModalController({
                 />
             );
 
-        case ModalType.Settings:
+        case 'Settings':
             return (
                 <SettingsModal
                     closeModal={closeModal}
@@ -58,7 +58,7 @@ export function ModalController({
                 />
             );
 
-        case ModalType.Message:
+        case 'Message':
             return (
                 <MessageModal
                     closeModal={closeModal}
@@ -67,7 +67,7 @@ export function ModalController({
                 />
             );
 
-        /* case ModalType.VideoPlayer:
+        /* case "VideoPlayer":
             return (
                 <VideoPlayerModal
                     closeModal={closeModal}

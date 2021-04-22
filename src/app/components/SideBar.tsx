@@ -12,6 +12,7 @@ import {
 import {
     FaInfoCircle,
     FaFolderOpen,
+    FaHeart,
     FaFileImport,
     FaVideo,
     FaGithub,
@@ -48,7 +49,7 @@ export function SideBar({
 
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
-        handleModal(ModalType.Message, 'Copied to clipboard!');
+        handleModal('Message', 'Copied to clipboard!');
     };
 
     return (
@@ -110,7 +111,33 @@ export function SideBar({
             <SidebarContent>
                 <Menu iconShape="circle">
                     <MenuItem
-                        onClick={() => handleModal(ModalType.SourceImport)}
+                        onClick={() => handleModal('SourceImport')}
+                        icon={<FaHeart />}
+                    >
+                        Home
+                    </MenuItem>
+                    <MenuItem
+                        onClick={() => handleModal('SourceImport')}
+                        icon={<FaHeart />}
+                    >
+                        Movies
+                    </MenuItem>
+                    <MenuItem
+                        onClick={() => handleModal('SourceImport')}
+                        icon={<FaHeart />}
+                    >
+                        Series
+                    </MenuItem>
+                    <MenuItem
+                        onClick={() => handleModal('SourceImport')}
+                        icon={<FaHeart />}
+                    >
+                        Genres
+                    </MenuItem>
+                </Menu>
+                <Menu iconShape="circle">
+                    <MenuItem
+                        onClick={() => handleModal('SourceImport')}
                         icon={<FaFileImport />}
                     >
                         Source importer
@@ -118,18 +145,18 @@ export function SideBar({
                 </Menu>
                 <Menu iconShape="circle">
                     <MenuItem
-                        onClick={() => handleModal(ModalType.Media)}
+                        onClick={() => handleModal('Media')}
                         icon={<FaVideo />}
                     >
-                        OPEN MEDIA MODAL
+                        OPEN MEDIA MODAL (TEMP)
                     </MenuItem>
                 </Menu>
                 <Menu iconShape="circle">
                     <MenuItem
-                        onClick={() => handleModal(ModalType.Settings)}
+                        onClick={() => handleModal('Settings')}
                         icon={<MdSettings />}
                     >
-                        OPEN SETTINGS MODAL
+                        Settings
                     </MenuItem>
                 </Menu>
                 <Menu iconShape="circle">

@@ -13,25 +13,27 @@
     border-radius: 10px
     outline: none
     padding: 20px
-    &.error
+    //&.error
 
-    &.media
+    //&.media
 
     &.message
         top: 90%
         left: 50%
+        right: 50%
+        transform: translate(-50%, -50%)
         height: 30px
         width: 300px
-        padding: 1px
+        padding: 0
         border: none
         background: rgba(105,105,105,0.7)
-        //box-shadow: 0 0 5px 10px rgba(105,105,105,0.7)
         text-align: center
+        padding-top: 12px
         border-radius: 30px
-        //transform: translate(-50%, -50%)
-    &.settings
+        pointer-events: none
+    //&.settings
 
-    &.sourceImport
+    //&.sourceImport
 
     &.videoPlayer
         background: rgb(0,0,0)
@@ -51,15 +53,17 @@
     z-index: 9999
     background-color: rgba(0,0,0,0.7)
     backdrop-filter: blur(5px)
-    &.error
+    //&.error
 
-    &.media
+    //&.media
 
     &.message
-        background: transparent
-    &.settings
+        position: static
+        background: none
+        backdrop-filter: none
+    //&.settings
 
-    &.sourceImport
+    //&.sourceImport
 
-    &.videoPlayer
+    //&.videoPlayer
 

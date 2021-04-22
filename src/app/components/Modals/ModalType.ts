@@ -1,8 +1,7 @@
-export enum ModalType {
-    Media,
-    SourceImport,
-    Settings,
-    Message,
-    VideoPlayer,
-    Default,
-}
+export type ModalType =
+    | 'Media'
+    | 'SourceImport'
+    | 'Settings'
+    | 'Message'
+    | 'VideoPlayer'
+    | 'Default';

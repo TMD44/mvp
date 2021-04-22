@@ -2,7 +2,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { FaWindowClose } from 'react-icons/fa';
-import { getAssetsPath } from '@main/getPaths';
+import { getAssetsPath } from 'src/lib/getPaths';
 import { VideoPlayer } from '../VideoPlayer/VideoPlayer';
 
 interface PropsShape {

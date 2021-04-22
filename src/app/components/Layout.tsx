@@ -10,7 +10,7 @@ export function Layout() {
     const [toggled, setToggled] = useState(false);
 
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [modalType, setModalType] = useState(ModalType.Default);
+    const [modalType, setModalType] = useState('');
     const [modalMessage, setModalMessage] = useState('');
 
     const openModal = () => setIsOpen(true);
