@@ -1,5 +1,5 @@
 import { unlink } from 'fs';
-import { getConfigPath, getExportPath } from './getPaths';
+import { getConfigPath, getExportPath } from '../lib/getPaths';
 
 export function cleanBeforeQuit(data = true, config = true) {
     if (data) {

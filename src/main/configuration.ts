@@ -1,6 +1,6 @@
 import { app } from 'electron';
 import { promises as fsp } from 'fs';
-import { getConfigPath } from './getPaths';
+import { getConfigPath } from '../lib/getPaths';
 
 const CONFIG_PATH = getConfigPath('config.json');
 

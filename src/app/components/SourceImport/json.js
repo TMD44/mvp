@@ -1,5 +1,5 @@
 import { promises as fsp } from 'fs';
-import { getExportPath } from '@main/getPaths';
+import { getExportPath } from 'src/lib/getPaths';
 import { fnr } from './tools/fnr';
 import { subFinder } from './tools/sub';
 import { nfoFileFinder, nfoIdFinder } from './tools/nfo';

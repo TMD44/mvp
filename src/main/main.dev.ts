@@ -6,7 +6,7 @@ import windowStateKeeper from 'electron-window-state';
 import { ipcMain } from './ipcMain';
 import { config } from './configuration';
 import { cleanBeforeQuit } from './cleanBeforeQuit';
-import { getAssetsPath } from './getPaths';
+import { getAssetsPath } from '../lib/getPaths';
 // import MenuBuilder from './menu';
 // import appUpdater from './appUpdater';
 

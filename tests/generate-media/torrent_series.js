@@ -1,4 +1,4 @@
-export const torrentSeriesNames = [
+const torrentSeriesNames = [
     'Tough.As.Nails.S02E01.1080p.WEB.h264-KOGi',
     'Futball.2021.02.13.Serie.A.TIM.Torino.vs.Genoa.HDTV.720p.x264.Hun-BLG',
     'Futball.2021.02.13.Serie.A.TIM.Torino.vs.Genoa.HDTV.1080i.Hun-BLG',
@@ -2000,6 +2000,8 @@ export const torrentSeriesNames = [
     'Noddy S01-S02',
     'Inuyasha S03',
 ];
+
+module.exports.torrentSeriesNames = torrentSeriesNames;
 
 // PLAIN TEXT
 /*

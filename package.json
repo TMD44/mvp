@@ -16,7 +16,7 @@
         "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js",
         "clean:all": "rm -rf src/dist && rm -rf release && rm -rf .erb/dll && rm -f -- src/main/main.prod.js",
         "test": "jest",
-        "test-media": "node src/__test__/test.ts"
+        "generate-media": "node tests/generate-media/generate-media.js"
     },
     "homepage": "https://github.com/TMD44/mvp#readme",
     "repository": {
