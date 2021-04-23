@@ -24,20 +24,19 @@ import { HomeMenuItem } from './SideBarComponents/HomeMenuItem';
 import { MoviesMenuItem } from './SideBarComponents/MoviesMenuItem';
 import { SeriesMenuItem } from './SideBarComponents/SeriesMenuItem';
 import { GenresMenuItem } from './SideBarComponents/GenresMenuItem';
+import { MainType } from '../Main/MainType';
 
 interface PropsShape {
     handleModalOpen: (type: ModalType, message?: string) => void;
     sideBarIsOpen: boolean;
     handleSideBarClose: () => void;
+    setMainType: (type: MainType) => void;
 }
 
 export const SIDEBAR_WIDTH = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            display: 'flex',
-        },
         drawer: {
             width: SIDEBAR_WIDTH,
             flexShrink: 0,
@@ -80,12 +79,13 @@ export function SideBar({
     handleModalOpen,
     sideBarIsOpen,
     handleSideBarClose,
+    setMainType,
 }: PropsShape) {
     const classes = useStyles();
     const theme = useTheme();
 
     return (
-        <div className={classes.root}>
+        <>
             <CssBaseline />
             <Drawer
                 variant="permanent"
@@ -111,22 +111,43 @@ export function SideBar({
                 </div>
                 <Divider />
                 <List>
-                    <HomeMenuItem handleModalOpen={handleModalOpen} />
-                    <MoviesMenuItem handleModalOpen={handleModalOpen} />
-                    <SeriesMenuItem handleModalOpen={handleModalOpen} />
-                    <GenresMenuItem handleModalOpen={handleModalOpen} />
+                    <HomeMenuItem
+                        setMainType={setMainType}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
+                    <MoviesMenuItem
+                        setMainType={setMainType}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
+                    <SeriesMenuItem
+                        setMainType={setMainType}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
+                    <GenresMenuItem
+                        setMainType={setMainType}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
                 </List>
                 <Divider />
                 <List>
-                    <SourceImporterMenuItem handleModalOpen={handleModalOpen} />
+                    <SourceImporterMenuItem
+                        handleModalOpen={handleModalOpen}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
                 </List>
                 <Divider />
                 <List>
-                    <SettingsMenuItem handleModalOpen={handleModalOpen} />
-                    <AboutMenuItem handleModalOpen={handleModalOpen} />
+                    <SettingsMenuItem
+                        handleModalOpen={handleModalOpen}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
+                    <AboutMenuItem
+                        handleModalOpen={handleModalOpen}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
                 </List>
-                <SideBarFooter />
+                <SideBarFooter sideBarIsOpen={sideBarIsOpen} />
             </Drawer>
-        </div>
+        </>
     );
 }

@@ -8,7 +8,7 @@ interface PropsShape {
     handleModalClose: () => void;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         appBar: {
             position: 'relative',
@@ -33,7 +33,7 @@ export function ModalTitleBar({ title, handleModalClose }: PropsShape) {
                 >
                     <CloseIcon />
                 </IconButton>
-                <Typography variant="h6" className={classes.title}>
+                <Typography variant="h5" className={classes.title}>
                     {title}
                 </Typography>
             </Toolbar>

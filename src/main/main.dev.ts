@@ -50,7 +50,7 @@ const createWindow = async () => {
     }
 
     const appWindowState = windowStateKeeper({
-        defaultWidth: 1000,
+        defaultWidth: 1200,
         defaultHeight: 800,
     });
 
@@ -59,6 +59,8 @@ const createWindow = async () => {
         y: appWindowState.y,
         width: appWindowState.width,
         height: appWindowState.height,
+        minWidth: 1200,
+        minHeight: 700,
         icon: getAssetsPath('icon.png'),
         webPreferences: {
             nodeIntegration: true,

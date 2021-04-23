@@ -8,6 +8,8 @@ import {
 import { InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
+// TODO: At low width search bar go into title
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         search: {

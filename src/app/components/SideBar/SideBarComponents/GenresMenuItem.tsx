@@ -1,21 +1,32 @@
 import React from 'react';
-import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import {
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Tooltip,
+} from '@material-ui/core';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-import { ModalType } from '@app/components/Modals/ModalType';
+import { MainType } from '@app/components/Main/MainType';
 
 interface PropsShape {
-    handleModalOpen: (type: ModalType, message?: string) => void;
+    setMainType: (type: MainType) => void;
+    sideBarIsOpen: boolean;
 }
 
-export function GenresMenuItem({ handleModalOpen }: PropsShape) {
+export function GenresMenuItem({ setMainType, sideBarIsOpen }: PropsShape) {
     return (
-        <>
-            <ListItem button>
+        <Tooltip
+            title="Genres"
+            arrow
+            placement="right"
+            disableHoverListener={!!sideBarIsOpen}
+        >
+            <ListItem button onClick={() => setMainType('Genres')}>
                 <ListItemIcon>
                     <EmojiEmotionsIcon />
                 </ListItemIcon>
                 <ListItemText primary="Genres" />
             </ListItem>
-        </>
+        </Tooltip>
     );
 }

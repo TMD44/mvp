@@ -19,9 +19,6 @@ interface PropsShape {
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            display: 'flex',
-        },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
             transition: theme.transitions.create(['width', 'margin'], {
@@ -53,7 +50,6 @@ export function TopBar({ sideBarIsOpen, handleSideBarOpen }: PropsShape) {
         <>
             <CssBaseline />
             <AppBar
-                position="fixed"
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: sideBarIsOpen,
                 })}
@@ -70,7 +66,7 @@ export function TopBar({ sideBarIsOpen, handleSideBarOpen }: PropsShape) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h5" noWrap>
                         Multimedia Visualization Platform
                     </Typography>
 
