@@ -1,64 +1,53 @@
 import React, { useState } from 'react';
 import { ModalController } from './Modals/ModalController';
 import { Main } from './Main';
-import { SideBar } from './SideBar';
+import { SideBar } from './SideBar/SideBar';
 import { ModalType } from './Modals/ModalType';
+import { TopBar } from './TopBar/TopBar';
 
 export function Layout() {
-    const [position, setPosition] = useState(false);
-    const [collapsed, setCollapsed] = useState(false);
-    const [toggled, setToggled] = useState(false);
-
-    const [modalIsOpen, setIsOpen] = useState(false);
-    const [modalType, setModalType] = useState('');
+    const [sideBarIsOpen, setSideBarIsOpen] = useState(true);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalType, setModalType] = useState('Default' as ModalType);
     const [modalMessage, setModalMessage] = useState('');
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
-
-    const handleCollapsedChange = (checked: boolean) => {
-        setCollapsed(checked);
+    const handleSideBarOpen = () => {
+        setSideBarIsOpen(true);
     };
 
-    const handlePositionChange = (checked: boolean) => {
-        setPosition(checked);
+    const handleSideBarClose = () => {
+        setSideBarIsOpen(false);
     };
 
-    const handleToggleSidebar = (value: boolean) => {
-        setToggled(value);
-    };
-
-    function handleModal(type: ModalType, message?: string) {
+    const handleModalOpen = (type: ModalType, message?: string) => {
         setModalType(type);
         if (message) setModalMessage(message);
 
-        openModal();
-    }
+        setModalIsOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setModalIsOpen(false);
+    };
 
     return (
-        <div
-            className={`app ${position ? 'position' : ''} ${
-                toggled ? 'toggled' : ''
-            }`}
-        >
+        <>
+            <TopBar
+                sideBarIsOpen={sideBarIsOpen}
+                handleSideBarOpen={handleSideBarOpen}
+            />
             <SideBar
-                // image={image}
-                collapsed={collapsed}
-                position={position}
-                toggled={toggled}
-                handleToggleSidebar={handleToggleSidebar}
-                handleCollapsedChange={handleCollapsedChange}
-                handleModal={handleModal}
+                handleModalOpen={handleModalOpen}
+                sideBarIsOpen={sideBarIsOpen}
+                handleSideBarClose={handleSideBarClose}
             />
             <Main />
             <ModalController
                 modalType={modalType}
-                closeModal={closeModal}
+                handleModalClose={handleModalClose}
                 modalIsOpen={modalIsOpen}
                 message={modalMessage}
-                handlePositionChange={handlePositionChange}
-                position={position}
             />
-        </div>
+        </>
     );
 }
