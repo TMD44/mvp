@@ -59,14 +59,18 @@ a:hover
     margin: 20px 0
 
 // CUSTOM SCROLLBAR
-*::-webkit-scrollbar
-    width: 5px
-    height: 5px
 
-*::-webkit-scrollbar-track
-    background: transparent
+::-webkit-scrollbar
+    width: 10px
 
-*::-webkit-scrollbar-thumb
-    border-radius: 30px
-    background: white
-    border: 5px solid white
+/* Track */
+::-webkit-scrollbar-track
+    background: #f1f1f1
+
+/* Handle */
+::-webkit-scrollbar-thumb
+    background: #888
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+    background: #555

@@ -1,24 +1,26 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root');
+import { Snackbar } from '@material-ui/core';
+import { TransitionUp } from './ModalTransitions';
 
 interface PropsShape {
-    closeModal: () => void;
+    handleModalClose: () => void;
     modalIsOpen: boolean;
     message: string;
 }
 
-export function MessageModal({ closeModal, modalIsOpen, message }: PropsShape) {
+export function MessageModal({
+    handleModalClose,
+    modalIsOpen,
+    message,
+}: PropsShape) {
     return (
-        <Modal
-            className="modalContent message"
-            overlayClassName="modalOverlay message"
-            isOpen={modalIsOpen}
-            onAfterOpen={() => setTimeout(() => closeModal(), 500)}
-            contentLabel="Message"
-        >
-            <b style={{ color: 'white' }}>{message}</b>
-        </Modal>
+        <Snackbar
+            open={modalIsOpen}
+            onClose={handleModalClose}
+            autoHideDuration={1000}
+            TransitionComponent={TransitionUp}
+            message={message}
+        />
     );
 }

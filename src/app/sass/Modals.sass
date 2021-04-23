@@ -1,69 +1,33 @@
 // Default modal settings
 
-.modalContent
-    position: absolute
-    top: 10%
-    left: 10%
-    right: 10%
-    bottom: 10%
-    border: 1px solid #ccc
-    background: rgb(0,255,0)
-    overflow: auto
-    -webkit-overflow-scrolling: touch
-    border-radius: 10px
-    outline: none
-    padding: 20px
-    //&.error
+// Titlebar of the modal
+.modalTitleBar
+    background-color: green
 
-    //&.media
+// Modal content
+.modalPaper
+    background-color: grey
+    &.about
+        padding: 5px 10px 5px 10px
+    &.video
+        width: 100%
+        height: 100%
+        background-color: black
+        &.backButton
+            width: 150px
+            color: white
+            background-color: pink
+            position: absolute
+            top: 30px
+            left: 10px
 
-    &.message
-        top: 90%
-        left: 50%
-        right: 50%
-        transform: translate(-50%, -50%)
-        height: 30px
-        width: 300px
-        padding: 0
-        border: none
-        background: rgba(105,105,105,0.7)
-        text-align: center
-        padding-top: 12px
-        border-radius: 30px
-        pointer-events: none
-    //&.settings
-
-    //&.sourceImport
-
-    &.videoPlayer
-        background: rgb(0,0,0)
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        border-radius: 0
-        border: none
-
-.modalOverlay
+// Background of the modal
+.modalBackdrop
     position: fixed
     top: 0
-    left: 0
+    left: 00
     right: 0
     bottom: 0
     z-index: 9999
     background-color: rgba(0,0,0,0.7)
     backdrop-filter: blur(5px)
-    //&.error
-
-    //&.media
-
-    &.message
-        position: static
-        background: none
-        backdrop-filter: none
-    //&.settings
-
-    //&.sourceImport
-
-    //&.videoPlayer
-

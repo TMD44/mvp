@@ -1,36 +1,42 @@
 import React from 'react';
-import Modal from 'react-modal';
-import { FaWindowClose } from 'react-icons/fa';
+import { Dialog, Backdrop } from '@material-ui/core';
 import { SourceImporter } from '../SourceImport/SourceImporter';
+import { ModalTitleBar } from './ModalTitleBar';
+import { TransitionRight } from './ModalTransitions';
 
 interface PropsShape {
-    closeModal: () => void;
+    handleModalClose: () => void;
     modalIsOpen: boolean;
 }
 
-export function SourceImportModal({ closeModal, modalIsOpen }: PropsShape) {
+export function SourceImportModal({
+    handleModalClose,
+    modalIsOpen,
+}: PropsShape) {
     return (
-        <Modal
-            className="modalContent sourceImport"
-            overlayClassName="modalOverlay sourceImport"
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            contentLabel="Source import"
+        <Dialog
+            aria-labelledby="Source Importer"
+            aria-describedby="Import the media source files"
+            // fullScreen
+            fullWidth
+            maxWidth="lg" // 'lg','md','sm','xl','xs'
+            open={modalIsOpen}
+            onClose={handleModalClose}
+            TransitionComponent={TransitionRight}
+            TransitionProps={{ timeout: 300 }}
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+                timeout: 500,
+                className: 'modalBackdrop',
+            }}
         >
-            <FaWindowClose
-                onClick={closeModal}
-                style={{
-                    width: '20px',
-                    height: '20px',
-                    color: 'black',
-                    position: 'absolute',
-                    top: '5px',
-                    right: '5px',
-                    filter: 'blur(0.5px)',
-                    cursor: 'pointer',
-                }}
+            <ModalTitleBar
+                title="Source Importer"
+                handleModalClose={handleModalClose}
             />
-            <SourceImporter />
-        </Modal>
+            <div className="modalPaper">
+                <SourceImporter />
+            </div>
+        </Dialog>
     );
 }

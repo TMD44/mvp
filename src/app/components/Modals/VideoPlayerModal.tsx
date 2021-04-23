@@ -1,55 +1,31 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
-import Modal from 'react-modal';
-import { FaWindowClose } from 'react-icons/fa';
-import { getAssetsPath } from 'src/lib/getPaths';
+import { Modal, Fade } from '@material-ui/core';
 import { VideoPlayer } from '../VideoPlayer/VideoPlayer';
 
 interface PropsShape {
-    closeVideoPlayer: () => void;
+    handleVideoPlayerClose: () => void;
     videoPlayerIsOpen: boolean;
 }
 
 export function VideoPlayerModal({
-    closeVideoPlayer,
+    handleVideoPlayerClose,
     videoPlayerIsOpen,
 }: PropsShape) {
     return (
         <Modal
-            className="modalContent videoPlayer"
-            overlayClassName="modalOverlay videoPlayer"
-            isOpen={videoPlayerIsOpen}
-            onRequestClose={closeVideoPlayer}
-            contentLabel="Video player"
-            shouldCloseOnOverlayClick={false}
+            aria-labelledby="Video Player"
+            aria-describedby="Play the selected media"
+            open={videoPlayerIsOpen}
+            onClose={handleVideoPlayerClose}
+            // closeAfterTransition
         >
-            <FaWindowClose
-                onClick={closeVideoPlayer}
-                style={{
-                    width: '20px',
-                    height: '20px',
-                    color: 'white',
-                    position: 'absolute',
-                    top: '5px',
-                    right: '5px',
-                    filter: 'blur(0.5px)',
-                    cursor: 'pointer',
-                }}
-            />
-            <h1 style={{ color: 'white', textAlign: 'center' }}>VIDEO MODAL</h1>
-            <VideoPlayer />
-            {/* <video width="1000" height="500" controls>
-                <track
-                    src={getAssetsPath('SAMPLE.srt')}
-                    kind="subtitles"
-                    srcLang="hu"
-                    label="Hungarian"
-                />
-                <source
-                    src={getAssetsPath('sample/SAMPLE.mp4')}
-                    type="video/mp4"
-                />
-            </video> */}
+            <Fade in={videoPlayerIsOpen} timeout={{ enter: 3000, exit: 1000 }}>
+                <div className="modalPaper video">
+                    <VideoPlayer
+                        handleVideoPlayerClose={handleVideoPlayerClose}
+                    />
+                </div>
+            </Fade>
         </Modal>
     );
 }

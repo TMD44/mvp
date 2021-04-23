@@ -1,52 +1,52 @@
-import React from 'react';
-import Modal from 'react-modal';
-import { FaWindowClose } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Backdrop, Dialog } from '@material-ui/core';
 import { VideoPlayerModal } from './VideoPlayerModal';
+import { ModalTitleBar } from './ModalTitleBar';
+import { TransitionRight } from './ModalTransitions';
 
 interface PropsShape {
-    closeModal: () => void;
+    handleModalClose: () => void;
     modalIsOpen: boolean;
-    videoPlayerIsOpen: boolean;
-    openVideoPlayer: () => void;
-    closeVideoPlayer: () => void;
 }
 
-export function MediaModal({
-    closeModal,
-    modalIsOpen,
-    videoPlayerIsOpen,
-    openVideoPlayer,
-    closeVideoPlayer,
-}: PropsShape) {
+export function MediaModal({ handleModalClose, modalIsOpen }: PropsShape) {
+    const [videoPlayerIsOpen, setVideoPlayerIsOpen] = useState(false);
+
+    const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
+    const handleVideoPlayerClose = () => setVideoPlayerIsOpen(false);
+
     return (
-        <Modal
-            className="modalContent media"
-            overlayClassName="modalOverlay media"
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            contentLabel="Media details"
-        >
-            <FaWindowClose
-                onClick={closeModal}
-                style={{
-                    width: '20px',
-                    height: '20px',
-                    color: 'black',
-                    position: 'absolute',
-                    top: '5px',
-                    right: '5px',
-                    filter: 'blur(0.5px)',
-                    cursor: 'pointer',
+        <>
+            <Dialog
+                aria-labelledby="Media"
+                aria-describedby="Description of the selected media"
+                // fullScreen
+                fullWidth
+                maxWidth="lg" // 'lg','md','sm','xl','xs'
+                open={modalIsOpen}
+                onClose={handleModalClose}
+                TransitionComponent={TransitionRight}
+                TransitionProps={{ timeout: 300 }}
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                    className: 'modalBackdrop',
                 }}
-            />
-            <h1 style={{ color: 'black' }}>MEDIA MODAL</h1>
-            <button type="button" onClick={openVideoPlayer}>
-                OPEN VIDEO PLAYER MODAL
-            </button>
+            >
+                <ModalTitleBar
+                    title="Media"
+                    handleModalClose={handleModalClose}
+                />
+                <div className="modalPaper">
+                    <button type="button" onClick={handleVideoPlayerOpen}>
+                        OPEN VIDEO PLAYER MODAL
+                    </button>
+                </div>
+            </Dialog>
             <VideoPlayerModal
-                closeVideoPlayer={closeVideoPlayer}
+                handleVideoPlayerClose={handleVideoPlayerClose}
                 videoPlayerIsOpen={videoPlayerIsOpen}
             />
-        </Modal>
+        </>
     );
 }

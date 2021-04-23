@@ -1,49 +1,37 @@
-import React, { useState } from 'react';
-import { MessageModal } from './MessageModal';
-import { ErrorModal } from './ErrorModal';
+import React from 'react';
 import { SettingsModal } from './SettingsModal';
 import { SourceImportModal } from './SourceImportModal';
 import { MediaModal } from './MediaModal';
 import { ModalType } from './ModalType';
+import { AboutModal } from './AboutModal';
+import { MessageModal } from './MessageModal';
 
 interface PropsShape {
     modalType: ModalType;
-    closeModal: () => void;
+    handleModalClose: () => void;
     modalIsOpen: boolean;
     message: string;
-    handlePositionChange: (checked: boolean) => void;
-    position: boolean;
 }
 
 export function ModalController({
     modalType,
-    closeModal,
+    handleModalClose,
     modalIsOpen,
     message,
-    handlePositionChange,
-    position,
 }: PropsShape) {
-    const [videoPlayerIsOpen, setVideoPlayerIsOpen] = useState(false);
-
-    const openVideoPlayer = () => setVideoPlayerIsOpen(true);
-    const closeVideoPlayer = () => setVideoPlayerIsOpen(false);
-
     switch (modalType) {
         case 'Media':
             return (
                 <MediaModal
-                    closeModal={closeModal}
+                    handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
-                    videoPlayerIsOpen={videoPlayerIsOpen}
-                    openVideoPlayer={openVideoPlayer}
-                    closeVideoPlayer={closeVideoPlayer}
                 />
             );
 
         case 'SourceImport':
             return (
                 <SourceImportModal
-                    closeModal={closeModal}
+                    handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
                 />
             );
@@ -51,34 +39,35 @@ export function ModalController({
         case 'Settings':
             return (
                 <SettingsModal
-                    closeModal={closeModal}
+                    handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
-                    handlePositionChange={handlePositionChange}
-                    position={position}
                 />
             );
 
         case 'Message':
             return (
                 <MessageModal
-                    closeModal={closeModal}
+                    handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
                     message={message}
                 />
             );
 
-        /* case "VideoPlayer":
+        case 'About':
             return (
-                <VideoPlayerModal
-                    closeModal={closeModal}
+                <AboutModal
+                    handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
                 />
             );
-        */
 
         default:
             return (
-                <ErrorModal closeModal={closeModal} modalIsOpen={modalIsOpen} />
+                <MessageModal
+                    handleModalClose={handleModalClose}
+                    modalIsOpen={modalIsOpen}
+                    message={`ERROR: ${message}`}
+                />
             );
     }
 }
