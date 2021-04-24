@@ -6,7 +6,7 @@ import windowStateKeeper from 'electron-window-state';
 import { ipcMain } from './ipcMain';
 import { config } from './configuration';
 import { cleanBeforeQuit } from './cleanBeforeQuit';
-import { getAssetsPath } from '../lib/getPaths';
+import { getAssetsPath } from '../scripts/getPaths';
 // import MenuBuilder from './menu';
 // import appUpdater from './appUpdater';
 
@@ -23,7 +23,7 @@ if (isProductionMode) {
 }
 
 if (isDevelopmentMode) {
-    // require('electron-debug')(); // THROWS WARNINGS
+    require('electron-debug')(); // THROWS WARNINGS
 }
 
 const installExtensions = async () => {
@@ -101,14 +101,20 @@ const createWindow = async () => {
 
 app.whenReady().then(createWindow).catch(console.log);
 
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        quitApp();
-    }
-});
-
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         createWindow();
+    }
+});
+
+app.on('before-quit', () => {
+    /* console.log('BEZARODOM EPPEN!');
+
+    console.log('!!!BEZARODTAM!!!'); */
+});
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        quitApp();
     }
 });

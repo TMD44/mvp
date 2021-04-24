@@ -1,6 +1,9 @@
 # List of TODOs
 
 -   Tests
+    -   For JS,TS: Jest
+    -   For React: ???
+    -   For Electron: Spectron
 -   Internationalization (i18n)
     -   https://github.com/bitwarden/desktop/blob/master/src/services/i18n.service.ts
 -   Multiple themes

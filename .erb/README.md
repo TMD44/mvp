@@ -1,14 +1,16 @@
-# Track custom changes in .erb folder
+# Custom changes in .erb folder
 
 ## Folder rename
 
 1. Folder rename:
     - from: `.erb`
-    - to: `.`
+    - to: NOT YET
 
 ---
 
 ## Configs
+
+This folder contains the Webpack config files, for development and production builds.
 
 ### .eslintrc
 
@@ -71,6 +73,8 @@
 ---
 
 ## Scripts
+
+This folder contains scripts that handles functionality that cannot be written as npm scripts.
 
 ### .eslintrc
 

@@ -58,7 +58,7 @@ yarn clean:all
 
 ## Frameworks, Boilerplates and Libraries
 
-The following were also used in the development:
+The following were also used in development:
 
 -   [Electron-React-Boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
 -   [Material UI](https://github.com/mui-org/material-ui)

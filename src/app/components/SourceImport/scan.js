@@ -4,7 +4,7 @@
 /* eslint-disable no-await-in-loop */
 
 import { config } from '@main/configuration';
-import { getExportPath } from 'src/lib/getPaths';
+import { getExportPath } from 'src/scripts/getPaths';
 import {
     mediaJSONGenerator,
     completeJSONGenerator,
