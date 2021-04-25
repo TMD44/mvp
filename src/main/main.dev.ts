@@ -1,11 +1,16 @@
 /* eslint-disable global-require */
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import { app, BrowserWindow, session, shell } from 'electron';
+import {
+    app,
+    BrowserWindow,
+    session,
+    shell,
+    ipcMain as ipcQuit,
+} from 'electron';
 import windowStateKeeper from 'electron-window-state';
 import { ipcMain } from './ipcMain';
-import { config } from './configuration';
-import { cleanBeforeQuit } from './cleanBeforeQuit';
+import { configureStorage } from '../scripts/configureStorage';
 import { getAssetsPath } from '../scripts/getPaths';
 // import MenuBuilder from './menu';
 // import appUpdater from './appUpdater';
@@ -43,37 +48,21 @@ const installExtensions = async () => {
     });
 };
 
-/*  OLD VERSION: NOT WORKING
-const installExtensions = async () => {
-    const installer = require('electron-devtools-installer');
-    const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-    const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
-
-    return installer
-        .default(
-            extensions.map((name) => installer[name]),
-            forceDownload
-        )
-        .catch(console.log);
-};
-*/
-
-const quitApp = () => {
-    cleanBeforeQuit();
-    app.quit();
-};
+let appWindow: BrowserWindow | null = null;
 
 const createWindow = async () => {
     if (isDevelopmentMode) {
         await installExtensions();
     }
 
+    configureStorage();
+
     const appWindowState = windowStateKeeper({
         defaultWidth: 1200,
         defaultHeight: 800,
     });
 
-    const appWindow = new BrowserWindow({
+    appWindow = new BrowserWindow({
         x: appWindowState.x,
         y: appWindowState.y,
         width: appWindowState.width,
@@ -104,18 +93,35 @@ const createWindow = async () => {
     // const menuBuilder = new MenuBuilder(appWindow);
     // menuBuilder.buildMenu();
 
-    appWindow.on('closed', () => {
-        quitApp();
-    });
-
     // Opens URLs in user's the default browser
     appWindow.webContents.on('new-window', (event, url) => {
         event.preventDefault();
         shell.openExternal(url);
     });
 
-    config.setup();
-    ipcMain.openDirAsync(appWindow);
+    ipcMain.openDirSync(appWindow);
+
+    appWindow.on('closed', () => {
+        app.quit();
+    });
+
+    let quitStatus = 0;
+    appWindow.on('close', (event: { preventDefault: () => void }) => {
+        if (quitStatus === 0) {
+            if (appWindow) {
+                event.preventDefault();
+                appWindow.webContents.send('write-storage-before-quit');
+            }
+        }
+    });
+
+    ipcQuit.on('quit-now', () => {
+        quitStatus = 1;
+        appWindow = null;
+        if (process.platform !== 'darwin') {
+            app.quit();
+        }
+    });
 };
 
 app.whenReady().then(createWindow).catch(console.log);
@@ -126,14 +132,8 @@ app.on('activate', () => {
     }
 });
 
-app.on('before-quit', () => {
-    /* console.log('BEZARODOM EPPEN!');
-
-    console.log('!!!BEZARODTAM!!!'); */
-});
-
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        quitApp();
+        app.quit();
     }
 });

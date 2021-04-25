@@ -1,10 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { configureStore } from 'src/redux/store';
 import App from './App';
+import { ipcRenderer } from './ipcRenderer';
 import './sass/App.global.sass';
-
-const store = configureStore();
 
 render(<App />, document.getElementById('root'));
 /*
@@ -16,5 +14,4 @@ render(
 );
 */
 
-console.log('STORE: ', store);
-console.log('STORE CONTENT: ', store.getState());
+ipcRenderer.writeStorageBeforeQuit();
