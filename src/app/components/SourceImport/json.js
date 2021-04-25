@@ -1,11 +1,9 @@
 import { promises as fsp } from 'fs';
-import { getExportPath } from 'src/scripts/getPaths';
+import { getExportPath } from '@scripts/getPaths';
+import { getHashID } from '@scripts/hashID';
 import { fnr } from './tools/fnr';
 import { subFinder } from './tools/sub';
 import { nfoFileFinder, nfoIdFinder } from './tools/nfo';
-import { getHashID } from '../../../scripts/hashID';
-import { getDateAndTime } from '../../../scripts/date';
-import { getVideoInfo } from './tools/videoInfo';
 
 export async function mediaJSONGenerator(media, scanResults) {
     let mediaInJSON = {};

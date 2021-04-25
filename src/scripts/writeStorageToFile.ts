@@ -8,8 +8,9 @@ const MOVIE_DB_FILE_PATH = getStoragePath('movieDB.json');
 export const writeStorageBeforeQuit = async () => {
     const CONFIG_DATA = store.getState().config;
     const MEDIA_DATA = store.getState().media;
-    delete CONFIG_DATA.default;
-    delete MEDIA_DATA.default;
+    // TODO: "default" object also writen to the file somehow
+    // if (store.getState().config.default) delete CONFIG_DATA.default;
+    // if (store.getState().media.default) delete MEDIA_DATA.default;
 
     try {
         await fsp.writeFile(
