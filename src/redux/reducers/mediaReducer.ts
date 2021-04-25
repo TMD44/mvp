@@ -1,7 +1,10 @@
-import { promises as fsp } from 'fs';
-import * as movieDataJson from '@assets/export/movieDataMINTA.json';
-
-// TODO: if file not exists init has to be default
+import * as movieDataJson from '@assets/.storage/movieDB.json';
+import {
+    ADD_MEDIA,
+    ADD_MEDIA_AT_ONCE,
+    DELETE_MEDIA,
+    UPDATE_MEDIA,
+} from '@redux/actions/mediaActions';
 
 const initialState = movieDataJson;
 
@@ -12,11 +15,19 @@ export const mediaReducer = (
     const { type, payload } = action;
 
     switch (type) {
-        case 'ADD_MEDIA':
+        case ADD_MEDIA:
+            return {
+                ...state,
+                all_media: { ...state.all_media, ...payload },
+            };
+        case ADD_MEDIA_AT_ONCE:
+            return {
+                ...state,
+                all_media: payload,
+            };
+        case UPDATE_MEDIA:
             return state;
-        case 'UPDATE_MEDIA':
-            return state;
-        case 'DELETE_MEDIA':
+        case DELETE_MEDIA:
             return state;
         default:
             return state;
