@@ -18,7 +18,7 @@ export const configReducer = (
     state = initialState,
     action: {
         type: string;
-        payload: any;
+        payload: string | string[];
     }
 ) => {
     const { type, payload } = action;

@@ -8,3 +8,6 @@ export const getScanPaths = () =>
 
 export const getScanResults = () =>
     store.getState().config.scan_preferences.scan_results;
+
+export const scanPathsSelector = (state) =>
+    state.config.scan_preferences.scan_paths;

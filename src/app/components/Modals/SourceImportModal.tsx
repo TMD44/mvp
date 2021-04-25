@@ -35,7 +35,7 @@ export function SourceImportModal({
                 handleModalClose={handleModalClose}
             />
             <div className="modalPaper">
-                <SourceImporter />
+                <SourceImporter handleModalClose={handleModalClose} />
             </div>
         </Dialog>
     );
