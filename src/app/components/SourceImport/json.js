@@ -3,8 +3,8 @@ import { getExportPath } from 'src/scripts/getPaths';
 import { fnr } from './tools/fnr';
 import { subFinder } from './tools/sub';
 import { nfoFileFinder, nfoIdFinder } from './tools/nfo';
-import { getHashID } from './tools/hashID';
-import { getDateAndTime } from './tools/date';
+import { getHashID } from '../../../scripts/hashID';
+import { getDateAndTime } from '../../../scripts/date';
 import { getVideoInfo } from './tools/videoInfo';
 
 export async function mediaJSONGenerator(media, scanResults) {
@@ -44,19 +44,6 @@ export async function mediaJSONGenerator(media, scanResults) {
     mediaInJSON.ffprobe = result; */
 
     return mediaInJSON;
-}
-
-export async function completeJSONGenerator(mediaInJSON) {
-    const completeJSON = {
-        generation_time: getDateAndTime(),
-        version: '1.0',
-        media: mediaInJSON,
-        tv_series: {},
-        movie_series: {},
-        playlists: {},
-    };
-
-    return completeJSON;
 }
 
 export async function printJSONToFile(path, jsonToPrint) {

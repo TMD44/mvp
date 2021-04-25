@@ -3,8 +3,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-await-in-loop */
 
-import { config } from '@main/configuration';
-import { getExportPath } from 'src/scripts/getPaths';
+import { getExportsPath } from 'src/scripts/getPaths';
 import {
     mediaJSONGenerator,
     completeJSONGenerator,
@@ -12,6 +11,14 @@ import {
 } from './json';
 import { scanDir } from './tools/scanDir';
 import { fileSorting, excludedFromScan } from './fileSorting';
+import {
+    getScanFileTypes,
+    getScanPaths,
+    getScanResults,
+} from '../../../redux/selectors/configSelector';
+import { store } from '../../../redux/store';
+import { addScanResults } from '../../../redux/actions/configActions';
+import { addMedia, addMediaAtOnce } from '../../../redux/actions/mediaActions';
 
 export const scan = {
     completeJSON: {},
@@ -24,9 +31,9 @@ export const scan = {
             nfo: [],
         };
 
-        const { media, sub, nfo } = await config.getFileTypes();
+        const { media, sub, nfo } = getScanFileTypes();
 
-        const paths = await config.getScanPaths();
+        const paths = getScanPaths();
 
         for (const i in paths) {
             const files = await scanDir(paths[i], [media, sub, nfo].flat());
@@ -37,8 +44,8 @@ export const scan = {
             }
         }
 
-        await config.setScanResults(scanResults);
-        const results = await config.getScanResults();
+        store.dispatch(addScanResults(scanResults));
+        const results = getScanResults();
 
         for (const file in results.media) {
             const result = await mediaJSONGenerator(
@@ -46,13 +53,10 @@ export const scan = {
                 results
             );
             scan.mediaInJSON[result.id] = result;
+            // store.dispatch(addMedia(result));
         }
 
-        scan.completeJSON = await completeJSONGenerator(scan.mediaInJSON);
-        await printJSONToFile(
-            getExportPath('movieData.json'),
-            scan.completeJSON
-        );
+        store.dispatch(addMediaAtOnce(scan.mediaInJSON));
 
         // purgeScanResults();
     },

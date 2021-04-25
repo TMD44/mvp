@@ -1,20 +1,6 @@
 import React, { useState } from 'react';
-import { config } from '@main/configuration';
 
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import FolderIcon from '@material-ui/icons/Folder';
-import DeleteIcon from '@material-ui/icons/Delete';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import {
     Step,
     Stepper,
@@ -22,8 +8,10 @@ import {
     StepContent,
     Button,
 } from '@material-ui/core';
+import { store } from '@redux/store';
+import { addScanPath, deleteAllScanPaths } from '@redux/actions/configActions';
+import { ipcRenderer } from '@app/ipcRenderer';
 import { scan } from './scan';
-import { ipcRenderer } from './ipcRenderer';
 
 export function importSourcesButton() {
     scan.offlineScan();
@@ -31,10 +19,6 @@ export function importSourcesButton() {
 
 export function importWithMetadata() {
     scan.onlineScan();
-}
-
-export function deleteDirs() {
-    config.purgeScanPaths();
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -55,14 +39,6 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-async function getArr() {
-    const a = await config.getAny('scan_preferences', 'scan_paths');
-    return Array(a);
-}
-
-const abs = getArr();
-const arr = Array(abs);
-
 export function SourceImporter() {
     const [activeStep, setActiveStep] = useState(0);
     const classes = useStyles();
@@ -80,11 +56,14 @@ export function SourceImporter() {
     };
 
     const openDirButton = () => {
-        config.purgeScanResults();
-        ipcRenderer.openDirAsync();
-        // const result = await config.getScanPaths();
-        // console.log('RESULT: ', result);
-        // setSelectedScanPaths(result);
+        // store.dispatch(scanPrefs.deleteAllScanResults());
+        ipcRenderer
+            .openDirSync()
+            .forEach((path: string) => store.dispatch(addScanPath(path)));
+    };
+
+    const deleteDirs = () => {
+        store.dispatch(deleteAllScanPaths());
     };
 
     return (

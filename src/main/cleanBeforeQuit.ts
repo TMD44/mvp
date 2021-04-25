@@ -1,9 +1,9 @@
 import { unlink } from 'fs';
-import { getConfigPath, getExportPath } from '../scripts/getPaths';
+import { getStoragePath } from '../scripts/getPaths';
 
 export function cleanBeforeQuit(data = true, config = true) {
     if (data) {
-        unlink(getExportPath('movieData.json'), (err) => {
+        unlink(getStoragePath('movieData.json'), (err) => {
             if (err) {
                 console.log('\x1b[35m%s\x1b[0m', 'MovieData file not found!');
                 return;
@@ -12,7 +12,7 @@ export function cleanBeforeQuit(data = true, config = true) {
         });
     }
     if (config) {
-        unlink(getConfigPath('config.json'), (err) => {
+        unlink(getStoragePath('config.json'), (err) => {
             if (err) {
                 console.log('\x1b[35m%s\x1b[0m', 'Config file not found!');
                 return;

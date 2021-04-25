@@ -1,6 +1,6 @@
-import { app } from 'electron';
+/* import { app } from 'electron';
 import { promises as fsp } from 'fs';
-import { getConfigPath } from '../scripts/getPaths';
+import { getStoragePath } from '../scripts/getPaths';
 
 const CONFIG_PATH = getConfigPath('config.json');
 
@@ -187,7 +187,7 @@ export const config = {
         });
 
         if (createConfig) config.setup();
-    }, */
+    },
 };
 
 /*   JAVASCRIPT VERSION FOR BACKUP:
