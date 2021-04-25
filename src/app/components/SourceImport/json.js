@@ -43,12 +43,3 @@ export async function mediaJSONGenerator(media, scanResults) {
 
     return mediaInJSON;
 }
-
-export async function printJSONToFile(path, jsonToPrint) {
-    fsp.writeFile(path, JSON.stringify(jsonToPrint, null, 4), 'utf8');
-}
-
-export async function getJson() {
-    const data = await fsp.readFile(getExportPath('movieData.json'), 'utf8');
-    return JSON.parse(data);
-}

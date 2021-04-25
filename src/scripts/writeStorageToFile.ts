@@ -1,5 +1,5 @@
 import { promises as fsp } from 'fs';
-import { store } from '../redux/store';
+import { store } from '@redux/store';
 import { getStoragePath } from './getPaths';
 
 const CONFIG_FILE_PATH = getStoragePath('config.json');

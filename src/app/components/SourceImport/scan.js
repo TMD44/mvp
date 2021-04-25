@@ -1,27 +1,19 @@
-// PROBLEMS WITH FORs: TODO
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
 /* eslint-disable no-await-in-loop */
-
-import { getExportsPath } from 'src/scripts/getPaths';
-import {
-    mediaJSONGenerator,
-    completeJSONGenerator,
-    printJSONToFile,
-} from './json';
-import { scanDir } from './tools/scanDir';
-import { fileSorting, excludedFromScan } from './fileSorting';
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
 import {
     getScanFileTypes,
     getScanPaths,
     getScanResults,
-} from '../../../redux/selectors/configSelector';
-import { store } from '../../../redux/store';
-import { addScanResults } from '../../../redux/actions/configActions';
-import { addMedia, addMediaAtOnce } from '../../../redux/actions/mediaActions';
+} from '@redux/selectors/configSelector';
+import { store } from '@redux/store';
+import { addScanResults } from '@redux/actions/configActions';
+import { addMedia, addMediaAtOnce } from '@redux/actions/mediaActions';
+import { fileSorting, excludedFromScan } from './fileSorting';
+import { scanDir } from './tools/scanDir';
+import { mediaJSONGenerator } from './json';
 
 export const scan = {
-    completeJSON: {},
     mediaInJSON: {},
 
     offlineScan: async () => {
@@ -57,8 +49,6 @@ export const scan = {
         }
 
         store.dispatch(addMediaAtOnce(scan.mediaInJSON));
-
-        // purgeScanResults();
     },
 
     onlineScan: () => {

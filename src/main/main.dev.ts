@@ -9,9 +9,9 @@ import {
     ipcMain as ipcQuit,
 } from 'electron';
 import windowStateKeeper from 'electron-window-state';
-import { ipcMain } from './ipcMain';
 import { configureStorage } from '../scripts/configureStorage';
 import { getAssetsPath } from '../scripts/getPaths';
+import { ipcMain } from './ipcMain';
 // import MenuBuilder from './menu';
 // import appUpdater from './appUpdater';
 
@@ -34,12 +34,8 @@ if (isDevelopmentMode) {
 // These extensions now loaded directly
 // Hide error messages from extension: Console->Options->Selected Context Only
 const installExtensions = async () => {
-    const REACT_PATH = 'G:/mvp/.erb/plugins/ReactDevTools/4.12.3_0';
-    const REDUX_PATH = 'G:/mvp/.erb/plugins/ReduxDevTools/2.17.0_0';
-    /* const REACT_PATH =
-        'C:\\Users\\tmd-pc\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\4.12.3_0';
-    const REDUX_PATH =
-        'C:\\Users\\tmd-pc\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\lmhkpmbekcpmknklioeibfkpmmfibljd\\2.17.0_0'; */
+    const REACT_PATH = 'G:/dev_plugins/ReactDevTools/4.12.3_0';
+    const REDUX_PATH = 'G:/dev_plugins/ReduxDevTools/2.17.0_0';
     await session.defaultSession.loadExtension(REACT_PATH, {
         allowFileAccess: true,
     });

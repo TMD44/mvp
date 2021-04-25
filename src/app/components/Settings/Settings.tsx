@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import {
@@ -13,7 +14,6 @@ interface PropsShape {
 }
 
 interface TabPanelProps {
-    // eslint-disable-next-line react/require-default-props
     children?: React.ReactNode;
     index: any;
     value: any;

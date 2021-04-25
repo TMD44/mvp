@@ -1,5 +1,5 @@
 /* eslint-disable promise/always-return */
-import { ipcMain as ipcMainCommunication, dialog, app } from 'electron';
+import { ipcMain as ipcMainCommunication, dialog } from 'electron';
 
 export const ipcMain = {
     openDirSync: (window: Electron.BrowserWindow) => {
@@ -10,8 +10,6 @@ export const ipcMain = {
                 })
                 .then((result) => {
                     if (result.canceled === false) {
-                        // config.addScanPath(result.filePaths);
-                        // event.reply('openDir-async-reply', result.filePaths);
                         event.returnValue = result.filePaths;
                     } else {
                         event.returnValue = [];
