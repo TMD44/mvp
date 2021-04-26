@@ -6,6 +6,7 @@ import {
     BrowserWindow,
     session,
     shell,
+    nativeTheme,
     ipcMain as ipcQuit,
 } from 'electron';
 import windowStateKeeper from 'electron-window-state';
@@ -61,6 +62,7 @@ const createWindow = async () => {
         height: appWindowState.height,
         minWidth: 1200,
         minHeight: 700,
+        // frame: false,
         icon: getAssetsPath('icon.png'),
         webPreferences: {
             nodeIntegration: true,
@@ -117,7 +119,12 @@ const createWindow = async () => {
     });
 };
 
-app.whenReady().then(createWindow).catch(console.log);
+// app.whenReady().then(createWindow).catch(console.log);
+
+app.on('ready', () => {
+    nativeTheme.themeSource = 'dark';
+    createWindow();
+});
 
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

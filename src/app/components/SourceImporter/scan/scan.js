@@ -49,9 +49,11 @@ export const scan = {
         }
 
         store.dispatch(addMediaAtOnce(scan.mediaInJSON));
+
+        return true;
     },
 
-    onlineScan: () => {
+    onlineScan: async () => {
         /* return tmdb
             .multiSearch(scan.mediaInJSON.unsure_metadata.filename_data.title)
             .then((result) => {
@@ -60,5 +62,6 @@ export const scan = {
                 console.log('mediaInJSON: ', scan.mediaInJSON);
                 return scan.mediaInJSON;
             }); */
+        return true;
     },
 };

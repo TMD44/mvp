@@ -7,18 +7,12 @@ import { ipcRenderer } from './ipcRenderer';
 import './sass/App.global.sass';
 
 render(
+    // <React.StrictMode>
     <Provider store={store}>
         <App />
     </Provider>,
+    // </React.StrictMode>,
     document.getElementById('root')
 );
-/*
-render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
-*/
 
 ipcRenderer.writeStorageBeforeQuit();

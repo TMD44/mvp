@@ -1,1 +1,1 @@
-export const getMedia = (state: { media: any }) => state.media;
+export const mediaSelector = (state) => state.media.all_media;
