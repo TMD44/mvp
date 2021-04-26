@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog, Backdrop } from '@material-ui/core';
-import { SourceImporter } from '../SourceImport/SourceImporter';
+import { SourceImporter } from '../SourceImporter/SourceImporter';
 import { ModalTitleBar } from './ModalTitleBar';
 import { TransitionRight } from './ModalTransitions';
 

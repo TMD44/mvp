@@ -24,6 +24,7 @@ import { HomeMenuItem } from './SideBarComponents/HomeMenuItem';
 import { MoviesMenuItem } from './SideBarComponents/MoviesMenuItem';
 import { SeriesMenuItem } from './SideBarComponents/SeriesMenuItem';
 import { GenresMenuItem } from './SideBarComponents/GenresMenuItem';
+import { PlaylistsMenuItem } from './SideBarComponents/PlaylistsMenuItem';
 import { MainType } from '../Main/MainType';
 
 interface PropsShape {
@@ -124,6 +125,10 @@ export function SideBar({
                         sideBarIsOpen={sideBarIsOpen}
                     />
                     <GenresMenuItem
+                        setMainType={setMainType}
+                        sideBarIsOpen={sideBarIsOpen}
+                    />
+                    <PlaylistsMenuItem
                         setMainType={setMainType}
                         sideBarIsOpen={sideBarIsOpen}
                     />

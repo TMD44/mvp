@@ -1,1 +1,1 @@
-export type MainType = 'Home' | 'Movies' | 'Series' | 'Genres';
+export type MainType = 'Home' | 'Movies' | 'Series' | 'Genres' | 'Playlists';

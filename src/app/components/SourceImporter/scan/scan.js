@@ -10,7 +10,7 @@ import { store } from '@redux/store';
 import { addScanResults } from '@redux/actions/configActions';
 import { addMedia, addMediaAtOnce } from '@redux/actions/mediaActions';
 import { fileSorting, excludedFromScan } from './fileSorting';
-import { scanDir } from './tools/scanDir';
+import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
 
 export const scan = {
