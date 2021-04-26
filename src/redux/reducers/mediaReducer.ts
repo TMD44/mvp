@@ -1,4 +1,6 @@
-import * as movieDataJson from '@assets/.storage/movieDB.json';
+// import * as movieDataJson from '@assets/.storage/movieDB.json';
+import fs from 'fs';
+import { configureStorageSync } from '@scripts/configureStorage';
 import {
     ADD_MEDIA,
     ADD_MEDIA_AT_ONCE,
@@ -6,7 +8,9 @@ import {
     UPDATE_MEDIA,
 } from '@redux/actions/mediaActions';
 
-const initialState = movieDataJson;
+const mediaPath: string = configureStorageSync('movieDB');
+
+const initialState = JSON.parse(fs.readFileSync(mediaPath, 'utf8'));
 
 export const mediaReducer = (
     state = initialState,

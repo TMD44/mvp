@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs, { promises as fsp } from 'fs';
 import {
     configDefaultState,
     movieDbDefaultState,
@@ -10,7 +10,7 @@ const MOVIE_DB_FILE_PATH = getStoragePath('movieDB.json');
 
 type FileType = 'config' | 'movieDB';
 
-export const fileIsExists = (file: FileType) => {
+const fileIsExistsSync = (file: FileType) => {
     try {
         switch (file) {
             case 'config':
@@ -29,9 +29,9 @@ export const fileIsExists = (file: FileType) => {
     }
 };
 
-export const configureStorage = () => {
-    const configIsExists = fileIsExists('config');
-    const movieDbIsExists = fileIsExists('movieDB');
+const writeFileIfNotExistsSync = () => {
+    const configIsExists = fileIsExistsSync('config');
+    const movieDbIsExists = fileIsExistsSync('movieDB');
 
     if (!configIsExists) {
         fs.writeFileSync(
@@ -54,11 +54,24 @@ export const configureStorage = () => {
     }
 };
 
+export const configureStorageSync = (file: FileType): string => {
+    writeFileIfNotExistsSync();
+
+    switch (file) {
+        case 'config':
+            return CONFIG_FILE_PATH;
+
+        case 'movieDB':
+            return MOVIE_DB_FILE_PATH;
+
+        default:
+            return '';
+    }
+};
+
 // ASYNCRONOUS
 /*
-import { promises as fsp } from 'fs';
-
-const fileIsExistsAsync = async (file: FileType) => {
+const fileIsExists = async (file: FileType) => {
     try {
         switch (file) {
             case 'config':
@@ -77,9 +90,10 @@ const fileIsExistsAsync = async (file: FileType) => {
     }
 };
 
-export const configureStorageAsync = async () => {
-    const configIsExists = await fileIsExistsAsync('config');
-    const movieDbIsExists = await fileIsExistsAsync('movieDB');
+export const configureStorage = async (file: FileType) => {
+    let result = '';
+    const configIsExists = await fileIsExists('config');
+    const movieDbIsExists = await fileIsExists('movieDB');
 
     if (!configIsExists) {
         await fsp.writeFile(
@@ -100,5 +114,7 @@ export const configureStorageAsync = async () => {
     } else {
         console.log('MOVIE_DB ALEADY EXISTS!');
     }
+
+    return result;
 };
 */

@@ -1,5 +1,6 @@
-import * as configDataJson from '@assets/.storage/config.json';
-
+// import * as configDataJson from '@assets/.storage/config.json';
+import fs from 'fs';
+import { configureStorageSync } from '@scripts/configureStorage';
 import {
     UPDATE_SCAN_LANGUAGE,
     DELETE_SCAN_PATH,
@@ -12,7 +13,9 @@ import {
     DELETE_ALL_SCAN_PATHS,
 } from '../actions/configActions';
 
-const initialState = configDataJson;
+const configPath: string = configureStorageSync('config');
+
+const initialState = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 export const configReducer = (
     state = initialState,

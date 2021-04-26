@@ -9,7 +9,6 @@ import {
     ipcMain as ipcQuit,
 } from 'electron';
 import windowStateKeeper from 'electron-window-state';
-import { configureStorage } from '../scripts/configureStorage';
 import { getAssetsPath } from '../scripts/getPaths';
 import { ipcMain } from './ipcMain';
 // import MenuBuilder from './menu';
@@ -19,7 +18,6 @@ const isProductionMode = process.env.NODE_ENV === 'production';
 const isDevelopmentMode =
     process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
-// TODO: in production hide electron security warnings
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
 if (isProductionMode) {
@@ -50,8 +48,6 @@ const createWindow = async () => {
     if (isDevelopmentMode) {
         await installExtensions();
     }
-
-    configureStorage();
 
     const appWindowState = windowStateKeeper({
         defaultWidth: 1200,
@@ -96,6 +92,7 @@ const createWindow = async () => {
     });
 
     ipcMain.openDirSync(appWindow);
+    ipcMain.getAppDataSync();
 
     appWindow.on('closed', () => {
         app.quit();
@@ -106,7 +103,7 @@ const createWindow = async () => {
         if (quitStatus === 0) {
             if (appWindow) {
                 event.preventDefault();
-                appWindow.webContents.send('write-storage-before-quit');
+                appWindow.webContents.send('write-to-file-storage-before-quit');
             }
         }
     });

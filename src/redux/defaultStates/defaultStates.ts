@@ -1,11 +1,14 @@
-import { app } from 'electron';
+import { ipcRenderer } from 'electron';
 import { getDateAndTime } from '../../scripts/date';
+
+const appData = ipcRenderer.sendSync('get-app-data-sync');
 
 export const configDefaultState = {
     creation_time: getDateAndTime(),
     modification_time: getDateAndTime(),
     user_info: { name: 'Anonymous' },
-    app_info: {
+    app_info: appData,
+    /* {
         app_name: app.getName(),
         app_version: app.getVersion(),
         app_current_directory: app.getAppPath(),
@@ -26,7 +29,7 @@ export const configDefaultState = {
             exe: app.getPath('exe'),
             crash_dumps: app.getPath('crashDumps'),
         },
-    },
+    }, */
     ui_preferences: {
         ui_language: 'en-US',
     },

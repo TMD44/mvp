@@ -3,15 +3,18 @@ import { writeStorageBeforeQuit } from '@scripts/writeStorageToFile';
 
 export const ipcRenderer = {
     openDirSync: (): string[] => {
-        return ipcRendererCommunication.sendSync('openDir-sync');
+        return ipcRendererCommunication.sendSync('open-dir-sync');
     },
     openDirAsync: () => {
         // ipcRendererCommunication.send('openDir-async');
     },
-    writeStorageBeforeQuit: /* async */ () => {
-        ipcRendererCommunication.on('write-storage-before-quit', async () => {
-            await writeStorageBeforeQuit();
-            ipcRendererCommunication.send('quit-now');
-        });
+    writeStorageBeforeQuit: () => {
+        ipcRendererCommunication.on(
+            'write-to-file-storage-before-quit',
+            async () => {
+                await writeStorageBeforeQuit();
+                ipcRendererCommunication.send('quit-now');
+            }
+        );
     },
 };
