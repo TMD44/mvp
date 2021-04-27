@@ -4,6 +4,7 @@ import { getHashID } from '@scripts/hashID';
 import { fnr } from './fnr';
 import { subFinder } from './sub';
 import { nfoFileFinder, nfoIdFinder } from './nfo';
+import { dataSum } from './dataSumming';
 
 export async function mediaJSONGenerator(media, scanResults) {
     let mediaInJSON = {};
@@ -11,6 +12,11 @@ export async function mediaJSONGenerator(media, scanResults) {
     const subFiles = await subFinder(media, scanResults);
     const nfoFile = await nfoFileFinder(media, scanResults);
     const movieIds = await nfoIdFinder(nfoFile);
+
+    const fileNameData = fnr(media.fn);
+    const folderNameData = fnr(/[^\\]*$/.exec(media.path)[0]);
+
+    const METADATA = dataSum(fileNameData, folderNameData);
 
     mediaInJSON = {
         id: getHashID(media.full),
@@ -21,21 +27,29 @@ export async function mediaJSONGenerator(media, scanResults) {
         subtitles: subFiles,
         nfo: nfoFile,
         movieDB_id: movieIds,
-        cover: 'G:/mvp/assets/images/cover.jpg',
-        /* metadata: {
-            editable: true,
-            title: "",
-            creation_date: "",
-            description: "",
-            genres: "",
-            images: {},
-            resolution: "",
-        }, */
         unsure_metadata: {
-            folder_data: fnr(/[^\\]*$/.exec(media.path)[0]),
-            filename_data: fnr(media.fn),
-            nfo_data: /* idFinder(media, array) */ {},
+            folder_data: fileNameData,
+            filename_data: folderNameData,
+            nfo_data: {},
         },
+        /* metadata: {
+            tmdb_id: 'TESZT', // (id)
+            adult: 'TESZT',
+            backdrop_path: 'TESZT',
+            genres: 'TESZT',  // (genre_ids)
+            original_language: 'TESZT',
+            original_title: 'TESZT',
+            overview: 'TESZT',
+            poster_path: 'TESZT',
+            release_date: 'TESZT',
+            title: 'TESZT',
+            video: 'TESZT',
+            vote_average: 'TESZT',
+            vote_count: 'TESZT',
+            popularity: 'TESZT',
+            TESZT: 'TESZT',
+        }, */
+        metadata: METADATA,
     };
 
     /* const result = await getVideoInfo(media.full);

@@ -6,12 +6,14 @@ import {
     getScanPaths,
     getScanResults,
 } from '@redux/selectors/configSelector';
-import { store } from '@redux/store';
+import store from '@redux/store';
 import { addScanResults } from '@redux/actions/configActions';
 import { addMedia, addMediaAtOnce } from '@redux/actions/mediaActions';
 import { fileSorting, excludedFromScan } from './fileSorting';
 import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
+import { tmdbRequest } from '../tmdb/tmdbRequests';
+import { getTMDBdata } from '../tmdb/tmdb';
 
 export const scan = {
     mediaInJSON: {},
@@ -54,14 +56,12 @@ export const scan = {
     },
 
     onlineScan: async () => {
-        /* return tmdb
-            .multiSearch(scan.mediaInJSON.unsure_metadata.filename_data.title)
-            .then((result) => {
-                scan.mediaInJSON.unsure_metadata.tmdb_data =
-                    result.data.results[0];
-                console.log('mediaInJSON: ', scan.mediaInJSON);
-                return scan.mediaInJSON;
-            }); */
+        for (const [key, value] of Object.entries(
+            store.getState().media.all_media
+        )) {
+            await getTMDBdata(value);
+        }
+
         return true;
     },
 };

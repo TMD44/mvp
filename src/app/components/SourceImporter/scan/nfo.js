@@ -1,6 +1,9 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable consistent-return */
 import { promises as fsp } from 'fs';
-// import tinyURL from 'tinyurl';
+import tinyURL from 'tinyurl';
 
 const nfoPatterns = {
     year: /(DATE|TIME).*/gi,
@@ -32,15 +35,19 @@ async function nfoPatternFinder(data) {
     if (imdbFound) {
         result.imdb_id = imdbFound;
         result.imdb_url = `https://www.imdb.com/title/${imdbFound}`;
-    }
+    } else {
+        // TODO: RUNNING IS PRETTY SLOW: FURTHER DEVELOPMENT REQUIRED
 
-    // TODO: RUNNING IS PRETTY SLOW, FURTHER DEVELOPMENT REQUIRED
-    /* const tinyurlFound = data.match(nfoPatterns.tinyurl);
-    if (tinyurlFound) {
-        for (const url in tinyurlFound) {
-            result[`tinyurl_${url}`] = await tinyURL.resolve(tinyurlFound[url]);
+        // TODO: if TinyURL found, then check for imdb in the resolved data
+        const tinyurlFound = data.match(nfoPatterns.tinyurl);
+        if (tinyurlFound) {
+            for (const url in tinyurlFound) {
+                result[`tinyurl_${url + 1}`] = await tinyURL.resolve(
+                    tinyurlFound[url]
+                );
+            }
         }
-    } */
+    }
 
     return result;
 }

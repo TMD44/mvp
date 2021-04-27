@@ -1,10 +1,9 @@
 /* eslint-disable no-return-await */
 import MovieDB from 'node-themoviedb';
 import { tmdbApiKey } from '@assets/private/apiKeys';
-import { config } from '@scripts/configuration_OUT_OF_ORDER';
 
 const mdb = new MovieDB(tmdbApiKey);
-mdb.setLanguage(await config.getScanLanguage());
+mdb.setLanguage('en-US'); // hu-HU
 
 type ExternalSource =
     | 'imdb_id'
@@ -17,7 +16,7 @@ type ExternalSource =
     | 'instagram_id';
 
 // tmdb namespace
-export const tmdb = {
+export const tmdbRequest = {
     getExternalIDs: async (id: string, type = 'movie') => {
         const args = {
             pathParameters: {

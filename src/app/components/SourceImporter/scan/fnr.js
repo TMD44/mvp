@@ -1,6 +1,9 @@
 let tempFileName = '';
 let numberOfFoundAttributes = 0;
 
+// TODO: ha nem marad a title be semmi akkor maradjon az eredeti
+//        pl: 2012
+
 const fnrPatterns = {
     resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-_ ]?[X][.\-_ ]?[0-9]{3,4}/gi, // 720p, 1080p, 1920x1080, 1920X1080, 1920_x-1080, 1920.X 1080,
     year: /((?:19[3-9]|20[0123])[0-9])/g, // 1901, 1938, 1987, 2000, 2010, 2020, 2030, !!! above 2039 NO !!!     /[\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?/g
@@ -136,7 +139,7 @@ export function fnr(paramFileName) {
             cleanedDataJSON,
             foundPattern,
             fnrPatterns.year,
-            'year',
+            'release_date',
             'toInt',
             true
         );
@@ -273,10 +276,10 @@ export function fnr(paramFileName) {
 
         // RAW DATA
         // eslint-disable-next-line no-underscore-dangle
-        cleanedDataJSON._RAW_ = paramFileName;
+        // cleanedDataJSON._RAW_ = paramFileName;
 
         // tempFileName BEFORE TITLE RECOGNITION
-        cleanedDataJSON.CLEAN = tempFileName;
+        // cleanedDataJSON.CLEAN = tempFileName;
 
         // NUMBER OF KEYS
         // cleanedDataJSON["NUMBER_OF_KEYS"] = numberOfFoundAttributes+1;
