@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, CardMedia } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { mediaSelector } from '@redux/selectors/mediaSelector';
 import { MediaModal } from '../Modals/MediaModal';
 
 interface PropsShape {
     id: string;
     title: string;
     coverImage: string;
+    path: string;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,26 +27,34 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaCard({ id, title, coverImage }: PropsShape) {
+export function MediaCard({ id, title, coverImage, path }: PropsShape) {
     const classes = useStyles();
     const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
 
     const handleModalOpen = () => setMediaModalIsOpen(true);
     const handleModalClose = () => setMediaModalIsOpen(false);
 
+    const allMedia = useSelector(mediaSelector);
+    const currentMedia = allMedia[id].metadata;
+
     return (
         <>
             <Card key={id} className={classes.root} onClick={handleModalOpen}>
                 <CardHeader
-                    title={title || '<NO TITLE>'}
+                    title={currentMedia.title || '<NO TITLE>'}
                     titleTypographyProps={{
-                        className: 'cardTitle',
-                        // title.length > 23 ? 'cardTitleAnim' : 'cardTitle',
+                        // 'cardTitle',
+                        className:
+                            title.length > 20 ? 'cardTitleAnim' : 'cardTitle',
                     }}
                 />
                 <CardMedia
                     className={classes.media}
-                    image={coverImage}
+                    image={
+                        currentMedia.poster_path
+                            ? currentMedia.poster_path
+                            : 'G:/mvp/assets/images/cover.jpg'
+                    }
                     title="COVER"
                 />
             </Card>
@@ -51,7 +62,7 @@ export function MediaCard({ id, title, coverImage }: PropsShape) {
             <MediaModal
                 handleModalClose={handleModalClose}
                 modalIsOpen={mediaModalIsOpen}
-                id={title} // {id}
+                id={id}
             />
         </>
     );

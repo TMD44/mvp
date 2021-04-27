@@ -13,7 +13,8 @@ export function MediaCardList({ data }: PropsShape) {
                     <MediaCard
                         key={id}
                         id={id}
-                        title={media.full_path}
+                        title={media.unsure_metadata.filename_data.title}
+                        path={media.full_path}
                         coverImage={media.cover}
                     />
                 );

@@ -55,14 +55,28 @@ export function MediaCardContainer({ title }: PropsShape) {
 
     return (
         <div className={classes.root}>
+            <TablePagination
+                className="pagination"
+                component="div"
+                count={data.length}
+                page={currentPage}
+                onChangePage={handleChange}
+                rowsPerPage={rowsPerPage}
+                rowsPerPageOptions={[10, 25, 50, 100]}
+                onChangeRowsPerPage={handleChangeRowsPerPage}
+            />
+
             <GridList cellHeight={50} className={classes.gridList}>
                 <GridListTile
                     key="MOVIE_LIST"
                     cols={2}
                     style={{ height: 'auto' }}
                 >
-                    <ListSubheader component="div">{title}</ListSubheader>
+                    <ListSubheader component="div">
+                        {data.length === 0 ? 'NO MEDIA YET' : title}
+                    </ListSubheader>
                 </GridListTile>
+
                 <MediaCardList
                     data={data.slice(
                         currentPage * rowsPerPage,
@@ -71,6 +85,7 @@ export function MediaCardContainer({ title }: PropsShape) {
                 />
             </GridList>
             <TablePagination
+                className="pagination"
                 component="div"
                 count={data.length}
                 page={currentPage}

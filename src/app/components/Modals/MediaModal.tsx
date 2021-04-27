@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Backdrop, Dialog } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { mediaSelector } from '@redux/selectors/mediaSelector';
 import { VideoPlayerModal } from './VideoPlayerModal';
 import { ModalTitleBar } from './ModalTitleBar';
 import { TransitionRight } from './ModalTransitions';
+import { MediaDetails } from '../MediaDetails/MediaDetails';
 
 interface PropsShape {
     handleModalClose: () => void;
@@ -15,6 +18,9 @@ export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
 
     const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
     const handleVideoPlayerClose = () => setVideoPlayerIsOpen(false);
+
+    const allMedia = useSelector(mediaSelector);
+    const currentMedia = allMedia[id];
 
     return (
         <>
@@ -38,8 +44,8 @@ export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
                     title="Media"
                     handleModalClose={handleModalClose}
                 />
-                <h1>{id}</h1>
                 <div className="modalPaper">
+                    <MediaDetails id={id} />
                     <button type="button" onClick={handleVideoPlayerOpen}>
                         OPEN VIDEO PLAYER MODAL
                     </button>
@@ -48,7 +54,7 @@ export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
             <VideoPlayerModal
                 handleVideoPlayerClose={handleVideoPlayerClose}
                 videoPlayerIsOpen={videoPlayerIsOpen}
-                videoPath={id}
+                videoPath={currentMedia.full_path}
             />
         </>
     );

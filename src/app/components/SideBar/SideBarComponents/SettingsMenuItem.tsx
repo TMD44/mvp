@@ -6,7 +6,6 @@ import {
     Tooltip,
 } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import MessageIcon from '@material-ui/icons/Message';
 import { ModalType } from '@app/components/Modals/ModalType';
 
@@ -21,19 +20,6 @@ export function SettingsMenuItem({
 }: PropsShape) {
     return (
         <>
-            <Tooltip
-                title="MEDIA"
-                arrow
-                placement="right"
-                disableHoverListener={!!sideBarIsOpen}
-            >
-                <ListItem button onClick={() => handleModalOpen('Media')}>
-                    <ListItemIcon>
-                        <PlayCircleFilledIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="MEDIA" />
-                </ListItem>
-            </Tooltip>
             <Tooltip
                 title="Message"
                 arrow
