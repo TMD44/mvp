@@ -20,13 +20,13 @@ export function ModalController({
     message,
 }: PropsShape) {
     switch (modalType) {
-        case 'Media':
+        /* case 'Media':
             return (
                 <MediaModal
                     handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
                 />
-            );
+            ); */
 
         case 'SourceImport':
             return (

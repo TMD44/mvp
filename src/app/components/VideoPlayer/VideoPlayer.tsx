@@ -7,9 +7,10 @@ import { IconButton } from '@material-ui/core';
 
 interface PropsShape {
     handleVideoPlayerClose: () => void;
+    videoPath: string;
 }
 
-export function VideoPlayer({ handleVideoPlayerClose }: PropsShape) {
+export function VideoPlayer({ handleVideoPlayerClose, videoPath }: PropsShape) {
     return (
         <>
             <IconButton
@@ -21,7 +22,9 @@ export function VideoPlayer({ handleVideoPlayerClose }: PropsShape) {
                 <ArrowBackIcon className="modalPaper video backButton" />
             </IconButton>
             <ReactPlayer
-                url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                playing
+                controls
+                url={videoPath}
                 width="100%"
                 height="100%"
             />

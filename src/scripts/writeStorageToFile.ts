@@ -12,6 +12,8 @@ export const writeStorageBeforeQuit = async () => {
     // if (store.getState().config.default) delete CONFIG_DATA.default;
     // if (store.getState().media.default) delete MEDIA_DATA.default;
 
+    // TODO: config file-t sokszor üresen írja ki
+
     try {
         await fsp.writeFile(
             CONFIG_FILE_PATH,

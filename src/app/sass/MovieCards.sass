@@ -1,0 +1,25 @@
+/*.cardTitle
+ overflow: hidden
+ white-space: nowrap
+ text-overflow: ellipsis
+ font-size: 7px*/
+
+.cardTitle
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+
+.cardTitleAnim
+    display: inline-block
+    white-space: nowrap
+    animation: floatText 10s infinite linear
+
+
+.cardTitle:hover
+    animation-play-state: paused
+
+@keyframes floatText
+    from
+        text-indent: translateX(100%)
+    to
+        transform: translateX(-100%)

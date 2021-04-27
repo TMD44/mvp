@@ -7,10 +7,17 @@ import {
     DELETE_MEDIA,
     UPDATE_MEDIA,
 } from '@redux/actions/mediaActions';
+import { movieDbDefaultState } from '@redux/defaultStates/defaultStates';
 
-const mediaPath: string = configureStorageSync('movieDB');
+let initialState = movieDbDefaultState;
 
-const initialState = JSON.parse(fs.readFileSync(mediaPath, 'utf8'));
+try {
+    const mediaPath: string = configureStorageSync('movieDB');
+
+    initialState = JSON.parse(fs.readFileSync(mediaPath, 'utf8'));
+} catch (error) {
+    console.error(error);
+}
 
 export const mediaReducer = (
     state = initialState,

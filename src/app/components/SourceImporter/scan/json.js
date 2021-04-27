@@ -21,6 +21,7 @@ export async function mediaJSONGenerator(media, scanResults) {
         subtitles: subFiles,
         nfo: nfoFile,
         movieDB_id: movieIds,
+        cover: 'G:/mvp/assets/images/cover.jpg',
         /* metadata: {
             editable: true,
             title: "",

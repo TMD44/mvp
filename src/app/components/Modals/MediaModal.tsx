@@ -7,9 +7,10 @@ import { TransitionRight } from './ModalTransitions';
 interface PropsShape {
     handleModalClose: () => void;
     modalIsOpen: boolean;
+    id: string;
 }
 
-export function MediaModal({ handleModalClose, modalIsOpen }: PropsShape) {
+export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
     const [videoPlayerIsOpen, setVideoPlayerIsOpen] = useState(false);
 
     const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
@@ -37,6 +38,7 @@ export function MediaModal({ handleModalClose, modalIsOpen }: PropsShape) {
                     title="Media"
                     handleModalClose={handleModalClose}
                 />
+                <h1>{id}</h1>
                 <div className="modalPaper">
                     <button type="button" onClick={handleVideoPlayerOpen}>
                         OPEN VIDEO PLAYER MODAL
@@ -46,6 +48,7 @@ export function MediaModal({ handleModalClose, modalIsOpen }: PropsShape) {
             <VideoPlayerModal
                 handleVideoPlayerClose={handleVideoPlayerClose}
                 videoPlayerIsOpen={videoPlayerIsOpen}
+                videoPath={id}
             />
         </>
     );

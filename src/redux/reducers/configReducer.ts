@@ -1,6 +1,7 @@
 // import * as configDataJson from '@assets/.storage/config.json';
 import fs from 'fs';
 import { configureStorageSync } from '@scripts/configureStorage';
+import { configDefaultState } from '@redux/defaultStates/defaultStates';
 import {
     UPDATE_SCAN_LANGUAGE,
     DELETE_SCAN_PATH,
@@ -13,9 +14,15 @@ import {
     DELETE_ALL_SCAN_PATHS,
 } from '../actions/configActions';
 
-const configPath: string = configureStorageSync('config');
+let initialState = configDefaultState;
 
-const initialState = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+try {
+    const configPath: string = configureStorageSync('config');
+
+    initialState = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+} catch (error) {
+    console.error(error);
+}
 
 export const configReducer = (
     state = initialState,

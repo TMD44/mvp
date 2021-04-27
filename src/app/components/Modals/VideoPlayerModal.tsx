@@ -5,11 +5,13 @@ import { VideoPlayer } from '../VideoPlayer/VideoPlayer';
 interface PropsShape {
     handleVideoPlayerClose: () => void;
     videoPlayerIsOpen: boolean;
+    videoPath: string;
 }
 
 export function VideoPlayerModal({
     handleVideoPlayerClose,
     videoPlayerIsOpen,
+    videoPath,
 }: PropsShape) {
     return (
         <Modal
@@ -23,6 +25,7 @@ export function VideoPlayerModal({
                 <div className="modalPaper video">
                     <VideoPlayer
                         handleVideoPlayerClose={handleVideoPlayerClose}
+                        videoPath={videoPath}
                     />
                 </div>
             </Fade>
