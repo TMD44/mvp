@@ -18,7 +18,9 @@ const logger = createLogger({
 // TODO: solve this error: Exported variable 'configureStore' has or is using name
 // '$CombinedState' from external module "G:/mvp/node_modules/redux/index" but cannot be named. ts(4023)
 
-export const store = createStore(
+const store = createStore(
     rootReducer,
     composeWithDevTools(applyMiddleware(logger))
 );
+
+export default store;

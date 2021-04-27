@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FolderIcon from '@material-ui/icons/Folder';
-import { store } from '@redux/store';
+import store from '@redux/store';
 import {
     addScanPath,
     deleteAllScanPaths,

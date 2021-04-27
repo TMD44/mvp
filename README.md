@@ -26,7 +26,7 @@ yarn start
 # Run production build
 yarn build
 
-# Create production build
+# Create production package
 yarn package
 ```
 
@@ -62,3 +62,4 @@ The following were also used in development:
 
 -   [Electron-React-Boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
 -   [Material UI](https://github.com/mui-org/material-ui)
+-   [React-Player](https://github.com/cookpete/react-player)

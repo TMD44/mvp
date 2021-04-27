@@ -1,4 +1,4 @@
-import { store } from '../store';
+import store from '../store';
 
 export const getScanFileTypes = () =>
     store.getState().config.scan_preferences.scan_file_types;
