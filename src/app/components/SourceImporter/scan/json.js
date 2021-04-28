@@ -18,6 +18,11 @@ export async function mediaJSONGenerator(media, scanResults) {
 
     const METADATA = dataSum(fileNameData, folderNameData);
 
+    if (movieIds) {
+        METADATA.imdb_id = movieIds.imdb_id;
+        METADATA.imdb_url = movieIds.imdb_url;
+    }
+
     mediaInJSON = {
         id: getHashID(media.full),
         media_name: media.fn,
@@ -26,29 +31,29 @@ export async function mediaJSONGenerator(media, scanResults) {
         full_path: media.full,
         subtitles: subFiles,
         nfo: nfoFile,
-        movieDB_id: movieIds,
         unsure_metadata: {
             folder_data: fileNameData,
             filename_data: folderNameData,
             nfo_data: {},
         },
-        /* metadata: {
-            tmdb_id: 'TESZT', // (id)
-            adult: 'TESZT',
-            backdrop_path: 'TESZT',
-            genres: 'TESZT',  // (genre_ids)
-            original_language: 'TESZT',
-            original_title: 'TESZT',
-            overview: 'TESZT',
-            poster_path: 'TESZT',
-            release_date: 'TESZT',
-            title: 'TESZT',
-            video: 'TESZT',
-            vote_average: 'TESZT',
-            vote_count: 'TESZT',
-            popularity: 'TESZT',
-            TESZT: 'TESZT',
-        }, */
+        // movieDB_id: movieIds,
+        // metadata: {
+        //     tmdb_id: 'TESZT', // (id)
+        //     adult: 'TESZT',
+        //     backdrop_path: 'TESZT',
+        //     genres: 'TESZT',  // (genre_ids)
+        //     original_language: 'TESZT',
+        //     original_title: 'TESZT',
+        //     overview: 'TESZT',
+        //     poster_path: 'TESZT',
+        //     release_date: 'TESZT',
+        //     title: 'TESZT',
+        //     video: 'TESZT',
+        //     vote_average: 'TESZT',
+        //     vote_count: 'TESZT',
+        //     popularity: 'TESZT',
+        //     TESZT: 'TESZT',
+        // },
         metadata: METADATA,
     };
 

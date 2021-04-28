@@ -33,19 +33,26 @@ async function nfoPatternFinder(data) {
 
     const imdbFound = data.match(nfoPatterns.imdb_title);
     if (imdbFound) {
-        result.imdb_id = imdbFound;
-        result.imdb_url = `https://www.imdb.com/title/${imdbFound}`;
+        // eslint-disable-next-line prefer-destructuring
+        result.imdb_id = imdbFound[0];
+        result.imdb_url = `https://www.imdb.com/title/${imdbFound[0]}`;
     } else {
-        // TODO: RUNNING IS PRETTY SLOW: FURTHER DEVELOPMENT REQUIRED
-
-        // TODO: if TinyURL found, then check for imdb in the resolved data
+        const tinyUrlData = {};
         const tinyurlFound = data.match(nfoPatterns.tinyurl);
         if (tinyurlFound) {
             for (const url in tinyurlFound) {
-                result[`tinyurl_${url + 1}`] = await tinyURL.resolve(
+                tinyUrlData[`tinyurl_${url + 1}`] = await tinyURL.resolve(
                     tinyurlFound[url]
                 );
             }
+        }
+        const imdbFoundInTinyUrl = Object.values(tinyUrlData)
+            .join('_-_')
+            .match(nfoPatterns.imdb_title);
+        if (imdbFoundInTinyUrl) {
+            // eslint-disable-next-line prefer-destructuring
+            result.imdb_id = imdbFoundInTinyUrl[0];
+            result.imdb_url = `https://www.imdb.com/title/${imdbFoundInTinyUrl[0]}`;
         }
     }
 

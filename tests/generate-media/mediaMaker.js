@@ -1,13 +1,15 @@
 const { existsSync, mkdirSync, writeFileSync } = require('fs');
+const { IMDB_ID_LIST } = require('./imdbIdList');
 const { torrentMovieNames } = require('./torrent_movies');
 const { torrentSeriesNames } = require('./torrent_series');
 
 function nfoContent() {
     let result = '';
 
-    result += `https://www.imdb.com/title/tt0${
-        Math.floor(Math.random() * 900000) + 100000
-    }\n`;
+    const randomImdbID =
+        IMDB_ID_LIST[Math.floor(Math.random() * IMDB_ID_LIST.length)];
+
+    result += `https://www.imdb.com/title/${randomImdbID}\n`;
 
     const r = Math.floor(Math.random() * 3) + 1;
     for (let i = 0; i < r; i++) {

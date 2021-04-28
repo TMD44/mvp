@@ -1,6 +1,6 @@
 export const imdbIdExists = (obj: Record<string, unknown>): boolean => {
-    if (obj.movieDB_id) {
-        if (obj.movieDB_id.imdb_id) {
+    if (obj.metadata) {
+        if (obj.metadata.imdb_id) {
             return true;
         }
     }
@@ -8,8 +8,8 @@ export const imdbIdExists = (obj: Record<string, unknown>): boolean => {
 };
 
 export const tmdbIdExists = (obj: Record<string, unknown>): boolean => {
-    if (obj.movieDB_id) {
-        if (obj.movieDB_id.tmdb_id) {
+    if (obj.metadata) {
+        if (obj.metadata.tmdb_id) {
             return true;
         }
     }
@@ -17,8 +17,8 @@ export const tmdbIdExists = (obj: Record<string, unknown>): boolean => {
 };
 
 export const tvdbIdExists = (obj: Record<string, unknown>): boolean => {
-    if (obj.movieDB_id) {
-        if (obj.movieDB_id.tvdb_id) {
+    if (obj.metadata) {
+        if (obj.metadata.tvdb_id) {
             return true;
         }
     }
@@ -31,14 +31,23 @@ export const remodelData = (obj: any) => {
         switch (key) {
             case 'id':
                 filteredData.tmdb_id = value;
+                filteredData.tmdb_url = `https://www.themoviedb.org/movie/${value}`;
                 break;
 
             case 'poster_path':
-                filteredData.poster_path = `https://image.tmdb.org/t/p/original${value}`;
+                filteredData.poster_path = `https://image.tmdb.org/t/p/w500${value}`;
+                /* {
+                    original: `https://image.tmdb.org/t/p/original${value}`,
+                    w500: `https://image.tmdb.org/t/p/w500${value}`,
+                }; */
                 break;
 
             case 'backdrop_path':
-                filteredData.backdrop_path = `https://image.tmdb.org/t/p/original${value}`;
+                filteredData.backdrop_path = `https://image.tmdb.org/t/p/w500${value}`;
+                /* {
+                    original: `https://image.tmdb.org/t/p/original${value}`,
+                    w500: `https://image.tmdb.org/t/p/w500${value}`,
+                }; */
                 break;
 
             case 'genre_ids':

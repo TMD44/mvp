@@ -1,6 +1,6 @@
 import { addToMedia } from '@redux/actions/mediaActions';
 import store from '@redux/store';
-import { imdbIdExists, remodelData } from '@scripts/dataSelection';
+import { imdbIdExists, remodelData } from './dataSelection';
 import { tmdbRequest } from './tmdbRequests';
 
 const tmdbDataCleaning = (obj: Record<string, unknown>) => {
@@ -21,7 +21,7 @@ const tmdbDataCleaning = (obj: Record<string, unknown>) => {
 export const getTMDBdata = async (obj: Record<string, unknown>) => {
     if (imdbIdExists(obj)) {
         const data = await tmdbRequest.findByExternalID(
-            obj.movieDB_id.imdb_id,
+            obj.metadata.imdb_id,
             'imdb_id'
         );
         store.dispatch(addToMedia(obj.id, tmdbDataCleaning(data)));

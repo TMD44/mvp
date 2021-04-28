@@ -320,6 +320,9 @@ export function fnr(paramFileName) {
                 );
             }
         }
+        if (!cleanedDataJSON.title) {
+            cleanedDataJSON.title = paramFileName;
+        }
     } catch (err) {
         console.log(
             'Error was found at Title recognition: ',

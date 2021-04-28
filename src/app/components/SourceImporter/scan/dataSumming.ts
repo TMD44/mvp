@@ -9,7 +9,11 @@ export const dataSum = (fileNameObj: any, folderNameObj: any) => {
             filteredData[key] = value;
         });
         if (folderNameObj.title !== fileNameObj.title) {
-            filteredData.title = folderNameObj.title;
+            if (folderNameObj.title.length > fileNameObj.title.length) {
+                filteredData.title = folderNameObj.title;
+            } else {
+                filteredData.title = fileNameObj.title;
+            }
         }
     } else {
         Object.entries(fileNameObj).forEach(([key, value]) => {
@@ -19,7 +23,16 @@ export const dataSum = (fileNameObj: any, folderNameObj: any) => {
             filteredData[key] = value;
         });
         if (folderNameObj.title !== fileNameObj.title) {
-            filteredData.title = folderNameObj.title;
+            if (folderNameObj.title.length > fileNameObj.title.length) {
+                filteredData.title = folderNameObj.title;
+
+                // Ugly solution. C'est la vie
+                if (fileNameObj.title === '2012') {
+                    filteredData.title = fileNameObj.title;
+                }
+            } else {
+                filteredData.title = fileNameObj.title;
+            }
         }
     }
 
