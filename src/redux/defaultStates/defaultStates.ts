@@ -1,4 +1,5 @@
 import { ipcRenderer } from 'electron';
+import { MediaType } from '../../types/MediaType';
 import { getDateAndTime } from '../../scripts/date';
 
 const appData = ipcRenderer.sendSync('get-app-data-sync');
@@ -72,12 +73,12 @@ export const configDefaultState = {
     },
 };
 
-export const movieDbDefaultState = {
+export const movieDbDefaultState: MediaType = {
     creation_time: getDateAndTime(),
     modification_time: getDateAndTime(),
-    movies: {},
+    movies: [],
     tv_series: {},
     movie_series: {},
-    playlists: {},
+    playlists: [],
     all_media: {},
 };

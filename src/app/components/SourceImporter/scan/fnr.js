@@ -1,13 +1,10 @@
 let tempFileName = '';
 let numberOfFoundAttributes = 0;
 
-// TODO: ha nem marad a title be semmi akkor maradjon az eredeti
-//        pl: 2012
-
 const fnrPatterns = {
     resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-_ ]?[X][.\-_ ]?[0-9]{3,4}/gi, // 720p, 1080p, 1920x1080, 1920X1080, 1920_x-1080, 1920.X 1080,
     year: /((?:19[3-9]|20[0123])[0-9])/g, // 1901, 1938, 1987, 2000, 2010, 2020, 2030, !!! above 2039 NO !!!     /[\[\(]?((?:19[0-9]|20[0123])[0-9])[\]\)]?/g
-    languages: /[.\-_ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi, // |FRE|RUS|ITA|SPA|POL
+    languages: /[.\-_ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi, // |FRE|RUS|ITA|SPA|POL ...
     quality: /(HD|BD|BR|DS|TV|CAM|WEB|DVD|VHS|FULL|WEB[._\- ]?DL)[._\- ]?RIP|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[._\- ]?DL|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[._\- ]?TS|(HD|BD|BR|DS|TV|CAM|WEB|DVD|FULL)[._\- ]?TV|BLU[.\- ]?RAY[.\-_ ]?(REMUX)?|[._\- ]UHD[._\- ]|HDTS|OPEN[._\- ]?MATTE|H[._\- ]?MAX|(DVD)?SCR|DVD[._\- ]?[R9]/gi,
     bluray: /BD[0-9]{2}|BD100/gi,
     season: /[.,\-_ ]S([0-9]{1,2})-(S)?([0-9]{1,2})|[.,\-_ ]S([0-9]{1,2})|[^0-9]([0-9]{1,2})X/gi, // S05E03, s9e4, 1x09, 08X19
@@ -205,7 +202,7 @@ export function fnr(paramFileName) {
             cleanedDataJSON,
             foundPattern,
             fnrPatterns.extended,
-            'extendedCut',
+            'extended_cut',
             'toBool',
             true
         );
@@ -213,7 +210,7 @@ export function fnr(paramFileName) {
             cleanedDataJSON,
             foundPattern,
             fnrPatterns.directors,
-            'directorsCut',
+            'directors_cut',
             'toBool',
             true
         );
@@ -245,7 +242,7 @@ export function fnr(paramFileName) {
             cleanedDataJSON,
             foundPattern,
             fnrPatterns.filetype,
-            'filetype',
+            'file_type',
             'toString',
             true
         );
@@ -266,12 +263,12 @@ export function fnr(paramFileName) {
             'toString',
             false
         );
-        // if (numberOfFoundAttributes >= 2) dataCleaner(cleanedDataJSON, foundPattern, fnrPatterns.group, "group", "toString", false);
+        // if (numberOfFoundAttributes >= 2) process(cleanedDataJSON, foundPattern, fnrPatterns.group, "group", "toString", false);
 
         if ('episode' in cleanedDataJSON || 'season' in cleanedDataJSON) {
-            cleanedDataJSON.mediaType = 'series';
+            cleanedDataJSON.media_type = 'series';
         } else {
-            cleanedDataJSON.mediaType = 'movie';
+            cleanedDataJSON.media_type = 'movie';
         }
 
         // RAW DATA

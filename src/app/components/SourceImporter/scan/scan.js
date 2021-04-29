@@ -7,13 +7,23 @@ import {
     getScanResults,
 } from '@redux/selectors/configSelector';
 import store from '@redux/store';
-import { addScanResults } from '@redux/actions/configActions';
-import { addMedia, addMediaAtOnce } from '@redux/actions/mediaActions';
+import {
+    addScanResults,
+    deleteAllScanResults,
+} from '@redux/actions/configActions';
+import {
+    addMedia,
+    addMediaAtOnce,
+    purgeMovies,
+    purgeSeries,
+} from '@redux/actions/mediaActions';
+import { getAllMedia } from '@redux/selectors/mediaSelector';
 import { fileSorting, excludedFromScan } from './fileSorting';
 import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
 import { tmdbRequest } from '../tmdb/tmdbRequests';
 import { getTMDBdata } from '../tmdb/tmdb';
+import { mediaTypeSorting } from './mediaTypeSorting';
 
 export const scan = {
     mediaInJSON: {},
@@ -52,15 +62,24 @@ export const scan = {
 
         store.dispatch(addMediaAtOnce(scan.mediaInJSON));
 
+        store.dispatch(deleteAllScanResults());
+
+        // TODO: here will check for tv series
+
+        mediaTypeSorting();
+
         return true;
     },
 
     onlineScan: async () => {
-        for (const [key, value] of Object.entries(
-            store.getState().media.all_media
-        )) {
+        for (const [key, value] of Object.entries(getAllMedia())) {
             await getTMDBdata(value);
         }
+
+        store.dispatch(purgeMovies());
+        store.dispatch(purgeSeries());
+
+        mediaTypeSorting();
 
         return true;
     },

@@ -16,10 +16,14 @@ export function getDateAndTime(format: DateType = 'pretty') {
     const min = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
     const sec = (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
 
-    if (format === 'pretty') {
-        return `${year}.${month}.${day}. ${hour}:${min}:${sec}`;
-    }
-    if (format === 'bulk') {
-        return year + month + day + hour + min + sec;
+    switch (format) {
+        case 'pretty':
+            return `${year}.${month}.${day}. ${hour}:${min}:${sec}`;
+
+        case 'bulk':
+            return year + month + day + hour + min + sec;
+
+        default:
+            return `${year}.${month}.${day}. ${hour}:${min}:${sec}`;
     }
 }

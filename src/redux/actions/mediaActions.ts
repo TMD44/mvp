@@ -4,6 +4,12 @@ export const ADD_TO_MEDIA = 'ADD_TO_MEDIA';
 export const UPDATE_MEDIA = 'UPDATE_MEDIA';
 export const DELETE_MEDIA = 'DELETE_MEDIA';
 
+export const ADD_MOVIE = 'ADD_MOVIE';
+export const ADD_SERIES = 'ADD_SERIES';
+export const ADD_PLAYLIST = 'ADD_PLAYLIST';
+export const PURGE_MOVIES = 'PURGE_MOVIES';
+export const PURGE_SERIES = 'PURGE_SERIES';
+
 export const addMedia = (media: any) => ({
     type: ADD_MEDIA,
     payload: media,
@@ -27,4 +33,29 @@ export const updateMedia = (media: any) => ({
 export const deleteMedia = (media: any) => ({
     type: DELETE_MEDIA,
     payload: media,
+});
+
+export const addMovie = (movie: string) => ({
+    type: ADD_MOVIE,
+    payload: movie,
+});
+
+export const addSeries = (title: string, id: string) => ({
+    type: ADD_SERIES,
+    payload: { title, id },
+});
+
+export const addPlaylist = (playlist: any) => ({
+    type: ADD_PLAYLIST,
+    payload: playlist,
+});
+
+export const purgeMovies = () => ({
+    type: PURGE_MOVIES,
+    payload: [],
+});
+
+export const purgeSeries = () => ({
+    type: PURGE_SERIES,
+    payload: {},
 });

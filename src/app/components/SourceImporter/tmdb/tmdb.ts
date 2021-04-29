@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { addToMedia } from '@redux/actions/mediaActions';
 import store from '@redux/store';
 import { imdbIdExists, remodelData } from './dataSelection';
@@ -5,10 +6,27 @@ import { tmdbRequest } from './tmdbRequests';
 
 const tmdbDataCleaning = (obj: Record<string, unknown>) => {
     let result;
-    Object.values(obj.data).forEach((arr) => {
+    Object.entries(obj.data).forEach(([key, arr]) => {
+        console.log('KEY: ', key, 'ARR: ', arr);
         if (arr.length > 0) {
-            // eslint-disable-next-line prefer-destructuring
-            result = arr[0];
+            switch (key) {
+                case 'movie_results':
+                    result = arr[0];
+                    result.media_type = 'movie';
+                    break;
+
+                case 'tv_results':
+                case 'tv_season_results':
+                case 'tv_episode_results':
+                    result = arr[0];
+                    result.media_type = 'series';
+                    break;
+
+                default:
+                    result = arr[0];
+                    result.media_type = 'UNKNOWN';
+                    break;
+            }
         }
     });
     let finalResult;
