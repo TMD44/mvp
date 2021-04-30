@@ -15,4 +15,4 @@ render(
     document.getElementById('root')
 );
 
-ipcRenderer.writeStorageBeforeQuit();
+ipcRenderer.writeStorageBeforeQuitSync();

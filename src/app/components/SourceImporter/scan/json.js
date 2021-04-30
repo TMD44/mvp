@@ -9,8 +9,8 @@ import { dataSum } from './dataSumming';
 export async function mediaJSONGenerator(media, scanResults) {
     let mediaInJSON = {};
 
-    const subFiles = await subFinder(media, scanResults);
-    const nfoFile = await nfoFileFinder(media, scanResults);
+    const subFiles = subFinder(media, scanResults);
+    const nfoFile = nfoFileFinder(media, scanResults);
     const movieIds = await nfoIdFinder(nfoFile);
 
     const fileNameData = fnr(media.fn);

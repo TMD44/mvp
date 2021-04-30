@@ -1,5 +1,5 @@
-/* eslint-disable no-await-in-loop */
 /* eslint-disable guard-for-in */
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 import {
     getScanFileTypes,
@@ -18,6 +18,7 @@ import {
     purgeSeries,
 } from '@redux/actions/mediaActions';
 import { getAllMedia } from '@redux/selectors/mediaSelector';
+import { subConvert } from '@scripts/subConverter';
 import { fileSorting, excludedFromScan } from './fileSorting';
 import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
@@ -43,7 +44,7 @@ export const scan = {
             const files = await scanDir(paths[i], [media, sub, nfo].flat());
             for (const j in files) {
                 if (!excludedFromScan(files[j])) {
-                    await fileSorting(files[j], media, sub, nfo, scanResults);
+                    fileSorting(files[j], media, sub, nfo, scanResults);
                 }
             }
         }
@@ -80,6 +81,8 @@ export const scan = {
         store.dispatch(purgeSeries());
 
         mediaTypeSorting();
+
+        // subConvert();
 
         return true;
     },

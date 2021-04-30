@@ -22,7 +22,7 @@ function objTemplate(file: string): FilteredDataType {
     };
 }
 
-export async function fileSorting(
+export function fileSorting(
     file: string,
     media: string[],
     sub: string[],

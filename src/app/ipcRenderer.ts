@@ -1,5 +1,8 @@
 import { ipcRenderer as ipcRendererCommunication } from 'electron';
-import { writeStorageBeforeQuit } from '@scripts/writeStorageToFile';
+import {
+    writeStorageBeforeQuitAsync,
+    writeStorageBeforeQuitSync,
+} from '@scripts/writeStorageToFile';
 
 export const ipcRenderer = {
     openDirSync: (): string[] => {
@@ -8,11 +11,17 @@ export const ipcRenderer = {
     openDirAsync: () => {
         // ipcRendererCommunication.send('openDir-async');
     },
-    writeStorageBeforeQuit: () => {
+    writeStorageBeforeQuitSync: () => {
+        ipcRendererCommunication.on('write-to-file-storage-before-quit', () => {
+            writeStorageBeforeQuitSync();
+            ipcRendererCommunication.send('quit-now');
+        });
+    },
+    writeStorageBeforeQuitAsync: () => {
         ipcRendererCommunication.on(
             'write-to-file-storage-before-quit',
             async () => {
-                await writeStorageBeforeQuit();
+                await writeStorageBeforeQuitAsync();
                 ipcRendererCommunication.send('quit-now');
             }
         );

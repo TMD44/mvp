@@ -1,4 +1,4 @@
-export async function subFinder(media, results) {
+export function subFinder(media, results) {
     const resultArray = [];
 
     results.sub.forEach((sub) => {

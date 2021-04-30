@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import { promises as fsp } from 'fs';
+import fs, { promises as fsp } from 'fs';
 import { join, extname } from 'path';
 
 // Base code from Stackoverflow, minor changes have been made:
@@ -10,7 +10,9 @@ export async function scanDir(
     filter: string[],
     results: string[] = []
 ) {
-    const files = await fsp.readdir(directoryName, { withFileTypes: true });
+    // TODO: sometimes ASYNC readdir stops working
+    //  const files = await fsp.readdir(directoryName, { withFileTypes: true });
+    const files = fs.readdirSync(directoryName, { withFileTypes: true });
     for (const f of files) {
         const fullPath: string = join(directoryName, f.name);
         if (f.isDirectory()) {
