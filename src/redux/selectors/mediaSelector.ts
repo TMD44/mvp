@@ -2,6 +2,8 @@ import store from '../store';
 
 export const getAllMedia = () => store.getState().media.all_media;
 
+export const getMediaByID = (id: string) => getAllMedia()[id];
+
 export const mediaSelector = (state) => state.media.all_media;
 
 export const moviesSelector = (state) => state.media.movies;

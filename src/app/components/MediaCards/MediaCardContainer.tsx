@@ -6,12 +6,11 @@ import {
     ListSubheader,
     TablePagination,
 } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { mediaSelector } from '@redux/selectors/mediaSelector';
 import { MediaCardList } from './MediaCardList';
 
 interface PropsShape {
     title: string;
+    data: any;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,13 +32,10 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaCardContainer({ title }: PropsShape) {
-    const allMedia = useSelector(mediaSelector);
+export function MediaCardContainer({ title, data }: PropsShape) {
     const classes = useStyles();
     const [currentPage, setCurrentPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-
-    const data = Object.entries(allMedia);
 
     const handleChange = (
         _event: React.MouseEvent<HTMLButtonElement> | null,

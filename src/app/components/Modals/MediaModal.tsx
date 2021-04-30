@@ -19,9 +19,6 @@ export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
     const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
     const handleVideoPlayerClose = () => setVideoPlayerIsOpen(false);
 
-    const allMedia = useSelector(mediaSelector);
-    const currentMedia = allMedia[id];
-
     return (
         <>
             <Dialog
@@ -54,7 +51,7 @@ export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
             <VideoPlayerModal
                 handleVideoPlayerClose={handleVideoPlayerClose}
                 videoPlayerIsOpen={videoPlayerIsOpen}
-                videoPath={currentMedia.full_path}
+                id={id}
             />
         </>
     );

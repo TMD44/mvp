@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, CardMedia } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { mediaSelector } from '@redux/selectors/mediaSelector';
+import { getDataByID } from '@scripts/getDataByID';
 import { MediaModal } from '../Modals/MediaModal';
 
 interface PropsShape {
     id: string;
-    title: string;
-    coverImage: string;
-    path: string;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,15 +23,14 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaCard({ id, title, coverImage, path }: PropsShape) {
+export function MediaCard({ id }: PropsShape) {
     const classes = useStyles();
     const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
 
     const handleModalOpen = () => setMediaModalIsOpen(true);
     const handleModalClose = () => setMediaModalIsOpen(false);
 
-    const allMedia = useSelector(mediaSelector);
-    const currentMedia = allMedia[id].metadata;
+    const currentMedia = getDataByID(id).metadata;
 
     return (
         <>
@@ -45,7 +40,9 @@ export function MediaCard({ id, title, coverImage, path }: PropsShape) {
                     titleTypographyProps={{
                         // 'cardTitle',
                         className:
-                            title.length > 20 ? 'cardTitleAnim' : 'cardTitle',
+                            currentMedia.title.length > 20
+                                ? 'cardTitleAnim'
+                                : 'cardTitle',
                     }}
                 />
                 <CardMedia

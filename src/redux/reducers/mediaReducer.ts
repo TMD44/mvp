@@ -26,7 +26,10 @@ try {
 
 export const mediaReducer = (
     state = initialState,
-    action: { type: string; payload: string | string[] }
+    action: {
+        type: string;
+        payload: string | string[] | Record<string, unknown>;
+    }
 ) => {
     const { type, payload } = action;
 
@@ -69,27 +72,33 @@ export const mediaReducer = (
         case ADD_MOVIE:
             return {
                 ...state,
-                movies: [
-                    ...state.movies.filter(
-                        (movie: string) => movie !== payload
-                    ),
-                    payload,
-                ],
+                movies: {
+                    ...state.movies,
+                    [payload]: {
+                        ...state.movies[payload],
+                        id: [payload],
+                        media_type: 'movie',
+                    },
+                },
             };
 
         case ADD_SERIES:
-            if (!(payload.title in state.tv_series)) {
-                state.tv_series[payload.title] = [];
+            if (!state.tv_series[payload.title]) {
+                state.tv_series[payload.title] = {};
+                if (!state.tv_series[payload.title].id) {
+                    state.tv_series[payload.title].id = [];
+                }
             }
 
             return {
                 ...state,
                 tv_series: {
                     ...state.tv_series,
-                    [payload.title]: [
+                    [payload.title]: {
                         ...state.tv_series[payload.title],
-                        payload.id,
-                    ],
+                        id: [...state.tv_series[payload.title].id, payload.id],
+                        media_type: 'series',
+                    },
                 },
             };
 

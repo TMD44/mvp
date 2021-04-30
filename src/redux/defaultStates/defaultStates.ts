@@ -76,9 +76,8 @@ export const configDefaultState = {
 export const movieDbDefaultState: MediaType = {
     creation_time: getDateAndTime(),
     modification_time: getDateAndTime(),
-    movies: [],
+    movies: {},
     tv_series: {},
-    movie_series: {},
     playlists: [],
     all_media: {},
 };
