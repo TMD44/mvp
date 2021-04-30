@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     createStyles,
     fade,
@@ -7,8 +7,13 @@ import {
 } from '@material-ui/core/styles';
 import { InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { MainType } from '../Main/MainType';
 
 // TODO: At low width search bar go into title
+
+interface PropsShape {
+    setMainType: (type: MainType) => void;
+}
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -55,8 +60,18 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function SearchBar() {
+// eslint-disable-next-line @typescript-eslint/no-shadow
+export function SearchBar({ setMainType }: PropsShape) {
     const classes = useStyles();
+    const [searchWord, setSearchWord] = useState('');
+
+    const keyPress = (e) => {
+        // Enter
+        if (e.keyCode === 13) {
+            console.log('searchWord: ', searchWord);
+            setMainType('Search');
+        }
+    };
 
     return (
         <div className={classes.search}>
@@ -70,7 +85,13 @@ export function SearchBar() {
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
+                value={searchWord}
+                onInput={(e) => setSearchWord(e.target.value)}
+                onKeyDown={keyPress}
             />
         </div>
     );
+}
+function setMainType(arg0: string) {
+    throw new Error('Function not implemented.');
 }

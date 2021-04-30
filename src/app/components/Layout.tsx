@@ -37,6 +37,7 @@ export function Layout() {
             <TopBar
                 sideBarIsOpen={sideBarIsOpen}
                 handleSideBarOpen={handleSideBarOpen}
+                setMainType={setMainType}
             />
             <SideBar
                 handleModalOpen={handleModalOpen}

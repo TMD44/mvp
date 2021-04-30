@@ -10,11 +10,13 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { SIDEBAR_WIDTH } from '../SideBar/SideBar';
-import { SearchBar } from './SearchBar';
+import { SearchBar } from '../Search/SearchBar';
+import { MainType } from '../Main/MainType';
 
 interface PropsShape {
     sideBarIsOpen: boolean;
     handleSideBarOpen: () => void;
+    setMainType: (type: MainType) => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -43,7 +45,11 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function TopBar({ sideBarIsOpen, handleSideBarOpen }: PropsShape) {
+export function TopBar({
+    sideBarIsOpen,
+    handleSideBarOpen,
+    setMainType,
+}: PropsShape) {
     const classes = useStyles();
 
     return (
@@ -70,7 +76,7 @@ export function TopBar({ sideBarIsOpen, handleSideBarOpen }: PropsShape) {
                         Multimedia Visualization Platform
                     </Typography>
 
-                    <SearchBar />
+                    <SearchBar setMainType={setMainType} />
                 </Toolbar>
             </AppBar>
         </>
