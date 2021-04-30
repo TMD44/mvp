@@ -34,17 +34,6 @@
 \city{Budapest} % város / city
 \logo{elte_cimer_szines} % logo
 
-% Témabejelentő metaadatai
-% Thesis Proposal metadata
-\proposaltitle{Multimédia Vizualizációs Platform}
-\proposal{A Multimédia Vizualizációs Platform egy számítógépre, külső HDD-re, SSD-re vagy Pendrive-ra letöltött multimédia - főleg filmek, sorozatok - vizualizációjára szolgál, tehát ezen tartalmak fogyasztására egy áttekinthető és könnyen kezelhető felületet biztosít. Hasonlót, amelyhez már hozzászokhattunk a különböző streaming szolgáltatóktól, csak mindezt nem egy külső adatbázisból betöltve, hanem a saját offline tartalmainkra építve. A felület biztosítja az alapvető funkcionalitásokat amelyeket egy videó lejátszó platformtól el lehet várni: filmek listázása, keresés, lejátszás, megállítás, előre-hátra pörgetés, nyelv és felirat választás, lejátszási listák létrehozása stb. Külön kezeli az egyrészes filmek, a több részes filmsorozatok és a több részes TV sorozatok felületeit. A filmekhez és sorozatokhoz továbbá meta-adatokat (Cím, Szereplők, Leírás, Műfajok stb.) tölt le/be, ezzel is növelve a felhasználói élményt.}
-\cityproposal{Budapest}
-\dateproposal{2020.12.01.}
-
-% Köszönetnyilvánítás metaadatai
-% Acknowledgments matadata
-\acknowledgmentstext{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis in nibh auctor molestie. Donec porta tortor mauris. Cras in lacus in purus ultricies blandit. Proin dolor erat, pulvinar posuere orci ac, eleifend ultrices libero. Donec elementum et elit a ullamcorper. Nunc tincidunt, lorem et consectetur tincidunt, ante sapien scelerisque neque, eu bibendum felis augue non est. Maecenas nibh arcu, ultrices et libero id, egestas tempus mauris. Etiam iaculis dui nec augue venenatis, fermentum posuere justo congue. Nullam sit amet porttitor sem, at porttitor augue. Proin bibendum justo at ornare efficitur. Donec tempor turpis ligula, vitae viverra felis finibus eu. Curabitur sed libero ac urna condimentum gravida. Donec tincidunt neque sit amet neque luctus auctor vel eget tortor. Integer dignissim, urna ut lobortis volutpat, justo nunc convallis diam, sit amet vulputate erat eros eu velit. Mauris porttitor dictum ante, commodo facilisis ex suscipit sed.}
-
 % Irodalomjegyzék hozzáadása
 % Add bibliography file
 \addbibresource{thesis.bib}
@@ -73,11 +62,13 @@
 
 % Témabejelentő (kötelező)
 % Thesis Proposal (mandatory)
-\thesisproposal
+\input{appendices/proposal.tex}
+\cleardoublepage
 
 % Köszönetnyilvánítás
 % Acknowledgments
-\acknowledgments
+\input{appendices/acknowledgments.tex}
+\cleardoublepage
 
 % Tartalomjegyzék (kötelező)
 % Table of contents (mandatory)

@@ -81,12 +81,6 @@
 \DeclareDocumentCommand{\title}{m}{\newcommand{\thesistitle}{#1}\renewcommand{\@title}{#1}}
 \DeclareDocumentCommand{\date}{m}{\newcommand{\thesisyear}{#1}\renewcommand{\@date}{#1}}
 
-\NewDocumentCommand{\proposaltitle}{m}{\newcommand{\proptitle}{#1}}
-\NewDocumentCommand{\proposal}{m}{\newcommand{\prop}{#1}}
-\NewDocumentCommand{\cityproposal}{m}{\newcommand{\propcity}{#1}}
-\DeclareDocumentCommand{\dateproposal}{m}{\newcommand{\propdate}{#1}\renewcommand{\@date}{#1}}
-
-\NewDocumentCommand{\acknowledgmentstext}{m}{\newcommand{\acknowledgment}{#1}}
 % ------------------------------
 
 % ------------------------------
@@ -516,69 +510,5 @@
 		\end{center}
 
 	\end{titlepage}
-}
-% ------------------------------
-
-% ------------------------------
-% Témabejelentő
-\newcommand{\thesisproposal}{
-	\thispagestyle{empty}
-	%\begin{center}
-		%\vspace*{\fill}
-
-		{\bf \huge {Szakdolgozati témabejelentő}}
-
-        \begin{flushleft}
-            {\bf {Hallgató adatai:}}\\
-            \> \> \> \> {\emph {Név: }} \authorname\\
-            \> \> \> \> {\emph {Neptun kód: }} \neptuncode\\
-            \vspace{0.3cm}
-            {\bf {Képzési adatok:}}\\
-            \> \> \> \> {\emph {Szak: }} \degreename\\
-            \> \> \> \> {\emph {Tagozat: }} \studytype\\
-            \vspace{0.3cm}
-            {\bf {Témavezető neve:}} \supname\\
-            \> \> \> \> {\emph {Munkahelyének neve, tanszéke: }}\\
-            \> \> \> \> \> \> \> \> {\small {ELTE Informatikai Kar, Adattudományi és Adattechnológiai Tanszék}}\\
-            \> \> \> \> {\emph {Munkahelyének címe: }}\\
-            \> \> \> \> \> \> \> \> {\small {117 Budapest, Pázmány Péter sétány 1/C., 2. emelet, 2.420-as szoba}}\\
-            \> \> \> \> {\emph {Beosztás és iskolai végzettsége: }} {\small \supaff}\\
-        \end{flushleft}
-
-		\vspace{0.5cm}
-
-        {\bf {A szakdolgozat címe:}} \proptitle\\
-        \vspace{1cm}
-        \> \> {\bf {A szakdolgozat témája:}}\\
-        {\prop}
-
-		\vspace*{\fill}
-
-		{\it \propcity, \propdate}
-
-		\vspace*{\fill}
-	%\end{center}
-
-
-	\cleardoublepage
-	%\setcounter{page}{1}
-}
-% ------------------------------
-
-% ------------------------------
-% Köszönetnyilvánítás
-\newcommand{\acknowledgments}{
-	\thispagestyle{empty}
-	\vspace*{\fill}
-
-	{\bf \huge {Köszönetnyilvánítás}}
-
-	\vspace*{\fill}
-	{\acknowledgment}
-
-	\vspace*{\fill}
-
-	\cleardoublepage
-	\setcounter{page}{1}
 }
 % ------------------------------
