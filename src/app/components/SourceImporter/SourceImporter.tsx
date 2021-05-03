@@ -36,7 +36,7 @@ export function SourceImporter({ handleModalClose }: PropsShape) {
             </Step>
 
             <Step key="OfflineScan">
-                <StepLabel>Offline scan Settings</StepLabel>
+                <StepLabel>Offline scan</StepLabel>
                 <StepContent>
                     <Step2OfflineScan
                         handleNext={handleNext}
@@ -46,7 +46,7 @@ export function SourceImporter({ handleModalClose }: PropsShape) {
             </Step>
 
             <Step key="ScanSettings3">
-                <StepLabel>Online scan Settings</StepLabel>
+                <StepLabel>Online scan</StepLabel>
                 <StepContent>
                     <Step3OnlineScan
                         handleModalClose={handleModalClose}

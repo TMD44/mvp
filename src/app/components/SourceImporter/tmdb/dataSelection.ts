@@ -1,3 +1,5 @@
+import { genresConvert } from './genresConvert';
+
 export const imdbIdExists = (obj: Record<string, unknown>): boolean => {
     if (obj.metadata) {
         if (obj.metadata.imdb_id) {
@@ -52,8 +54,7 @@ export const remodelData = (obj: any) => {
                     break;
 
                 case 'genre_ids':
-                    filteredData.genres = value;
-                    // TODO: handle the genre convertion
+                    filteredData.genres = genresConvert(value);
                     break;
                 default:
                     filteredData[key] = value;

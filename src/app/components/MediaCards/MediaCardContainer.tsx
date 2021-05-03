@@ -6,7 +6,7 @@ import {
     ListSubheader,
     TablePagination,
 } from '@material-ui/core';
-import { MediaCardList } from './MediaCardList';
+import { MediaCard } from './MediaCard';
 
 interface PropsShape {
     title: string;
@@ -73,12 +73,15 @@ export function MediaCardContainer({ title, data }: PropsShape) {
                     </ListSubheader>
                 </GridListTile>
 
-                <MediaCardList
-                    data={data.slice(
+                {data
+                    .slice(
                         currentPage * rowsPerPage,
                         currentPage * rowsPerPage + rowsPerPage
-                    )}
-                />
+                    )
+                    .map(([id, obj]) => {
+                        // TODO: not the 0. element of array, rather than the element that has the most metadata
+                        return <MediaCard key={id} id={obj.id} />;
+                    })}
             </GridList>
             <TablePagination
                 className="pagination"

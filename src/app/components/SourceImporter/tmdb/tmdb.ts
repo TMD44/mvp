@@ -7,7 +7,6 @@ import { tmdbRequest } from './tmdbRequests';
 const tmdbDataCleaning = (obj: Record<string, unknown>) => {
     let result;
     Object.entries(obj.data).forEach(([key, arr]) => {
-        console.log('KEY: ', key, 'ARR: ', arr);
         if (arr.length > 0) {
             switch (key) {
                 case 'movie_results':

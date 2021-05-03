@@ -3,13 +3,17 @@ const { IMDB_ID_LIST } = require('./imdbIdList');
 const { torrentMovieNames } = require('./torrent_movies');
 const { torrentSeriesNames } = require('./torrent_series');
 
+const TEMP_IMDB_ID_LIST = IMDB_ID_LIST;
+
 function nfoContent() {
     let result = '';
 
     const randomImdbID =
-        IMDB_ID_LIST[Math.floor(Math.random() * IMDB_ID_LIST.length)];
+        TEMP_IMDB_ID_LIST[Math.floor(Math.random() * TEMP_IMDB_ID_LIST.length)];
 
     result += `https://www.imdb.com/title/${randomImdbID}\n`;
+
+    TEMP_IMDB_ID_LIST.splice(randomImdbID, 1);
 
     const r = Math.floor(Math.random() * 3) + 1;
     for (let i = 0; i < r; i++) {

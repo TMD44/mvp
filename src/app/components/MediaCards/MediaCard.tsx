@@ -5,7 +5,7 @@ import { getDataByID } from '@scripts/getDataByID';
 import { MediaModal } from '../Modals/MediaModal';
 
 interface PropsShape {
-    id: string;
+    id: string[];
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -30,11 +30,11 @@ export function MediaCard({ id }: PropsShape) {
     const handleModalOpen = () => setMediaModalIsOpen(true);
     const handleModalClose = () => setMediaModalIsOpen(false);
 
-    const currentMedia = getDataByID(id).metadata;
+    const currentMedia = getDataByID(id[0]).metadata;
 
     return (
         <>
-            <Card key={id} className={classes.root} onClick={handleModalOpen}>
+            <Card className={classes.root} onClick={handleModalOpen}>
                 <CardHeader
                     title={currentMedia.title || '<NO TITLE>'}
                     titleTypographyProps={{
@@ -59,7 +59,7 @@ export function MediaCard({ id }: PropsShape) {
             <MediaModal
                 handleModalClose={handleModalClose}
                 modalIsOpen={mediaModalIsOpen}
-                id={id}
+                ids={id}
             />
         </>
     );

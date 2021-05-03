@@ -21,7 +21,10 @@ import {
     deleteScanPath,
 } from '@redux/actions/configActions';
 import { ipcRenderer } from '@app/ipcRenderer';
-import { scanPathsSelector } from '@redux/selectors/configSelector';
+import {
+    getScanPaths,
+    scanPathsSelector,
+} from '@redux/selectors/configSelector';
 import { useSelector } from 'react-redux';
 
 interface PropsShape {
@@ -122,6 +125,7 @@ export function Step1OpenDir({ handleNext, handleBack }: PropsShape) {
                         Back
                     </Button>
                     <Button
+                        disabled={getScanPaths().length === 0}
                         variant="contained"
                         color="primary"
                         onClick={handleNext}

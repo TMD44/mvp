@@ -130,32 +130,8 @@ export function Settings({ value }: PropsShape) {
                 <List>
                     <ListItem button>
                         <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
+                            primary="NOTHING TO SEE HERE YET"
+                            secondary="NOTHING TO SEE HERE YET"
                         />
                     </ListItem>
                 </List>
@@ -165,29 +141,12 @@ export function Settings({ value }: PropsShape) {
                 <List>
                     <ListItem button>
                         <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
+                            primary="NOTHING TO SEE HERE YET"
+                            secondary="NOTHING TO SEE HERE YET"
                         />
                     </ListItem>
                 </List>
             </TabPanel>
-            <TabPanel value={value} index={3}>
-                Item Four
-            </TabPanel>
-            <TabPanel value={value} index={4}>
-                Item Five
-            </TabPanel>
         </>
     );
 }
-/*
-
-
-
- */

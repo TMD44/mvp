@@ -9,7 +9,7 @@ export function Movies() {
 
     return (
         <Container maxWidth="xl" id="mainContainer">
-            <MediaCardContainer title="Movies" data={Object.entries(movies)} />
+            <MediaCardContainer title="" data={Object.entries(movies)} />
         </Container>
     );
 }

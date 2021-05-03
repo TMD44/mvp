@@ -9,7 +9,7 @@ export function Series() {
 
     return (
         <Container maxWidth="xl" id="mainContainer">
-            <MediaCardContainer title="Series" data={Object.entries(series)} />
+            <MediaCardContainer title="" data={Object.entries(series)} />
         </Container>
     );
 }

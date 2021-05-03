@@ -91,8 +91,6 @@ export function SettingsModal({ handleModalClose, modalIsOpen }: PropsShape) {
                         <Tab label="Item One" id="simple-tab-0" />
                         <Tab label="Item Two" id="simple-tab-1" />
                         <Tab label="Item Three" id="simple-tab-2" />
-                        <Tab label="Item Four" id="simple-tab-4" />
-                        <Tab label="Item Five" id="simple-tab-5" />
                     </Tabs>
                 </Toolbar>
             </AppBar>
