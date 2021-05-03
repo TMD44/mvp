@@ -23,7 +23,6 @@ import { SourceImporterMenuItem } from './SideBarComponents/SourceImporterMenuIt
 import { HomeMenuItem } from './SideBarComponents/HomeMenuItem';
 import { MoviesMenuItem } from './SideBarComponents/MoviesMenuItem';
 import { SeriesMenuItem } from './SideBarComponents/SeriesMenuItem';
-import { GenresMenuItem } from './SideBarComponents/GenresMenuItem';
 import { PlaylistsMenuItem } from './SideBarComponents/PlaylistsMenuItem';
 import { MainType } from '../Main/MainType';
 
@@ -121,10 +120,6 @@ export function SideBar({
                         sideBarIsOpen={sideBarIsOpen}
                     />
                     <SeriesMenuItem
-                        setMainType={setMainType}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                    <GenresMenuItem
                         setMainType={setMainType}
                         sideBarIsOpen={sideBarIsOpen}
                     />
