@@ -6,18 +6,27 @@ import { VideoPlayerModal } from './VideoPlayerModal';
 import { ModalTitleBar } from './ModalTitleBar';
 import { TransitionRight } from './ModalTransitions';
 import { MediaDetails } from '../MediaDetails/MediaDetails';
+import { MediaDetailsPlay } from '../MediaDetails/MediaDetailsPlay';
 
 interface PropsShape {
     handleModalClose: () => void;
     modalIsOpen: boolean;
-    id: string;
+    ids: string[];
 }
 
-export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
+export function MediaModal({ handleModalClose, modalIsOpen, ids }: PropsShape) {
     const [videoPlayerIsOpen, setVideoPlayerIsOpen] = useState(false);
 
     const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
     const handleVideoPlayerClose = () => setVideoPlayerIsOpen(false);
+
+    const allMedia = useSelector(mediaSelector);
+    const videoArray: any[] = [];
+    if (ids) {
+        ids.forEach((id) => {
+            videoArray.push(allMedia[id]);
+        });
+    }
 
     return (
         <>
@@ -42,16 +51,17 @@ export function MediaModal({ handleModalClose, modalIsOpen, id }: PropsShape) {
                     handleModalClose={handleModalClose}
                 />
                 <div className="modalPaper">
-                    <MediaDetails id={id} />
-                    <button type="button" onClick={handleVideoPlayerOpen}>
-                        OPEN VIDEO PLAYER MODAL
-                    </button>
+                    <MediaDetails id={ids ? ids[0] : ''} />
+                    <MediaDetailsPlay
+                        videoArray={videoArray}
+                        handleVideoPlayerOpen={handleVideoPlayerOpen}
+                    />
                 </div>
             </Dialog>
             <VideoPlayerModal
                 handleVideoPlayerClose={handleVideoPlayerClose}
                 videoPlayerIsOpen={videoPlayerIsOpen}
-                id={id}
+                id={ids ? ids[0] : ''}
             />
         </>
     );

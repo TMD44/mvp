@@ -41,6 +41,7 @@ async function nfoPatternFinder(data) {
         const tinyurlFound = data.match(nfoPatterns.tinyurl);
         if (tinyurlFound) {
             for (const url in tinyurlFound) {
+                // TODO: SLOW!!!
                 tinyUrlData[`tinyurl_${url + 1}`] = await tinyURL.resolve(
                     tinyurlFound[url]
                 );

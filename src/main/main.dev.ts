@@ -79,10 +79,10 @@ const createWindow = async () => {
         appWindow.loadFile('../app/index.html');
     }
 
-    /* if (isDevelopmentMode) {
+    if (isDevelopmentMode) {
         appWindow.webContents.openDevTools();
-    } */
-    appWindow.webContents.openDevTools();
+    }
+    // appWindow.webContents.openDevTools();
 
     // const menuBuilder = new MenuBuilder(appWindow);
     // menuBuilder.buildMenu();

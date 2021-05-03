@@ -52,6 +52,7 @@ export const scan = {
         store.dispatch(addScanResults(scanResults));
         const results = getScanResults();
 
+        // TODO: sometimes this runs too long or not even run properly
         for (const file in results.media) {
             const result = await mediaJSONGenerator(
                 results.media[file],
@@ -67,20 +68,28 @@ export const scan = {
 
         // TODO: here will check for tv series
 
-        mediaTypeSorting();
+        const allMedia = getAllMedia();
+        for (const [key, value] of Object.entries(allMedia)) {
+            await mediaTypeSorting(key, value, allMedia);
+        }
 
         return true;
     },
 
     onlineScan: async () => {
-        for (const [key, value] of Object.entries(getAllMedia())) {
+        const allMedia = getAllMedia();
+
+        for (const [key, value] of Object.entries(allMedia)) {
             await getTMDBdata(value);
+            // await mediaTypeSorting(key, value);
         }
 
         store.dispatch(purgeMovies());
         store.dispatch(purgeSeries());
 
-        mediaTypeSorting();
+        for (const [key, value] of Object.entries(allMedia)) {
+            await mediaTypeSorting(key, value);
+        }
 
         // subConvert();
 
