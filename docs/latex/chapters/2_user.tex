@@ -1,2 +1,197 @@
 \chapter{Felhasználói dokumentáció} % User guide
 \label{ch:user}
+
+% ==========================================================
+% |               Ismertetés, célközönség                  |
+% ==========================================================
+\section{Ismertetés, célközönség}
+Az alkalmazás segítségével vizualizálni tudjuk offline mozgóképes tartalmainkat egy könnyen kezelhető és esztétikus megjelenésű platformon, továbbá képes a filmek és sorozatok külön kezelésére, felismerésére - amennyiben a filmek nevezéke megfelelő -, a beolvasott tartalmak keresésére, lejátszására, megállítására, pörgetésére, felirat választására, meta-adatok letöltésére filmes adatbázisból vagy betöltésére fájlnévből, NFO fájlból, mindemellett lejátszási listák létrehozására.
+
+Az alkalmazás első indításakor még nem fogunk találni semmilyen tartalmat a Fő képernyőn, ehhez ugyanis előszőr be kell importálnunk a tartalmakat. A Source Importer eszközt használva, kiválasztjuk a megfelelő mappákat, ezután a szoftver beolvassa az összes támogatott formátumú tartalmat. Ezután ha úgy akarjuk meta-adatokat tudunk letölteni a beolvasott fájlokhoz. Innentől kezdve az alkalmazás minden funkciója készen áll a használatra.
+
+Az alkalmazás célközönségét nem igazán lehet vagy érdemes leszűkítani egy kisseb csoportra, tekintve, mindenkinek szól, aki kicsit is szereti a filmeket, sorozatokat és hozzászokott a különböző streaming szolgáltatók által nyújtott kényelemhez, funckionalitáshoz.
+
+% ==========================================================
+% |               Rendszerkövetelmények                    |
+% ==========================================================
+\cleardoublepage
+\section{Rendszerkövetelmények}
+\subsection{Hardveres követelmények}
+Az alkalmazás futtatásához lényegében egy Google Chrome-ot és Node.JS-t futtatni képes konfigurációra van szükség csupán. Ettől függetlenül ajánlott az alábbi technikai kövelmények teljesítése:
+\begin{itemize}
+    \item {\textbf {Kijelző: }} legalább HD, azaz 1280×720 pixel
+	\item {\textbf {Memória: }} legalább 4 GB
+	\item {\textbf {Háttértár: }} legalább 200 MB (SSD ajánlott)
+\end{itemize}
+
+\subsection{Internetkapcsolat}
+Az alkalmazás futtatására alapvetően nincs szükség internet kapcsolatra, azonban a teljes élmény és funkcionalitás eléréséhez erősen ajánlott. Például a meta-adatok letöltése online filmes adatbázisból történik, aminek működéséhez elengedhetetlen az internet kapcsolat.
+
+\subsection{Softwares követelmények}
+Három előre telepítendő softwarere van szükségünk, hogy működésre bírjuk az applikációt. Ezek pedig:
+\begin{itemize}
+	\item Node.JS
+	\item Node Package Manager
+	\item Yarn Package Manager
+\end{itemize}
+
+\subsection{Operációs rendszer}
+Az Electron applikációk sajátja, hogy egy kódbázisból - ami jelen esetben HTML, CSS, JavaScript/TypeScript - mindhárom főbb asztali platformra képes teljes funkcionalitású alkalmazást készíteni. Éppen ezért a támogatott operációs rendszerek az alábbiak:
+\begin{itemize}
+	\item Microsoft Windows 7, 8, 8.1, 10
+	\item Linux/GNU
+	\item MacOS
+\end{itemize}
+
+% ==========================================================
+% |                 Telepítési útmutató                    |
+% ==========================================================
+\section{Telepítési útmutató}
+Több mód is elérhető az alkalmazás telepítésére. Az egyik lehetséges mód a kódból már Production változattá fordított {\textbf {futtatható állomány}} futtatása, a másik pedig a {\textbf {Yarn}} Package Manager-t felhasználva. Az alábbiakban mindkét módot tárgyalni fogjuk:
+
+\subsection{Telepítés futtatható állománnyal}
+Az alkalmazásból létezik telepíthető futtatható állomány, ehhez semmi másra nincs szükség csupán a telepítő elindítására. A telepítő ekkor kicsomagolja majd fetelepíti az alkalmazást a számítógépre, parancsikont hoz létre az asztalra és automatikusan el is indítja az alkalmazást.
+
+\subsection{Telepítés és futtatás Yarn segítségével}
+Először is szükség van a megfelelő szoftverek telepítésére, mégpedig a Node.JS-re, Node Package Manager-re (továbbiakban npm) és a Yarn Package Manager-re (továbbiakban yarn). A Node.JS és az npm letölthető a Node.JS hivatalos oldaláról\footnote{\url{https://nodejs.org/en/}}, amellyel együtt az npm is letölésre kerül, ajánlott továbbá az LTS verzió letölése, amely ``hosszú ideig tartó támogatás''-t jelent. A yarn-t pedig a Yarn hivatalos oldaláról\footnote{\url{https://classic.yarnpkg.com/en/docs/install}} érdemes beszerezni.
+
+Ezen szoftverek telepítése után indítható maga az alkalmazás. A projekt leíró, a {\it package.json} fájlban definiált script-ek, amellyekkel az alkalmazást elindítani és lefordítani tudjuk az alábbiak:
+
+\subsubsection{Repository klónozása}
+Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhez használhatjuk a git clone parancsot - ha telepítve van a gépünkre a Git\footnote{\url{https://git-scm.com/downloads}} - vagy le is tölthetjük azt zip formátumban.
+\lstset{caption={Repository klónozása}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    git clone https://github.com/TMD44/mvp
+    cd mvp
+\end{lstlisting}
+
+\subsubsection{Függőségek telepítése Yarn segítségével}
+Ezután a függőségek telepítése következik, ezek olyan csomagok amelyek a program futásához (dependecies) vagy fejlesztéséhez (devDependecies) elengedhetelenek.
+\lstset{caption={Függőségek telepítése Yarn segítségével}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    yarn
+\end{lstlisting}
+
+\subsubsection{Fejlesztői verzió futtatása}
+Innentől kezdve az alkalmazás indítható, buildelhető. Ezzel a paranccsal az alkalmazás egy fejlesztői verziója indítható el, ebben a módban különböző fejlesztői eszközök is elérhetőek amelyek a produkciós változatba nem kerülnek bele. Például fejlesztői konzol, React és Redux fejlesztői eszköz.
+\lstset{caption={Fejlesztői verzió futtatása}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    yarn start
+\end{lstlisting}
+
+\subsubsection{Produkciós verzió futtatása}
+Az alábbi paranccsal egy produkciós verzió készíthető el.
+\lstset{caption={Produkciós verzió futtatása}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    yarn build
+\end{lstlisting}
+
+\subsubsection{Produkciós verzió létrehozása}
+Végül de nem utolsó sorban az egyik legfontosabb parancs, amellyel az alkalmazás produkciós verziója hozható létre. Ez az utasítás létrehozza magát a telepítő futtatható állományt és egy hordozható állományt, amely telepítés nélküli futtatást tesz lehetővé. Mindezeket a projekt {\it release} mappájába fogjuk találni.\\
+Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifikálhatjuk, hogy milyen platformra szeretnénk az alkalmazást buildelni. Az {\it -mwl} kapcsolóval mindhárom platformra tudunk telepítőt létre hozni. (Fontos megjegyezni, hogy MacOS-re csak MacOS-en lehet telepítőt készíteni. Tehát ha például Windowson adjuk ki az -mwl parancsot akkor csak Linuxra és Windowsra tudunk telepítőt készíteni, Macre nem.) A további kapcsolók értelem szerűen specifikusan egy platformra hozzák létre.
+\lstset{caption={Produkciós verzió létrehozása}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    yarn package
+
+    yarn package --[option]
+    # All:       -mwl
+    # Windows:   --win, -w
+    # Linux:     --linux, -l
+    # MacOS:     --mac, -m
+\end{lstlisting}
+
+% ==========================================================
+% |           Program felületek és működésük               |
+% ==========================================================
+\cleardoublepage
+\section{Program felületek és működésük}
+
+\subsection{Kezdőlap}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{home.jpg}
+	\caption{Kezdőlap}
+	\label{fig:home}
+\end{figure}
+A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes beolvasott média tartalom, filmek és sorozatok vegyesen. Ha elsőnek indítjuk el az alkalmazást akkor a Kezdőlapot üresen fogjuk találni egy üzenettel, hogy még nincs beolvasott média tartalom. Innen a kezdőlapról minden más egyéb oldal könnyen megközelíthető, baloldalt találjuk a Menüt, ahonnan a többi oldalt vagy modált érjük el. Felül az Alkalmazás sáv kapott helyet, ahol a Menüt vezérlő gomb, a jelenlegi oldal neve és a Kereső sáv található. A média tartalmak alapértelmezetten tízesével jelennek meg az oldalon, ezt azonban van lehetőségünk megváltoztatni: 10, 25, 50 és 100 film/oldalra is. A beolvasott média tartalmak kis kártyákként jelennek meg, melyekre rákattintva a film vagy sorozat részletező oldalára jutunk. Ahol a fontosabb adatokat - cím, évszám, összefoglalás, borítókép - találjuk, már amennyiben alkalmaztuk az adatbázisból lehívás funkciót, ezen az oldalon találjuk továbbá a film elindításához szükséges gombot vagy sorozatok esetén gombokat. Amelyekre rákattintva megnyílik a videó lejátszó.
+
+\cleardoublepage
+\subsection{Filmek, Sorozatok és Részletek}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{movies_series.jpg}
+	\caption{Filmek, Sorozatok}
+	\label{fig:movies_series}
+\end{figure}
+A további oldalakon az alkalmazás tematikusan szétválogatja a beolvasott filmjeinket és sorozatainkat. A fentebb Kezdőlaphoz leírtak ezekre az oldalakra is érvényesek, tehát az Applikáció struktúrája, baoldalt a Menüsáv, fent az Alkalmazás sáv, Keresés és a többi.
+
+A {\it Filmek} oldalon értelemszerűen a filmeket találjuk.
+
+A {\it Sorozatok} oldalon magától értetődően a sorozatokat találjuk.
+
+\cleardoublepage
+\subsection{Lejátszási listák}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{playlists.jpg}
+	\caption{Lejátszási listák}
+	\label{fig:playlists}
+\end{figure}
+A {\it Lejátszási listák} oldalon pedig a saját magunk által létrehozott és filmekkel vagy sorozatokkal feltöltött egyedi Lejátszási listákat kapjuk.
+
+\cleardoublepage
+\subsection{Source Importer}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{source_importer_1.jpg}
+	\caption{Source Importer 1. fázis: Mappa kiválasztás}
+	\label{fig:source_importer}
+\end{figure}
+Az alkalmazás egyik legfontosabb része a Source Importer vagy ``forrás importáló''. A Menüben kattintsunk a {\it Source Importer} ikonra ekkor megnyílik a modal ablak, itt tudjuk a média tartalmakat a gépünkről beimportálni az alkalmazásba.
+
+Legelső lépésként ki kell választanunk azokat mappákat ahonnan be szeretnénk a filmeket és sorozatokat importálni. A {\it Mappák megynitása} gombra kattintva operációs rendszertől függően megnyílik egy párbeszéd ablak ahol a mappákat ki tudunk választani, tegyünk így aztán kattintsunk a Mappaválasztás gombra a párbeszéd ablakban. Ekkor visszaérve a Source Importerbe megjelenik a kiválasztott mappák listája, a mappa nevek jobboldalán lévő kis kukára, ha kattintunk egyesével ki tudjuk törölni a kiválasztott mappákat, ha pedig az {\it Összes törlése} gombra kattintunk akkor értelemszerűen az össze mappa törlésre kerül. Ha mindezekkel megvagyunk és a megfelelő mappák vannak kiválasztva kattintsunk a {\it Következő} gombra.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{source_importer_2.jpg}
+	\caption{Source Importer 2. fázis: Offline scan}
+	\label{fig:source_importer}
+\end{figure}
+Az importálási folyamat második állomása az Offline scannelés, kattintsunk {\it Források importálása} gombra, hogy elinduljon a scannelés. A háttérben a következő dolgok történnek: Az alkalmazás végignézi a kiválasztott mappákat és megkeresi a támogatott formátumú videófájlokat, feliratfájlokat és NFO fájlokat. Sok példa van arra, hogy egy-egy filmfájl mellett minta videófájlok is találhatók, ezeket az alkalmazás szempontjából lényegtelen fájlokat a scannelés során kiszűrjük. Miután megvannak a megfelelő médiafájlok az alkalmazás megpróbál minden használható információt összegyűjteni a fájlnevekből, mappanevekből, NFO fájlokból, majd ezeket összesíti. Például a teljesség igénye nélkül: cím, IMDB ID, felbontás, évszám, nyelv, minőség, évad- és epizódszám, hang és videó kodekek továbbá egyéb hasznos információ.
+
+A scannelés időtartama ha sok tartalmat importálunk be eltarthat néhány percig.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{source_importer_3.jpg}
+	\caption{Source Importer 3. fázis: Online scan}
+	\label{fig:source_importer}
+\end{figure}
+Az importálási folyamat utolsó, harmadik állomása az úgy nevezett Online scannelés, amely gyakorlatilag a meta-adatok letöltését jelenti. Ehhez mint a nevében is benne van internetkapcsolatra lesz szükség, ha ez nincs meg a scannelés nem végződik el. Kattintsuk a {\it Metaadatok letöltése} gombra, ekkor elindul a scannelés. Fontos megjegyezni, hogy egyenlőre a meta-adatok letöltése IMDB ID-tól függ - éppen ezért ajánlott ellenőrizni, hogy a média fájlok mellett legyen egy NFO fájl amely tartalmaz egy helyes IMDB linket - , ugyanis ezzel lehet biztosítani azt, hogy ténylegesen a megfelelő adatok kerülnek letöltésre. Bonyodalmakat okozhat ugyanis, ha például több film is létezik az adatbázisban hasonló vagy ugyanolyan névvel, vagy ha a fájl nem megfelelő, értelmes módon van elnevezve akkor a név szerinti keresés szintén hibára vagy eredménytelen válaszra futhat ki.
+
+A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelés, a beolvasott tartalmak és meta-adatok mennyiségétől, az internetkapcsolat gyorsaságától, sávszélesség foglaltságától függően.
+
+\cleardoublepage
+\subsection{Kereső}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{search.jpg}
+	\caption{Kereső}
+	\label{fig:search}
+\end{figure}
+A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha csak rákattintuk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartamat. Szöveges mezőbe írással pedig ezen a listán tudunk szűkítani, ha nincs olyan film cím mint amit beírtuk a kereső jelzi számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film részletek ablakja, ahol is a már fent részletezett módon lehet eljárni.
+
+\cleardoublepage
+\subsection{Videó lejátszó}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{settings.jpg}
+	\caption{Videó lejátszó}
+	\label{fig:settings}
+\end{figure}
+A Menüben a {\it Beállítások} ikonra kattintva megnyílik a Beállítások ablak
+
+% ==========================================================
+% |                   Hibaelhárítás                        |
+% ==========================================================
+\section{Hibaelhárítás}
