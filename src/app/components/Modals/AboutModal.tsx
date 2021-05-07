@@ -6,6 +6,7 @@ import {
     ListItem,
     ListItemText,
 } from '@material-ui/core';
+import { getAppInfo } from '@redux/selectors/configSelector';
 import { ModalTitleBar } from './ModalTitleBar';
 import { TransitionRight } from './ModalTransitions';
 
@@ -40,16 +41,41 @@ export function AboutModal({ handleModalClose, modalIsOpen }: PropsShape) {
                 <h1>Multimedia Visualization Platform</h1>
                 <List dense>
                     <ListItem>
-                        <ListItemText primary="Version: 0.1.0" />
+                        <span>
+                            <b>Version: </b>
+                            <i>{getAppInfo().app_version}</i>
+                        </span>
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="Build time: 2021.01.01." />
+                        <span>
+                            <b>Node.JS version: </b>
+                            <i>{process.versions.node}</i>
+                        </span>
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="Electron version: 123" />
+                        <span>
+                            <b>Electron version: </b>
+                            <i>{process.versions.electron}</i>
+                        </span>
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="Node.JS version: 123" />
+                        <span>
+                            <b>Chrome version: </b>
+                            <i>{process.versions.chrome}</i>
+                        </span>
+                    </ListItem>
+                </List>
+                <List dense>
+                    <ListItem>
+                        <span>
+                            <a
+                                href="https://github.com/TMD44/mvp/issues"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Report bug on Github Issues
+                            </a>
+                        </span>
                     </ListItem>
                 </List>
             </div>

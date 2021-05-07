@@ -18,8 +18,8 @@ const fnrPatterns = {
     widescreen: /[.,\-_ ]WS[.,\-_ \n]/gi,
     filetype: /[.,\-_ ]MKV[.,\-_ \n]|[.,\-_ ]AVI[.,\-_ \n]|[.,\-_ ]MP4[.,\-_ \n]/gi,
     group: /(- ?([^-]+(?:-={[^-]+-?$)?))$/g,
-    imdb_title: /tt[0-9]{7}/gi,
-    others: /[.,\-_ ](AMZN|REPACK|RETAIL|REMUX|CUSTOM[._\- ]?(PAL)?|UNRATED|PROPER|INTERNAL|READ[._\- ]?NFO|R[0-9])[.,\-_ ]/gi,
+    imdb_title: /tt[0-9]{7,8}/gi,
+    others: /[.,\-_ ](AMZN|REPACK|RETAIL|REMUX|CUSTOM[._\- ]?(PAL)?|UNRATED|PROPER|COMPLETE|INTERNAL|READ[._\- ]?NFO|R[0-9])[.,\-_ ]/gi,
     brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|<(.*?)>/g, // this has to be the last before the name
 };
 
@@ -317,9 +317,6 @@ export function fnr(paramFileName) {
                 );
             }
         }
-        if (!cleanedDataJSON.title) {
-            cleanedDataJSON.title = paramFileName;
-        }
     } catch (err) {
         console.log(
             'Error was found at Title recognition: ',
@@ -329,6 +326,10 @@ export function fnr(paramFileName) {
             '| tempFileName: ',
             tempFileName
         );
+    }
+
+    if (!cleanedDataJSON.title) {
+        cleanedDataJSON.title = paramFileName;
     }
 
     numberOfFoundAttributes = 0;

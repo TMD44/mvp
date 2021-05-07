@@ -1,5 +1,7 @@
 import store from '../store';
 
+export const getAppInfo = () => store.getState().config.app_info;
+
 export const getScanFileTypes = () =>
     store.getState().config.scan_preferences.scan_file_types;
 

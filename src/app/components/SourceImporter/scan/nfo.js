@@ -10,10 +10,10 @@ const nfoPatterns = {
     title: /(TITLE|TIME).*/gi,
     tinyurl: /(http[s]?:\/\/tinyurl.com).+?(?= |_|-|\.|\n)/gi,
     // IMDB PATTERNS
-    imdb_title: /tt[0-9]{7}/gi,
-    imdb_name: /nm[0-9]{7}/gi,
-    imdb_company: /co[0-9]{7}/gi,
-    imdb_list: /li[0-9]{7}/gi,
+    imdb_title: /tt[0-9]{7,8}/gi,
+    imdb_name: /nm[0-9]{7,8}/gi,
+    imdb_company: /co[0-9]{7,8}/gi,
+    imdb_list: /li[0-9]{7,8}/gi,
 };
 
 export function nfoFileFinder(media, results) {
@@ -23,8 +23,18 @@ export function nfoFileFinder(media, results) {
         if (nfo.path.concat(nfo.fn) === media.path.concat(media.fn)) {
             resultArray.push(nfo.full);
         }
+        const mediaPathArray = media.path.split('\\');
+        mediaPathArray.pop();
+        if (nfo.path === mediaPathArray.join('\\')) {
+            resultArray.push(nfo.full);
+        }
+        if (nfo.fn === media.path.split('\\').pop()) {
+            resultArray.push(nfo.full);
+        }
+        if (nfo.path === media.path) {
+            resultArray.push(nfo.full);
+        }
     });
-
     return resultArray[0];
 }
 

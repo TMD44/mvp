@@ -2,7 +2,7 @@
 import { addMovie, addSeries } from '@redux/actions/mediaActions';
 import store from '@redux/store';
 
-export const mediaTypeSorting = async (key, obj, allMedia) => {
+export const mediaTypeSorting = (key, obj, allMedia) => {
     if (obj.metadata.media_type) {
         if (obj.metadata.media_type === 'movie') {
             store.dispatch(addMovie(key));
