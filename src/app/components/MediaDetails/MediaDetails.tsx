@@ -1,10 +1,14 @@
-import React from 'react';
-import { Container, Grid, Paper } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Container, Grid, IconButton } from '@material-ui/core';
 import { getDataByID } from '@scripts/getDataByID';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { getImagesPath } from '@scripts/getPaths';
+import { SiImdb } from 'react-icons/si';
+import { MediaAddToPlaylist } from './MediaAddToPlaylist';
 
 interface PropsShape {
     id: string;
+    obj: any;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,8 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaDetails({ id }: PropsShape) {
-    console.log('ID2: ', id);
+export function MediaDetails({ id, obj }: PropsShape) {
     const currentMedia = getDataByID(id).metadata;
     const classes = useStyles();
 
@@ -38,17 +41,32 @@ export function MediaDetails({ id }: PropsShape) {
                             src={
                                 currentMedia.poster_path
                                     ? currentMedia.poster_path
-                                    : 'G:/mvp/assets/images/cover.jpg'
+                                    : getImagesPath('cover.png')
                             }
                             alt="COVER"
                         />
                     </Grid>
                     <Grid item xs={8}>
                         <div className="mediaInfos">
+                            <MediaAddToPlaylist obj={obj} />
+                            <IconButton
+                                aria-label="imdb"
+                                disabled={!currentMedia.imdb_url}
+                                href={currentMedia.imdb_url}
+                                target="_blank"
+                            >
+                                <SiImdb />
+                            </IconButton>
                             <h3>
-                                ORIGINAL TITLE: {currentMedia.original_title}
+                                ORIGINAL TITLE:{' '}
+                                {currentMedia.original_title ||
+                                    currentMedia.original_name}
                             </h3>
-                            <h3>YEAR: {currentMedia.release_date}</h3>
+                            <h3>
+                                YEAR:{' '}
+                                {currentMedia.release_date ||
+                                    currentMedia.first_air_date}
+                            </h3>
                             <h3>LANGUAGE: {currentMedia.original_language}</h3>
                             <h3>
                                 GENRES:{' '}

@@ -1,6 +1,14 @@
 import React from 'react';
-import { Table, TableBody, TableCell, TableRow } from '@material-ui/core';
+import {
+    IconButton,
+    Table,
+    TableBody,
+    TableCell,
+    TableRow,
+    Tooltip,
+} from '@material-ui/core';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import { ipcRenderer } from '@app/ipcRenderer';
 
 interface PropsShape {
     videoArray: any[];
@@ -11,7 +19,6 @@ export function MediaDetailsPlay({
     videoArray,
     handleVideoPlayerOpen,
 }: PropsShape) {
-    let KEEEY = 1;
     return (
         <Table
             aria-label="simple table"
@@ -24,38 +31,59 @@ export function MediaDetailsPlay({
                         <TableCell align="right">File Path</TableCell>
                     </TableRow>
                 </TableHead> */}
-            <TableBody>
-                {videoArray.map((video) => {
-                    const vidTitle =
-                        video.metadata.media_type === 'movie'
-                            ? 'MOVIE'
-                            : `S${video.metadata.season || '<UNKNOWN>'}-E${
-                                  video.metadata.episode || '<UNKNOWN>'
-                              }`;
+            <Tooltip title="Play in MVP" arrow placement="top">
+                <TableBody>
+                    {videoArray.map((video) => {
+                        const vidTitle =
+                            video.metadata.media_type === 'movie'
+                                ? 'MOVIE'
+                                : `S${video.metadata.season || '<UNKNOWN>'}-E${
+                                      video.metadata.episode || '<UNKNOWN>'
+                                  }`;
 
-                    return (
-                        <TableRow
-                            key={KEEEY++}
-                            onClick={handleVideoPlayerOpen}
-                            hover
-                        >
-                            <TableCell>
-                                <PlayCircleFilledIcon className="detailsPlayIcon" />
-                            </TableCell>
-                            <TableCell
-                                component="th"
-                                scope="row"
+                        return (
+                            <TableRow
                                 key={video.id}
+                                onClick={handleVideoPlayerOpen}
+                                hover
                             >
-                                {vidTitle}
-                            </TableCell>
-                            <TableCell align="right">
-                                {video.media_name}
-                            </TableCell>
-                        </TableRow>
-                    );
-                })}
-            </TableBody>
+                                <TableCell>
+                                    <Tooltip
+                                        title="Play in default player"
+                                        arrow
+                                        placement="top"
+                                    >
+                                        <IconButton
+                                            edge="start"
+                                            color="inherit"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                ipcRenderer.openInDefaultPlayer(
+                                                    video.full_path
+                                                );
+                                            }}
+                                            aria-label="close"
+                                        >
+                                            <PlayCircleFilledIcon className="detailsPlayIcon" />
+                                        </IconButton>
+                                    </Tooltip>
+                                </TableCell>
+
+                                <TableCell
+                                    component="th"
+                                    scope="row"
+                                    key={video.id}
+                                >
+                                    {vidTitle}
+                                </TableCell>
+                                <TableCell align="right">
+                                    {video.media_name}
+                                </TableCell>
+                            </TableRow>
+                        );
+                    })}
+                </TableBody>
+            </Tooltip>
         </Table>
     );
 }

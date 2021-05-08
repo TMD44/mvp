@@ -7,9 +7,10 @@ import { Playlists } from './Playlists';
 
 interface PropsShape {
     mainType: MainType;
+    message: string;
 }
 
-export function MainController({ mainType }: PropsShape) {
+export function MainController({ mainType, message }: PropsShape) {
     switch (mainType) {
         case 'Home':
             return <Home />;
@@ -21,7 +22,7 @@ export function MainController({ mainType }: PropsShape) {
             return <Series />;
 
         case 'Playlists':
-            return <Playlists />;
+            return <Playlists message={message} />;
 
         default:
             return <Home />;

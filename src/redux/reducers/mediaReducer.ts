@@ -1,5 +1,6 @@
 // import * as movieDataJson from '@assets/.storage/movieDB.json';
 import fs from 'fs';
+import { omit } from 'lodash';
 import { configureStorageSync } from '@scripts/configureStorage';
 import {
     ADD_MEDIA,
@@ -11,6 +12,11 @@ import {
     PURGE_MOVIES,
     PURGE_SERIES,
     UPDATE_MEDIA,
+    PURGE_ALL_MEDIA,
+    ADD_PLAYLIST,
+    DELETE_PLAYLIST,
+    ADD_MEDIA_TO_PLAYLIST,
+    DELETE_MEDIA_FROM_PLAYLIST,
 } from '@redux/actions/mediaActions';
 import { movieDbDefaultState } from '@redux/defaultStates/defaultStates';
 
@@ -43,7 +49,7 @@ export const mediaReducer = (
         case ADD_MEDIA_AT_ONCE:
             return {
                 ...state,
-                all_media: payload,
+                all_media: { ...state.all_media, ...payload },
             };
 
         case ADD_TO_MEDIA:
@@ -70,13 +76,25 @@ export const mediaReducer = (
             return state;
 
         case ADD_MOVIE:
+            if (!state.movies[payload]) {
+                state.movies[payload] = {};
+                if (!state.movies[payload].id) {
+                    state.movies[payload].id = [];
+                }
+            }
+
             return {
                 ...state,
                 movies: {
                     ...state.movies,
                     [payload]: {
                         ...state.movies[payload],
-                        id: [payload],
+                        id: [
+                            ...state.movies[payload].id.filter(
+                                (movie: string) => movie !== payload
+                            ),
+                            payload,
+                        ],
                         media_type: 'movie',
                     },
                 },
@@ -96,7 +114,12 @@ export const mediaReducer = (
                     ...state.tv_series,
                     [payload.title]: {
                         ...state.tv_series[payload.title],
-                        id: [...state.tv_series[payload.title].id, payload.id],
+                        id: [
+                            ...state.tv_series[payload.title].id.filter(
+                                (series: string) => series !== payload.id
+                            ),
+                            payload.id,
+                        ],
                         media_type: 'series',
                     },
                 },
@@ -112,6 +135,58 @@ export const mediaReducer = (
             return {
                 ...state,
                 series: payload,
+            };
+        case PURGE_ALL_MEDIA:
+            return movieDbDefaultState;
+
+        case ADD_PLAYLIST:
+            return {
+                ...state,
+                playlists: {
+                    ...state.playlists,
+                    [payload]: { contents: {}, media_type: 'playlist' },
+                },
+            };
+
+        case DELETE_PLAYLIST:
+            return {
+                ...state,
+                playlists: omit(state.playlists, payload),
+            };
+
+        case ADD_MEDIA_TO_PLAYLIST:
+            return {
+                ...state,
+                playlists: {
+                    ...state.playlists,
+                    [payload.playlist]: {
+                        contents: {
+                            ...state.playlists[payload.playlist].contents,
+                            [payload.title]: {
+                                ...state.playlists[payload.playlist].contents[
+                                    payload.title
+                                ],
+                                ...payload.media,
+                            },
+                        },
+                        media_type: 'playlist',
+                    },
+                },
+            };
+
+        case DELETE_MEDIA_FROM_PLAYLIST:
+            return {
+                ...state,
+                playlists: {
+                    ...state.playlists,
+                    [payload.playlist]: {
+                        contents: omit(
+                            state.playlists[payload.playlist].contents,
+                            payload.title
+                        ),
+                        media_type: 'playlist',
+                    },
+                },
             };
 
         default:

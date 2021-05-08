@@ -80,7 +80,10 @@ export function MediaCardContainer({ title, data }: PropsShape) {
                     )
                     .map(([id, obj]) => {
                         // TODO: not the 0. element of array, rather than the element that has the most metadata
-                        return <MediaCard key={id} id={obj.id} />;
+
+                        return (
+                            <MediaCard key={id} id={obj.id} obj={{ id, obj }} />
+                        );
                     })}
             </GridList>
             <TablePagination

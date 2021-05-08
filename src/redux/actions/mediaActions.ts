@@ -6,9 +6,14 @@ export const DELETE_MEDIA = 'DELETE_MEDIA';
 
 export const ADD_MOVIE = 'ADD_MOVIE';
 export const ADD_SERIES = 'ADD_SERIES';
-export const ADD_PLAYLIST = 'ADD_PLAYLIST';
 export const PURGE_MOVIES = 'PURGE_MOVIES';
 export const PURGE_SERIES = 'PURGE_SERIES';
+export const ADD_PLAYLIST = 'ADD_PLAYLIST';
+export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
+export const ADD_MEDIA_TO_PLAYLIST = 'ADD_MEDIA_TO_PLAYLIST';
+export const DELETE_MEDIA_FROM_PLAYLIST = 'DELETE_MEDIA_FROM_PLAYLIST';
+
+export const PURGE_ALL_MEDIA = 'PURGE_ALL_MEDIA';
 
 export const addMedia = (media: any) => ({
     type: ADD_MEDIA,
@@ -45,17 +50,37 @@ export const addSeries = (title: string, id: string) => ({
     payload: { title, id },
 });
 
-export const addPlaylist = (playlist: any) => ({
-    type: ADD_PLAYLIST,
-    payload: playlist,
-});
-
 export const purgeMovies = () => ({
     type: PURGE_MOVIES,
-    payload: [],
+    payload: {},
 });
 
 export const purgeSeries = () => ({
     type: PURGE_SERIES,
     payload: {},
+});
+
+export const purgeAllMedia = () => ({
+    type: PURGE_ALL_MEDIA,
+    payload: {},
+});
+
+export const addPlaylist = (playlist: any) => ({
+    type: ADD_PLAYLIST,
+    payload: playlist,
+});
+
+export const deletePlaylist = (playlist: any) => ({
+    type: DELETE_PLAYLIST,
+    payload: playlist,
+});
+
+export const addMediaToPlaylist = (title: any, media: any, playlist: any) => ({
+    type: ADD_MEDIA_TO_PLAYLIST,
+    payload: { title, media, playlist },
+});
+
+export const deleteMediaFromPlaylist = (title: any, playlist: any) => ({
+    type: DELETE_MEDIA_FROM_PLAYLIST,
+    payload: { title, playlist },
 });

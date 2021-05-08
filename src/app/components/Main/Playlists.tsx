@@ -1,12 +1,24 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { playlistsSelector } from '@redux/selectors/mediaSelector';
+import { MediaCardContainer } from '../MediaCards/MediaCardContainer';
 
-export function Playlists() {
+interface PropsShape {
+    message: string;
+}
+
+export function Playlists({ message }: PropsShape) {
+    const playlists = useSelector(playlistsSelector);
+
     return (
         <Container maxWidth="xl" id="mainContainer">
-            <header>HEADER</header>
-            <h1>PLAYLISTS</h1>
-            <footer>FOOTER</footer>
+            <MediaCardContainer
+                title=""
+                data={Object.entries(
+                    playlists[message] ? playlists[message].contents : {}
+                )}
+            />
         </Container>
     );
 }

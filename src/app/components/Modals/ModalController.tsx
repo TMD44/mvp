@@ -1,7 +1,6 @@
 import React from 'react';
 import { SettingsModal } from './SettingsModal';
 import { SourceImportModal } from './SourceImportModal';
-import { MediaModal } from './MediaModal';
 import { ModalType } from './ModalType';
 import { AboutModal } from './AboutModal';
 import { MessageModal } from './MessageModal';
@@ -20,14 +19,6 @@ export function ModalController({
     message,
 }: PropsShape) {
     switch (modalType) {
-        /* case 'Media':
-            return (
-                <MediaModal
-                    handleModalClose={handleModalClose}
-                    modalIsOpen={modalIsOpen}
-                />
-            ); */
-
         case 'SourceImport':
             return (
                 <SourceImportModal

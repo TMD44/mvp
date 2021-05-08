@@ -12,9 +12,15 @@ interface PropsShape {
     handleModalClose: () => void;
     modalIsOpen: boolean;
     ids: string[];
+    obj: any;
 }
 
-export function MediaModal({ handleModalClose, modalIsOpen, ids }: PropsShape) {
+export function MediaModal({
+    handleModalClose,
+    modalIsOpen,
+    ids,
+    obj,
+}: PropsShape) {
     const [videoPlayerIsOpen, setVideoPlayerIsOpen] = useState(false);
 
     const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
@@ -51,7 +57,7 @@ export function MediaModal({ handleModalClose, modalIsOpen, ids }: PropsShape) {
                     handleModalClose={handleModalClose}
                 />
                 <div className="modalPaper">
-                    <MediaDetails id={ids ? ids[0] : ''} />
+                    <MediaDetails id={ids ? ids[0] : ''} obj={obj} />
                     <MediaDetailsPlay
                         videoArray={videoArray}
                         handleVideoPlayerOpen={handleVideoPlayerOpen}
