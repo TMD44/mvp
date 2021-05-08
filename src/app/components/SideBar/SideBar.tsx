@@ -30,7 +30,7 @@ interface PropsShape {
     handleModalOpen: (type: ModalType, message?: string) => void;
     sideBarIsOpen: boolean;
     handleSideBarClose: () => void;
-    setMainType: (type: MainType) => void;
+    handleMainOpen: (type: MainType, message?: string) => void;
 }
 
 export const SIDEBAR_WIDTH = 240;
@@ -79,7 +79,7 @@ export function SideBar({
     handleModalOpen,
     sideBarIsOpen,
     handleSideBarClose,
-    setMainType,
+    handleMainOpen,
 }: PropsShape) {
     const classes = useStyles();
     const theme = useTheme();
@@ -112,19 +112,19 @@ export function SideBar({
                 <Divider />
                 <List>
                     <HomeMenuItem
-                        setMainType={setMainType}
+                        handleMainOpen={handleMainOpen}
                         sideBarIsOpen={sideBarIsOpen}
                     />
                     <MoviesMenuItem
-                        setMainType={setMainType}
+                        handleMainOpen={handleMainOpen}
                         sideBarIsOpen={sideBarIsOpen}
                     />
                     <SeriesMenuItem
-                        setMainType={setMainType}
+                        handleMainOpen={handleMainOpen}
                         sideBarIsOpen={sideBarIsOpen}
                     />
                     <PlaylistsMenuItem
-                        setMainType={setMainType}
+                        handleMainOpen={handleMainOpen}
                         sideBarIsOpen={sideBarIsOpen}
                     />
                 </List>

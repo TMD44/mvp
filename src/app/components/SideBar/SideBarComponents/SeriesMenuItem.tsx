@@ -9,11 +9,11 @@ import TvIcon from '@material-ui/icons/Tv';
 import { MainType } from '@app/components/Main/MainType';
 
 interface PropsShape {
-    setMainType: (type: MainType) => void;
+    handleMainOpen: (type: MainType, message?: string) => void;
     sideBarIsOpen: boolean;
 }
 
-export function SeriesMenuItem({ setMainType, sideBarIsOpen }: PropsShape) {
+export function SeriesMenuItem({ handleMainOpen, sideBarIsOpen }: PropsShape) {
     return (
         <Tooltip
             title="Series"
@@ -21,7 +21,7 @@ export function SeriesMenuItem({ setMainType, sideBarIsOpen }: PropsShape) {
             placement="right"
             disableHoverListener={!!sideBarIsOpen}
         >
-            <ListItem button onClick={() => setMainType('Series')}>
+            <ListItem button onClick={() => handleMainOpen('Series')}>
                 <ListItemIcon>
                     <TvIcon />
                 </ListItemIcon>

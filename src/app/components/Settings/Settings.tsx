@@ -1,13 +1,25 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useState } from 'react';
 import {
     ListItemText,
     ListItem,
     List,
     Box,
     Typography,
+    Dialog,
+    DialogTitle,
+    DialogContentText,
+    DialogContent,
+    DialogActions,
+    Button,
 } from '@material-ui/core';
+import store from '@redux/store';
+import { purgeAllMedia } from '@redux/actions/mediaActions';
+import { ipcRenderer } from '@app/ipcRenderer';
+
+type AnswerTypes = 'YES' | 'NO';
+type ActionTypes = 'PurgeAllMedia' | '';
 
 interface PropsShape {
     value: number;
@@ -26,8 +38,8 @@ function TabPanel(props: TabPanelProps) {
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
+            id={`settings-tabpanel-${index}`}
+            aria-labelledby={`settings-tab-${index}`}
             {...other}
         >
             {value === index && (
@@ -40,93 +52,50 @@ function TabPanel(props: TabPanelProps) {
 }
 
 export function Settings({ value }: PropsShape) {
+    const [checkModal, setCheckModal] = useState(false);
+    const [actionType, setActionType] = useState('' as ActionTypes);
+
+    const handleCheckModalOpen = (type: ActionTypes) => {
+        setActionType(type);
+        setCheckModal(true);
+    };
+
+    const handleCheckModalClose = (answer: AnswerTypes) => {
+        setCheckModal(false);
+        if (answer === 'YES') {
+            switch (actionType) {
+                case 'PurgeAllMedia':
+                    store.dispatch(purgeAllMedia());
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    };
+
     return (
         <>
             <TabPanel value={value} index={0}>
-                Item One
                 <List>
-                    <ListItem button>
+                    <ListItem button onClick={() => ipcRenderer.openDevTools()}>
                         <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
+                            primary="Open DevTools"
+                            secondary="This action will open the DevTools window"
                         />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem
+                        button
+                        onClick={() => handleCheckModalOpen('PurgeAllMedia')}
+                    >
                         <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
-                        />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText
-                            primary="PRIMARY TEXT"
-                            secondary="SECONDARY TEXT"
+                            primary="Purge all media data"
+                            secondary="This action will delete all media that you scanned"
                         />
                     </ListItem>
                 </List>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
                 <List>
                     <ListItem button>
                         <ListItemText
@@ -137,7 +106,6 @@ export function Settings({ value }: PropsShape) {
                 </List>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
                 <List>
                     <ListItem button>
                         <ListItemText
@@ -147,6 +115,33 @@ export function Settings({ value }: PropsShape) {
                     </ListItem>
                 </List>
             </TabPanel>
+            <Dialog
+                open={checkModal}
+                onClose={handleCheckModalClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    Are you sure you want to perform this action?
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        This action will be final, you will not be able to undo
+                        it! Are you sure?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        onClick={() => handleCheckModalClose('NO')}
+                        autoFocus
+                    >
+                        No
+                    </Button>
+                    <Button onClick={() => handleCheckModalClose('YES')}>
+                        Yes
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 }

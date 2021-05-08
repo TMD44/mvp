@@ -9,11 +9,11 @@ import HomeIcon from '@material-ui/icons/Home';
 import { MainType } from '@app/components/Main/MainType';
 
 interface PropsShape {
-    setMainType: (type: MainType) => void;
+    handleMainOpen: (type: MainType, message?: string) => void;
     sideBarIsOpen: boolean;
 }
 
-export function HomeMenuItem({ setMainType, sideBarIsOpen }: PropsShape) {
+export function HomeMenuItem({ handleMainOpen, sideBarIsOpen }: PropsShape) {
     return (
         <Tooltip
             title="Home"
@@ -21,7 +21,7 @@ export function HomeMenuItem({ setMainType, sideBarIsOpen }: PropsShape) {
             placement="right"
             disableHoverListener={!!sideBarIsOpen}
         >
-            <ListItem button onClick={() => setMainType('Home')}>
+            <ListItem button onClick={() => handleMainOpen('Home')}>
                 <ListItemIcon>
                     <HomeIcon />
                 </ListItemIcon>

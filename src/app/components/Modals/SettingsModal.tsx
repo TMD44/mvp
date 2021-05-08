@@ -31,7 +31,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         settingsHeight: {
             minHeight: '80vh',
             maxHeight: '80vh',
-            backgroundColor: 'grey',
         },
     })
 );
@@ -84,13 +83,14 @@ export function SettingsModal({ handleModalClose, modalIsOpen }: PropsShape) {
                         value={value}
                         onChange={handleChange}
                         aria-label="Subsettings"
-                        indicatorColor="primary"
-                        textColor="primary"
+                        indicatorColor="secondary"
+                        textColor="inherit"
                         variant="scrollable"
+                        scrollButtons="off"
                     >
-                        <Tab label="Item One" id="simple-tab-0" />
-                        <Tab label="Item Two" id="simple-tab-1" />
-                        <Tab label="Item Three" id="simple-tab-2" />
+                        <Tab label="Basic settings" id="settings-tab-0" />
+                        <Tab label="Scan settings" id="settings-tab-1" />
+                        {/* <Tab label="3" id="settings-tab-2" /> */}
                     </Tabs>
                 </Toolbar>
             </AppBar>

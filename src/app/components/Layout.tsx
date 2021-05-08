@@ -10,6 +10,7 @@ export function Layout() {
     const [sideBarIsOpen, setSideBarIsOpen] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [mainType, setMainType] = useState('Home' as MainType);
+    const [mainMessage, setMainMessage] = useState('');
     const [modalType, setModalType] = useState('Default' as ModalType);
     const [modalMessage, setModalMessage] = useState('');
 
@@ -32,6 +33,11 @@ export function Layout() {
         setModalIsOpen(false);
     };
 
+    const handleMainOpen = (type: MainType, message?: string) => {
+        setMainType(type);
+        if (message) setMainMessage(message);
+    };
+
     return (
         <div id="layout">
             <TopBar
@@ -43,9 +49,9 @@ export function Layout() {
                 handleModalOpen={handleModalOpen}
                 sideBarIsOpen={sideBarIsOpen}
                 handleSideBarClose={handleSideBarClose}
-                setMainType={setMainType}
+                handleMainOpen={handleMainOpen}
             />
-            <MainController mainType={mainType} />
+            <MainController mainType={mainType} message={mainMessage} />
             <ModalController
                 modalType={modalType}
                 handleModalClose={handleModalClose}

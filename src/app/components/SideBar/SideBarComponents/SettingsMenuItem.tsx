@@ -20,7 +20,7 @@ export function SettingsMenuItem({
 }: PropsShape) {
     return (
         <>
-            <Tooltip
+            {/* <Tooltip
                 title="Message"
                 arrow
                 placement="right"
@@ -37,7 +37,7 @@ export function SettingsMenuItem({
                     </ListItemIcon>
                     <ListItemText primary="Message" />
                 </ListItem>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip
                 title="Settings"
                 arrow

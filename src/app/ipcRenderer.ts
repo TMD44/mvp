@@ -19,11 +19,17 @@ export const ipcRenderer = {
     },
     writeStorageBeforeQuitAsync: () => {
         ipcRendererCommunication.on(
-            'write-to-file-storage-before-quit',
+            'write-to-file-storage-before-quit-ASYNC',
             async () => {
                 await writeStorageBeforeQuitAsync();
                 ipcRendererCommunication.send('quit-now');
             }
         );
+    },
+    openInDefaultPlayer: (file: string) => {
+        ipcRendererCommunication.send('open-in-default-player-ASYNC', file);
+    },
+    openDevTools: () => {
+        ipcRendererCommunication.send('open-dev-tools-ASYNC');
     },
 };
