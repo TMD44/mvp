@@ -4,9 +4,6 @@
     -   https://github.com/bitwarden/desktop/blob/master/src/services/i18n.service.ts
 -   Multiple themes
 -   Config modifier GUI
--   JSON editor class
-    -   https://github.com/IonicaBizau/edit-json-file
--   Cover image download
 
 ## TESTS
 

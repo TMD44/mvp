@@ -260,6 +260,7 @@
         "electron-updater": "^4.3.8",
         "electron-window-state": "^5.0.3",
         "history": "^5.0.0",
+        "lodash": "^4.17.21",
         "node-themoviedb": "^0.2.7",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
@@ -273,6 +274,7 @@
         "redux-logger": "^3.0.6",
         "sass": "^1.32.11",
         "source-map-support": "^0.5.19",
+        "subsrt": "^1.1.1",
         "tinyurl": "^1.1.7"
     },
     "devEngines": {

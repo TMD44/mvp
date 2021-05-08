@@ -3,17 +3,18 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 
-@import SideBar.sass
+@import Variables.sass
+
 @import Modals.sass
 @import Buttons.sass
 @import MovieCards.sass
 @import MediaDetails.sass
-@import ThemePresets.sass
 
 body
     height: fit-content
     min-height: 100vh
-    background: linear-gradient(200.96deg, red -29.09%, green 51.77%, blue 129.35%)
+    // background: linear-gradient(200.96deg, red -29.09%, #43cea2 51.77%, blue 129.35%)
+    background: linear-gradient(180deg, $backgroundColorTop 10%, $backgroundColorBottom 140%)
 
 #root
     top: 0
@@ -28,20 +29,22 @@ body
 #mainContainer
     margin-top: 90px
 
+.topBar
+    background-color: $topBarColor
 
 // CUSTOM SCROLLBAR
 
-::-webkit-scrollbar
-    width: 10px
+ ::-webkit-scrollbar
+     width: 10px
 
-/* Track */
-::-webkit-scrollbar-track
-    background: #f1f1f1
+ /* Track */
+ ::-webkit-scrollbar-track
+     background: #f1f1f1
 
-/* Handle */
-::-webkit-scrollbar-thumb
-    background: #888
+ /* Handle */
+ ::-webkit-scrollbar-thumb
+     background: #888
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover
-    background: #555
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover
+     background: #555

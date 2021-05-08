@@ -5,9 +5,10 @@ import {
     ListItemText,
     Menu,
     MenuItem,
+    Tooltip,
 } from '@material-ui/core';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
-import DeleteIcon from '@material-ui/icons/Delete';
+import CloseIcon from '@material-ui/icons/Close';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import { useSelector } from 'react-redux';
 import { playlistsSelector } from '@redux/selectors/mediaSelector';
@@ -34,14 +35,15 @@ export function MediaAddToPlaylist({ obj }: PropsShape) {
     };
     return (
         <>
-            <IconButton
-                aria-label="Add to playlist playlist"
-                onClick={handleClick}
-                edge="end"
-            >
-                <PlaylistAddIcon />
-            </IconButton>
-
+            <Tooltip title="Add Playlist" arrow placement="top">
+                <IconButton
+                    aria-label="Add to playlist playlist"
+                    onClick={handleClick}
+                    edge="end"
+                >
+                    <PlaylistAddIcon />
+                </IconButton>
+            </Tooltip>
             <Menu
                 anchorEl={anchorEl}
                 keepMounted
@@ -88,21 +90,27 @@ export function MediaAddToPlaylist({ obj }: PropsShape) {
                                     handleClose();
                                 }}
                             />
-                            <IconButton
-                                aria-label="Delete playlist"
-                                onClick={() => {
-                                    store.dispatch(
-                                        deleteMediaFromPlaylist(
-                                            obj.id,
-                                            playlist
-                                        )
-                                    );
-                                }}
-                                disabled={!contents.contents[obj.id]}
-                                edge="end"
+                            <Tooltip
+                                title="Delete media from playlist"
+                                arrow
+                                placement="top"
                             >
-                                <DeleteIcon />
-                            </IconButton>
+                                <IconButton
+                                    aria-label="Delete playlist"
+                                    onClick={() => {
+                                        store.dispatch(
+                                            deleteMediaFromPlaylist(
+                                                obj.id,
+                                                playlist
+                                            )
+                                        );
+                                    }}
+                                    disabled={!contents.contents[obj.id]}
+                                    edge="end"
+                                >
+                                    <CloseIcon />
+                                </IconButton>
+                            </Tooltip>
                         </MenuItem>
                     );
                 })}

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { Container, Grid, IconButton } from '@material-ui/core';
+import React from 'react';
+import { Container, Grid } from '@material-ui/core';
 import { getDataByID } from '@scripts/getDataByID';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { getImagesPath } from '@scripts/getPaths';
-import { SiImdb } from 'react-icons/si';
-import { MediaAddToPlaylist } from './MediaAddToPlaylist';
+import { MediaOperations } from './MediaOperations';
 
 interface PropsShape {
     id: string;
@@ -48,15 +47,7 @@ export function MediaDetails({ id, obj }: PropsShape) {
                     </Grid>
                     <Grid item xs={8}>
                         <div className="mediaInfos">
-                            <MediaAddToPlaylist obj={obj} />
-                            <IconButton
-                                aria-label="imdb"
-                                disabled={!currentMedia.imdb_url}
-                                href={currentMedia.imdb_url}
-                                target="_blank"
-                            >
-                                <SiImdb />
-                            </IconButton>
+                            <MediaOperations id={id} obj={obj} />
                             <h3>
                                 ORIGINAL TITLE:{' '}
                                 {currentMedia.original_title ||
