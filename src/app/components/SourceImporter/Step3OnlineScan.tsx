@@ -83,7 +83,7 @@ export function Step3OnlineScan({ handleModalClose, handleBack }: PropsShape) {
                     </Button>
                     <Button
                         variant="contained"
-                        color="primary"
+                        // color="primary"
                         disabled={isLoading}
                         onClick={handleModalClose}
                         className={classes.button}

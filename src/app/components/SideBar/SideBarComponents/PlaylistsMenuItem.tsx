@@ -57,9 +57,13 @@ export function PlaylistsMenuItem({
             </Tooltip>
             <Menu
                 anchorEl={anchorEl}
-                keepMounted
+                // keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
+                // disableAutoFocusItem={true}
+                onChange={(event) => {
+                    event.stopPropagation();
+                }}
             >
                 {Object.keys(playlists).map((playlist) => {
                     return (
@@ -83,26 +87,36 @@ export function PlaylistsMenuItem({
                     );
                 })}
                 <MenuItem>
-                    <Box component="form">
-                        <TextField
-                            label="Add new Playlist"
-                            variant="standard"
-                            onChange={(event) =>
-                                setNewPlaylistName(event.target.value)
+                    <TextField
+                        label="Add new Playlist"
+                        variant="standard"
+                        onKeyDown={(e) => {
+                            e.stopPropagation();
+                            if (e.key === 'Enter') {
+                                if (newPlaylistName.length > 1) {
+                                    store.dispatch(
+                                        addPlaylist(newPlaylistName)
+                                    );
+                                    setNewPlaylistName('');
+                                }
                             }
-                            value={newPlaylistName}
-                        />
-                        <IconButton
-                            aria-label="Add new playlist"
-                            onClick={() => {
+                        }}
+                        onChange={(e) => setNewPlaylistName(e.target.value)}
+                        value={newPlaylistName}
+                    />
+                    <IconButton
+                        aria-label="Add new playlist"
+                        onClick={() => {
+                            // TODO: if only space added it still accepts it
+                            if (newPlaylistName.length > 1) {
                                 store.dispatch(addPlaylist(newPlaylistName));
                                 setNewPlaylistName('');
-                            }}
-                            edge="end"
-                        >
-                            <AddCircleIcon />
-                        </IconButton>
-                    </Box>
+                            }
+                        }}
+                        edge="end"
+                    >
+                        <AddCircleIcon />
+                    </IconButton>
                 </MenuItem>
             </Menu>
         </>

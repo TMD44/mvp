@@ -10,16 +10,20 @@ export async function scanDir(
     filter: string[],
     results: string[] = []
 ) {
-    // TODO: sometimes ASYNC readdir stops working
-    //  const files = await fsp.readdir(directoryName, { withFileTypes: true });
-    const files = fs.readdirSync(directoryName, { withFileTypes: true });
-    for (const f of files) {
-        const fullPath: string = join(directoryName, f.name);
-        if (f.isDirectory()) {
-            await scanDir(fullPath, filter, results);
-        } else if (filter.includes(extname(fullPath))) {
-            results.push(fullPath);
+    try {
+        // TODO: sometimes ASYNC readdir stops working
+        //  const files = await fsp.readdir(directoryName, { withFileTypes: true });
+        const files = fs.readdirSync(directoryName, { withFileTypes: true });
+        for (const f of files) {
+            const fullPath: string = join(directoryName, f.name);
+            if (f.isDirectory()) {
+                await scanDir(fullPath, filter, results);
+            } else if (filter.includes(extname(fullPath))) {
+                results.push(fullPath);
+            }
         }
+    } catch (error) {
+        console.log('ERROR: ', error);
     }
     return results;
 }

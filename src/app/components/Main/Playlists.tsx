@@ -14,7 +14,7 @@ export function Playlists({ message }: PropsShape) {
     return (
         <Container maxWidth="xl" id="mainContainer">
             <MediaCardContainer
-                title=""
+                title={message}
                 data={Object.entries(
                     playlists[message] ? playlists[message].contents : {}
                 )}

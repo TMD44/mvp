@@ -72,6 +72,7 @@ export function Step1OpenDir({ handleNext, handleBack }: PropsShape) {
                 variant="contained"
                 onClick={openDirs}
                 className={classes.button}
+                color="primary"
             >
                 Open
             </Button>
@@ -127,7 +128,7 @@ export function Step1OpenDir({ handleNext, handleBack }: PropsShape) {
                     <Button
                         disabled={getScanPaths().length === 0}
                         variant="contained"
-                        color="primary"
+                        // color="primary"
                         onClick={handleNext}
                         className={classes.button}
                     >

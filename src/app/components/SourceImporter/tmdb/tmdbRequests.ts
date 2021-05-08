@@ -3,7 +3,7 @@ import MovieDB from 'node-themoviedb';
 import { tmdbApiKey } from '@assets/private/apiKeys';
 
 const mdb = new MovieDB(tmdbApiKey);
-mdb.setLanguage('hu-HU'); // hu-HU
+mdb.setLanguage('en-US'); // hu-HU
 
 type ExternalSource =
     | 'imdb_id'

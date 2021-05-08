@@ -8,13 +8,13 @@ export const dataSum = (fileNameObj: any, folderNameObj: any) => {
         Object.entries(fileNameObj).forEach(([key, value]) => {
             filteredData[key] = value;
         });
-        if (folderNameObj.title !== fileNameObj.title) {
+        /* if (folderNameObj.title !== fileNameObj.title) {
             if (folderNameObj.title.length > fileNameObj.title.length) {
                 filteredData.title = folderNameObj.title;
             } else {
                 filteredData.title = fileNameObj.title;
             }
-        }
+        } */
     } else {
         Object.entries(fileNameObj).forEach(([key, value]) => {
             filteredData[key] = value;
@@ -22,7 +22,7 @@ export const dataSum = (fileNameObj: any, folderNameObj: any) => {
         Object.entries(folderNameObj).forEach(([key, value]) => {
             filteredData[key] = value;
         });
-        if (folderNameObj.title !== fileNameObj.title) {
+        /* if (folderNameObj.title !== fileNameObj.title) {
             if (folderNameObj.title.length > fileNameObj.title.length) {
                 filteredData.title = folderNameObj.title;
 
@@ -33,7 +33,7 @@ export const dataSum = (fileNameObj: any, folderNameObj: any) => {
             } else {
                 filteredData.title = fileNameObj.title;
             }
-        }
+        } */
     }
 
     return filteredData;

@@ -19,6 +19,7 @@ import {
     DELETE_MEDIA_FROM_PLAYLIST,
 } from '@redux/actions/mediaActions';
 import { movieDbDefaultState } from '@redux/defaultStates/defaultStates';
+import { getDateAndTime } from '@scripts/date';
 
 let initialState = movieDbDefaultState;
 
@@ -134,10 +135,20 @@ export const mediaReducer = (
         case PURGE_SERIES:
             return {
                 ...state,
-                series: payload,
+                tv_series: payload,
             };
         case PURGE_ALL_MEDIA:
-            return movieDbDefaultState;
+            // TODO: in default state, there are dummy thing in it
+            // Error has occure
+            // return movieDbDefaultState;
+            return {
+                creation_time: getDateAndTime(),
+                modification_time: getDateAndTime(),
+                movies: {},
+                tv_series: {},
+                playlists: {},
+                all_media: {},
+            };
 
         case ADD_PLAYLIST:
             return {

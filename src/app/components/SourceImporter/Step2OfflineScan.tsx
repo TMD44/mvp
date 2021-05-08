@@ -83,7 +83,7 @@ export function Step2OfflineScan({ handleNext, handleBack }: PropsShape) {
                     </Button>
                     <Button
                         variant="contained"
-                        color="primary"
+                        // color="primary"
                         disabled={isLoading}
                         onClick={handleNext}
                         className={classes.button}

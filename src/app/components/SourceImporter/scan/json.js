@@ -32,8 +32,8 @@ export async function mediaJSONGenerator(media, scanResults) {
         subtitles: subFiles,
         nfo: nfoFile,
         unsure_metadata: {
-            folder_data: fileNameData,
-            filename_data: folderNameData,
+            filename_data: fileNameData,
+            folder_data: folderNameData,
             nfo_data: {},
         },
         // movieDB_id: movieIds,
