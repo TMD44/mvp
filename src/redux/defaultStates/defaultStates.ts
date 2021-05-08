@@ -78,6 +78,6 @@ export const movieDbDefaultState: MediaType = {
     modification_time: getDateAndTime(),
     movies: {},
     tv_series: {},
-    playlists: [],
+    playlists: {},
     all_media: {},
 };

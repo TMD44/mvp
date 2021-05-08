@@ -1,5 +1,5 @@
 /* eslint-disable promise/always-return */
-import { ipcMain as ipcMainCommunication, dialog, app } from 'electron';
+import { ipcMain as ipcMainCommunication, dialog, app, shell } from 'electron';
 
 export const ipcMain = {
     openDirSync: (window: Electron.BrowserWindow) => {
@@ -45,6 +45,19 @@ export const ipcMain = {
                 },
             };
             event.returnValue = appData;
+        });
+    },
+    openInDefaultPlayerAsync: () => {
+        ipcMainCommunication.on(
+            'open-in-default-player-ASYNC',
+            (_event, arg) => {
+                shell.openExternal(arg);
+            }
+        );
+    },
+    openDevToolsAsync: (window: Electron.BrowserWindow) => {
+        ipcMainCommunication.on('open-dev-tools-ASYNC', () => {
+            window.webContents.openDevTools();
         });
     },
 };

@@ -3,6 +3,6 @@ export interface MediaType {
     modification_time: string;
     movies: Record<string, unknown>;
     tv_series: Record<string, unknown>;
-    playlists: string[];
+    playlists: Record<string, unknown>;
     all_media: Record<string, unknown>;
 }

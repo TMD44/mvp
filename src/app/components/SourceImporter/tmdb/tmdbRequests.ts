@@ -3,7 +3,7 @@ import MovieDB from 'node-themoviedb';
 import { tmdbApiKey } from '@assets/private/apiKeys';
 
 const mdb = new MovieDB(tmdbApiKey);
-mdb.setLanguage('en-US'); // hu-HU
+mdb.setLanguage('hu-HU'); // hu-HU
 
 type ExternalSource =
     | 'imdb_id'
@@ -17,16 +17,6 @@ type ExternalSource =
 
 // tmdb namespace
 export const tmdbRequest = {
-    getExternalIDs: async (id: string, type = 'movie') => {
-        const args = {
-            pathParameters: {
-                movie_id: id,
-            },
-        };
-        // return await mdb.movie.getExternalIDs(args);
-        return mdb.movie.getExternalIDs(args);
-    },
-
     findByExternalID: async (
         id: string,
         external_source: ExternalSource = 'imdb_id'
@@ -43,25 +33,10 @@ export const tmdbRequest = {
         return mdb.find.byExternalID(args);
     },
 
-    getImages: async (id: string, language = 'en-US') => {},
-
-    multiSearch: async (query: string, region = '', adult = false) => {
-        const args = {
-            query: {
-                query,
-                page: 1,
-                region,
-                include_adult: adult,
-            },
-        };
-        // return await mdb.search.multi(args);
-        return mdb.search.multi(args);
-    },
-
     seachForMovies: async (
         query: string,
         year: number,
-        release_year: number,
+        // release_year: number,
         region = '',
         adult = false
     ) => {
@@ -70,7 +45,7 @@ export const tmdbRequest = {
                 query,
                 page: 1,
                 year,
-                primary_release_year: release_year,
+                // primary_release_year: release_year,
                 region,
                 include_adult: adult,
             },
@@ -90,5 +65,28 @@ export const tmdbRequest = {
         };
         // return await mdb.search.TVShows(args);
         return mdb.search.TVShows(args);
+    },
+
+    getExternalIDs: async (id: string, type = 'movie') => {
+        const args = {
+            pathParameters: {
+                movie_id: id,
+            },
+        };
+        // return await mdb.movie.getExternalIDs(args);
+        return mdb.movie.getExternalIDs(args);
+    },
+
+    multiSearch: async (query: string, region = '', adult = false) => {
+        const args = {
+            query: {
+                query,
+                page: 1,
+                region,
+                include_adult: adult,
+            },
+        };
+        // return await mdb.search.multi(args);
+        return mdb.search.multi(args);
     },
 };

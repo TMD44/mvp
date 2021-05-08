@@ -27,6 +27,15 @@ export const tvdbIdExists = (obj: Record<string, unknown>): boolean => {
     return false;
 };
 
+export const yearExists = (obj: Record<string, unknown>): boolean => {
+    if (obj.metadata) {
+        if (obj.metadata.release_date) {
+            return true;
+        }
+    }
+    return false;
+};
+
 export const remodelData = (obj: any) => {
     const filteredData: Record<string, unknown> = {};
     Object.entries(obj).forEach(([key, value]) => {

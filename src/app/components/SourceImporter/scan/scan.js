@@ -18,7 +18,6 @@ import {
     purgeSeries,
 } from '@redux/actions/mediaActions';
 import { getAllMedia } from '@redux/selectors/mediaSelector';
-import { subConvert } from '@scripts/subConverter';
 import { fileSorting, excludedFromScan } from './fileSorting';
 import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
@@ -64,9 +63,10 @@ export const scan = {
 
         store.dispatch(addMediaAtOnce(scan.mediaInJSON));
 
-        store.dispatch(deleteAllScanResults());
+        // store.dispatch(purgeMovies());
+        // store.dispatch(purgeSeries());
 
-        // TODO: here will check for tv series
+        store.dispatch(deleteAllScanResults());
 
         const allMedia = getAllMedia();
         for (const [key, value] of Object.entries(allMedia)) {
@@ -88,10 +88,8 @@ export const scan = {
         store.dispatch(purgeSeries());
 
         for (const [key, value] of Object.entries(allMedia)) {
-            await mediaTypeSorting(key, value);
+            mediaTypeSorting(key, value, allMedia);
         }
-
-        // subConvert();
 
         return true;
     },

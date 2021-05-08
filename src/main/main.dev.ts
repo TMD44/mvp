@@ -82,7 +82,6 @@ const createWindow = async () => {
     if (isDevelopmentMode) {
         appWindow.webContents.openDevTools();
     }
-    // appWindow.webContents.openDevTools();
 
     // const menuBuilder = new MenuBuilder(appWindow);
     // menuBuilder.buildMenu();
@@ -94,6 +93,8 @@ const createWindow = async () => {
     });
 
     ipcMain.openDirSync(appWindow);
+    ipcMain.openInDefaultPlayerAsync();
+    ipcMain.openDevToolsAsync(appWindow);
     ipcMain.getAppDataSync();
 
     appWindow.on('closed', () => {
