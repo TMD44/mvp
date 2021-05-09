@@ -9,7 +9,7 @@ Az alkalmazás segítségével vizualizálni tudjuk offline mozgóképes tartalm
 
 Az alkalmazás első indításakor még nem fogunk találni semmilyen tartalmat a Fő képernyőn, ehhez ugyanis előszőr be kell importálnunk a tartalmakat. A Source Importer eszközt használva, kiválasztjuk a megfelelő mappákat, ezután a szoftver beolvassa az összes támogatott formátumú tartalmat. Ezután ha úgy akarjuk meta-adatokat tudunk letölteni a beolvasott fájlokhoz. Innentől kezdve az alkalmazás minden funkciója készen áll a használatra.
 
-Az alkalmazás célközönségét nem igazán lehet vagy érdemes leszűkítani egy kisseb csoportra, tekintve, mindenkinek szól, aki kicsit is szereti a filmeket, sorozatokat és hozzászokott a különböző streaming szolgáltatók által nyújtott kényelemhez, funckionalitáshoz.
+Az alkalmazás célközönségét nem igazán lehet vagy érdemes leszűkítani egy kisseb csoportra, tekintve, mindenkinek szól, aki kicsit is szereti a filmeket, sorozatokat, hozzászokott a különböző streaming szolgáltatók által nyújtott kényelemhez, funckionalitáshoz és renelkezik offline média tartalmakkal, legyenek azok akár filmek, akár sorozatok.
 
 % ==========================================================
 % |               Rendszerkövetelmények                    |
@@ -87,7 +87,8 @@ Az alábbi paranccsal egy produkciós verzió készíthető el.
 \end{lstlisting}
 
 \subsubsection{Produkciós verzió létrehozása}
-Végül de nem utolsó sorban az egyik legfontosabb parancs, amellyel az alkalmazás produkciós verziója hozható létre. Ez az utasítás létrehozza magát a telepítő futtatható állományt és egy hordozható állományt, amely telepítés nélküli futtatást tesz lehetővé. Mindezeket a projekt {\it release} mappájába fogjuk találni.\\
+Végül de nem utolsó sorban az egyik legfontosabb parancs, amellyel az alkalmazás produkciós verziója hozható létre. Ez az utasítás létrehozza magát a telepítő futtatható állományt és egy hordozható állományt, amely telepítés nélküli futtatást tesz lehetővé. Mindezeket a projekt {\it release} mappájába fogjuk találni.
+
 Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifikálhatjuk, hogy milyen platformra szeretnénk az alkalmazást buildelni. Az {\it -mwl} kapcsolóval mindhárom platformra tudunk telepítőt létre hozni. (Fontos megjegyezni, hogy MacOS-re csak MacOS-en lehet telepítőt készíteni. Tehát ha például Windowson adjuk ki az -mwl parancsot akkor csak Linuxra és Windowsra tudunk telepítőt készíteni, Macre nem.) A további kapcsolók értelem szerűen specifikusan egy platformra hozzák létre.
 \lstset{caption={Produkciós verzió létrehozása}, label=src:bash}
 \begin{lstlisting}[language={Bash}, numbers={none}]
@@ -182,11 +183,11 @@ A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelé
 A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha csak rákattintuk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartamat. Szöveges mezőbe írással pedig ezen a listán tudunk szűkítani, ha nincs olyan film cím mint amit beírtuk a kereső jelzi számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film részletek ablakja, ahol is a már fent részletezett módon lehet eljárni.
 
 \cleardoublepage
-\subsection{Videó lejátszó}
+\subsection{Beállítások}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{settings.jpg}
-	\caption{Videó lejátszó}
+	\caption{Beállítások}
 	\label{fig:settings}
 \end{figure}
 A Menüben a {\it Beállítások} ikonra kattintva megnyílik a Beállítások ablak
@@ -195,3 +196,4 @@ A Menüben a {\it Beállítások} ikonra kattintva megnyílik a Beállítások a
 % |                   Hibaelhárítás                        |
 % ==========================================================
 \section{Hibaelhárítás}
+TODO

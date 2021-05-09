@@ -436,6 +436,14 @@
 \renewcommand{\algorithmiccomment}[1]{\hfill {\it #1}}
 % Algoritmus elnevezése
 \renewcommand{\ALG@name}{\alglabel}
+
+\lstdefinelanguage{json}{
+    string=[s]{"}{"},
+    stringstyle=\color{blue},
+    comment=[l]{:},
+    morecomment=[l]{:"},
+    commentstyle=\color{black},
+}
 % ------------------------------
 
 % ------------------------------
