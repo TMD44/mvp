@@ -58,7 +58,7 @@ Először is szükség van a megfelelő szoftverek telepítésére, mégpedig a 
 Ezen szoftverek telepítése után indítható maga az alkalmazás. A projekt leíró, a {\it package.json} fájlban definiált script-ek, amellyekkel az alkalmazást elindítani és lefordítani tudjuk az alábbiak:
 
 \subsubsection{Repository klónozása}
-Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhez használhatjuk a git clone parancsot - ha telepítve van a gépünkre a Git\footnote{\url{https://git-scm.com/downloads}} - vagy le is tölthetjük azt zip formátumban.
+Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhez használhatjuk a git clone parancsot - ha telepítve van a gépünkre a Git\footnote{\url{https://git-scm.com/downloads}} - vagy le is tölthetjük azt zip formátumban, az élénk zöld ``Code'', majd a ``Download ZIP'' gombra kattintva.
 \lstset{caption={Repository klónozása}, label=src:bash}
 \begin{lstlisting}[language={Bash}, numbers={none}]
     git clone https://github.com/TMD44/mvp
@@ -66,7 +66,7 @@ Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhe
 \end{lstlisting}
 
 \subsubsection{Függőségek telepítése Yarn segítségével}
-Ezután a függőségek telepítése következik, ezek olyan csomagok amelyek a program futásához (dependecies) vagy fejlesztéséhez (devDependecies) elengedhetelenek.
+Ezután a függőségek telepítése következik, ezek olyan csomagok, modulok amelyek a program futásához (dependecies) vagy fejlesztéséhez (devDependecies) elengedhetelenek.
 \lstset{caption={Függőségek telepítése Yarn segítségével}, label=src:bash}
 \begin{lstlisting}[language={Bash}, numbers={none}]
     yarn
@@ -101,10 +101,17 @@ Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifi
     # MacOS:     --mac, -m
 \end{lstlisting}
 
+\subsubsection{Teszt fájlok generálása}
+Az alábbi paranccsal teszt média fájlokat lehet generálni. Az így létrehozott videófájlok, feliratfájlok, NFO fájlok természetesen nem valós vagy sérült fájlok lesznek, tehát például a videófájlokat nem lehet lejátszni, de a Scannelés ellenőrzéséhez tökéletesen elegendőek.
+\lstset{caption={Teszt fájlok generálása}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    yarn generate-media
+\end{lstlisting}
+
 % ==========================================================
 % |           Program felületek és működésük               |
 % ==========================================================
-\cleardoublepage
+% \cleardoublepage
 \section{Program felületek és működésük}
 
 \subsection{Kezdőlap}
@@ -114,10 +121,10 @@ Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifi
 	\caption{Kezdőlap}
 	\label{fig:home}
 \end{figure}
-A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes beolvasott média tartalom, filmek és sorozatok vegyesen. Ha elsőnek indítjuk el az alkalmazást akkor a Kezdőlapot üresen fogjuk találni egy üzenettel, hogy még nincs beolvasott média tartalom. Innen a kezdőlapról minden más egyéb oldal könnyen megközelíthető, baloldalt találjuk a Menüt, ahonnan a többi oldalt vagy modált érjük el. Felül az Alkalmazás sáv kapott helyet, ahol a Menüt vezérlő gomb, a jelenlegi oldal neve és a Kereső sáv található. A média tartalmak alapértelmezetten tízesével jelennek meg az oldalon, ezt azonban van lehetőségünk megváltoztatni: 10, 25, 50 és 100 film/oldalra is. A beolvasott média tartalmak kis kártyákként jelennek meg, melyekre rákattintva a film vagy sorozat részletező oldalára jutunk. Ahol a fontosabb adatokat - cím, évszám, összefoglalás, borítókép - találjuk, már amennyiben alkalmaztuk az adatbázisból lehívás funkciót, ezen az oldalon találjuk továbbá a film elindításához szükséges gombot vagy sorozatok esetén gombokat. Amelyekre rákattintva megnyílik a videó lejátszó.
+A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes beolvasott média tartalom, filmek és sorozatok vegyesen. Ha elsőnek indítjuk el az alkalmazást akkor a Kezdőlapot üresen fogjuk találni egy üzenettel, hogy még nincs beolvasott média tartalom. Innen a kezdőlapról minden más egyéb oldal könnyen megközelíthető, baloldalt találjuk a Menüt, ahonnan a többi oldalt vagy modált érjük el. Felül az Alkalmazás sáv kapott helyet, ahol a Menüt vezérlő gomb, a jelenlegi oldal neve és a Kereső sáv található. A média tartalmak alapértelmezetten tízesével jelennek meg az oldalon, ezt azonban van lehetőségünk megváltoztatni: 10, 25, 50 és 100 film/oldalra is. A beolvasott média tartalmak kis kártyákként jelennek meg, melyekre rákattintva a film vagy sorozat adatlapjára oldalára jutunk. Ahol a fontosabb adatokat - cím, évszám, összefoglalás, borítókép - találjuk, már amennyiben alkalmaztuk az adatbázisból lehívás funkciót, ezen az oldalon találjuk továbbá a film elindításához szükséges gombot vagy sorozatok esetén gombokat. Amelyekre rákattintva megnyílik a videó lejátszó.
 
-\cleardoublepage
-\subsection{Filmek, Sorozatok és Részletek}
+% \cleardoublepage
+\subsection{Filmek, Sorozatok}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{movies_series.jpg}
@@ -130,17 +137,36 @@ A {\it Filmek} oldalon értelemszerűen a filmeket találjuk.
 
 A {\it Sorozatok} oldalon magától értetődően a sorozatokat találjuk.
 
-\cleardoublepage
+% \cleardoublepage
+\subsection{Média adatlap}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{media_details.jpg}
+	\caption{Filmek, Sorozatok}
+	\label{fig:media_details}
+\end{figure}
+TODO
+
+% \cleardoublepage
 \subsection{Lejátszási listák}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{playlists.jpg}
-	\caption{Lejátszási listák}
+	\includegraphics[width=1\textwidth]{playlists_1.jpg}
+	\caption{Lejátszási listák létrehozása}
 	\label{fig:playlists}
 \end{figure}
-A {\it Lejátszási listák} oldalon pedig a saját magunk által létrehozott és filmekkel vagy sorozatokkal feltöltött egyedi Lejátszási listákat kapjuk.
+A {\it Lejátszási listák} menüponton belül tudunk hozzáadni új lejátszási listákat, vagy a már létezők között böngészni. Új lejátszási lista hozzáadásához írjuk be a lista nevét, majd nyomjunk Entert vagy kattintsunk a + gombra, ezután a listában megjelenik az általunk hozzáadott elem. Erre rákkattintva a főoldalon megjelenik a lejátszási lista tartalma, amennyiben nincs még a listához hozzáadva egy elem sem, azt a felület jelzi számunkra. A teljes lejátszsi listát törölni is tudjuk, a menüpontra kattintva azon belül a jobb oldalon található kuka ikonra kattintva. Ekkor a lista törlődik a rajta lévő filmekkel együtt - fontos megjegyezni, hogy maga a média tartalom nem törlődik a lejátszási lista törlésekor.
 
-\cleardoublepage
+Hozzáadni új filmet vagy sorozatot az adott média adatlapján van lehetőségünk. Felül, az ikonsorban kattintsunk a lejátszási lista ikonra, ekkor megnyílik egy kissebb ablak amelyben a már létrehozott listák találhatók. Kattintsunk az választott listára, ekkor a film hozzáadódik a lejátszási listához, az ikon + ikon pipás ikonra változik ezzel visszajelezve a felhasználónak, hogy hozzáadódott. Törölni hasonló módon tudunk, ha hozzá van adva a Lejátszási listához egy film akkor annak adatlapján, a lejátszási listák gombra kattintva, jobb oldalon egy X ikon található, amely megnyomásával a film törlődik a lejátszási listából.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{playlists_2.jpg}
+	\caption{Média tartalmak hozzáadása a Lejátszási listához}
+	\label{fig:playlists}
+\end{figure}
+
+% \cleardoublepage
 \subsection{Source Importer}
 \begin{figure}[H]
 	\centering
@@ -169,10 +195,11 @@ A scannelés időtartama ha sok tartalmat importálunk be eltarthat néhány per
 	\label{fig:source_importer}
 \end{figure}
 Az importálási folyamat utolsó, harmadik állomása az úgy nevezett Online scannelés, amely gyakorlatilag a meta-adatok letöltését jelenti. Ehhez mint a nevében is benne van internetkapcsolatra lesz szükség, ha ez nincs meg a scannelés nem végződik el. Kattintsuk a {\it Metaadatok letöltése} gombra, ekkor elindul a scannelés. Fontos megjegyezni, hogy egyenlőre a meta-adatok letöltése IMDB ID-tól függ - éppen ezért ajánlott ellenőrizni, hogy a média fájlok mellett legyen egy NFO fájl amely tartalmaz egy helyes IMDB linket - , ugyanis ezzel lehet biztosítani azt, hogy ténylegesen a megfelelő adatok kerülnek letöltésre. Bonyodalmakat okozhat ugyanis, ha például több film is létezik az adatbázisban hasonló vagy ugyanolyan névvel, vagy ha a fájl nem megfelelő, értelmes módon van elnevezve akkor a név szerinti keresés szintén hibára vagy eredménytelen válaszra futhat ki.
+TODO
 
 A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelés, a beolvasott tartalmak és meta-adatok mennyiségétől, az internetkapcsolat gyorsaságától, sávszélesség foglaltságától függően.
 
-\cleardoublepage
+% \cleardoublepage
 \subsection{Kereső}
 \begin{figure}[H]
 	\centering
@@ -180,9 +207,9 @@ A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelé
 	\caption{Kereső}
 	\label{fig:search}
 \end{figure}
-A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha csak rákattintuk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartamat. Szöveges mezőbe írással pedig ezen a listán tudunk szűkítani, ha nincs olyan film cím mint amit beírtuk a kereső jelzi számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film részletek ablakja, ahol is a már fent részletezett módon lehet eljárni.
+A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha csak rákattintuk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartamat. Szöveges mezőbe írással pedig ezen a listán tudunk szűkítani, ha nincs olyan film cím mint amit beírtuk a kereső jelzi számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film vagy sorozat adatlapja, ahol is a már fent részletezett módon lehet eljárni.
 
-\cleardoublepage
+% \cleardoublepage
 \subsection{Beállítások}
 \begin{figure}[H]
 	\centering
@@ -191,6 +218,7 @@ A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfoland
 	\label{fig:settings}
 \end{figure}
 A Menüben a {\it Beállítások} ikonra kattintva megnyílik a Beállítások ablak
+TODO
 
 % ==========================================================
 % |                   Hibaelhárítás                        |
