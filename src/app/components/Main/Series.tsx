@@ -1,7 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Container } from '@material-ui/core';
 import { seriesSelector } from '@redux/selectors/mediaSelector';
-import { useSelector } from 'react-redux';
 import { MediaCardContainer } from '../MediaCards/MediaCardContainer';
 
 export function Series() {

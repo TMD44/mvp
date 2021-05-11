@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    Dialog,
-    Backdrop,
-    List,
-    ListItem,
-    ListItemText,
-} from '@material-ui/core';
+import { Dialog, Backdrop, List, ListItem } from '@material-ui/core';
 import { getAppInfo } from '@redux/selectors/configSelector';
 import { ModalTitleBar } from './ModalTitleBar';
 import { TransitionRight } from './ModalTransitions';

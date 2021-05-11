@@ -1,14 +1,7 @@
 /* eslint-disable consistent-return */
 const date = new Date();
 
-type DateType = 'pretty' | 'bulk';
-
-/**
- * @param {string} format
- * * 'pretty' => 2021.01.21. 12:01:21 (default)
- * * 'bulk'   => 20210121120121
- */
-export function getDateAndTime(format: DateType = 'pretty') {
+export function getDateAndTime(format: 'pretty' | 'bulk' = 'pretty') {
     const year = date.getFullYear();
     const month = `0${date.getMonth() + 1}`.slice(-2);
     const day = `0${date.getDate()}`.slice(-2);

@@ -1,8 +1,9 @@
 # Private folder
 assets/private/
 
-# Sample files
-assets/sample
+# Storage JSON files
+assets/.storage/config.json
+assets/.storage/mediaDB.json
 
 # Package-lock file
 package-lock.json

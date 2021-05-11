@@ -37,7 +37,8 @@
         "movies",
         "series",
         "electron",
-        "react"
+        "react",
+        "redux"
     ],
     "lint-staged": {
         "*.{js,jsx,ts,tsx}": [
@@ -46,7 +47,7 @@
         "{*.json,.{babelrc,eslintrc,prettierrc}}": [
             "prettier --ignore-path .eslintignore --parser json --write"
         ],
-        "*.{css,scss}": [
+        "*.{css,scss,sass}": [
             "prettier --ignore-path .eslintignore --single-quote --write"
         ],
         "*.{html,md,yml}": [
@@ -170,9 +171,11 @@
         "@types/enzyme-adapter-react-16": "^1.0.6",
         "@types/history": "4.7.6",
         "@types/jest": "^26.0.15",
+        "@types/lodash": "^4.14.168",
         "@types/node": "14.14.10",
         "@types/react": "^17.0.3",
         "@types/react-dom": "^16.9.9",
+        "@types/react-redux": "^7.1.16",
         "@types/react-router-dom": "^5.1.6",
         "@types/react-test-renderer": "^16.9.3",
         "@types/react-transition-group": "^4.4.1",

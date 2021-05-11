@@ -62,6 +62,12 @@ module.exports = (api) => {
             ],
             require('@babel/plugin-proposal-json-strings'),
 
+            // Custom adding
+            [
+                require('@babel/plugin-proposal-private-methods'),
+                { loose: true },
+            ],
+
             ...(development ? developmentPlugins : productionPlugins),
         ],
     };

@@ -134,10 +134,15 @@ export function Settings({ value }: PropsShape) {
                     <Button
                         onClick={() => handleCheckModalClose('NO')}
                         autoFocus
+                        variant="contained"
+                        color="primary"
                     >
                         No
                     </Button>
-                    <Button onClick={() => handleCheckModalClose('YES')}>
+                    <Button
+                        onClick={() => handleCheckModalClose('YES')}
+                        variant="contained"
+                    >
                         Yes
                     </Button>
                 </DialogActions>
