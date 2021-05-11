@@ -6,7 +6,6 @@ import {
     BrowserWindow,
     session,
     shell,
-    nativeTheme,
     ipcMain as ipcQuit,
 } from 'electron';
 import windowStateKeeper from 'electron-window-state';
@@ -96,6 +95,7 @@ const createWindow = async () => {
     ipcMain.openInDefaultPlayerAsync();
     ipcMain.openDevToolsAsync(appWindow);
     ipcMain.getAppDataSync();
+    ipcMain.openCoverSelector(appWindow);
 
     appWindow.on('closed', () => {
         app.quit();
@@ -120,12 +120,7 @@ const createWindow = async () => {
     });
 };
 
-// app.whenReady().then(createWindow).catch(console.log);
-
-app.on('ready', () => {
-    nativeTheme.themeSource = 'dark';
-    createWindow();
-});
+app.whenReady().then(createWindow).catch(console.log);
 
 app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

@@ -60,4 +60,25 @@ export const ipcMain = {
             window.webContents.openDevTools();
         });
     },
+    openCoverSelector: (window: Electron.BrowserWindow) => {
+        ipcMainCommunication.on('open-cover-selector', (event) => {
+            dialog
+                .showOpenDialog(window, {
+                    properties: ['openFile'],
+                    filters: [
+                        { name: 'Images', extensions: ['jpg', 'png', 'bmp'] },
+                    ],
+                })
+                .then((result) => {
+                    if (result.canceled === false) {
+                        event.returnValue = result.filePaths;
+                    } else {
+                        event.returnValue = [];
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
+    },
 };

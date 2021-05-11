@@ -8,27 +8,28 @@ import {
     ADD_MOVIE,
     ADD_SERIES,
     ADD_TO_MEDIA,
+    ADD_COVER_TO_MEDIA,
+    DELETE_COVER_FROM_MEDIA,
     DELETE_MEDIA,
     PURGE_MOVIES,
     PURGE_SERIES,
-    UPDATE_MEDIA,
     PURGE_ALL_MEDIA,
     ADD_PLAYLIST,
     DELETE_PLAYLIST,
     ADD_MEDIA_TO_PLAYLIST,
     DELETE_MEDIA_FROM_PLAYLIST,
 } from '@redux/actions/mediaActions';
-import { movieDbDefaultState } from '@redux/defaultStates/defaultStates';
+import { mediaDefaultState } from '@redux/defaultStates/defaultStates';
 import { getDateAndTime } from '@scripts/date';
 
-let initialState = movieDbDefaultState;
+let initialState = mediaDefaultState;
 
 try {
-    const mediaPath: string = configureStorageSync('movieDB');
+    const mediaPath: string = configureStorageSync('mediaDB');
 
     initialState = JSON.parse(fs.readFileSync(mediaPath, 'utf8'));
 } catch (error) {
-    console.error(error);
+    console.error('Error from mediaReducer.ts: ', error);
 }
 
 export const mediaReducer = (
@@ -68,13 +69,43 @@ export const mediaReducer = (
                 },
             };
 
-        case UPDATE_MEDIA:
-            // TODO
-            return state;
+        case ADD_COVER_TO_MEDIA:
+            return {
+                ...state,
+                all_media: {
+                    ...state.all_media,
+                    [payload.id]: {
+                        ...state.all_media[payload.id],
+                        metadata: {
+                            ...state.all_media[payload.id].metadata,
+                            poster_path: payload.media,
+                        },
+                    },
+                },
+            };
+
+        case DELETE_COVER_FROM_MEDIA:
+            return {
+                ...state,
+                all_media: {
+                    ...state.all_media,
+                    [payload]: {
+                        ...state.all_media[payload],
+                        metadata: omit(
+                            state.all_media[payload].metadata,
+                            'poster_path'
+                        ),
+                    },
+                },
+            };
 
         case DELETE_MEDIA:
-            // TODO
-            return state;
+            return {
+                ...state,
+                all_media: omit(state.all_media, payload.id),
+                movies: omit(state.movies, payload.id),
+                tv_series: omit(state.tv_series, payload.title),
+            };
 
         case ADD_MOVIE:
             if (!state.movies[payload]) {

@@ -32,4 +32,7 @@ export const ipcRenderer = {
     openDevTools: () => {
         ipcRendererCommunication.send('open-dev-tools-ASYNC');
     },
+    openCoverSelector: (): string[] => {
+        return ipcRendererCommunication.sendSync('open-cover-selector');
+    },
 };

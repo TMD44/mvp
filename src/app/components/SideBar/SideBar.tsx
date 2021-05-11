@@ -6,25 +6,13 @@ import {
     useTheme,
     Theme,
 } from '@material-ui/core/styles';
-import {
-    Drawer,
-    List,
-    CssBaseline,
-    Divider,
-    IconButton,
-} from '@material-ui/core';
+import { Drawer, CssBaseline, Divider, IconButton } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { ModalType } from '../Modals/ModalType';
+import { ModalType } from '@type/ModalType';
+import { MainType } from '@type/MainType';
 import { SideBarFooter } from './SideBarComponents/SideBarFooter';
-import { AboutMenuItem } from './SideBarComponents/AboutMenuItem';
-import { SettingsMenuItem } from './SideBarComponents/SettingsMenuItem';
-import { SourceImporterMenuItem } from './SideBarComponents/SourceImporterMenuItem';
-import { HomeMenuItem } from './SideBarComponents/HomeMenuItem';
-import { MoviesMenuItem } from './SideBarComponents/MoviesMenuItem';
-import { SeriesMenuItem } from './SideBarComponents/SeriesMenuItem';
-import { PlaylistsMenuItem } from './SideBarComponents/PlaylistsMenuItem';
-import { MainType } from '../Main/MainType';
+import { MenuItems } from './SideBarComponents/MenuItems';
 
 interface PropsShape {
     handleModalOpen: (type: ModalType, message?: string) => void;
@@ -75,12 +63,12 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function SideBar({
+export const SideBar = ({
     handleModalOpen,
     sideBarIsOpen,
     handleSideBarClose,
     handleMainOpen,
-}: PropsShape) {
+}: PropsShape) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -110,44 +98,13 @@ export function SideBar({
                     </IconButton>
                 </div>
                 <Divider />
-                <List>
-                    <HomeMenuItem
-                        handleMainOpen={handleMainOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                    <MoviesMenuItem
-                        handleMainOpen={handleMainOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                    <SeriesMenuItem
-                        handleMainOpen={handleMainOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                    <PlaylistsMenuItem
-                        handleMainOpen={handleMainOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                </List>
-                <Divider />
-                <List>
-                    <SourceImporterMenuItem
-                        handleModalOpen={handleModalOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                </List>
-                <Divider />
-                <List>
-                    <SettingsMenuItem
-                        handleModalOpen={handleModalOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                    <AboutMenuItem
-                        handleModalOpen={handleModalOpen}
-                        sideBarIsOpen={sideBarIsOpen}
-                    />
-                </List>
+                <MenuItems
+                    handleMainOpen={handleMainOpen}
+                    handleModalOpen={handleModalOpen}
+                    sideBarIsOpen={sideBarIsOpen}
+                />
                 <SideBarFooter sideBarIsOpen={sideBarIsOpen} />
             </Drawer>
         </>
     );
-}
+};

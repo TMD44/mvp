@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
     ListItem,
     ListItemIcon,
@@ -7,16 +8,14 @@ import {
     MenuItem,
     Tooltip,
     TextField,
-    Box,
     IconButton,
 } from '@material-ui/core';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
-import { MainType } from '@app/components/Main/MainType';
+import { MainType } from '@type/MainType';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import store from '@redux/store';
 import { addPlaylist, deletePlaylist } from '@redux/actions/mediaActions';
-import { useSelector } from 'react-redux';
 import { playlistsSelector } from '@redux/selectors/mediaSelector';
 
 interface PropsShape {
@@ -24,10 +23,10 @@ interface PropsShape {
     sideBarIsOpen: boolean;
 }
 
-export function PlaylistsMenuItem({
+export const PlaylistsMenuItem = ({
     handleMainOpen,
     sideBarIsOpen,
-}: PropsShape) {
+}: PropsShape) => {
     const playlists = useSelector(playlistsSelector);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [newPlaylistName, setNewPlaylistName] = useState('');
@@ -121,4 +120,4 @@ export function PlaylistsMenuItem({
             </Menu>
         </>
     );
-}
+};

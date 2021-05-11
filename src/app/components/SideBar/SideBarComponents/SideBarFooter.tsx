@@ -14,7 +14,7 @@ interface PropsShape {
     sideBarIsOpen: boolean;
 }
 
-export function SideBarFooter({ sideBarIsOpen }: PropsShape) {
+export const SideBarFooter = ({ sideBarIsOpen }: PropsShape) => {
     return (
         <Link
             href="https://github.com/TMD44/mvp"
@@ -44,4 +44,4 @@ export function SideBarFooter({ sideBarIsOpen }: PropsShape) {
             </Tooltip>
         </Link>
     );
-}
+};

@@ -1,5 +1,8 @@
+/* eslint-disable global-require */
 import React from 'react';
-import { Dialog, Backdrop, List, ListItem } from '@material-ui/core';
+import os from 'os';
+import child_process from 'child_process';
+import { Dialog, Backdrop, List, ListItem, Divider } from '@material-ui/core';
 import { getAppInfo } from '@redux/selectors/configSelector';
 import { ModalTitleBar } from './ModalTitleBar';
 import { TransitionRight } from './ModalTransitions';
@@ -9,7 +12,16 @@ interface PropsShape {
     modalIsOpen: boolean;
 }
 
-export function AboutModal({ handleModalClose, modalIsOpen }: PropsShape) {
+export const AboutModal = ({ handleModalClose, modalIsOpen }: PropsShape) => {
+    const commitHash = child_process
+        .execSync('git rev-parse HEAD')
+        .toString()
+        .trim();
+    const commitDate = child_process
+        .execSync('git log -1 --format=%cd')
+        .toString()
+        .trim();
+
     return (
         <Dialog
             aria-labelledby="Source Importer"
@@ -42,6 +54,35 @@ export function AboutModal({ handleModalClose, modalIsOpen }: PropsShape) {
                     </ListItem>
                     <ListItem>
                         <span>
+                            <b>Last commit hash:</b>
+                            <i>
+                                <a
+                                    href={`https://github.com/TMD44/mvp/commit/${commitHash}`}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {commitHash}
+                                </a>
+                            </i>
+                        </span>
+                    </ListItem>
+                    <ListItem>
+                        <span>
+                            <b>Last commit date: </b>
+                            <i>{commitDate}</i>
+                        </span>
+                    </ListItem>
+
+                    <Divider />
+
+                    <ListItem>
+                        <span>
+                            <b>OS version: </b>
+                            <i>{`${os.version()} - ${os.release()}`}</i>
+                        </span>
+                    </ListItem>
+                    <ListItem>
+                        <span>
                             <b>Node.JS version: </b>
                             <i>{process.versions.node}</i>
                         </span>
@@ -58,10 +99,16 @@ export function AboutModal({ handleModalClose, modalIsOpen }: PropsShape) {
                             <i>{process.versions.chrome}</i>
                         </span>
                     </ListItem>
+                    <ListItem>
+                        <span>
+                            <b>V8 version: </b>
+                            <i>{process.versions.v8}</i>
+                        </span>
+                    </ListItem>
                 </List>
                 <List dense>
                     <ListItem>
-                        <span>
+                        <b>
                             <a
                                 href="https://github.com/TMD44/mvp/issues"
                                 target="_blank"
@@ -69,10 +116,10 @@ export function AboutModal({ handleModalClose, modalIsOpen }: PropsShape) {
                             >
                                 Report bug on Github Issues
                             </a>
-                        </span>
+                        </b>
                     </ListItem>
                 </List>
             </div>
         </Dialog>
     );
-}
+};
