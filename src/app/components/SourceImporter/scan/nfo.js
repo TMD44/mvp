@@ -16,7 +16,7 @@ const nfoPatterns = {
     imdb_list: /li[0-9]{7,8}/gi,
 };
 
-export function nfoFileFinder(media, results) {
+export const nfoFileFinder = (media, results) => {
     const resultArray = [];
 
     results.nfo.forEach((nfo) => {
@@ -36,9 +36,9 @@ export function nfoFileFinder(media, results) {
         }
     });
     return resultArray[0];
-}
+};
 
-async function nfoPatternFinder(data) {
+const nfoPatternFinder = async (data) => {
     const result = {};
 
     const imdbFound = data.match(nfoPatterns.imdb_title);
@@ -68,13 +68,13 @@ async function nfoPatternFinder(data) {
     }
 
     return result;
-}
+};
 
-export async function nfoIdFinder(nfoPath) {
+export const nfoIdFinder = async (nfoPath) => {
     // const nfoPath = await nfoFileFinder(media);
     if (nfoPath === undefined) return;
 
     const nfoContent = await fsp.readFile(String(nfoPath), 'utf8');
     const result = await nfoPatternFinder(nfoContent);
     return result;
-}
+};

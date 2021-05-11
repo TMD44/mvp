@@ -1,24 +1,22 @@
 import fs, { promises as fsp } from 'fs';
 import {
     configDefaultState,
-    movieDbDefaultState,
+    mediaDefaultState,
 } from '../redux/defaultStates/defaultStates';
 import { getStoragePath } from './getPaths';
 
 const CONFIG_FILE_PATH = getStoragePath('config.json');
-const MOVIE_DB_FILE_PATH = getStoragePath('movieDB.json');
+const MEDIA_DB_FILE_PATH = getStoragePath('mediaDB.json');
 
-type FileType = 'config' | 'movieDB';
-
-const fileIsExistsSync = (file: FileType) => {
+const fileIsExistsSync = (file: 'config' | 'mediaDB') => {
     try {
         switch (file) {
             case 'config':
                 fs.accessSync(CONFIG_FILE_PATH);
                 return true;
 
-            case 'movieDB':
-                fs.accessSync(MOVIE_DB_FILE_PATH);
+            case 'mediaDB':
+                fs.accessSync(MEDIA_DB_FILE_PATH);
                 return true;
 
             default:
@@ -31,38 +29,38 @@ const fileIsExistsSync = (file: FileType) => {
 
 const writeFileIfNotExistsSync = () => {
     const configIsExists = fileIsExistsSync('config');
-    const movieDbIsExists = fileIsExistsSync('movieDB');
+    const mediaDbIsExists = fileIsExistsSync('mediaDB');
 
-    if (!configIsExists) {
-        fs.writeFileSync(
-            CONFIG_FILE_PATH,
-            JSON.stringify(configDefaultState, null, 4),
-            'utf8'
-        );
-    } else {
-        console.log('CONFIG ALEADY EXISTS!');
-    }
+    try {
+        if (!configIsExists) {
+            fs.writeFileSync(
+                CONFIG_FILE_PATH,
+                JSON.stringify(configDefaultState, null, 4),
+                'utf8'
+            );
+        }
 
-    if (!movieDbIsExists) {
-        fs.writeFileSync(
-            MOVIE_DB_FILE_PATH,
-            JSON.stringify(movieDbDefaultState, null, 4),
-            'utf8'
-        );
-    } else {
-        console.log('MOVIE_DB ALEADY EXISTS!');
+        if (!mediaDbIsExists) {
+            fs.writeFileSync(
+                MEDIA_DB_FILE_PATH,
+                JSON.stringify(mediaDefaultState, null, 4),
+                'utf8'
+            );
+        }
+    } catch (error) {
+        console.error('Error from configureStorage.ts: ', error);
     }
 };
 
-export const configureStorageSync = (file: FileType): string => {
+export const configureStorageSync = (file: 'config' | 'mediaDB'): string => {
     writeFileIfNotExistsSync();
 
     switch (file) {
         case 'config':
             return CONFIG_FILE_PATH;
 
-        case 'movieDB':
-            return MOVIE_DB_FILE_PATH;
+        case 'mediaDB':
+            return MEDIA_DB_FILE_PATH;
 
         default:
             return '';
@@ -71,15 +69,15 @@ export const configureStorageSync = (file: FileType): string => {
 
 // ASYNCRONOUS
 /*
-const fileIsExists = async (file: FileType) => {
+const fileIsExists = async (file: 'config' | 'mediaDB') => {
     try {
         switch (file) {
             case 'config':
                 await fsp.access(CONFIG_FILE_PATH);
                 return true;
 
-            case 'movieDB':
-                await fsp.access(MOVIE_DB_FILE_PATH);
+            case 'mediaDB':
+                await fsp.access(MEDIA_DB_FILE_PATH);
                 return true;
 
             default:
@@ -90,10 +88,10 @@ const fileIsExists = async (file: FileType) => {
     }
 };
 
-export const configureStorage = async (file: FileType) => {
+export const configureStorage = async (file: 'config' | 'mediaDB') => {
     let result = '';
     const configIsExists = await fileIsExists('config');
-    const movieDbIsExists = await fileIsExists('movieDB');
+    const mediaDbIsExists = await fileIsExists('mediaDB');
 
     if (!configIsExists) {
         await fsp.writeFile(
@@ -101,18 +99,14 @@ export const configureStorage = async (file: FileType) => {
             JSON.stringify(configDefaultState, null, 4),
             'utf8'
         );
-    } else {
-        console.log('CONFIG ALEADY EXISTS!');
     }
 
-    if (!movieDbIsExists) {
+    if (!mediaDbIsExists) {
         await fsp.writeFile(
-            MOVIE_DB_FILE_PATH,
-            JSON.stringify(movieDbDefaultState, null, 4),
+            MEDIA_DB_FILE_PATH,
+            JSON.stringify(mediaDefaultState, null, 4),
             'utf8'
         );
-    } else {
-        console.log('MOVIE_DB ALEADY EXISTS!');
     }
 
     return result;

@@ -26,50 +26,57 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaCard({ id, obj }: PropsShape) {
+export const MediaCard = ({ id, obj }: PropsShape) => {
     const classes = useStyles();
     const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
 
     const handleModalOpen = () => setMediaModalIsOpen(true);
     const handleModalClose = () => setMediaModalIsOpen(false);
 
-    // TODO: error metadata of undefined
-    if (id) {
-        const currentMedia = getDataByID(id[0]).metadata;
+    try {
+        if (id) {
+            const currentMedia = getDataByID(id[0]).metadata;
 
-        return (
-            <>
-                <Card className={classes.root} onClick={handleModalOpen} raised>
-                    <CardHeader
-                        title={currentMedia.title || '<NO TITLE>'}
-                        titleTypographyProps={{
-                            // 'cardTitle',
-                            className:
-                                currentMedia.title.length > 20
-                                    ? 'cardTitleAnim'
-                                    : 'cardTitle',
-                        }}
-                    />
-                    <img
-                        className={classes.media}
-                        src={
-                            currentMedia.poster_path
-                                ? currentMedia.poster_path
-                                : getImagesPath('cover.png')
-                        }
-                        alt="cover"
-                    />
-                </Card>
+            return (
+                <>
+                    <Card
+                        className={classes.root}
+                        onClick={handleModalOpen}
+                        raised
+                    >
+                        <CardHeader
+                            title={currentMedia.title || '<NO TITLE>'}
+                            titleTypographyProps={{
+                                // 'cardTitle',
+                                className:
+                                    currentMedia.title.length > 20
+                                        ? 'cardTitleAnim'
+                                        : 'cardTitle',
+                            }}
+                        />
+                        <img
+                            className={classes.media}
+                            src={
+                                currentMedia.poster_path
+                                    ? currentMedia.poster_path
+                                    : getImagesPath('cover.png')
+                            }
+                            alt="cover"
+                        />
+                    </Card>
 
-                <MediaModal
-                    handleModalClose={handleModalClose}
-                    modalIsOpen={mediaModalIsOpen}
-                    ids={id}
-                    obj={obj}
-                />
-            </>
-        );
+                    <MediaModal
+                        handleModalClose={handleModalClose}
+                        modalIsOpen={mediaModalIsOpen}
+                        ids={id}
+                        obj={obj}
+                    />
+                </>
+            );
+        }
+    } catch (error) {
+        console.error('Error at MediaCards.tsx: ', error);
     }
 
     return <> </>;
-}
+};

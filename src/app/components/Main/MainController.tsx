@@ -1,8 +1,8 @@
 import React from 'react';
+import { MainType } from '@type/MainType';
 import { Home } from './Home';
 import { Movies } from './Movies';
 import { Series } from './Series';
-import { MainType } from './MainType';
 import { Playlists } from './Playlists';
 
 interface PropsShape {
@@ -10,7 +10,7 @@ interface PropsShape {
     message: string;
 }
 
-export function MainController({ mainType, message }: PropsShape) {
+export const MainController = ({ mainType, message }: PropsShape) => {
     switch (mainType) {
         case 'Home':
             return <Home />;
@@ -27,4 +27,4 @@ export function MainController({ mainType, message }: PropsShape) {
         default:
             return <Home />;
     }
-}
+};

@@ -8,11 +8,11 @@ interface PropsShape {
     message: string;
 }
 
-export function MessageModal({
+export const MessageModal = ({
     handleModalClose,
     modalIsOpen,
     message,
-}: PropsShape) {
+}: PropsShape) => {
     return (
         <Snackbar
             open={modalIsOpen}
@@ -22,4 +22,4 @@ export function MessageModal({
             message={message}
         />
     );
-}
+};

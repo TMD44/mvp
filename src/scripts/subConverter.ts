@@ -14,7 +14,7 @@ export const subConverter = (subFilePath: string) => {
 
         return filePathWithoutExt;
     } catch (error) {
-        console.error(error);
+        console.error('Error from subConverter.ts: ', error);
         return subFilePath;
     }
 };

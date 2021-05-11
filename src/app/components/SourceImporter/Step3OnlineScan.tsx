@@ -37,7 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function Step3OnlineScan({ handleModalClose, handleBack }: PropsShape) {
+export const Step3OnlineScan = ({
+    handleModalClose,
+    handleBack,
+}: PropsShape) => {
     const [isLoading, setIsLoading] = useState(false);
     const classes = useStyles();
 
@@ -94,4 +97,4 @@ export function Step3OnlineScan({ handleModalClose, handleBack }: PropsShape) {
             </div>
         </>
     );
-}
+};

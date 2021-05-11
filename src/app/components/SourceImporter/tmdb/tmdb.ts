@@ -50,6 +50,7 @@ const tmdbDataCleaning = (
 
 export const getTMDBdata = async (obj: Record<string, unknown>) => {
     if (imdbIdExists(obj)) {
+        // TODO: add try catch here
         const data = await tmdbRequest.findByExternalID(
             obj.metadata.imdb_id,
             'imdb_id'

@@ -8,11 +8,11 @@ interface PropsShape {
     message: string;
 }
 
-export function Playlists({ message }: PropsShape) {
+export const Playlists = ({ message }: PropsShape) => {
     const playlists = useSelector(playlistsSelector);
 
     return (
-        <Container maxWidth="xl" id="mainContainer">
+        <Container maxWidth="xl" className="mainContainer">
             <MediaCardContainer
                 title={message}
                 data={Object.entries(
@@ -21,4 +21,4 @@ export function Playlists({ message }: PropsShape) {
             />
         </Container>
     );
-}
+};

@@ -15,12 +15,12 @@ interface PropsShape {
     obj: any;
 }
 
-export function MediaModal({
+export const MediaModal = ({
     handleModalClose,
     modalIsOpen,
     ids,
     obj,
-}: PropsShape) {
+}: PropsShape) => {
     const [videoPlayerIsOpen, setVideoPlayerIsOpen] = useState(false);
 
     const handleVideoPlayerOpen = () => setVideoPlayerIsOpen(true);
@@ -71,4 +71,4 @@ export function MediaModal({
             />
         </>
     );
-}
+};

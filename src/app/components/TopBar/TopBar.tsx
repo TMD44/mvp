@@ -44,11 +44,11 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function TopBar({
+export const TopBar = ({
     sideBarIsOpen,
     handleSideBarOpen,
     headTitle,
-}: PropsShape) {
+}: PropsShape) => {
     const classes = useStyles();
 
     return (
@@ -59,7 +59,7 @@ export function TopBar({
                     [classes.appBarShift]: sideBarIsOpen,
                 })}
             >
-                <Toolbar className="topBar">
+                <Toolbar id="topBar">
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -80,4 +80,4 @@ export function TopBar({
             </AppBar>
         </>
     );
-}
+};

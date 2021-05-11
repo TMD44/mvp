@@ -15,10 +15,10 @@ interface PropsShape {
     handleVideoPlayerOpen: () => void;
 }
 
-export function MediaDetailsPlay({
+export const MediaDetailsPlay = ({
     videoArray,
     handleVideoPlayerOpen,
-}: PropsShape) {
+}: PropsShape) => {
     return (
         <Table
             aria-label="simple table"
@@ -86,4 +86,4 @@ export function MediaDetailsPlay({
             </Tooltip>
         </Table>
     );
-}
+};

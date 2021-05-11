@@ -21,7 +21,7 @@ try {
 
     initialState = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 } catch (error) {
-    console.error(error);
+    console.error('Error from configReducer.ts: ', error);
 }
 
 export const configReducer = (

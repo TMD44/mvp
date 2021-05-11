@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 const date = new Date();
 
-export function getDateAndTime(format: 'pretty' | 'bulk' = 'pretty') {
+export const getDateAndTime = (format: 'pretty' | 'bulk' = 'pretty') => {
     const year = date.getFullYear();
     const month = `0${date.getMonth() + 1}`.slice(-2);
     const day = `0${date.getDate()}`.slice(-2);
@@ -19,4 +19,4 @@ export function getDateAndTime(format: 'pretty' | 'bulk' = 'pretty') {
         default:
             return `${year}.${month}.${day}. ${hour}:${min}:${sec}`;
     }
-}
+};

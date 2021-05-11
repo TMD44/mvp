@@ -4,7 +4,7 @@ import { exec } from 'child_process';
 
 const execProm = promisify(exec);
 
-function filterFfprobe(data: Record<string, Record<string, unknown>>) {
+const filterFfprobe = (data: Record<string, Record<string, unknown>>) => {
     const filteredVideoInfo: Record<string, unknown> = {};
 
     // FORMAT
@@ -48,9 +48,9 @@ function filterFfprobe(data: Record<string, Record<string, unknown>>) {
     } */
 
     return filteredVideoInfo;
-}
+};
 
-export async function getVideoInfo(video: string) {
+export const getVideoInfo = async (video: string) => {
     /* let result;
     try {
         // TODO: NOT WORKING YET
@@ -64,4 +64,4 @@ export async function getVideoInfo(video: string) {
     console.log('RESULT: ', JSON.parse(result.stdout));
     // eslint-disable-next-line consistent-return
     return filterFfprobe(JSON.parse(result.stdout)); */
-}
+};

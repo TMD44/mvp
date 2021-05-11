@@ -47,7 +47,7 @@
         "{*.json,.{babelrc,eslintrc,prettierrc}}": [
             "prettier --ignore-path .eslintignore --parser json --write"
         ],
-        "*.{css,scss,sass}": [
+        "*.{css,scss}": [
             "prettier --ignore-path .eslintignore --single-quote --write"
         ],
         "*.{html,md,yml}": [

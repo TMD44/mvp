@@ -22,7 +22,7 @@ interface PropsShape {
     obj: any;
 }
 
-export function MediaAddToPlaylist({ obj }: PropsShape) {
+export const MediaAddToPlaylist = ({ obj }: PropsShape) => {
     const playlists = useSelector(playlistsSelector);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -39,7 +39,6 @@ export function MediaAddToPlaylist({ obj }: PropsShape) {
                 <IconButton
                     aria-label="Add to playlist playlist"
                     onClick={handleClick}
-                    edge="end"
                 >
                     <PlaylistAddIcon />
                 </IconButton>
@@ -50,7 +49,6 @@ export function MediaAddToPlaylist({ obj }: PropsShape) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                {console.log(playlists)}
                 {Object.keys(playlists).length === 0 ? (
                     <ListItemText primary="NOT A SINGLE PLAYLIST YET" />
                 ) : (
@@ -68,7 +66,7 @@ export function MediaAddToPlaylist({ obj }: PropsShape) {
                                             playlist
                                         )
                                     );
-                                    handleClose();
+                                    // handleClose();
                                 }}
                             >
                                 {contents.contents[obj.id] ? (
@@ -87,34 +85,38 @@ export function MediaAddToPlaylist({ obj }: PropsShape) {
                                             playlist
                                         )
                                     );
-                                    handleClose();
+                                    // handleClose();
                                 }}
                             />
-                            <Tooltip
-                                title="Delete media from playlist"
-                                arrow
-                                placement="top"
-                            >
-                                <IconButton
-                                    aria-label="Delete playlist"
-                                    onClick={() => {
-                                        store.dispatch(
-                                            deleteMediaFromPlaylist(
-                                                obj.id,
-                                                playlist
-                                            )
-                                        );
-                                    }}
-                                    disabled={!contents.contents[obj.id]}
-                                    edge="end"
+                            {contents.contents[obj.id] ? (
+                                <Tooltip
+                                    title="Delete media from playlist"
+                                    arrow
+                                    placement="top"
                                 >
-                                    <CloseIcon />
-                                </IconButton>
-                            </Tooltip>
+                                    <IconButton
+                                        aria-label="Delete playlist"
+                                        onClick={() => {
+                                            store.dispatch(
+                                                deleteMediaFromPlaylist(
+                                                    obj.id,
+                                                    playlist
+                                                )
+                                            );
+                                        }}
+                                        // disabled={!contents.contents[obj.id]}
+                                        edge="end"
+                                    >
+                                        <CloseIcon />
+                                    </IconButton>
+                                </Tooltip>
+                            ) : (
+                                ''
+                            )}
                         </MenuItem>
                     );
                 })}
             </Menu>
         </>
     );
-}
+};

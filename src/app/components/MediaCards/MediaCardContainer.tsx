@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaCardContainer({ title, data }: PropsShape) {
+export const MediaCardContainer = ({ title, data }: PropsShape) => {
     const classes = useStyles();
     const [currentPage, setCurrentPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -60,6 +60,7 @@ export function MediaCardContainer({ title, data }: PropsShape) {
                 rowsPerPage={rowsPerPage}
                 rowsPerPageOptions={[10, 25, 50, 100]}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
+                labelRowsPerPage="Media per page"
             />
 
             <GridList cellHeight={50} className={classes.gridList}>
@@ -68,9 +69,13 @@ export function MediaCardContainer({ title, data }: PropsShape) {
                     cols={2}
                     style={{ height: 'auto' }}
                 >
-                    <ListSubheader component="div">
-                        {data.length === 0 ? 'NO MEDIA YET' : title}
-                    </ListSubheader>
+                    {data.length !== 0 ? (
+                        <ListSubheader component="div">{title}</ListSubheader>
+                    ) : (
+                        <b className="noMediaYetText">
+                            No media here yet, use Source Importer
+                        </b>
+                    )}
                 </GridListTile>
 
                 {data
@@ -95,7 +100,8 @@ export function MediaCardContainer({ title, data }: PropsShape) {
                 rowsPerPage={rowsPerPage}
                 rowsPerPageOptions={[10, 25, 50, 100]}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
+                labelRowsPerPage="Media per page"
             />
         </div>
     );
-}
+};

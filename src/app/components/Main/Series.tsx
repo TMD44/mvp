@@ -4,12 +4,12 @@ import { Container } from '@material-ui/core';
 import { seriesSelector } from '@redux/selectors/mediaSelector';
 import { MediaCardContainer } from '../MediaCards/MediaCardContainer';
 
-export function Series() {
-    const series = useSelector(seriesSelector);
+export const Series = () => {
+    const series = Object.entries(useSelector(seriesSelector));
 
     return (
-        <Container maxWidth="xl" id="mainContainer">
-            <MediaCardContainer title="" data={Object.entries(series)} />
+        <Container maxWidth="xl" className="mainContainer">
+            <MediaCardContainer title="" data={series} />
         </Container>
     );
-}
+};

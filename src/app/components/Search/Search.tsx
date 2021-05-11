@@ -1,24 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
     createStyles,
     fade,
     makeStyles,
     Theme,
 } from '@material-ui/core/styles';
-import { InputBase, Popper, TextField } from '@material-ui/core';
+import { InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { Autocomplete } from '@material-ui/lab';
-import { useSelector } from 'react-redux';
-import {
-    mediaSelector,
-    moviesSelector,
-    seriesSelector,
-} from '@redux/selectors/mediaSelector';
+import { moviesSelector, seriesSelector } from '@redux/selectors/mediaSelector';
 import { getDataByID } from '@scripts/getDataByID';
 import { MediaModal } from '../Modals/MediaModal';
 
-// TODO: At low width search bar go into title
+// TODO: At low width search bar goes into title
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -65,13 +61,17 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function Search() {
+export const Search = () => {
+    const classes = useStyles();
+    const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
+    const [mediaID, setMediaID] = useState('');
+
     const movies = Object.entries(useSelector(moviesSelector));
     const series = Object.entries(useSelector(seriesSelector));
     const data = movies.concat(series);
-    const [mediaModalIsOpen, setMediaModalIsOpen] = useState(false);
-    const [mediaID, setMediaID] = useState('');
-    const classes = useStyles();
+
+    const handleModalOpen = () => setMediaModalIsOpen(true);
+    const handleModalClose = () => setMediaModalIsOpen(false);
 
     const titles: any[] = [];
 
@@ -81,12 +81,8 @@ export function Search() {
         });
     }
 
-    const handleModalOpen = () => setMediaModalIsOpen(true);
-    const handleModalClose = () => setMediaModalIsOpen(false);
-
     const openMedia = (id) => {
         if (id !== 'NOT_FOUND') {
-            console.log('ID: ', id);
             setMediaID(id);
             handleModalOpen();
         }
@@ -104,7 +100,7 @@ export function Search() {
                     getOptionLabel={(option) => option.metadata.title}
                     // forcePopupIcon={false}
                     style={{ width: 500 }}
-                    onClose={(event, reason) =>
+                    onClose={(event) =>
                         openMedia(
                             titles.find(
                                 (obj) =>
@@ -143,7 +139,9 @@ export function Search() {
                         ? data.find(([, obj]) => obj.id.includes(mediaID))[1].id
                         : []
                 }
+                // TODO: add obj here
+                // obj={}
             />
         </>
     );
-}
+};

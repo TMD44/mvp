@@ -4,12 +4,12 @@ import { Container } from '@material-ui/core';
 import { moviesSelector } from '@redux/selectors/mediaSelector';
 import { MediaCardContainer } from '../MediaCards/MediaCardContainer';
 
-export function Movies() {
-    const movies = useSelector(moviesSelector);
+export const Movies = () => {
+    const movies = Object.entries(useSelector(moviesSelector));
 
     return (
-        <Container maxWidth="xl" id="mainContainer">
-            <MediaCardContainer title="" data={Object.entries(movies)} />
+        <Container maxWidth="xl" className="mainContainer">
+            <MediaCardContainer title="" data={movies} />
         </Container>
     );
-}
+};

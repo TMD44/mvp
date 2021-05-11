@@ -13,22 +13,22 @@ interface FilteredDataType {
     full: string;
 }
 
-function objTemplate(file: string): FilteredDataType {
+const objTemplate = (file: string): FilteredDataType => {
     return {
         fn: file.substring(file.lastIndexOf('\\') + 1, file.lastIndexOf('.')),
         ext: extname(file),
         path: file.substring(0, file.lastIndexOf('\\')),
         full: file,
     };
-}
+};
 
-export function fileSorting(
+export const fileSorting = (
     file: string,
     media: string[],
     sub: string[],
     nfo: string[],
     reply: ReplyType
-) {
+) => {
     const item = objTemplate(file);
 
     if (media.includes(extname(file))) {
@@ -38,9 +38,9 @@ export function fileSorting(
     } else if (nfo.includes(extname(file))) {
         reply.nfo.push(item);
     }
-}
+};
 
-export function excludedFromScan(file: string): boolean {
+export const excludedFromScan = (file: string): boolean => {
     const regex = /SAMPLE/gi;
     return regex.test(file);
-}
+};

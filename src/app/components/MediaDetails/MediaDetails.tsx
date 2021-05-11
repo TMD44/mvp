@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function MediaDetails({ id, obj }: PropsShape) {
+export const MediaDetails = ({ id, obj }: PropsShape) => {
     const currentMedia = getDataByID(id).metadata;
     const classes = useStyles();
 
@@ -74,4 +74,4 @@ export function MediaDetails({ id, obj }: PropsShape) {
             </div>
         </Container>
     );
-}
+};

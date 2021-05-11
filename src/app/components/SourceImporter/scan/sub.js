@@ -1,6 +1,6 @@
 import { subConverter } from '@scripts/subConverter';
 
-export function subFinder(media, results) {
+export const subFinder = (media, results) => {
     const resultArray = [];
 
     results.sub.forEach((sub) => {
@@ -11,4 +11,4 @@ export function subFinder(media, results) {
     });
 
     return resultArray;
-}
+};

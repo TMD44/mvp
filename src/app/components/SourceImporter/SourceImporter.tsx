@@ -8,7 +8,7 @@ interface PropsShape {
     handleModalClose: () => void;
 }
 
-export function SourceImporter({ handleModalClose }: PropsShape) {
+export const SourceImporter = ({ handleModalClose }: PropsShape) => {
     const [activeStep, setActiveStep] = useState(0);
 
     const handleNext = () => {
@@ -56,4 +56,4 @@ export function SourceImporter({ handleModalClose }: PropsShape) {
             </Step>
         </Stepper>
     );
-}
+};

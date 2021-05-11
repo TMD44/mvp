@@ -9,10 +9,10 @@ interface PropsShape {
     modalIsOpen: boolean;
 }
 
-export function SourceImportModal({
+export const SourceImportModal = ({
     handleModalClose,
     modalIsOpen,
-}: PropsShape) {
+}: PropsShape) => {
     return (
         <Dialog
             aria-labelledby="Source Importer"
@@ -39,4 +39,4 @@ export function SourceImportModal({
             </div>
         </Dialog>
     );
-}
+};

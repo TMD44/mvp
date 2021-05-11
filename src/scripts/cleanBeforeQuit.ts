@@ -1,18 +1,18 @@
-import { unlink } from 'fs';
+import fs from 'fs';
 import { getStoragePath } from './getPaths';
 
-export function cleanBeforeQuit(data = true, config = true) {
-    if (data) {
-        unlink(getStoragePath('movieData.json'), (err) => {
+export const cleanBeforeQuit = (media = true, config = true) => {
+    if (media) {
+        fs.unlink(getStoragePath('mediaDB.json'), (err) => {
             if (err) {
-                console.log('\x1b[35m%s\x1b[0m', 'MovieData file not found!');
+                console.log('\x1b[35m%s\x1b[0m', 'mediaDB file not found!');
                 return;
             }
-            console.log('\x1b[31m%s\x1b[0m', 'MovieData file removed!');
+            console.log('\x1b[31m%s\x1b[0m', 'mediaDB file removed!');
         });
     }
     if (config) {
-        unlink(getStoragePath('config.json'), (err) => {
+        fs.unlink(getStoragePath('config.json'), (err) => {
             if (err) {
                 console.log('\x1b[35m%s\x1b[0m', 'Config file not found!');
                 return;
@@ -20,4 +20,4 @@ export function cleanBeforeQuit(data = true, config = true) {
             console.log('\x1b[31m%s\x1b[0m', 'Config file removed!');
         });
     }
-}
+};

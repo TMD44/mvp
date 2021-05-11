@@ -35,12 +35,15 @@ export const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function SettingsModal({ handleModalClose, modalIsOpen }: PropsShape) {
+export const SettingsModal = ({
+    handleModalClose,
+    modalIsOpen,
+}: PropsShape) => {
     const classes = useStyles();
     const [value, setValue] = useState(0);
 
     const handleChange = (
-        event: React.ChangeEvent<Record<string, unknown>>,
+        _event: React.ChangeEvent<Record<string, unknown>>,
         newValue: number
     ) => {
         setValue(newValue);
@@ -89,7 +92,7 @@ export function SettingsModal({ handleModalClose, modalIsOpen }: PropsShape) {
                         scrollButtons="off"
                     >
                         <Tab label="Basic settings" id="settings-tab-0" />
-                        <Tab label="Scan settings" id="settings-tab-1" />
+                        {/* <Tab label="Scan settings" id="settings-tab-1" /> */}
                         {/* <Tab label="3" id="settings-tab-2" /> */}
                     </Tabs>
                 </Toolbar>
@@ -99,4 +102,4 @@ export function SettingsModal({ handleModalClose, modalIsOpen }: PropsShape) {
             </div>
         </Dialog>
     );
-}
+};

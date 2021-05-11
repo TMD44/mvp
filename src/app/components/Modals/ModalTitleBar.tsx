@@ -20,7 +20,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function ModalTitleBar({ title, handleModalClose }: PropsShape) {
+export const ModalTitleBar = ({ title, handleModalClose }: PropsShape) => {
     const classes = useStyles();
     return (
         <AppBar className={classes.appBar}>
@@ -39,4 +39,4 @@ export function ModalTitleBar({ title, handleModalClose }: PropsShape) {
             </Toolbar>
         </AppBar>
     );
-}
+};

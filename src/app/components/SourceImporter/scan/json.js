@@ -6,7 +6,7 @@ import { subFinder } from './sub';
 import { nfoFileFinder, nfoIdFinder } from './nfo';
 import { dataSum } from './dataSumming';
 
-export async function mediaJSONGenerator(media, scanResults) {
+export const mediaJSONGenerator = async (media, scanResults) => {
     let mediaInJSON = {};
 
     const subFiles = subFinder(media, scanResults);
@@ -62,4 +62,4 @@ export async function mediaJSONGenerator(media, scanResults) {
     mediaInJSON.ffprobe = result; */
 
     return mediaInJSON;
-}
+};

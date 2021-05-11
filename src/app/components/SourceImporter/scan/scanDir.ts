@@ -5,11 +5,11 @@ import { join, extname } from 'path';
 
 // Base code from Stackoverflow, minor changes have been made:
 // https://stackoverflow.com/questions/56583365/async-and-recursive-directory-scan-for-file-listing-in-nodejs-and-expressjs
-export async function scanDir(
+export const scanDir = async (
     directoryName: string,
     filter: string[],
     results: string[] = []
-) {
+) => {
     try {
         // TODO: sometimes ASYNC readdir stops working
         //  const files = await fsp.readdir(directoryName, { withFileTypes: true });
@@ -23,12 +23,12 @@ export async function scanDir(
             }
         }
     } catch (error) {
-        console.log('ERROR: ', error);
+        console.log('Error from scanDir.ts: ', error);
     }
     return results;
-}
+};
 /*
-async function scanDir(directoryName, filter, callback) {
+const scanDir = async (directoryName, filter, callback) => {
     const files = await fsp.readdir(directoryName, { withFileTypes: true });
     for (let f of files) {
         const fullPath = path.join(directoryName, f.name);
@@ -38,10 +38,10 @@ async function scanDir(directoryName, filter, callback) {
             callback(fullPath);
         }
     }
-}
+};
 */
 /*
-async function scanDir(directoryName, regex, callback) {
+const scanDir = async (directoryName, regex, callback) => {
     const files = await fsp.readdir(directoryName, { withFileTypes: true });
     for (let f of files) {
         const fullPath = path.join(directoryName, f.name);
@@ -51,5 +51,5 @@ async function scanDir(directoryName, regex, callback) {
             callback(fullPath);
         }
     }
-}
+};
 */

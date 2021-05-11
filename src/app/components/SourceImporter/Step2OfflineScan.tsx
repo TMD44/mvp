@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function Step2OfflineScan({ handleNext, handleBack }: PropsShape) {
+export const Step2OfflineScan = ({ handleNext, handleBack }: PropsShape) => {
     const [isLoading, setIsLoading] = useState(false);
     const classes = useStyles();
 
@@ -94,4 +94,4 @@ export function Step2OfflineScan({ handleNext, handleBack }: PropsShape) {
             </div>
         </>
     );
-}
+};

@@ -18,7 +18,6 @@ import store from '@redux/store';
 import { purgeAllMedia } from '@redux/actions/mediaActions';
 import { ipcRenderer } from '@app/ipcRenderer';
 
-type AnswerTypes = 'YES' | 'NO';
 type ActionTypes = 'PurgeAllMedia' | '';
 
 interface PropsShape {
@@ -31,7 +30,7 @@ interface TabPanelProps {
     value: any;
 }
 
-function TabPanel(props: TabPanelProps) {
+const TabPanel = (props: TabPanelProps) => {
     const { children, value, index, ...other } = props;
 
     return (
@@ -49,9 +48,9 @@ function TabPanel(props: TabPanelProps) {
             )}
         </div>
     );
-}
+};
 
-export function Settings({ value }: PropsShape) {
+export const Settings = ({ value }: PropsShape) => {
     const [checkModal, setCheckModal] = useState(false);
     const [actionType, setActionType] = useState('' as ActionTypes);
 
@@ -60,7 +59,7 @@ export function Settings({ value }: PropsShape) {
         setCheckModal(true);
     };
 
-    const handleCheckModalClose = (answer: AnswerTypes) => {
+    const handleCheckModalClose = (answer: 'YES' | 'NO') => {
         setCheckModal(false);
         if (answer === 'YES') {
             switch (actionType) {
@@ -95,6 +94,7 @@ export function Settings({ value }: PropsShape) {
                     </ListItem>
                 </List>
             </TabPanel>
+            {/*
             <TabPanel value={value} index={1}>
                 <List>
                     <ListItem button>
@@ -114,7 +114,7 @@ export function Settings({ value }: PropsShape) {
                         />
                     </ListItem>
                 </List>
-            </TabPanel>
+            </TabPanel> */}
             <Dialog
                 open={checkModal}
                 onClose={handleCheckModalClose}
@@ -127,7 +127,7 @@ export function Settings({ value }: PropsShape) {
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         This action will be final, you will not be able to undo
-                        it! Are you sure?
+                        it! <br /> Are you sure?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
@@ -149,4 +149,4 @@ export function Settings({ value }: PropsShape) {
             </Dialog>
         </>
     );
-}
+};

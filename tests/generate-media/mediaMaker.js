@@ -5,7 +5,7 @@ const { torrentSeriesNames } = require('./torrent_series');
 
 const TEMP_IMDB_ID_LIST = IMDB_ID_LIST;
 
-function nfoContent() {
+const nfoContent = () => {
     let result = '';
 
     const randomImdbID =
@@ -21,9 +21,9 @@ function nfoContent() {
     }
 
     return result;
-}
+};
 
-function mediaMaker(path) {
+const mediaMaker = (path) => {
     const baseDir = path;
     const movieDir = `${path}\\movies`;
     const seriesDir = `${path}\\series`;
@@ -130,6 +130,6 @@ function mediaMaker(path) {
     }
 
     console.log('TEST FILE GENERATION DONE!');
-}
+};
 
 module.exports.mediaMaker = mediaMaker;

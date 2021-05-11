@@ -1,7 +1,7 @@
 import React from 'react';
+import { ModalType } from '@type/ModalType';
 import { SettingsModal } from './SettingsModal';
 import { SourceImportModal } from './SourceImportModal';
-import { ModalType } from './ModalType';
 import { AboutModal } from './AboutModal';
 import { MessageModal } from './MessageModal';
 
@@ -12,12 +12,12 @@ interface PropsShape {
     message: string;
 }
 
-export function ModalController({
+export const ModalController = ({
     modalType,
     handleModalClose,
     modalIsOpen,
     message,
-}: PropsShape) {
+}: PropsShape) => {
     switch (modalType) {
         case 'SourceImport':
             return (
@@ -57,8 +57,8 @@ export function ModalController({
                 <MessageModal
                     handleModalClose={handleModalClose}
                     modalIsOpen={modalIsOpen}
-                    message={`ERROR: ${message}`}
+                    message={`ERROR ${message}`}
                 />
             );
     }
-}
+};

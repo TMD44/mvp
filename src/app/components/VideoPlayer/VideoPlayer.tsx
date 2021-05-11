@@ -4,16 +4,12 @@ import ReactPlayer from 'react-player';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { IconButton } from '@material-ui/core';
 
-// https://www.npmjs.com/package/react-player
-
 interface PropsShape {
     handleVideoPlayerClose: () => void;
     id: string;
 }
 
-// TODO: some movies have no sound
-
-export function VideoPlayer({ handleVideoPlayerClose, id }: PropsShape) {
+export const VideoPlayer = ({ handleVideoPlayerClose, id }: PropsShape) => {
     const currentMedia = getDataByID(id);
     const [playing, setPlaying] = useState(true);
 
@@ -33,13 +29,10 @@ export function VideoPlayer({ handleVideoPlayerClose, id }: PropsShape) {
                 pip
                 stopOnUnmount={false}
                 autoPlay
-                // playing={playing}
                 controls
                 width="100%"
                 height="100%"
                 url={[{ src: currentMedia.full_path, type: 'video/mp4' }]}
-                // onPlay={() => setPlaying(true)}
-                // onPause={() => setPlaying(false)}
                 config={{
                     file: {
                         tracks: [
@@ -56,4 +49,4 @@ export function VideoPlayer({ handleVideoPlayerClose, id }: PropsShape) {
             />
         </>
     );
-}
+};

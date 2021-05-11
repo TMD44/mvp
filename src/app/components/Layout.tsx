@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { MainType } from '@type/MainType';
+import { ModalType } from '@type/ModalType';
 import { ModalController } from './Modals/ModalController';
 import { SideBar } from './SideBar/SideBar';
-import { ModalType } from './Modals/ModalType';
 import { TopBar } from './TopBar/TopBar';
 import { MainController } from './Main/MainController';
-import { MainType } from './Main/MainType';
 
-export function Layout() {
+export const Layout = () => {
     const [sideBarIsOpen, setSideBarIsOpen] = useState(true);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [mainType, setMainType] = useState('Home' as MainType);
@@ -60,4 +60,4 @@ export function Layout() {
             />
         </div>
     );
-}
+};

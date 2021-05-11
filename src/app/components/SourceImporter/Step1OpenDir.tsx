@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function Step1OpenDir({ handleNext, handleBack }: PropsShape) {
+export const Step1OpenDir = ({ handleNext, handleBack }: PropsShape) => {
     const selectedScanPaths = useSelector(scanPathsSelector);
     const classes = useStyles();
 
@@ -138,4 +138,4 @@ export function Step1OpenDir({ handleNext, handleBack }: PropsShape) {
             </div>
         </>
     );
-}
+};

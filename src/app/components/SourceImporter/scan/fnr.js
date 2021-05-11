@@ -23,16 +23,16 @@ const fnrPatterns = {
     brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|<(.*?)>/g, // this has to be the last before the name
 };
 
-function deleteFromFileName(from, what) {
+const deleteFromFileName = (from, what) => {
     numberOfFoundAttributes++;
     return String(from).replace(String(what), '_');
-}
+};
 
-function removeNoise(str) {
+const removeNoise = (str) => {
     return str.replace(/^[.,\-_ ]|[.,\-_ ]$/g, '');
-}
+};
 
-function process(
+const process = (
     JSON_cleaned_obj,
     itemFound,
     pattern,
@@ -40,7 +40,7 @@ function process(
     toWhat,
     printToJSON = true,
     toUpperCase = false
-) {
+) => {
     // eslint-disable-next-line no-param-reassign
     itemFound = tempFileName.match(pattern);
     if (itemFound != null) {
@@ -104,9 +104,9 @@ function process(
             tempFileName = deleteFromFileName(tempFileName, itemFound);
         }
     }
-}
+};
 
-export function fnr(paramFileName) {
+export const fnr = (paramFileName) => {
     const cleanedDataJSON = {};
     tempFileName = paramFileName;
     let foundPattern;
@@ -281,7 +281,7 @@ export function fnr(paramFileName) {
         // NUMBER OF KEYS
         // cleanedDataJSON["NUMBER_OF_KEYS"] = numberOfFoundAttributes+1;
     } catch (err) {
-        console.log(
+        console.error(
             'Error was found at recognition: ',
             err.name,
             ',',
@@ -318,7 +318,7 @@ export function fnr(paramFileName) {
             }
         }
     } catch (err) {
-        console.log(
+        console.error(
             'Error was found at Title recognition: ',
             err.name,
             ',',
@@ -335,4 +335,4 @@ export function fnr(paramFileName) {
     numberOfFoundAttributes = 0;
 
     return cleanedDataJSON;
-}
+};

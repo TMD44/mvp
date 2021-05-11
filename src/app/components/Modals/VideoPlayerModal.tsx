@@ -8,11 +8,11 @@ interface PropsShape {
     id: string;
 }
 
-export function VideoPlayerModal({
+export const VideoPlayerModal = ({
     handleVideoPlayerClose,
     videoPlayerIsOpen,
     id,
-}: PropsShape) {
+}: PropsShape) => {
     return (
         <Modal
             aria-labelledby="Video Player"
@@ -22,7 +22,7 @@ export function VideoPlayerModal({
             // closeAfterTransition
         >
             <Fade in={videoPlayerIsOpen} timeout={{ enter: 3000, exit: 1000 }}>
-                <div className="modalPaper video">
+                <div className="modalPaper video" id="videoplayer">
                     <VideoPlayer
                         handleVideoPlayerClose={handleVideoPlayerClose}
                         id={id}
@@ -31,4 +31,4 @@ export function VideoPlayerModal({
             </Fade>
         </Modal>
     );
-}
+};
