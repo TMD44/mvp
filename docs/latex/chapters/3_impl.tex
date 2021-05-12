@@ -2,6 +2,34 @@
 \label{ch:impl}
 
 % ==========================================================
+% |     Követelmény specifikáció, Megvalósítás lépései     |
+% ==========================================================
+\section{Követelmény specifikáció}
+Az alkalmazás működéshez és a feladatleírás teljesítéséhez az alábbi funkciókat kell implementálni:
+\begin{itemize}
+    \item {\textbf {Film felsoroló platform: }} Az alkalmazásnak felületet kell biztosítania a beolvasott média tartalmak megjelenítéséhez, listázásához.
+    \item {\textbf {Média tartalmak beolvasása: }} Mappák kiválasztásával az azokban fellelhető média tartalmak beolvasása.
+	\item {\textbf {Keresés a média tartalmak között: }} Az alkalmazásnak lehetőséget kell bizotsítania a beolvasott média tartlamak közötti kereséshez.
+	\item {\textbf {Lejátszás, Megállítás, Pörgetés: }} Bizotsítania kell a videók lejátszását.
+	\item {\textbf {Felirat választás: }} Feliratok megjelenítése lejátszáskor, amennyiben elérhető.
+	\item {\textbf {Sorozatok és filmek kezelése: }} A felület kezelje külön a sorozatokat és filmeket, tehát például a sorozat epizódjai ne külön-külön jelenjenek meg a listában, hanem a sorozatra rákkatintva, annak részletező ablakjában legyenek listázva az epizódok.
+	\item {\textbf {Metaadatok betöltése és letölése: }} Használható és értelmes adatok beolvasása fájlnévből, mappanévből, NFO fájlból és külső adatbázisból metadatokat kell tudnia letölteni.
+    \item {\textbf {Lejátszási listák: }} Lehessen lejátszási listákat létrehozni, ezen listákat filmekkel feltölteni.
+\end{itemize}
+
+\section{Megvalósítás lépései}
+\begin{enumerate}
+    \item {\textbf {Követelmények elemzése: }} Meghatározom az elvégzendő feladatokat a feladatleírás alapján.
+    \item {\textbf {Fejlesztési környezetek kiválasztása, megismerése: }} Kiválasztottam, majd elsajátítottam az ismereteket a projekt elvégzéséhez szükséges technológiákból.
+    \item {\textbf {Tervezés: }} Megterveztem az alkalmazás alap logikáját, a média tartalmak beolvasását, ezek megjelenítését, felhasználói felületet.
+    \item {\textbf {Adattárolás: }} Az alkalmazáshoz leginkább illő és egyszerű adattárolás kiválasztása, amely lehetőséget biztosít a felhasználói felület dinamikus változásaira: Redux.
+    \item {\textbf {Scannelés implementálása: }} Az alkalmazáshoz legfontosabb részének a tartalmak beolvasásának implementálása.
+    \item {\textbf {Felhasználó felület: }} Dizájn megtervezése és a beolvasott adatok helyes megjelenítésének implementálása.
+    \item {\textbf {Hátramaradt tervezett és plusz funkciók implementálása: }} Például az adatok dinamikus kezelése felhasználó felületről: média törlése, borító hozzáadás, kereső, lejátszási listák stb.
+    \item {\textbf {Tesztelés: }} Habár a tesztelés a lista végére került, de a valóságban kézi teszteles mindegyik lépés végén és közben is megtörtént, a funkciók helyes működésének érdekében. Végezetül a teljes program tesztelése.
+\end{enumerate}
+
+% ==========================================================
 % |                Használt technológiák                   |
 % ==========================================================
 \section{Használt technológiák}
@@ -23,23 +51,41 @@ A React\footnote{\url{https://reactjs.org/}} egy JavaScript könyvtár, amely f�
 A Redux\footnote{\url{https://redux.js.org/}} egy state management tool, vagyis magyarul egy állapot kezelő rendszer. A Redux lényege és legnagyobb előnye, hogy az alkalmazásunk állapotát képes külön, egy külön egységként tárolni és menedzselni. Az állapotot memóriában tárolja, gyakorlatilag egy nagy JSON objektumban, ezen adatok módosítása pedig {\it dispatch} útján valósítható meg.
 
 % ==========================================================
-% |                 Megvalósítási terv                     |
+% |               Használati esetek diagram                |
 % ==========================================================
-\section{Megvalósítási terv}
+\cleardoublepage
+\section{Használati esetek diagram}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{use_case_diagram.png}
+	\caption{Használati esetek diagram}
+	\label{fig:use_case_diagram}
+\end{figure}
+% \cleardoublepage
 
-\subsection{Követelmény specifikáció}
-Az alkalmazás működéshez és a feladatleírás teljesítéséhez az alábbi funkciókat kell implementálni:
-\begin{itemize}
-    \item {\textbf {Film felsoroló platform: }} Az alkalmazásnak felületet kell biztosítania a beolvasott média tartalmak megjelenítéséhez, listázásához.
-    \item {\textbf {Média tartalmak beolvasása: }} Mappák kiválasztásával az azokban fellelhető média tartalmak beolvasása.
-	\item {\textbf {Keresés a média tartalmak között: }} Az alkalmazásnak lehetőséget kell bizotsítania a beolvasott média tartlamak közötti kereséshez.
-	\item {\textbf {Lejátszás, Megállítás, Pörgetés: }} Bizotsítania kell a videók lejátszását.
-	\item {\textbf {Felirat választás: }} Feliratok megjelenítése lejátszáskor, amennyiben elérhető.
-	\item {\textbf {Sorozatok és filmek kezelése: }} A felület kezelje külön a sorozatokat és filmeket, tehát például a sorozat epizódjai ne külön-külön jelenjenek meg a listában, hanem a sorozatra rákkatintva, annak részletező ablakjában legyenek listázva az epizódok.
-	\item {\textbf {Metaadatok betöltése és letölése: }} Használható és értelmes adatok beolvasása fájlnévből, mappanévből, NFO fájlból és külső adatbázisból metadatokat kell tudnia letölteni.
-    \item {\textbf {Lejátszási listák: }} Lehessen lejátszási listákat létrehozni, ezen listákat filmekkel feltölteni.
-\end{itemize}
+% ==========================================================
+% |                    Implementáció                       |
+% ==========================================================
+\section{Implementáció}
 
+\subsection{Mappa struktúra}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{folders.jpg}
+	\caption{Mappa struktúra}
+	\label{fig:folders}
+\end{figure}
+Az {\it .erb} mappa tartalmazza a Webpack konfigurációkat, illetve olyan scripteket amelyek sima npm parancsokkal nem lehetne elvégezni. Ezek a fájlok az Electron-React-Boilerplate-ből jönnek, amely egy szabad felhasználású kiinduló pontot biztosít az Electron-React alkalmazások számára, én kissebb változtatásokat eszközöltem a saját projektem érdekében.
+A {\it .github} és {\it .vscode} mappák csupán configurációkat tartalmaznak a GitHub repository, illetve a kódszerkesztő program használatához.
+Az {\it .assets} mappa tartalmazza az alkalmazás ikonkészletét, felhasznált képeket, illetve itt kapott helyet a {\it .storage} mappa is amelyben tárolódik az a két JSON fájl amelybe az alkalmazás kimenti az adatokat.
+Az {\it .docs} mappában a dokumentáció LaTex-es verziója található.
+Az {\it .tests} mappában tartalmazza a teszt fájlokat.
+
+A {\it .src} mappa pedig az applikáció főkönytára, amelyben helyt kapott az {\it .app} amely a felhasználói felület implementációját és az Electron renderer processét - a Scannelés impelentációját -  tartalmazza, a {\it .main} amely az Electron main processét tartalmazza, a {\it redux} mappa amely az adat tároláshoz használt Redux-nak ad helyt. Illetve a {\it scripts} és {\it type} mappák, amely az egész alkalamzásban gyakran használt függvényeket és TypeScript típusokat tartalmazzák.
+
+% ==========================================================
+% |               Adatok tárolása, kezelése                |
+% ==========================================================
 \subsection{Adatok tárolása, kezelése}
 Az alkalmazás futása közben a Redux segítségével kezeljük a felhasznlói felülethez és a beolvasott média tartalmakhoz kapcsolódó adatokat. Reduxot főleg webalkalmazásokhoz használnak, de nekünk itt asztali környezetben is alkalmazható lesz egy kis trükkel, mégpedig amikor megnyitjuk az alkalmazást, a Redux beállítja a kezdeti állapotot - ez a webes körnezetben annyit tenne, hogy egy előre meghatározott alapértelmezett állapot sémát alakalmazna - ami a mi esetünkben két fájl lesz, a {\it config.json} és a {\it mediaDB.json}. A {\it config.json} fájl az alkalmazás futásához, a beolvasáshoz és a felhasználó személyes preferenciáihoz szükséges adatokat, míg a {\it mediaDB.json} a beolvasott média tartalmakhoz kapcsolodó adatokat, metaadatokat tartalmazza. Ez a két JSON fájl két féleképpen jöhet létre:
 \begin{itemize}
@@ -174,6 +220,9 @@ Tehát az alkalmazás futása közben az adatok a Redux store-ban tárolódnak, 
 }}
 \end{lstlisting}
 
+% ==========================================================
+% |               Média tartalmak beolvasása               |
+% ==========================================================
 \subsection{Média tartalmak beolvasása}
 Az alkalmazás egyértelműen legfontosabb része a média tartalmak beolvasása. Ezt három részre lehet lebontani
 TODO
@@ -206,7 +255,7 @@ Az Offline scannelés megkezdéséhez két dologra lesz szükségünk, az egyik 
 
 A megadott mappa elérési utvonalakon végig iterálva minden útvonalra meghívjuk a ``scanDir'' függvényt amely rekurzívan a mappa tartalmán - amennyiben a mappában még több mappa található, ezekben az estekben is hasonlóképpen jár el - és a megadott fájltípusokra szűrve egy tömbbe pusholja a talált fájlokat (videófájlok, például ``.mkv'',``.mp4'' vagy felirat fájlok, például ``.srt'', ``.vtt'', illetve NFO fájlok ``.nfo''). Történik még egy filterezé ezt követően, tekintve nagyon sok példa van rá, hogy az offline videó tartalmaink mellet úgy nevezett ``sample'' vagy minta videó fájlok is helyt kapnak, ezek a fájlok szűrésre kerülnek, ugyanis a program működésének szempontjából lényegtelen fájlokról beszélünk. Eztuán minden talált elemet átalakít egy sokkal kezelhetőbb formátumra, a fentebb már config.json példában bemutatott ``scan\_results'' kulcsban. A lényeg itt annyi, hogy a megfelelő formátumú fájlokat a megfelelelő objektumbra szortírozzuk, tehát média fájlokat a media objektumba, a felirat fájlokat a sub objektumba, az NFO fájlokat pedig az nfo objektumba. Mindezek elvégzése után elmentjük a Redux store-ba megintcsak dispatch útján.
 
-\lstset{caption={Mappák megnyitása}, label=src:python}
+\lstset{caption={Offline scan}, label=src:python}
 \begin{lstlisting}[language={python}]
 const { media, sub, nfo } = getScanFileTypes();
 const paths = getScanPaths();
@@ -238,8 +287,8 @@ Számos esetben megfigyelhető, hogy az NFO fájlokban URL rövidítő szolgált
 A másik forrás amelyből offline használható információkat tudunk kinyerni, a fájlnév és a mappa neve. Ehhez a fájl név felismerő függvényünket fogjuk használni, amely az NFO-s azonosító felismeréshez hasonlóan regulásris kifejezések szövegre illesztésével fogjuk kivitelezni.
 Az ``fnr'' függvény a következő képpen működik, megkap egy stringet, ami az egyik esteben a fájl neve, a másik esetben a mappa neve. Ezután ezután sorban, reguláris kifejezéseket illeszt a szövegre és ha illeszkedik rá azt a szövegből kivesszük és a visszaadandó eredmény objektumba rakjuk, az eredeti stringben pedig aláhúzás (\_) karakterre cseréljük a talált eredményt. Ezt minden egyes Regex típusra eljátszuk, ennek következtében a végére kapunk egy eredmény objektumot amelyben tematikusan szét van válogatva a talált stringek, illetve a visszamaradó stringet amelyben már csak a cím maradt az egyetlen hasznos információ. Ekkor az algoritmus a string elejétől elkezd ``értelmes karaktereket'' keresni tehát kisbetűs, nagybetűs karakterek illetve számok, és addig megy a szövegben amíg el nem kezd találni minimum kettő vagy annál több ``értelmetlen kataktereket'', ezek az aláhúzás (\_), a pont (.) és a szóköz ( ). Ha 2 vagy több értelm ``értelmetlen kataktert'' találtunk, akkor az addig ``értelmes'' karaktereket kimentjük, ez lesz a cím. Továbbá kicsit szépítünk is rajta például ha a szavak között pont van azt szóközre cseréljük és az első karaktert nagybetűsre cseréljük. Abban az esetben ha valami hiba történik a cím keresésekor a string már üres, vagy rossz formátumú tehát üres stringet adna vissza, az algoritmus az eredeti, még a függvény paraméterül megkapott stringet teszi meg címnek.
 
-\lstset{caption={Példa reguláris kifejezésekre}, label=src:python}
-\begin{lstlisting}[language={python}]
+\lstset{caption={Példa reguláris kifejezésekre}, label=src:c}
+\begin{lstlisting}[language={c}]
 const fnrPatterns = {
     resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-_ ]?[X][.\-_ ]?[0-9]{3,4}/gi,
     year: /((?:19[3-9]|20[0123])[0-9])/g,
@@ -272,10 +321,13 @@ Amennyiben nem talál IMDB azonosítót, de talált évszámot és címet, akkor
 
 Miután ezzel ekészült szintén lefut média típus szétválogatás mint az Offline scannelés végén, tehát a filmek azonosítói a ``movies'' objektumba másoldonak bele, a sorozatok epizdójainak azonosítói pedid egy a ``tv\_series'' objektumon belüli tömmbe másolódnak bele.
 
-\subsection{Felhasználói felület terve}
-A felhasználói felület teljes mértékben React segítségével készült. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívsára az App komponensen. Az App komponensen belül pedig a Layout komponensre megyünk tovább ahol a fő UI logika található.
-Az felhasználói felületnek két fő megjelenítési felülete lehet, az egyik az úgy nevezett Main, ami a fő ablak tartalmát hivatott leírni és változtatni, a másik pedig a Modal, amely a fő ablakon belüli, alárendelt, belső ablakot nyit meg.
-TODO
+% ==========================================================
+% |                 Felhasználói felület                   |
+% ==========================================================
+\subsection{Felhasználói felület}
+A felhasználói felület teljes mértékben React-el, továbbá a Material UI\footnote{\url{https://material-ui.com/}} felhasználói UI keretrendszer segítségével. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívsára az App komponensen. Az App komponensen belül pedig a Layout komponensre megyünk tovább, ahol a fő UI logika található.
+Az felhasználói felületnek két fő megjelenítési felülete van, az egyik az úgy nevezett Main, ami a fő ablak tartalmát hivatott leírni és változtatni, a másik pedig a Modal, amely a fő ablakon belüli, alárendelt, belső ablakot nyit meg.
+A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre rákattintva nyílik meg az adatlap modál.
 
 \begin{figure}[H]
 	\centering
@@ -284,24 +336,13 @@ TODO
 	\label{fig:navigation_between_screens}
 \end{figure}
 
-\cleardoublepage
-\subsection{Használati esetek diagram}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{use_case_diagram.png}
-	\caption{Használati esetek diagram}
-	\label{fig:use_case_diagram}
-\end{figure}
-\cleardoublepage
-
 % ==========================================================
-% |                    Implementáció                       |
+% |         Hibás vagy eredménytelen megközelítések        |
 % ==========================================================
-\section{Implementáció}
-TODO
+\subsection{Hibás vagy eredménytelen megközelítések}
 
-\subsection{Funkcionális megközelítés}
-TODO
+\subsubsection{Korlátozott videólejátszó}
+Az Electron ahogy azt már tárgyaltuk, webes technológiákat biztosít aszatli fejlesztésre, és ennek korlátozottságaival számolnunk kell. A videólejátszó nem képes minden formátumot lejátszani, ez a HTML <video> tag korlátozottságának tudható be, web által támogatott formátumokon (mp4, webm, vtt) kívül
 
 % ==========================================================
 % |                      Tesztelés                         |
@@ -309,4 +350,4 @@ TODO
 \section{Tesztelés}
 A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott.
 
-\subsection{Hibás vagy eredménytelen megközelítések}
+

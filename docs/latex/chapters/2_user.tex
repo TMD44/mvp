@@ -4,31 +4,32 @@
 % ==========================================================
 % |               Ismertetés, célközönség                  |
 % ==========================================================
-\section{Ismertetés, célközönség}
+\section{Ismertetés}
 Az alkalmazás segítségével vizualizálni tudjuk offline mozgóképes tartalmainkat egy könnyen kezelhető és esztétikus megjelenésű platformon, továbbá képes a filmek és sorozatok külön kezelésére, felismerésére - amennyiben a filmek nevezéke megfelelő -, a beolvasott tartalmak keresésére, lejátszására, megállítására, pörgetésére, felirat választására, meta-adatok letöltésére filmes adatbázisból vagy betöltésére fájlnévből, NFO fájlból, mindemellett lejátszási listák létrehozására.
 
 Az alkalmazás első indításakor még nem fogunk találni semmilyen tartalmat a Fő képernyőn, ehhez ugyanis előszőr be kell importálnunk a tartalmakat. A Source Importer eszközt használva, kiválasztjuk a megfelelő mappákat, ezután a szoftver beolvassa az összes támogatott formátumú tartalmat. Ezután ha úgy akarjuk meta-adatokat tudunk letölteni a beolvasott fájlokhoz. Innentől kezdve az alkalmazás minden funkciója készen áll a használatra.
 
+\subsection{Célközönség}
 Az alkalmazás célközönségét nem igazán lehet vagy érdemes leszűkítani egy kisseb csoportra, tekintve, mindenkinek szól, aki kicsit is szereti a filmeket, sorozatokat, hozzászokott a különböző streaming szolgáltatók által nyújtott kényelemhez, funckionalitáshoz és renelkezik offline média tartalmakkal, legyenek azok akár filmek, akár sorozatok.
 
 % ==========================================================
 % |               Rendszerkövetelmények                    |
 % ==========================================================
-\cleardoublepage
+% \cleardoublepage
 \section{Rendszerkövetelmények}
 \subsection{Hardveres követelmények}
 Az alkalmazás futtatásához lényegében egy Google Chrome-ot és Node.JS-t futtatni képes konfigurációra van szükség csupán. Ettől függetlenül ajánlott az alábbi technikai kövelmények teljesítése:
 \begin{itemize}
     \item {\textbf {Kijelző: }} legalább HD, azaz 1280×720 pixel
 	\item {\textbf {Memória: }} legalább 4 GB
-	\item {\textbf {Háttértár: }} legalább 200 MB (SSD ajánlott)
+	\item {\textbf {Háttértár: }} legalább 200 MB
 \end{itemize}
 
 \subsection{Internetkapcsolat}
 Az alkalmazás futtatására alapvetően nincs szükség internet kapcsolatra, azonban a teljes élmény és funkcionalitás eléréséhez erősen ajánlott. Például a meta-adatok letöltése online filmes adatbázisból történik, aminek működéséhez elengedhetetlen az internet kapcsolat.
 
 \subsection{Softwares követelmények}
-Három előre telepítendő softwarere van szükségünk, hogy működésre bírjuk az applikációt. Ezek pedig:
+Három előre telepítendő softwarere van szükségünk, amelyek az alkalmazás működéséhez és fejlesztéséhez elengedhetetlenek. Ezek pedig:
 \begin{itemize}
 	\item Node.JS
 	\item Node Package Manager
@@ -38,7 +39,7 @@ Három előre telepítendő softwarere van szükségünk, hogy működésre bír
 \subsection{Operációs rendszer}
 Az Electron applikációk sajátja, hogy egy kódbázisból - ami jelen esetben HTML, CSS, JavaScript/TypeScript - mindhárom főbb asztali platformra képes teljes funkcionalitású alkalmazást készíteni. Éppen ezért a támogatott operációs rendszerek az alábbiak:
 \begin{itemize}
-	\item Microsoft Windows 7, 8, 8.1, 10
+	\item Microsoft Windows
 	\item Linux/GNU
 	\item MacOS
 \end{itemize}
@@ -102,7 +103,7 @@ Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifi
 \end{lstlisting}
 
 \subsubsection{Teszt fájlok generálása}
-Az alábbi paranccsal teszt média fájlokat lehet generálni. Az így létrehozott videófájlok, feliratfájlok, NFO fájlok természetesen nem valós vagy sérült fájlok lesznek, tehát például a videófájlokat nem lehet lejátszni, de a Scannelés ellenőrzéséhez tökéletesen elegendőek.
+Az alábbi paranccsal teszt média fájlokat lehet generálni. Az így létrehozott videófájlok, feliratfájlok, NFO fájlok természetesen nem valós, illetve az videó lejátszó szerint sérült fájlok lesznek, tehát például a videófájlokat nem lehet lejátszni, de a Scannelés teszteléséhez tökéletesen elegendőek.
 \lstset{caption={Teszt fájlok generálása}, label=src:bash}
 \begin{lstlisting}[language={Bash}, numbers={none}]
     yarn generate-media
@@ -121,7 +122,7 @@ Az alábbi paranccsal teszt média fájlokat lehet generálni. Az így létrehoz
 	\caption{Kezdőlap}
 	\label{fig:home}
 \end{figure}
-A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes beolvasott média tartalom, filmek és sorozatok vegyesen. Ha elsőnek indítjuk el az alkalmazást akkor a Kezdőlapot üresen fogjuk találni egy üzenettel, hogy még nincs beolvasott média tartalom. Innen a kezdőlapról minden más egyéb oldal könnyen megközelíthető, baloldalt találjuk a Menüt, ahonnan a többi oldalt vagy modált érjük el. Felül az Alkalmazás sáv kapott helyet, ahol a Menüt vezérlő gomb, a jelenlegi oldal neve és a Kereső sáv található. A média tartalmak alapértelmezetten tízesével jelennek meg az oldalon, ezt azonban van lehetőségünk megváltoztatni: 10, 25, 50 és 100 film/oldalra is. A beolvasott média tartalmak kis kártyákként jelennek meg, melyekre rákattintva a film vagy sorozat adatlapjára oldalára jutunk. Ahol a fontosabb adatokat - cím, évszám, összefoglalás, borítókép - találjuk, már amennyiben alkalmaztuk az adatbázisból lehívás funkciót, ezen az oldalon találjuk továbbá a film elindításához szükséges gombot vagy sorozatok esetén gombokat. Amelyekre rákattintva megnyílik a videó lejátszó.
+A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes beolvasott média tartalom, filmek és sorozatok vegyesen. Ha elsőnek indítjuk el az alkalmazást akkor a Kezdőlapot üresen fogjuk találni egy üzenettel, hogy még nincs beolvasott média tartalom. Innen a kezdőlapról minden más egyéb oldal könnyen megközelíthető, baloldalt találjuk a Menüt, ahonnan a többi oldalt vagy modált érjük el. Felül az Alkalmazás sáv kapott helyet, ahol a Menüt vezérlő gomb, a jelenlegi oldal neve és a Kereső sáv található. A média tartalmak alapértelmezetten tízesével jelennek meg az oldalon, ezt azonban van lehetőségünk megváltoztatni: 10, 25, 50 és 100 film/oldalra is. A beolvasott média tartalmak kis kártyákként jelennek meg, melyekre rákattintva a film vagy sorozat adatlapjára oldalára jutunk. Amennyiben a cím túl hosszú a kurzort rávíve a szöveg úszni kezd így elolvashatjuk a teljes címet, továbbá amennyiben nincs az adott filmhez borító kép egy alap minta borító kerül használatra, ezt van lehetőségünk módosítani metadatok letölése funkcióval és kézzel is.
 
 % \cleardoublepage
 \subsection{Filmek, Sorozatok}
@@ -131,11 +132,11 @@ A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes
 	\caption{Filmek, Sorozatok}
 	\label{fig:movies_series}
 \end{figure}
-A további oldalakon az alkalmazás tematikusan szétválogatja a beolvasott filmjeinket és sorozatainkat. A fentebb Kezdőlaphoz leírtak ezekre az oldalakra is érvényesek, tehát az Applikáció struktúrája, baoldalt a Menüsáv, fent az Alkalmazás sáv, Keresés és a többi.
+A további oldalakon az alkalmazás tematikusan szétválogatja a beolvasott filmjeinket és sorozatainkat. A fentebb Kezdőlaphoz leírtak ezekre az oldalakra is érvényesek, tehát az Applikáció struktúrája, baoldalt a Menüsáv, fent az Alkalmazás sáv, Keresés és a többi. Alapértelmezetten 10 film jelenik meg, ezt a beállítást lehetőségünk van megváltoztatni.
 
 A {\it Filmek} oldalon értelemszerűen a filmeket találjuk.
 
-A {\it Sorozatok} oldalon magától értetődően a sorozatokat találjuk.
+A {\it Sorozatok} oldalon magától értetődően a sorozatokat. A sorozatok megjelenítése kapcsán, egy kártyát fogunk találni amelyre rákattintva az adatlapon megtaláljuk az összes beolvasott epizódot.
 
 % \cleardoublepage
 \subsection{Média adatlap}
@@ -145,7 +146,11 @@ A {\it Sorozatok} oldalon magától értetődően a sorozatokat találjuk.
 	\caption{Filmek, Sorozatok}
 	\label{fig:media_details}
 \end{figure}
-TODO
+A kiválasztott média kártyájára kattintva megnyílik annak adatlapja, ahol is a fontosabb adatokat - cím, évszám, összefoglalás, borítókép - találjuk, már amennyiben alkalmaztuk az adatbázisból metaadatok letöltése funkciót.
+
+Az adatlapon különböző műveleteket is el tudunk végezni az adott média tartalommal, például törölni tudjuk, ehhez kattintsunk a kuka ikonra - Figyelem, ez a művelet nem visszavonható! - vagy egyedi borítóképet tudunk beállítani ehhez kattitsunk a megfelelő ikonra, abban az esetben ha létezik már borítókép egy üres négyszög alakú ikont találunk amelyre rákattintva törlődik a jelenlegi borítókép, ekkor az ikon egy kis kép kereső ikonra változik ezzel jelezve, hogy lehetőségünk nyílt új egyedi borítóképet kiválasztani. Megtudjuk nyitni a film IMDB adatlapját amennyiben a scannelés során a program talált IMDB azonosítót, ehhez kattintsunk az IMDB ikonra. Lejátszási listához adásra is itt van lehetőségünk ezt részletesen a 2.4.4-es Lejátszási listák pontban tárgyaljuk.
+
+Ezen az oldalon találjuk továbbá a film elindításához szükséges gombot vagy sorozatok esetén az epizódok elindítása gombokat. Ha a listában rákattintuk valamelyik epizódra vagy filmre, elindul a beépített videólejátszó. A videólejátszóból visszalépni az ESC gomb lenyomásával lehetséges. Az alkalmazás lehetőséget biztosít továbbá, hogy továbbra is kedvenc külső videó lejátszó programunkat használjuk a tartalmak lejátszására, ehhez kattintsunk a lista baloldalán elhelyezkedő lejetszás ikonra, ekkor az alkalmazás megnyitja a fájlt az alapértelmezettnek beállított külső lejátszóban.
 
 % \cleardoublepage
 \subsection{Lejátszási listák}
@@ -153,7 +158,7 @@ TODO
 	\centering
 	\includegraphics[width=1\textwidth]{playlists_1.jpg}
 	\caption{Lejátszási listák létrehozása}
-	\label{fig:playlists}
+	\label{fig:playlists_1}
 \end{figure}
 A {\it Lejátszási listák} menüponton belül tudunk hozzáadni új lejátszási listákat, vagy a már létezők között böngészni. Új lejátszási lista hozzáadásához írjuk be a lista nevét, majd nyomjunk Entert vagy kattintsunk a + gombra, ezután a listában megjelenik az általunk hozzáadott elem. Erre rákkattintva a főoldalon megjelenik a lejátszási lista tartalma, amennyiben nincs még a listához hozzáadva egy elem sem, azt a felület jelzi számunkra. A teljes lejátszsi listát törölni is tudjuk, a menüpontra kattintva azon belül a jobb oldalon található kuka ikonra kattintva. Ekkor a lista törlődik a rajta lévő filmekkel együtt - fontos megjegyezni, hogy maga a média tartalom nem törlődik a lejátszási lista törlésekor.
 
@@ -163,7 +168,7 @@ Hozzáadni új filmet vagy sorozatot az adott média adatlapján van lehetőség
 	\centering
 	\includegraphics[width=1\textwidth]{playlists_2.jpg}
 	\caption{Média tartalmak hozzáadása a Lejátszási listához}
-	\label{fig:playlists}
+	\label{fig:playlists_2}
 \end{figure}
 
 % \cleardoublepage
@@ -172,7 +177,7 @@ Hozzáadni új filmet vagy sorozatot az adott média adatlapján van lehetőség
 	\centering
 	\includegraphics[width=1\textwidth]{source_importer_1.jpg}
 	\caption{Source Importer 1. fázis: Mappa kiválasztás}
-	\label{fig:source_importer}
+	\label{fig:source_importer_1}
 \end{figure}
 Az alkalmazás egyik legfontosabb része a Source Importer vagy ``forrás importáló''. A Menüben kattintsunk a {\it Source Importer} ikonra ekkor megnyílik a modal ablak, itt tudjuk a média tartalmakat a gépünkről beimportálni az alkalmazásba.
 
@@ -182,7 +187,7 @@ Legelső lépésként ki kell választanunk azokat mappákat ahonnan be szeretn�
 	\centering
 	\includegraphics[width=1\textwidth]{source_importer_2.jpg}
 	\caption{Source Importer 2. fázis: Offline scan}
-	\label{fig:source_importer}
+	\label{fig:source_importer_2}
 \end{figure}
 Az importálási folyamat második állomása az Offline scannelés, kattintsunk {\it Források importálása} gombra, hogy elinduljon a scannelés. A háttérben a következő dolgok történnek: Az alkalmazás végignézi a kiválasztott mappákat és megkeresi a támogatott formátumú videófájlokat, feliratfájlokat és NFO fájlokat. Sok példa van arra, hogy egy-egy filmfájl mellett minta videófájlok is találhatók, ezeket az alkalmazás szempontjából lényegtelen fájlokat a scannelés során kiszűrjük. Miután megvannak a megfelelő médiafájlok az alkalmazás megpróbál minden használható információt összegyűjteni a fájlnevekből, mappanevekből, NFO fájlokból, majd ezeket összesíti. Például a teljesség igénye nélkül: cím, IMDB ID, felbontás, évszám, nyelv, minőség, évad- és epizódszám, hang és videó kodekek továbbá egyéb hasznos információ.
 
@@ -192,7 +197,7 @@ A scannelés időtartama ha sok tartalmat importálunk be eltarthat néhány per
 	\centering
 	\includegraphics[width=1\textwidth]{source_importer_3.jpg}
 	\caption{Source Importer 3. fázis: Online scan}
-	\label{fig:source_importer}
+	\label{fig:source_importer_3}
 \end{figure}
 Az importálási folyamat utolsó, harmadik állomása az úgy nevezett Online scannelés, amely gyakorlatilag a meta-adatok letöltését jelenti. Ehhez mint a nevében is benne van internetkapcsolatra lesz szükség, ha ez nincs meg a scannelés nem végződik el. Kattintsuk a {\it Metaadatok letöltése} gombra, ekkor elindul a scannelés. Fontos megjegyezni, hogy egyenlőre a meta-adatok letöltése IMDB ID-tól függ - éppen ezért ajánlott ellenőrizni, hogy a média fájlok mellett legyen egy NFO fájl amely tartalmaz egy helyes IMDB linket - , ugyanis ezzel lehet biztosítani azt, hogy ténylegesen a megfelelő adatok kerülnek letöltésre. Bonyodalmakat okozhat ugyanis, ha például több film is létezik az adatbázisban hasonló vagy ugyanolyan névvel, vagy ha a fájl nem megfelelő, értelmes módon van elnevezve akkor a név szerinti keresés szintén hibára vagy eredménytelen válaszra futhat ki.
 TODO
@@ -207,21 +212,40 @@ A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelé
 	\caption{Kereső}
 	\label{fig:search}
 \end{figure}
-A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha csak rákattintuk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartamat. Szöveges mezőbe írással pedig ezen a listán tudunk szűkítani, ha nincs olyan film cím mint amit beírtuk a kereső jelzi számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film vagy sorozat adatlapja, ahol is a már fent részletezett módon lehet eljárni.
+A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha rákattintuk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartamat. Szöveges mezőbe írással pedig ezen a listán tudunk szűkítani, ha nincs olyan film cím mint amit beírtuk a kereső jelzi számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film vagy sorozat adatlapja, ahol is a már fent részletezett módon lehet eljárni.
 
 % \cleardoublepage
 \subsection{Beállítások}
+A Menüben a {\it Beállítások} ikonra kattintva megnyílik a Beállítások ablak, ezen belül az alkalmazás egészére ható fontosabb műveleteket tudjuk elvégezni. Például itt tudjuk teljesen kiüríteni a filmes adatbázisunkat, ez minden beállítást filmet az alapértelmezettre fog visszaállítani. Figyelem, ez a művelet nem visszavonható, minden film, sorozat, ezek metaadatai és lejátszási listák is tölrésre kerülnek!
+
+Innen tudjuk megnyitni a fejlesztői konzolt is.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{settings.jpg}
 	\caption{Beállítások}
 	\label{fig:settings}
 \end{figure}
-A Menüben a {\it Beállítások} ikonra kattintva megnyílik a Beállítások ablak
-TODO
+
+\subsection{Névjegy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{about.jpg}
+	\caption{Névjegy}
+	\label{fig:about}
+\end{figure}
+A {\it Névjegy} menüponton belül az alkalmazás verziójáról, környezetének verzióíról kapunk hasznos információkat.
 
 % ==========================================================
 % |                   Hibaelhárítás                        |
 % ==========================================================
+% \cleardoublepage
 \section{Hibaelhárítás}
-TODO
+Az alkalmazás a fejlesztői konzolon belül jelzi az esetleges hibákat, a konzolt a Beállítások ablakból tudunk megnyitni.
+
+\subsection{``Gyári visszaállítás''}
+Bármilyen problémára megoldást nyújthat a ``gyári visszaállítás'', ehhez navigáljunk az az alkalmazás telepítési mappájába (Windows esetében ha a telepítőt használtuk a következő elérési címen találjuk: ``C:/Users/FELHASZNÁLÓ/AppData/Local/Programs/mvp''). A telepítési mappán belül navigájunk a ``resources'' majd az ``assets'' mappába, itt a ``.storage'' mappában két JSON fájlt fogunk találni, a {\it config.json} illetve a {\it mediaDB.json} fájlt. Ezen két fájl törlésével vagy a mappából kimozgatásával az alkalmazás eredeti, alapértelmezett állapotába áll vissza.
+
+\subsection{Hibajelzés}
+A felmerülő problémák, hibák jelzésére a Github Issues fül ad otthont, amelyet az alábbi címen lehet elérni: \url{https://github.com/TMD44/mvp/issues}
+
+Hibajezlsénél kérjük használja az erre létrehozott sablont, és töltse ki a verzió számokat a {\it Névjegy} oldalról.

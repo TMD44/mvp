@@ -444,6 +444,7 @@
     morecomment=[l]{:"},
     commentstyle=\color{black},
 }
+
 % ------------------------------
 
 % ------------------------------
@@ -464,7 +465,8 @@
 		\begin{center}
 
 			\begin{tabular}{ c c }
-				\multirow{4}{*}{\hspace{-1.0cm}\includegraphics[width=0.25\textwidth]{\logofilename}}
+                % \multirow{4}{*}{\hspace{-1.0cm}\includegraphics[width=0.25\textwidth]{\logofilename}}
+				\multirow{4}{*}{\hspace{-1.0cm}\includegraphics[width=0.3\textwidth]{\logofilename}}
 
 				& {\sc \Large \makecell{\univname}} \vspace{0.3cm}\\
 				& {\sc \Large \makecell{\facname}} \vspace{0.5cm}\\
