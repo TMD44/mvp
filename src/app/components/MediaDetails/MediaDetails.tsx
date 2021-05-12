@@ -8,6 +8,7 @@ import { MediaOperations } from './MediaOperations';
 interface PropsShape {
     id: string;
     obj: any;
+    handleModalClose: () => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,55 +24,70 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const MediaDetails = ({ id, obj }: PropsShape) => {
-    const currentMedia = getDataByID(id).metadata;
+export const MediaDetails = ({ id, obj, handleModalClose }: PropsShape) => {
     const classes = useStyles();
 
-    return (
-        <Container>
-            <div className={classes.root}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <h1>{currentMedia.title || 'TITLE'}</h1>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <img
-                            className="detailsImage"
-                            src={
-                                currentMedia.poster_path
-                                    ? currentMedia.poster_path
-                                    : getImagesPath('cover.png')
-                            }
-                            alt="COVER"
-                        />
-                    </Grid>
-                    <Grid item xs={8}>
-                        <div className="mediaInfos">
-                            <MediaOperations id={id} obj={obj} />
-                            <h3>
-                                ORIGINAL TITLE:{' '}
-                                {currentMedia.original_title ||
-                                    currentMedia.original_name}
-                            </h3>
-                            <h3>
-                                YEAR:{' '}
-                                {currentMedia.release_date ||
-                                    currentMedia.first_air_date}
-                            </h3>
-                            <h3>LANGUAGE: {currentMedia.original_language}</h3>
-                            <h3>
-                                GENRES:{' '}
-                                {currentMedia.genres
-                                    ? currentMedia.genres.toString()
-                                    : 'NO GENRES'}
-                            </h3>
-                        </div>
-                        <div className="mediaOverview">
-                            <h3>OVERVIEW: {currentMedia.overview}</h3>
-                        </div>
-                    </Grid>
-                </Grid>
-            </div>
-        </Container>
-    );
+    try {
+        if (id) {
+            const currentMedia = getDataByID(id).metadata;
+
+            return (
+                <Container>
+                    <div className={classes.root}>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                <h1>{currentMedia.title || 'TITLE'}</h1>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <img
+                                    className="detailsImage"
+                                    src={
+                                        currentMedia.poster_path
+                                            ? currentMedia.poster_path
+                                            : getImagesPath('cover.png')
+                                    }
+                                    alt="COVER"
+                                />
+                            </Grid>
+                            <Grid item xs={8}>
+                                <div className="mediaInfos">
+                                    <MediaOperations
+                                        id={id}
+                                        obj={obj}
+                                        handleModalClose={handleModalClose}
+                                    />
+                                    <h3>
+                                        ORIGINAL TITLE:{' '}
+                                        {currentMedia.original_title ||
+                                            currentMedia.original_name}
+                                    </h3>
+                                    <h3>
+                                        YEAR:{' '}
+                                        {currentMedia.release_date ||
+                                            currentMedia.first_air_date}
+                                    </h3>
+                                    <h3>
+                                        LANGUAGE:{' '}
+                                        {currentMedia.original_language}
+                                    </h3>
+                                    <h3>
+                                        GENRES:{' '}
+                                        {currentMedia.genres
+                                            ? currentMedia.genres.toString()
+                                            : 'NO GENRES'}
+                                    </h3>
+                                </div>
+                                <div className="mediaOverview">
+                                    <h3>OVERVIEW: {currentMedia.overview}</h3>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </div>
+                </Container>
+            );
+        }
+    } catch (error) {
+        console.error('Error from MediaDetails.tsx: ', error);
+    }
+    return <> ERROR </>;
 };

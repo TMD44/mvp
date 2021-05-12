@@ -23,21 +23,21 @@ const fnrPatterns = {
     brackets: /\[(.*?)\]|\((.*?)\)|\{(.*?)\}|<(.*?)>/g, // this has to be the last before the name
 };
 
-const deleteFromFileName = (from, what) => {
+const deleteFromFileName = (from: string, what: any) => {
     numberOfFoundAttributes++;
     return String(from).replace(String(what), '_');
 };
 
-const removeNoise = (str) => {
+const removeNoise = (str: string) => {
     return str.replace(/^[.,\-_ ]|[.,\-_ ]$/g, '');
 };
 
 const process = (
-    JSON_cleaned_obj,
-    itemFound,
-    pattern,
-    JSON_item_name,
-    toWhat,
+    JSON_cleaned_obj: { [x: string]: boolean },
+    itemFound: string | any[] | null | undefined,
+    pattern: RegExp,
+    JSON_item_name: string,
+    toWhat: string,
     printToJSON = true,
     toUpperCase = false
 ) => {
@@ -106,7 +106,7 @@ const process = (
     }
 };
 
-export const fnr = (paramFileName) => {
+export const fnr = (paramFileName: string) => {
     const cleanedDataJSON = {};
     tempFileName = paramFileName;
     let foundPattern;

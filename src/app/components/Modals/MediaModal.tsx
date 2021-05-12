@@ -57,7 +57,11 @@ export const MediaModal = ({
                     handleModalClose={handleModalClose}
                 />
                 <div className="modalPaper">
-                    <MediaDetails id={ids ? ids[0] : ''} obj={obj} />
+                    <MediaDetails
+                        id={ids ? ids[0] : ''}
+                        obj={obj}
+                        handleModalClose={handleModalClose}
+                    />
                     <MediaDetailsPlay
                         videoArray={videoArray}
                         handleVideoPlayerOpen={handleVideoPlayerOpen}

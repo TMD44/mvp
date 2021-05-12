@@ -1,12 +1,13 @@
-import { promises as fsp } from 'fs';
-import { getExportPath } from '@scripts/getPaths';
 import { getHashID } from '@scripts/hashID';
 import { fnr } from './fnr';
 import { subFinder } from './sub';
 import { nfoFileFinder, nfoIdFinder } from './nfo';
 import { dataSum } from './dataSumming';
 
-export const mediaJSONGenerator = async (media, scanResults) => {
+export const mediaJSONGenerator = async (
+    media: { fn: string; path: string; full: string; ext: any },
+    scanResults: any
+) => {
     let mediaInJSON = {};
 
     const subFiles = subFinder(media, scanResults);

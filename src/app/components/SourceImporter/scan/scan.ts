@@ -12,7 +12,6 @@ import {
     deleteAllScanResults,
 } from '@redux/actions/configActions';
 import {
-    addMedia,
     addMediaAtOnce,
     purgeMovies,
     purgeSeries,
@@ -21,7 +20,6 @@ import { getAllMedia } from '@redux/selectors/mediaSelector';
 import { fileSorting, excludedFromScan } from './fileSorting';
 import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
-import { tmdbRequest } from '../tmdb/tmdbRequests';
 import { getTMDBdata } from '../tmdb/tmdb';
 import { mediaTypeSorting } from './mediaTypeSorting';
 

@@ -28,9 +28,10 @@ type ActionTypes = 'DeleteMedia' | '';
 interface PropsShape {
     id: string;
     obj: any;
+    handleModalClose: () => void;
 }
 
-export const MediaOperations = ({ id, obj }: PropsShape) => {
+export const MediaOperations = ({ id, obj, handleModalClose }: PropsShape) => {
     const currentMedia = getDataByID(id).metadata;
 
     const [checkModal, setCheckModal] = useState(false);
@@ -46,6 +47,7 @@ export const MediaOperations = ({ id, obj }: PropsShape) => {
         if (answer === 'YES') {
             switch (actionType) {
                 case 'DeleteMedia':
+                    handleModalClose();
                     obj.obj.id.forEach((currentID: string) =>
                         store.dispatch(
                             deleteMedia(currentID, currentMedia.title)

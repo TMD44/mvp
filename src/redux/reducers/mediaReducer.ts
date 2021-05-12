@@ -177,7 +177,12 @@ export const mediaReducer = (
                 modification_time: getDateAndTime(),
                 movies: {},
                 tv_series: {},
-                playlists: {},
+                playlists: {
+                    Favorites: {
+                        contents: {},
+                        media_type: 'playlist',
+                    },
+                },
                 all_media: {},
             };
 

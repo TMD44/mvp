@@ -76,7 +76,7 @@ export const Search = () => {
     const titles: any[] = [];
 
     if (data) {
-        data.forEach(([id, obj]) => {
+        data.forEach(([, obj]) => {
             titles.push(getDataByID(obj.id[0]));
         });
     }
@@ -140,7 +140,18 @@ export const Search = () => {
                         : []
                 }
                 // TODO: add obj here
-                // obj={}
+                obj={
+                    data.find(([, obj]) => obj.id.includes(mediaID))
+                        ? {
+                              id: data.find(([, obj]) =>
+                                  obj.id.includes(mediaID)
+                              )[1].id,
+                              obj: data.find(([, obj]) =>
+                                  obj.id.includes(mediaID)
+                              )[1],
+                          }
+                        : {}
+                }
             />
         </>
     );
