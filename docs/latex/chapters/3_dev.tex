@@ -71,7 +71,7 @@ A Redux\footnote{\url{https://redux.js.org/}} egy state management tool, vagyis 
 \subsection{Mappa struktúra}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{folders.jpg}
+	\includegraphics[width=0.3\textwidth]{folders.png}
 	\caption{Mappa struktúra}
 	\label{fig:folders}
 \end{figure}
@@ -182,7 +182,7 @@ Tehát az alkalmazás futása közben az adatok a Redux store-ban tárolódnak, 
     }
 },
 "playlists": {
-    "Game of Thrones Best of": {
+    "Favorites": {
         "contents": {
             "Game of Thrones": {
                 "id": [
@@ -224,8 +224,7 @@ Tehát az alkalmazás futása közben az adatok a Redux store-ban tárolódnak, 
 % |               Média tartalmak beolvasása               |
 % ==========================================================
 \subsection{Média tartalmak beolvasása}
-Az alkalmazás egyértelműen legfontosabb része a média tartalmak beolvasása. Ezt három részre lehet lebontani
-TODO
+Az alkalmazás egyértelműen legfontosabb része a média tartalmak beolvasása. Ezt a folyamatot három részre bontottuk, a mappák kiválasztására, az Offline, illetve Online Scanre.
 
 \subsubsection{Mappa kiválasztás}
 A mappák megnyitásához az Electron egy beépített modulját, a ``dialog''ot fogjuk használni. A probléma csak az, hogy ezt a modult nem leszhet a renderer processben használni csak a main processben, ilyenkor jön jól az IPC renderer és IPC main modulok amelyek kommunikációt tesznek lehetővé a két réteg között. Az ``Open Dir'' gombra kattintva tehát elküldjük az IPC-n keresztül a main process-nek, ami aztán a ``dialog'' modult felhasználva megnyitnya az operációs rendszer natív párbeszédablakját, ebben az esetben kifejezetten mappák megnyitását engedélyezzük csak, azokból is többet. Az ablakot bezárva az eredményt string tömb formájában visszaküljük a renderer processnek, amely elvégzi a Redux store-ba dispatch-elését. A config objecten belül ``scan paths'' kulcs néven találjuk a beolvasott mappák tömbjét.
@@ -303,9 +302,21 @@ const fnrPatterns = {
 
 Végeredményben tehát két objektumot fogunk visszakapni a függvénytől, egyet a fájlnévből kinyert adatokkal és egy másikat a mappa nevéből kinyert adatokkal, ezek egyesítése a következő függvény a ``dataSum'' feladata. Az alap logikánk egyszerű, éppen ezért kivitelezésünk is: az adatok egyesítése során azaz objektum lesz a domináns amelyik több kulcsot tartalmaz, a több kulcs több kinyert információt is jelent. Az eredmény objektumunkba először a kevesebb kulcsú objektumot rakjuk bele aztán ráengedjük a több kulcsú objektumot, ilyenkor kulcs egyezés esetén a másodjára jövő objektum felülírja a már meglévő kulcsot, ezáltal az eredmény objektumban benne lesz mind a két objektum egyedi kulcsai (amik csak a fájlnév objektumban és mappanév objektumban voltak), hasonló kulcsok esetén pedig a domináns, tehát több kulcsú objektum adatai maradnak meg. Ezáltal megkapjuk a metaadatok objektumot.
 
-\lstset{caption={Példa az fnr függvény eredményére és egyesítésére}, label=src:python}
-\begin{lstlisting}[language={python}]
-FNR
+\lstset{caption={Példa az fnr függvény eredményére}, label=src:json}
+\begin{lstlisting}[language={json}]
+    "filename_data": {
+        "RAW": "Inception.2010.UHD.1440p.BluRay.HUN.x264.HDR.TrueHD.7.1-Trinity",
+        "CLEANED": "Inception._._._._._._._._-Trinity",
+        "languages": "HUN",
+        "resolution": "1440p",
+        "release_date": 2010,
+        "codec": "X264",
+        "hdr": true,
+        "audio": "TRUEHD.7.1",
+        "quality": [ "UHD", "BluRay" ],
+        "media_type": "movie",
+        "title": "Inception"
+      }
 \end{lstlisting}
 
 Legvégül minden fent kiszűrt adatot összesítünk egy nagy objektumban, amely tehát tartalmazni fogja külön kulcsokra szétszedve a videó fájl nevét, kiterjesztését, elérési útvonalát, a felirat fájlok útvonalait (több is lehet), az NFO fájl útvonalát (egy lehet), a metaadatok objektumát, illetve egy egyedi ID azonosítót amelyet MD5-ös hasheléssel hozunk létre a videó fájl útvonalából, ez az azonosító az operációs rendszer által bizosítottan egyedi lesz, hiszen nem lehet 2 ugyanolyan nevű és kiterjesztésű fájl ugyanazon az útvonalon. Az eredményt pedig dispatcheljük a Redux storeba.
@@ -340,9 +351,13 @@ A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre ráka
 % |         Hibás vagy eredménytelen megközelítések        |
 % ==========================================================
 \subsection{Hibás vagy eredménytelen megközelítések}
+A program fejlesztésekor számos alkalommal adódtak implementációs nehézségek, amelyek megoldására az eredeti terv kissebb változtatására vagy kiegészítésére volt szükség.
 
-\subsubsection{Korlátozott videólejátszó}
-Az Electron ahogy azt már tárgyaltuk, webes technológiákat biztosít aszatli fejlesztésre, és ennek korlátozottságaival számolnunk kell. A videólejátszó nem képes minden formátumot lejátszani, ez a HTML <video> tag korlátozottságának tudható be, web által támogatott formátumokon (mp4, webm, vtt) kívül
+\subsubsection{Korlátozott belső videólejátszó}
+Az Electron, ahogy azt már tárgyaltuk, webes technológiákat biztosít asztali alkalmazás fejlesztésre, és ennek korlátozottságaival számolnunk kell. A videólejátszó nem képes minden formátumot lejátszani, ez a HTML <video> tag korlátozottságának tudható be, web által támogatott formátumokon ({\it mp4, webm, vtt}) kívül legtöbb esetben sikeresen lejátsza például az {\it mkv} konténer formátumot is, azonban bizosnyos esetkeben nincs hang - ez megint csak nem támogatott audió kodek miatt lehetséges - vagy a lejátszásra se képes. Az {\it avi} videóformátumokat viszont egyáltalán nem támogatja a belső lejátszó.
+További probléma, amely az eredeti tervtől való kissebb eltérésre kényszerített, a belső videó lejátszó továbbá nem képes a videófájlokba égetett feliratok vagy nyelvek észlelésére és annak változtatására a már fent ismeretett okok miatt.
+
+Ezen probléma megoldására implementálva lett a média tartalom külső videó lejátszóban való megnyitása.
 
 % ==========================================================
 % |                      Tesztelés                         |
@@ -350,4 +365,4 @@ Az Electron ahogy azt már tárgyaltuk, webes technológiákat biztosít aszatli
 \section{Tesztelés}
 A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott.
 
-
+TODO
