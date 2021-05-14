@@ -148,8 +148,6 @@ const torrentMovieNames = [
     'Old.Shatterhand.1964.BDRip.x264.HUN-CRW',
     'Rohamsisakos madonna',
     'Regarding.Henry.1991.DVDRip.x264.HUN-GEO',
-    'OnlyFans.Selling.Sexy.2021.1080p.WEB.h264-KOGi',
-    'OnlyFans.Selling.Sexy.2021.720p.WEB.h264-KOGi',
     'Dirty.Work.1998.1080p.BluRay.X264-AMIABLE',
     'A.ferfi.aki.szerette.a.noket.1977.HUN.FRE.CUSTOM.1080p.BluRay.x264-PLAN9',
     'Wicker Park',
@@ -2073,13 +2071,6 @@ const torrentMovieNames = [
     'A.Leny.III.2004.HUN.DVDRip.XviD.AC3.5.1-Hollow',
     'Csernobil - Élet a Holt Zónában',
     'Memento.BDRip.720p.x264.Hun-Optimus',
-    'Discovery Channel - Szexualítás - aszexualítás',
-    'Discovery Channel - Szexualítás - a monogámián túl',
-    'Discovery Channel - Szexulítás - trágár tréfák',
-    'Discovery Channel - Szexualítás - nudizmus',
-    'Discovery Channel - Szexualítás - terhesség',
-    'Discovery Channel - Szexualítás - szexjátékszerek',
-    'Discovery Channel - Szexualítás - perverzitás',
     'A szabadság vihara',
     'Gyokerek.1977.DVDRip.XviD.Hun-SeeDL',
     'A szerelem Harley Davidsonon érkezik',
@@ -2298,7 +2289,6 @@ const torrentMovieNames = [
     'Akira (2016) - UpScaled - 720p - DesiSCR-Rip - Hindi - x264 - AC3 - 5.1 - Mafiaking - M2Tv',
     'Ben Hur 2016 TELESYNC x264 AC3 MAXPRO',
     'The.Secret.Life.of.Pets.2016.HDRiP.AAC-LC.x264-LEGi0N',
-    'OnlyFans.Selling.Sexy.2021.720p.WEB.h264-KOGi',
     'The.Stand.2020.S01.720p.AMZN.WEB-DL.DDP5.1.H.264-NTG',
     'The.Stand.2020.S01E03.Blank.Page.720p.AMZN.WEB-DL.DDP5.1.H.264-NTG.mkv',
     'A.ferfi.aki.szerette.a.noket.1977.HUN.FRE.CUSTOM.1080p.BluRay.x264-PLAN9.mkv',
@@ -2306,7 +2296,6 @@ const torrentMovieNames = [
     '[Snow-Raws] To Aru Majutsu no Index III EP04 (BD 1920x1080 HEVC-YUV420P10 FLAC).mkv',
     'Saenai Heroine no Sodatekata - 02 (BD 1280x720 x264 AAC)',
     'Aladdin.1992.1080p.BluRay.DTS.x264.HuN',
-    '1 gyakorlat kedd-20210209_073607-Meeting Recording',
     'AL.288-1.2014.HC.HDRip.XViD.AMZN.AC3-juggs[ETRG]',
     'A mackótestvér',
     'Két kicsi meg egy nagy',
@@ -2468,8 +2457,6 @@ King.A.Filmed.Record.Montgomery.To.Memphis.1970.Part.2.1080p.WEB.H264-CBFM
 Old.Shatterhand.1964.BDRip.x264.HUN-CRW
 Rohamsisakos madonna
 Regarding.Henry.1991.DVDRip.x264.HUN-GEO
-OnlyFans.Selling.Sexy.2021.1080p.WEB.h264-KOGi
-OnlyFans.Selling.Sexy.2021.720p.WEB.h264-KOGi
 Dirty.Work.1998.1080p.BluRay.X264-AMIABLE
 A.ferfi.aki.szerette.a.noket.1977.HUN.FRE.CUSTOM.1080p.BluRay.x264-PLAN9
 Wicker Park
@@ -4394,13 +4381,6 @@ Discovery Channel - A számítógépes játékok története
 A.Leny.III.2004.HUN.DVDRip.XviD.AC3.5.1-Hollow
 Csernobil - Élet a Holt Zónában
 Memento.BDRip.720p.x264.Hun-Optimus
-Discovery Channel - Szexualítás - aszexualítás
-Discovery Channel - Szexualítás - a monogámián túl
-Discovery Channel - Szexulítás - trágár tréfák
-Discovery Channel - Szexualítás - nudizmus
-Discovery Channel - Szexualítás - terhesség
-Discovery Channel - Szexualítás - szexjátékszerek
-Discovery Channel - Szexualítás - perverzitás
 A szabadság vihara
 Gyokerek.1977.DVDRip.XviD.Hun-SeeDL
 A szerelem Harley Davidsonon érkezik

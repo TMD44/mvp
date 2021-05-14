@@ -169,9 +169,6 @@ export const mediaReducer = (
                 tv_series: payload,
             };
         case PURGE_ALL_MEDIA:
-            // TODO: in default state, there are dummy thing in it
-            // Error has occure
-            // return movieDbDefaultState;
             return {
                 creation_time: getDateAndTime(),
                 modification_time: getDateAndTime(),

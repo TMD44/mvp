@@ -49,7 +49,6 @@ export const scan = {
         store.dispatch(addScanResults(scanResults));
         const results = getScanResults();
 
-        // TODO: sometimes this runs too long or not even run properly
         for (const file in results.media) {
             const result = await mediaJSONGenerator(
                 results.media[file],

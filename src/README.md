@@ -2,20 +2,20 @@
 
 ## ./main
 
-Contain the files for the Electron main process. ...
+Contain the files for the Electron main process.
 
 ## ./app
 
-Contain the files for the Electron renderer process. ...
+Contain the files for the Electron renderer process and React UI.
 
 ## ./scripts
 
-Contain functions that is used in various places of the application. ...
+Contain functions that is used in various places of the application.
 
 ## ./redux
 
-Contain the files for Redux state handling. ...
+Contain the files for Redux state handling.
 
 ## ./type
 
-Contain the type files for TypeScript. ...
+Contain the type files for TypeScript.

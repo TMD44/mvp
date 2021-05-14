@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
@@ -43,7 +44,6 @@ const nfoPatternFinder = async (data) => {
 
     const imdbFound = data.match(nfoPatterns.imdb_title);
     if (imdbFound) {
-        // eslint-disable-next-line prefer-destructuring
         result.imdb_id = imdbFound[0];
         result.imdb_url = `https://www.imdb.com/title/${imdbFound[0]}`;
     } else {
@@ -51,7 +51,6 @@ const nfoPatternFinder = async (data) => {
         const tinyurlFound = data.match(nfoPatterns.tinyurl);
         if (tinyurlFound) {
             for (const url in tinyurlFound) {
-                // TODO: SLOW!!!
                 tinyUrlData[`tinyurl_${url + 1}`] = await tinyURL.resolve(
                     tinyurlFound[url]
                 );
@@ -61,7 +60,6 @@ const nfoPatternFinder = async (data) => {
             .join('_-_')
             .match(nfoPatterns.imdb_title);
         if (imdbFoundInTinyUrl) {
-            // eslint-disable-next-line prefer-destructuring
             result.imdb_id = imdbFoundInTinyUrl[0];
             result.imdb_url = `https://www.imdb.com/title/${imdbFoundInTinyUrl[0]}`;
         }
