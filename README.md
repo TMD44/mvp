@@ -1,8 +1,11 @@
 # Multimedia Visualization Platform
 
-The Multimedia Visualization Platform (MVP) is written by using [Electron](https://github.com/electron/electron), [React](https://github.com/facebook/react) and [Redux](https://github.com/reduxjs/redux).
+<img align="left" width="15%" src="assets/icon.png" />
 
-## **In development...**
+### The Multimedia Visualization Platform (MVP) is written by using [Electron](https://github.com/electron/electron), [React](https://github.com/facebook/react) and [Redux](https://github.com/reduxjs/redux).
+
+<br />
+<br />
 
 ## Download
 
