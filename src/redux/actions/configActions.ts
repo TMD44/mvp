@@ -1,3 +1,5 @@
+import { ScanResultsType } from '@type/ConfigType';
+
 export const UPDATE_SCAN_LANGUAGE = 'UPDATE_SCAN_LANGUAGE';
 
 export const ADD_SCAN_PATH = 'ADD_SCAN_PATH';
@@ -46,9 +48,9 @@ export const updateNfoFileTypes = (fileTypes: string[]) => ({
 });
 
 // SCAN RESULTS: ADD, DELETE
-export const addScanResults = (path: Record<string, unknown>) => ({
+export const addScanResults = (results: ScanResultsType) => ({
     type: ADD_SCAN_RESULTS,
-    payload: path,
+    payload: results,
 });
 export const deleteAllScanResults = () => ({
     type: DELETE_ALL_SCAN_RESULTS,

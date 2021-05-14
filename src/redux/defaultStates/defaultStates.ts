@@ -1,10 +1,11 @@
 import { ipcRenderer } from 'electron';
 import { MediaType } from '@type/MediaType';
 import { getDateAndTime } from '@scripts/date';
+import { AppInfoType, ConfigType, ScanResultsType } from '@type/ConfigType';
 
-const appData = ipcRenderer.sendSync('get-app-data-sync');
+const appData: AppInfoType = ipcRenderer.sendSync('get-app-data-sync');
 
-export const configDefaultState = {
+export const configDefaultState: ConfigType = {
     creation_time: getDateAndTime(),
     modification_time: getDateAndTime(),
     user_info: { name: 'Anonymous' },
@@ -24,7 +25,7 @@ export const configDefaultState = {
         scan_language: 'en-US',
         scan_paths: [],
         scan_file_types: {
-            media: ['.mkv', '.mp4', '.avi'],
+            media: ['.mkv', '.mp4'],
             sub: ['.srt', '.ass', '.vtt', '.ssa', '.sub', '.stl', '.scc'],
             nfo: ['.nfo'],
         },
@@ -47,7 +48,7 @@ export const configDefaultState = {
         //     'nfo_data',
         // ],
         // save_data_json_next_to_file: false,
-        scan_results: {},
+        scan_results: {} as ScanResultsType,
     },
 };
 

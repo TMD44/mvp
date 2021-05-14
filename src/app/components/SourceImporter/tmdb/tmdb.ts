@@ -1,11 +1,20 @@
 /* eslint-disable prefer-destructuring */
 import { addToMedia } from '@redux/actions/mediaActions';
 import store from '@redux/store';
+import { AllMediaDataType, MetadataType } from '@type/MediaType';
+import { IncomingHttpHeaders } from 'http';
+import MovieDB from 'node-themoviedb';
 import { imdbIdExists, yearExists, remodelData } from './dataSelection';
 import { tmdbRequest } from './tmdbRequests';
 
 const tmdbDataCleaning = (
-    obj: Record<string, unknown>,
+    obj: {
+        data:
+            | MovieDB.Responses.Find.ByExternalID
+            | MovieDB.Responses.Search.Movies
+            | MovieDB.Responses.Search.TVShows;
+        headers: IncomingHttpHeaders;
+    },
     type: 'imdb' | 'movie' | 'series'
 ) => {
     let result;
@@ -48,30 +57,41 @@ const tmdbDataCleaning = (
     return finalResult;
 };
 
-export const getTMDBdata = async (obj: Record<string, unknown>) => {
+export const getTMDBdata = async (obj: AllMediaDataType) => {
     try {
         if (imdbIdExists(obj)) {
             const data = await tmdbRequest.findByExternalID(
-                obj.metadata.imdb_id,
+                obj.metadata.imdb_id as string,
                 'imdb_id'
             );
-            store.dispatch(addToMedia(obj.id, tmdbDataCleaning(data, 'imdb')));
+            store.dispatch(
+                addToMedia(
+                    obj.id,
+                    tmdbDataCleaning(data, 'imdb') as MetadataType
+                )
+            );
         } else if (yearExists(obj)) {
             if (obj.metadata.media_type === 'movie') {
                 const data = await tmdbRequest.seachForMovies(
                     obj.metadata.title,
-                    obj.metadata.release_date
+                    obj.metadata.release_date as number
                 );
                 store.dispatch(
-                    addToMedia(obj.id, tmdbDataCleaning(data, 'movie'))
+                    addToMedia(
+                        obj.id,
+                        tmdbDataCleaning(data, 'movie') as MetadataType
+                    )
                 );
             } else if (obj.metadata.media_type === 'series') {
                 const data = await tmdbRequest.searchForTV(
                     obj.metadata.title,
-                    obj.metadata.release_date
+                    obj.metadata.release_date as number
                 );
                 store.dispatch(
-                    addToMedia(obj.id, tmdbDataCleaning(data, 'series'))
+                    addToMedia(
+                        obj.id,
+                        tmdbDataCleaning(data, 'series') as MetadataType
+                    )
                 );
             }
         }

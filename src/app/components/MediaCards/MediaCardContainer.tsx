@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import {
     GridList,
     GridListTile,
@@ -13,7 +13,7 @@ interface PropsShape {
     data: any;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
         root: {
             display: 'flex',
@@ -83,7 +83,7 @@ export const MediaCardContainer = ({ title, data }: PropsShape) => {
                         currentPage * rowsPerPage,
                         currentPage * rowsPerPage + rowsPerPage
                     )
-                    .map(([id, obj]) => {
+                    .map(([id, obj]: [string, any]) => {
                         return (
                             <MediaCard key={id} id={obj.id} obj={{ id, obj }} />
                         );

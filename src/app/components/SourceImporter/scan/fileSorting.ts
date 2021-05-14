@@ -1,19 +1,7 @@
+import { ScanResultsType, ScanResultType } from '@type/ConfigType';
 import { extname } from 'path';
 
-interface ReplyType {
-    media: string[];
-    sub: string[];
-    nfo: string[];
-}
-
-interface FilteredDataType {
-    fn: string;
-    ext: string;
-    path: string;
-    full: string;
-}
-
-const objTemplate = (file: string): FilteredDataType => {
+const objTemplate = (file: string): ScanResultType => {
     return {
         fn: file.substring(file.lastIndexOf('\\') + 1, file.lastIndexOf('.')),
         ext: extname(file),
@@ -27,7 +15,7 @@ export const fileSorting = (
     media: string[],
     sub: string[],
     nfo: string[],
-    reply: ReplyType
+    reply: ScanResultsType
 ) => {
     const item = objTemplate(file);
 
@@ -40,7 +28,7 @@ export const fileSorting = (
     }
 };
 
-export const excludedFromScan = (file: string): boolean => {
+export const excludedFromScan = (file: string) => {
     const regex = /SAMPLE/gi;
     return regex.test(file);
 };

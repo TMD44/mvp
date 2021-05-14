@@ -17,6 +17,8 @@ import {
     purgeSeries,
 } from '@redux/actions/mediaActions';
 import { getAllMedia } from '@redux/selectors/mediaSelector';
+import { AllMediaType } from '@type/MediaType';
+import { ScanResultsType } from '@type/ConfigType';
 import { fileSorting, excludedFromScan } from './fileSorting';
 import { scanDir } from './scanDir';
 import { mediaJSONGenerator } from './json';
@@ -25,9 +27,9 @@ import { mediaTypeSorting } from './mediaTypeSorting';
 
 export const scan = {
     offlineScan: async () => {
-        const mediaInJSON = {};
+        const mediaInJSON = {} as AllMediaType;
 
-        const scanResults = {
+        const scanResults: ScanResultsType = {
             media: [],
             sub: [],
             nfo: [],
@@ -74,7 +76,7 @@ export const scan = {
     },
 
     onlineScan: async () => {
-        for (const [key, value] of Object.entries(getAllMedia())) {
+        for (const [, value] of Object.entries(getAllMedia())) {
             await getTMDBdata(value);
         }
 

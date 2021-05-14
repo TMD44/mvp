@@ -81,7 +81,7 @@ export const Search = () => {
         });
     }
 
-    const openMedia = (id) => {
+    const openMedia = (id: React.SetStateAction<string>) => {
         if (id !== 'NOT_FOUND') {
             setMediaID(id);
             handleModalOpen();
@@ -100,21 +100,21 @@ export const Search = () => {
                     getOptionLabel={(option) => option.metadata.title}
                     // forcePopupIcon={false}
                     style={{ width: 500 }}
-                    onClose={(event) =>
+                    onClose={(event) => {
+                        const input = event.target as HTMLElement;
                         openMedia(
                             titles.find(
                                 (obj) =>
-                                    obj.metadata.title ===
-                                    event.target.textContent
+                                    obj.metadata.title === input.textContent
                             )
                                 ? titles.find(
                                       (obj) =>
                                           obj.metadata.title ===
-                                          event.target.textContent
+                                          input.textContent
                                   ).id
                                 : 'NOT_FOUND'
-                        )
-                    }
+                        );
+                    }}
                     renderInput={(params) => {
                         const { InputLabelProps, InputProps, ...rest } = params;
                         return (
@@ -139,7 +139,7 @@ export const Search = () => {
                         ? data.find(([, obj]) => obj.id.includes(mediaID))[1].id
                         : []
                 }
-                // TODO: add obj here
+                // TODO: make this chaos more easy to read
                 obj={
                     data.find(([, obj]) => obj.id.includes(mediaID))
                         ? {

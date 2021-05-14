@@ -1,4 +1,8 @@
-export const tmdbGenres = {
+interface GenresType {
+    [key: number]: { id: number; name: string };
+}
+
+export const tmdbGenres: GenresType = {
     10759: { id: 10759, name: 'Action & Adventure' },
     16: { id: 16, name: 'Animation' },
     35: { id: 35, name: 'Comedy' },
@@ -29,7 +33,7 @@ export const tmdbGenres = {
 };
 
 export const genresConvert = (genresArray: number[]) => {
-    const result: any[] = [];
+    const result: string[] = [];
     genresArray.forEach((genre) => {
         result.push(tmdbGenres[genre].name);
     });

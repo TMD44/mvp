@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader } from '@material-ui/core';
 import { getDataByID } from '@scripts/getDataByID';
 import { getImagesPath } from '@scripts/getPaths';
@@ -10,7 +10,7 @@ interface PropsShape {
     obj: any;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
         root: {
             maxWidth: 345,

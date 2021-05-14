@@ -1,5 +1,11 @@
-export const dataSum = (fileNameObj: any, folderNameObj: any) => {
-    const filteredData: Record<string, unknown> = {};
+import { MetadataType } from '@type/MediaType';
+
+export const dataSum = (
+    fileNameObj: MetadataType,
+    folderNameObj: MetadataType
+) => {
+    // const filteredData = {} as MetadataType;
+    const filteredData: any = {};
 
     if (Object.keys(fileNameObj).length > Object.keys(folderNameObj).length) {
         Object.entries(folderNameObj).forEach(([key, value]) => {

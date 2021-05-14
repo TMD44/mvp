@@ -1,10 +1,12 @@
+/* eslint-disable global-require */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable consistent-return */
+import { ScanResultsType, ScanResultType } from '@type/ConfigType';
+import { MetadataType } from '@type/MediaType';
 import { promises as fsp } from 'fs';
-import tinyURL from 'tinyurl';
 
 const nfoPatterns = {
     year: /(DATE|TIME).*/gi,
@@ -17,8 +19,11 @@ const nfoPatterns = {
     imdb_list: /li[0-9]{7,8}/gi,
 };
 
-export const nfoFileFinder = (media, results) => {
-    const resultArray = [];
+export const nfoFileFinder = (
+    media: ScanResultType,
+    results: ScanResultsType
+) => {
+    const resultArray: string[] = [];
 
     results.nfo.forEach((nfo) => {
         if (nfo.path.concat(nfo.fn) === media.path.concat(media.fn)) {
@@ -39,21 +44,21 @@ export const nfoFileFinder = (media, results) => {
     return resultArray[0];
 };
 
-const nfoPatternFinder = async (data) => {
-    const result = {};
+const nfoPatternFinder = async (data: string) => {
+    const result = {} as MetadataType;
 
     const imdbFound = data.match(nfoPatterns.imdb_title);
     if (imdbFound) {
         result.imdb_id = imdbFound[0];
         result.imdb_url = `https://www.imdb.com/title/${imdbFound[0]}`;
     } else {
-        const tinyUrlData = {};
+        const tinyUrlData: { [s: string]: unknown } | ArrayLike<unknown> = {};
         const tinyurlFound = data.match(nfoPatterns.tinyurl);
         if (tinyurlFound) {
             for (const url in tinyurlFound) {
-                tinyUrlData[`tinyurl_${url + 1}`] = await tinyURL.resolve(
-                    tinyurlFound[url]
-                );
+                tinyUrlData[
+                    `tinyurl_${url + 1}`
+                ] = await require('tinyurl').resolve(tinyurlFound[url]);
             }
         }
         const imdbFoundInTinyUrl = Object.values(tinyUrlData)
@@ -68,11 +73,11 @@ const nfoPatternFinder = async (data) => {
     return result;
 };
 
-export const nfoIdFinder = async (nfoPath) => {
+export const nfoIdFinder = async (nfoPath: string) => {
     // const nfoPath = await nfoFileFinder(media);
     if (nfoPath === undefined) return;
 
-    const nfoContent = await fsp.readFile(String(nfoPath), 'utf8');
+    const nfoContent = await fsp.readFile(nfoPath, 'utf8');
     const result = await nfoPatternFinder(nfoContent);
     return result;
 };

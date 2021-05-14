@@ -2,6 +2,7 @@
 import fs from 'fs';
 import { configureStorageSync } from '@scripts/configureStorage';
 import { configDefaultState } from '@redux/defaultStates/defaultStates';
+import { ConfigType } from '@type/ConfigType';
 import {
     UPDATE_SCAN_LANGUAGE,
     DELETE_SCAN_PATH,
@@ -28,16 +29,19 @@ export const configReducer = (
     state = initialState,
     action: {
         type: string;
-        payload: string | string[];
+        payload: any;
     }
-) => {
+): ConfigType => {
     const { type, payload } = action;
 
     switch (type) {
         case UPDATE_SCAN_LANGUAGE:
             return {
                 ...state,
-                scan_language: payload,
+                scan_preferences: {
+                    ...state.scan_preferences,
+                    scan_language: payload,
+                },
             };
         case ADD_SCAN_PATH:
             return {
@@ -53,7 +57,6 @@ export const configReducer = (
                 },
             };
         case DELETE_SCAN_PATH:
-            // if not exists nothing happens
             return {
                 ...state,
                 scan_preferences: {

@@ -21,6 +21,7 @@ import {
 } from '@redux/actions/mediaActions';
 import { mediaDefaultState } from '@redux/defaultStates/defaultStates';
 import { getDateAndTime } from '@scripts/date';
+import { MediaType, MoviesDataType, TvSeriesDataType } from '@type/MediaType';
 
 let initialState = mediaDefaultState;
 
@@ -36,9 +37,9 @@ export const mediaReducer = (
     state = initialState,
     action: {
         type: string;
-        payload: string | string[] | Record<string, unknown>;
+        payload: any;
     }
-) => {
+): MediaType => {
     const { type, payload } = action;
 
     switch (type) {
@@ -109,7 +110,7 @@ export const mediaReducer = (
 
         case ADD_MOVIE:
             if (!state.movies[payload]) {
-                state.movies[payload] = {};
+                state.movies[payload] = {} as MoviesDataType;
                 if (!state.movies[payload].id) {
                     state.movies[payload].id = [];
                 }
@@ -134,7 +135,7 @@ export const mediaReducer = (
 
         case ADD_SERIES:
             if (!state.tv_series[payload.title]) {
-                state.tv_series[payload.title] = {};
+                state.tv_series[payload.title] = {} as TvSeriesDataType;
                 if (!state.tv_series[payload.title].id) {
                     state.tv_series[payload.title].id = [];
                 }

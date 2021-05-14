@@ -1,3 +1,4 @@
+import { StateType } from '@type/StateType';
 import store from '../store';
 
 // GETTERS
@@ -13,5 +14,5 @@ export const getScanResults = () =>
     store.getState().config.scan_preferences.scan_results;
 
 // SELECTORS
-export const scanPathsSelector = (state) =>
+export const scanPathsSelector = (state: StateType) =>
     state.config.scan_preferences.scan_paths;

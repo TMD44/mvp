@@ -1,3 +1,5 @@
+import { MetadataType } from '@type/MediaType';
+
 let tempFileName = '';
 let numberOfFoundAttributes = 0;
 
@@ -33,7 +35,7 @@ const removeNoise = (str: string) => {
 };
 
 const process = (
-    JSON_cleaned_obj: { [x: string]: boolean },
+    JSON_cleaned_obj: any,
     itemFound: string | any[] | null | undefined,
     pattern: RegExp,
     JSON_item_name: string,
@@ -107,7 +109,7 @@ const process = (
 };
 
 export const fnr = (paramFileName: string) => {
-    const cleanedDataJSON = {};
+    const cleanedDataJSON = {} as MetadataType;
     tempFileName = paramFileName;
     let foundPattern;
     let titleFound;
