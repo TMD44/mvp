@@ -20,10 +20,11 @@ import {
     addCoverToMedia,
     deleteCoverFromMedia,
     deleteMedia,
+    deleteMediaFromPlaylist,
 } from '@redux/actions/mediaActions';
-import { MediaAddToPlaylist } from './MediaAddToPlaylist';
 import { useSelector } from 'react-redux';
 import { playlistsSelector } from '@redux/selectors/mediaSelector';
+import { MediaAddToPlaylist } from './MediaAddToPlaylist';
 
 type ActionTypes = 'DeleteMedia' | '';
 
@@ -45,17 +46,18 @@ export const MediaOperations = ({ id, obj, handleModalClose }: PropsShape) => {
         setCheckModal(true);
     };
 
-    const getPlaylist = (currentID: string): string => {
-        Object.entries(playlists).map(([key, value]) => {
+    const getPlaylist = (currentID: string) => {
+        const result = [] as string[];
+        Object.entries(playlists).forEach(([key, value]) => {
             if (currentMedia.media_type === 'series') {
                 if (currentMedia.title in value.contents) {
-                    return key;
+                    result.push(key);
                 }
             } else if (currentID in value.contents) {
-                return key;
+                result.push(key);
             }
         });
-        return 'Favorites';
+        return result;
     };
 
     const handleCheckModalClose = (answer: 'YES' | 'NO') => {
@@ -64,15 +66,26 @@ export const MediaOperations = ({ id, obj, handleModalClose }: PropsShape) => {
             switch (actionType) {
                 case 'DeleteMedia':
                     handleModalClose();
-                    obj.obj.id.forEach((currentID: string) =>
+                    obj.obj.id.forEach((currentID: string) => {
                         store.dispatch(
-                            deleteMedia(
-                                currentID,
-                                currentMedia.title,
-                                getPlaylist(currentID)
-                            )
-                        )
-                    );
+                            deleteMedia(currentID, currentMedia.title)
+                        );
+                        getPlaylist(currentID).forEach((playlistToDelete) =>
+                            currentMedia.media_type === 'series'
+                                ? store.dispatch(
+                                      deleteMediaFromPlaylist(
+                                          currentMedia.title,
+                                          playlistToDelete
+                                      )
+                                  )
+                                : store.dispatch(
+                                      deleteMediaFromPlaylist(
+                                          currentID,
+                                          playlistToDelete
+                                      )
+                                  )
+                        );
+                    });
                     break;
 
                 default:

@@ -30,7 +30,16 @@ This folder contains the Webpack config files, for development and production bu
       ```
 
 2. Line added to get rid of warning by 'keyv'
+
     - `new webpack.ContextReplacementPlugin(/keyv/),`
+
+3. Line added for information displaying on Webpack build
+
+    - ```javascript
+        // The stats option lets you precisely control what bundle information gets displayed.
+        // 'errors-only' 'errors-warnings' 'minimal' 'none' 'normal' 'verbose' 'detailed' 'summary'
+        stats: 'summary',
+      ```
 
 ### webpack.config.eslint.js
 

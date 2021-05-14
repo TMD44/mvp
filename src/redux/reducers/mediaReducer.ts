@@ -105,16 +105,6 @@ export const mediaReducer = (
                 all_media: omit(state.all_media, payload.id),
                 movies: omit(state.movies, payload.id),
                 tv_series: omit(state.tv_series, payload.title),
-                playlists: {
-                    ...state.playlists,
-                    [payload.playlist]: {
-                        ...state.playlists[payload.playlist],
-                        contents: omit(state.tv_series, [
-                            payload.id,
-                            payload.title,
-                        ]),
-                    },
-                },
             };
 
         case ADD_MOVIE:

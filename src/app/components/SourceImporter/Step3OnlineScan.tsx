@@ -61,7 +61,7 @@ export const Step3OnlineScan = ({
             }
             setIsOnline(true);
         });
-    }, 2000);
+    }, 1000);
 
     return (
         <>

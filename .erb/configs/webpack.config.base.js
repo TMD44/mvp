@@ -9,6 +9,10 @@ import { dependencies as externals } from '../../src/package.json';
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 export default {
+    // The stats option lets you precisely control what bundle information gets displayed.
+    // 'errors-only' 'errors-warnings' 'minimal' 'none' 'normal' 'verbose' 'detailed' 'summary'
+    stats: 'summary',
+
     externals: [...Object.keys(externals || {})],
 
     module: {
