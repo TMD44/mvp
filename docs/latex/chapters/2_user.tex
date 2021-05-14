@@ -87,13 +87,6 @@ Az alábbi paranccsal egy produkciós verzió készíthető el.
     yarn build
 \end{lstlisting}
 
-\subsubsection{Teszt fájlok generálása}
-Az alábbi paranccsal teszt-média fájlokat lehet generálni. Az így létrehozott videófájlok, feliratfájlok, NFO fájlok természetesen nem valós, illetve az videó lejátszó szerint sérült fájlok lesznek, tehát például a videófájlokat nem lehet lejátszani, de a Scannelés teszteléséhez tökéletesen elegendőek.
-\lstset{caption={Teszt fájlok generálása}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
-    yarn generate-media
-\end{lstlisting}
-
 \subsubsection{Produkciós verzió létrehozása}
 Végül, de nem utolsó sorban az egyik legfontosabb parancs, amellyel az alkalmazás produkciós verziója hozható létre. Ez az utasítás létrehozza magát a telepítő futtatható állományt és egy hordozható állományt, amely telepítés nélküli futtatást tesz lehetővé. Mindezeket a projekt {\it release} mappájába fogjuk találni.
 
@@ -118,7 +111,7 @@ Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifi
 \subsection{Kezdőlap}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{home.jpg}
+	\includegraphics[width=1\textwidth]{home.png}
 	\caption{Kezdőlap}
 	\label{fig:home}
 \end{figure}
@@ -128,7 +121,7 @@ A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes
 \subsection{Filmek, Sorozatok}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{movies_series.jpg}
+	\includegraphics[width=1\textwidth]{movies_series.png}
 	\caption{Filmek, Sorozatok}
 	\label{fig:movies_series}
 \end{figure}
@@ -142,7 +135,7 @@ A {\it Sorozatok} oldalon magától értetődően a sorozatokat. A sorozatok meg
 \subsection{Média adatlap}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{media_details.jpg}
+	\includegraphics[width=0.9\textwidth]{media_details.png}
 	\caption{Filmek, Sorozatok}
 	\label{fig:media_details}
 \end{figure}
@@ -156,26 +149,23 @@ Ezen az oldalon találjuk továbbá a film elindításához szükséges gombot v
 \subsection{Lejátszási listák}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{playlists_1.jpg}
-	\caption{Lejátszási listák létrehozása}
-	\label{fig:playlists_1}
+	\subfigure[Lejátszási listák létrehozása]{
+		\includegraphics[width=0.35\linewidth]{playlists_1.png}}
+	\hspace{5pt}
+	\subfigure[Média tartalmak hozzáadása a Lejátszási listához]{
+		\includegraphics[width=0.35\linewidth]{playlists_2.png}}
+	\caption{Lejátszási listák}
+	\label{fig:playlists}
 \end{figure}
 A {\it Lejátszási listák} menüponton belül tudunk hozzáadni új lejátszási listákat, vagy a már létezők között böngészni. Új lejátszási lista hozzáadásához írjuk be a lista nevét, majd nyomjunk Entert vagy kattintsunk a + gombra, ezután a listában megjelenik az általunk hozzáadott elem. Erre rákattintva a főoldalon megjelenik a lejátszási lista tartalma, amennyiben nincs még a listához hozzáadva egy elem sem, azt a felület jelzi számunkra. A teljes lejátszsi listát törölni is tudjuk, a menüpontra kattintva azon belül a jobb oldalon található kuka ikonra kattintva. Ekkor a lista törlődik a rajta lévő filmekkel együtt - fontos megjegyezni, hogy maga a média tartalom nem törlődik a lejátszási lista törlésekor.
 
 Hozzáadni új filmet vagy sorozatot az adott média adatlapján van lehetőségünk. Felül, az ikonsorban kattintsunk a lejátszási lista ikonra, ekkor megnyílik egy kisebb ablak, amelyben a már létrehozott listák találhatók. Kattintsunk a választott listára, ekkor a film hozzáadódik a lejátszási listához, a + jelű ikon, pipás ikonra változik ezzel visszajelezve a felhasználónak, hogy hozzáadódott. Törölni hasonló módon tudunk, ha hozzá van adva a Lejátszási listához egy film, akkor annak adatlapján, a lejátszási listák gombra kattintva, jobb oldalon egy X ikon található, amely megnyomásával a film törlődik a lejátszási listából.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{playlists_2.jpg}
-	\caption{Média tartalmak hozzáadása a Lejátszási listához}
-	\label{fig:playlists_2}
-\end{figure}
-
 % \cleardoublepage
 \subsection{Source Importer}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{source_importer_1.jpg}
+	\includegraphics[width=1\textwidth]{source_importer_1.png}
 	\caption{Source Importer 1. fázis: Mappa kiválasztás}
 	\label{fig:source_importer_1}
 \end{figure}
@@ -185,7 +175,7 @@ Legelső lépésként ki kell választanunk azokat mappákat ahonnan be szeretn�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{source_importer_2.jpg}
+	\includegraphics[width=1\textwidth]{source_importer_2.png}
 	\caption{Source Importer 2. fázis: Offline scan}
 	\label{fig:source_importer_2}
 \end{figure}
@@ -195,7 +185,7 @@ A scannelés időtartama, ha sok tartalmat importálunk be eltarthat néhány pe
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{source_importer_3.jpg}
+	\includegraphics[width=1\textwidth]{source_importer_3.png}
 	\caption{Source Importer 3. fázis: Online scan}
 	\label{fig:source_importer_3}
 \end{figure}
@@ -208,7 +198,7 @@ A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelé
 \subsection{Kereső}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{search.jpg}
+	\includegraphics[width=0.6\textwidth]{search.png}
 	\caption{Kereső}
 	\label{fig:search}
 \end{figure}
@@ -218,7 +208,7 @@ A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfoland
 \subsection{Beállítások}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{settings.jpg}
+	\includegraphics[width=1\textwidth]{settings.png}
 	\caption{Beállítások}
 	\label{fig:settings}
 \end{figure}
@@ -228,7 +218,7 @@ Innen tudjuk megnyitni a fejlesztői konzolt is.
 \subsection{Névjegy}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{about.jpg}
+	\includegraphics[width=0.7\textwidth]{about.png}
 	\caption{Névjegy}
 	\label{fig:about}
 \end{figure}

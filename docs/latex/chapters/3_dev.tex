@@ -5,50 +5,50 @@
 % |     Követelmény specifikáció, Megvalósítás lépései     |
 % ==========================================================
 \section{Követelmény specifikáció}
-Az alkalmazás működéshez és a feladatleírás teljesítéséhez az alábbi funkciókat kell implementálni:
+Az alkalmazás működéséhez és a feladatleírás teljesítéséhez az alábbi funkciókat kell implementálni:
 \begin{itemize}
     \item {\textbf {Film felsoroló platform: }} Az alkalmazásnak felületet kell biztosítania a beolvasott média tartalmak megjelenítéséhez, listázásához.
     \item {\textbf {Média tartalmak beolvasása: }} Mappák kiválasztásával az azokban fellelhető média tartalmak beolvasása.
-	\item {\textbf {Keresés a média tartalmak között: }} Az alkalmazásnak lehetőséget kell bizotsítania a beolvasott média tartlamak közötti kereséshez.
-	\item {\textbf {Lejátszás, Megállítás, Pörgetés: }} Bizotsítania kell a videók lejátszását.
+	\item {\textbf {Keresés a média tartalmak között: }} Az alkalmazásnak lehetőséget kell biztosítania a beolvasott média tartlamak közötti kereséshez.
+	\item {\textbf {Lejátszás, Megállítás, Pörgetés: }} Biztosítania kell a videók lejátszását.
 	\item {\textbf {Felirat választás: }} Feliratok megjelenítése lejátszáskor, amennyiben elérhető.
-	\item {\textbf {Sorozatok és filmek kezelése: }} A felület kezelje külön a sorozatokat és filmeket, tehát például a sorozat epizódjai ne külön-külön jelenjenek meg a listában, hanem a sorozatra rákkatintva, annak részletező ablakjában legyenek listázva az epizódok.
-	\item {\textbf {Metaadatok betöltése és letölése: }} Használható és értelmes adatok beolvasása fájlnévből, mappanévből, NFO fájlból és külső adatbázisból metadatokat kell tudnia letölteni.
-    \item {\textbf {Lejátszási listák: }} Lehessen lejátszási listákat létrehozni, ezen listákat filmekkel feltölteni.
+	\item {\textbf {Sorozatok és filmek kezelése: }} A felület kezelje külön a sorozatokat és filmeket, tehát például a sorozat epizódjai ne külön-külön jelenjenek meg a listában, hanem a sorozatra rákattintva, annak adatlapján legyenek listázva az epizódok.
+	\item {\textbf {Metaadatok betöltése és letöltése: }} Használható és értelmes adatok beolvasása fájlnévből, mappanévből, NFO fájlból és külső adatbázisból metadatokat kell tudnia letölteni.
+    \item {\textbf {Lejátszási listák: }} Lehessen lejátszási listákat létrehozni, törölni, ezen listákat filmekkel feltölteni.
 \end{itemize}
 
 \section{Megvalósítás lépései}
 \begin{enumerate}
     \item {\textbf {Követelmények elemzése: }} Meghatározom az elvégzendő feladatokat a feladatleírás alapján.
     \item {\textbf {Fejlesztési környezetek kiválasztása, megismerése: }} Kiválasztottam, majd elsajátítottam az ismereteket a projekt elvégzéséhez szükséges technológiákból.
-    \item {\textbf {Tervezés: }} Megterveztem az alkalmazás alap logikáját, a média tartalmak beolvasását, ezek megjelenítését, felhasználói felületet.
+    \item {\textbf {Tervezés: }} Megterveztem az alkalmazás alap logikáját, a média tartalmak beolvasását, ezek megjelenítését, a felhasználói felületet.
     \item {\textbf {Adattárolás: }} Az alkalmazáshoz leginkább illő és egyszerű adattárolás kiválasztása, amely lehetőséget biztosít a felhasználói felület dinamikus változásaira: Redux.
-    \item {\textbf {Scannelés implementálása: }} Az alkalmazáshoz legfontosabb részének a tartalmak beolvasásának implementálása.
+    \item {\textbf {Scannelés implementálása: }} Az alkalmazás legfontosabb részének, a média tartalmak beolvasásának megvalósítása.
     \item {\textbf {Felhasználó felület: }} Dizájn megtervezése és a beolvasott adatok helyes megjelenítésének implementálása.
-    \item {\textbf {Hátramaradt tervezett és plusz funkciók implementálása: }} Például az adatok dinamikus kezelése felhasználó felületről: média törlése, borító hozzáadás, kereső, lejátszási listák stb.
-    \item {\textbf {Tesztelés: }} Habár a tesztelés a lista végére került, de a valóságban kézi teszteles mindegyik lépés végén és közben is megtörtént, a funkciók helyes működésének érdekében. Végezetül a teljes program tesztelése.
+    \item {\textbf {Hátramaradt tervezett és plusz funkciók megvalósítása: }} Például az adatok dinamikus kezelése felhasználó felületről: média törlése, borító hozzáadás, kereső, lejátszási listák stb.
+    \item {\textbf {Tesztelés: }} Habár a tesztelés a lista végére került, de a valóságban kézi tesztelés mindegyik lépés végén és közben is megtörtént, a funkciók helyes működésének érdekében. Végezetül a teljes program tesztelése.
 \end{enumerate}
 
 % ==========================================================
 % |                Használt technológiák                   |
 % ==========================================================
 \section{Használt technológiák}
-Az alkalmazás fejlesztését JavaScript nyelven kezdtem meg és fejlesztés közben váltottam TypeScript nyelvre. A TypeScript gyakorlatilag egy típusos kiterjesztése a JavaScriptnek, éppen ezért minden kód amit JavaScriptben írtam azok érvényes és valid kódok TypeScriptben is. A TypeScript lényege, hogy típus biztossá teszi az alkalmazást, ami ugyan megnehezíti a fejlesztést, de nagy előnye, hogy sok probléma már a fejlesztés során észlelhető - ezáltal javítható - és nem a kész verzióban történnek katasztrofális dolgok. Váltásom motivációja a TypeScript nyújtotta előnyök mellett az is volt, hogy az ipar jelenlegi trendjei teljesen egészében effelé a nyelv felé mutatnak, minden komolyan vehető program - amely Electront, Angulart vagy más hasonló webes technológiát használ - már TypeScript nyelven íródik. Ez predesztinálta az én hozzáállásomat is a nyelvhez, tekintve a legelejétől fogva célom volt a legfrissebb és legnépszerűbb technológiák haszálata, ezen piacképes tudások elsajátítása.
+Az alkalmazás fejlesztését JavaScript nyelven kezdtem meg és fejlesztés közben váltottam TypeScript nyelvre. A TypeScript gyakorlatilag egy típusos kiterjesztése a JavaScriptnek, éppen ezért minden kód amit JavaScriptben írtam azok érvényes és valid kódok TypeScriptben is. A TypeScript lényege, hogy típus biztossá teszi az alkalmazást, ami ugyan megnehezíti a fejlesztést, de nagy előnye, hogy sok probléma már a fejlesztés során észlelhető - ezáltal javítható - és nem a kész verzióban történnek katasztrofális dolgok. Váltásom motivációja a TypeScript nyújtotta előnyök mellett az is volt, hogy az ipar jelenlegi trendjei teljes egészében efelé a nyelv felé mutatnak, minden komolyan vehető alkalmazás - amely Electront, Angulart vagy más hasonló webes technológiát használ - már TypeScript nyelven íródik. Ez formálta az én hozzáállásomat is a nyelvhez, tekintve, hogy a legelejétől fogva célom volt a legfrissebb és legnépszerűbb technológiák használata, ezen piacképes tudások elsajátítása.
 
 Az alkalmazás fejlesztése teljes egészében a Visual Studio Code nyílt forráskódú kódszerkesztővel zajlott, Electron-t, React-et és Redux-ot továbbá Git verziókezelő rendszert felhasználva és egy publikus GitHub repositoryban tárolva a kódot, amely elérhető az alábbi címen: \url{https://github.com/TMD44/mvp}
 
 \subsection{Electron}
-Az Electron\footnote{\url{https://www.electronjs.org/}} egy nyílt forráskódú keretrendszer, amelyet asztali alkalmazások fejlesztéséhez lett kifejlesztve. Különlegessége, hogy a már ismert és bejáratott webes technolgiákat - tehát HTML, CSS, JavaScript - lehet használni asztali alkalmazások fejlesztéséhez. Az Electron két külön, egymástól hermetikusan elzárt része a {\it main process} és a {\it renderer process}, melyek között alá-fölé rendelt viszony található.
+Az Electron\footnote{\url{https://www.electronjs.org/}} egy nyílt forráskódú keretrendszer, amely asztali alkalmazások fejlesztéséhez lett kifejlesztve. Különlegessége, hogy a már ismert és bejáratott webes technológiákat - tehát HTML, CSS, JavaScript - lehet használni asztali alkalmazások fejlesztéséhez. Az Electron két külön, egymástól hermetikusan elzárt része a {\it main process} és a {\it renderer process}, melyek között alá-fölé rendelt viszony található.
 
-Az Electron ``fő szála'' - ezt nem véletlenül tettem idézőjelbe, tekintve a JavaScript egy egyszálú programozási nyelv, tehát JavaScriptben nem tudunk konkurrens programokat írni -, vagy hívhatjuk angolul {\it main process}nek is, ami gyakorlatiag egy Node.JS alkalmazás, amely a böngésző ablakok létrehozásáért, az operációs rendszerrel való kommunikációért és az alkalmazás életciklusárt felel. Ez gyakorlatilag egy fájl, amely az alkalmazásunk belépési pontját fogja képezni.
+Az Electron ``fő szála'' - ezt nem véletlenül tettem idézőjelbe, tekintve a JavaScript egy egyszálú programozási nyelv, tehát JavaScriptben nem tudunk konkurens programokat írni -, vagy hívhatjuk angolul {\it main process}nek is, ami gyakorlatilag egy Node.JS alkalmazás, amely a böngésző ablakok létrehozásáért, az operációs rendszerrel való kommunikációért és az alkalmazás életciklusáért felel. Ez tulajdonképpen egy fájl, amely az alkalmazásunk belépési pontját fogja képezni.
 
-Az előbb említett böngésző ablak pedig az Electron másik elszeparált és alárendelt része, a {\it renderer process}, amelyet a {\it main process} hoz létre és menedzseli is azt. Ez tulajdonképpen egy Chromium böngésző ablakot fog jelenteni, amely egy HTML fájlt fog megjeleníteni, ahogy azt a webes világban már megszokhattuk. Lehetőgésünk van továbbá Node intergrációhoz is, amit a {\it main process}en belül tudunk engedélyezni. Az integráció lényege, hogy a böngésző ablakból használhatjuk a Node által nyújtott funckiókat is, például fájlrendszer elérése, modulok importálása és exportálása.
+Az előbb említett böngésző ablak pedig az Electron másik elszeparált és alárendelt része, a {\it renderer process}, amelyet a {\it main process} hoz létre és menedzseli is azt. Ez tulajdonképpen egy Chromium böngésző ablakot jelent, amely egy HTML fájlt fog megjeleníteni, ahogy azt a webes világban már megszokhattuk. Lehetőgésünk van továbbá Node integrációra is, amit a {\it main process}-en belül tudunk engedélyezni. Az integráció lényege, hogy a böngésző ablakból használhatjuk a Node által nyújtott funkciókat is, például fájlrendszer elérése, modulok importálása és exportálása.
 
 \subsection{React}
-A React\footnote{\url{https://reactjs.org/}} egy JavaScript könyvtár, amely főleg felhasználó felületek készítésére nyújt egy fölöttébb elegáns megoldást. A segítségével rendkívül egyszerűen tudunk, úgy nevezett Single Page Application-ket készíteni. Az innováció ebben a megközelításben az, hogy nincs szükség az oldal újbóli betöltésére, hanem a felhasználói interakció során az oldal tartalmai dinamikusan újratölthetőek és nem is az egész oldal, hanem annak kisseb részei, úgy nevezett komponensei.
+A React\footnote{\url{https://reactjs.org/}} egy JavaScript könyvtár, amely főleg felhasználó felületek készítésére nyújt egy fölöttébb elegáns megoldást. A segítségével rendkívül egyszerűen tudunk, úgy nevezett Single Page Application-ket készíteni. Az innováció ebben a megközelítésben az, hogy nincs szükség az oldal újbóli betöltésére, hanem a felhasználói interakció során az oldal tartalmai dinamikusan újratöltődnek és nem is az egész oldal, hanem annak kisebb részei, úgy nevezett komponensei.
 
 \subsection{Redux}
-A Redux\footnote{\url{https://redux.js.org/}} egy state management tool, vagyis magyarul egy állapot kezelő rendszer. A Redux lényege és legnagyobb előnye, hogy az alkalmazásunk állapotát képes külön, egy külön egységként tárolni és menedzselni. Az állapotot memóriában tárolja, gyakorlatilag egy nagy JSON objektumban, ezen adatok módosítása pedig {\it dispatch} útján valósítható meg.
+A Redux\footnote{\url{https://redux.js.org/}} egy state management tool, vagyis magyarul egy állapot kezelő rendszer. A Redux lényege és legnagyobb előnye, hogy az alkalmazásunk állapotát képes egy külön egységként tárolni és menedzselni. Az állapotot a memóriában tárolja, gyakorlatilag egy nagy JSON objektumban, ezen adatok módosítása pedig {\it dispatch} útján valósítható meg.
 
 % ==========================================================
 % |               Használati esetek diagram                |
@@ -75,22 +75,22 @@ A Redux\footnote{\url{https://redux.js.org/}} egy state management tool, vagyis 
 	\caption{Mappa struktúra}
 	\label{fig:folders}
 \end{figure}
-Az {\it .erb} mappa tartalmazza a Webpack konfigurációkat, illetve olyan scripteket amelyek sima npm parancsokkal nem lehetne elvégezni. Ezek a fájlok az Electron-React-Boilerplate-ből jönnek, amely egy szabad felhasználású kiinduló pontot biztosít az Electron-React alkalmazások számára, én kissebb változtatásokat eszközöltem a saját projektem érdekében.
-A {\it .github} és {\it .vscode} mappák csupán configurációkat tartalmaznak a GitHub repository, illetve a kódszerkesztő program használatához.
-Az {\it .assets} mappa tartalmazza az alkalmazás ikonkészletét, felhasznált képeket, illetve itt kapott helyet a {\it .storage} mappa is amelyben tárolódik az a két JSON fájl amelybe az alkalmazás kimenti az adatokat.
-Az {\it .docs} mappában a dokumentáció LaTex-es verziója található.
-Az {\it .tests} mappában tartalmazza a teszt fájlokat.
+Az {\it .erb} mappa tartalmazza a Webpack konfigurációkat, illetve olyan eljárásokat, amelyeket sima npm parancsokkal nem lehetne elvégezni. Ezek a fájlok az Electron-React-Boilerplate-ből jönnek, amely egy szabad felhasználású kiindulópontot biztosít az Electron-React alkalmazások számára, én kisebb változtatásokat eszközöltem a saját projektem érdekében.
+A {\it .github} és {\it .vscode} mappák csupán konfigurációkat tartalmaznak a GitHub repository, illetve a kódszerkesztő program használatához.
+Az {\it .assets} mappa tartalmazza az alkalmazás ikonkészletét, felhasznált képeket, illetve itt kapott helyet a {\it .storage} mappa is, amelyben tárolódik az a két JSON fájl, amelybe az alkalmazás kimenti az adatokat.
+Az {\it .docs} mappában a dokumentáció LaTeX-es verziója található.
+Az {\it .tests} mappában találhatóak a teszt fájlok.
 
-A {\it .src} mappa pedig az applikáció főkönytára, amelyben helyt kapott az {\it .app} amely a felhasználói felület implementációját és az Electron renderer processét - a Scannelés impelentációját -  tartalmazza, a {\it .main} amely az Electron main processét tartalmazza, a {\it redux} mappa amely az adat tároláshoz használt Redux-nak ad helyt. Illetve a {\it scripts} és {\it type} mappák, amely az egész alkalamzásban gyakran használt függvényeket és TypeScript típusokat tartalmazzák.
+A {\it .src} mappa pedig az applikáció főkönytára, amelyben helyt kapott az {\it .app} amely a felhasználói felület implementációját és az Electron renderer processét - többek között a Scannelés implementációját is -  tartalmazza, a {\it .main}, amely az Electron main processét tartalmazza, a {\it redux} mappa, amely az adat tároláshoz használt Reduxnak ad helyet. Illetve a {\it scripts} és {\it type} mappák, amely az egész alkalmazásban gyakran használt függvényeket és TypeScript típusokat tartalmazzák.
 
 % ==========================================================
 % |               Adatok tárolása, kezelése                |
 % ==========================================================
 \subsection{Adatok tárolása, kezelése}
-Az alkalmazás futása közben a Redux segítségével kezeljük a felhasznlói felülethez és a beolvasott média tartalmakhoz kapcsolódó adatokat. Reduxot főleg webalkalmazásokhoz használnak, de nekünk itt asztali környezetben is alkalmazható lesz egy kis trükkel, mégpedig amikor megnyitjuk az alkalmazást, a Redux beállítja a kezdeti állapotot - ez a webes körnezetben annyit tenne, hogy egy előre meghatározott alapértelmezett állapot sémát alakalmazna - ami a mi esetünkben két fájl lesz, a {\it config.json} és a {\it mediaDB.json}. A {\it config.json} fájl az alkalmazás futásához, a beolvasáshoz és a felhasználó személyes preferenciáihoz szükséges adatokat, míg a {\it mediaDB.json} a beolvasott média tartalmakhoz kapcsolodó adatokat, metaadatokat tartalmazza. Ez a két JSON fájl két féleképpen jöhet létre:
+Az alkalmazás futása közben a Redux segítségével kezeljük a felhasználói felülethez és a beolvasott média tartalmakhoz kapcsolódó adatokat. Reduxot főleg webalkalmazásokhoz használnak, de nekünk itt asztali környezetben is alkalmazható lesz egy kis trükkel, mégpedig amikor megnyitjuk az alkalmazást, a Redux beállítja a kezdeti állapotot - ez a webes környezetben annyit tenne, hogy egy előre meghatározott alapértelmezett állapot sémát alkalmazna - ami a mi esetünkben két fájl lesz, a {\it config.json} és a {\it mediaDB.json}. A {\it config.json} fájl az alkalmazás futásához, a beolvasáshoz és a felhasználó személyes preferenciáihoz szükséges adatokat, míg a {\it mediaDB.json} fájl a beolvasott média tartalmakhoz kapcsolódó adatokat, metaadatokat tartalmazza. Ez a két JSON fájl kétféleképpen jöhet létre:
 \begin{itemize}
-    \item Létrejöhet az alkalmazás bezárásakor, ekkor az alkalmazás jelenlegi állapota kerül kiírásra a fájlba.
-    \item Valamint létrejöhet az alkalmazás indításakor is, ha a program úgy érzékeli, hogy a megadott helyen még nem létezik ez a két fájl. Ilyenkor egy előre megadott alapértelmezett állapot kerül kiírásra, amely alapértelmezett beállításokat (felhasználói felület, beolvasásssal kapcsolatos preferenciák stb.) és egy üres vázat tartalmazza, amelybe bekerülnek majd a scannelés során gyűjtött adatok.
+    \item Létrejöhet az alkalmazás bezárásakor, ekkor az alkalmazás jelenlegi állapota kerül kiírásra a fájlokba.
+    \item Valamint létrejöhet az alkalmazás indításakor is, ha a program úgy érzékeli, hogy a megadott helyen még nem létezik ez a két fájl. Ilyenkor egy előre megadott, alapértelmezett állapot kerül kiírásra, amely alap beállításokat (felhasználói felület, beolvasással kapcsolatos preferenciák stb.) és egy üres vázat tartalmaz, amelybe kerülnek majd a scannelés során gyűjtött adatok.
 \end{itemize}
 
 \begin{figure}[H]
@@ -100,7 +100,7 @@ Az alkalmazás futása közben a Redux segítségével kezeljük a felhasznlói 
 	\label{fig:redux-init}
 \end{figure}
 
-Tehát az alkalmazás futása közben az adatok a Redux store-ban tárolódnak, amikor az alkalmazás bezárásra kerül, akkor az állapot két fájlba kerül kírásra - ebből fakadóan két futás között az adatok fájlban átrolódnak - amit aztán újranyitás esetén egyszerűen betöltünk a kezdeti állapotba.
+Tehát az alkalmazás futása közben az adatok a Redux storeban tárolódnak, amikor az alkalmazás bezárásra kerül, akkor az állapot két fájlba kerül kiírásra - ebből fakadóan két futás között az adatok fájlban tárolódnak - amit aztán újranyitás esetén egyszerűen betöltünk a kezdeti állapotba.
 
 \subsubsection{Példa config.json fájl}
 
@@ -224,10 +224,10 @@ Tehát az alkalmazás futása közben az adatok a Redux store-ban tárolódnak, 
 % |               Média tartalmak beolvasása               |
 % ==========================================================
 \subsection{Média tartalmak beolvasása}
-Az alkalmazás egyértelműen legfontosabb része a média tartalmak beolvasása. Ezt a folyamatot három részre bontottuk, a mappák kiválasztására, az Offline, illetve Online Scanre.
+Az alkalmazás egyértelműen legfontosabb része, a média tartalmak beolvasása. Ezt a folyamatot három részre bontottuk, a mappák kiválasztására, az Offline, illetve Online Scannelésre.
 
 \subsubsection{Mappa kiválasztás}
-A mappák megnyitásához az Electron egy beépített modulját, a ``dialog''ot fogjuk használni. A probléma csak az, hogy ezt a modult nem leszhet a renderer processben használni csak a main processben, ilyenkor jön jól az IPC renderer és IPC main modulok amelyek kommunikációt tesznek lehetővé a két réteg között. Az ``Open Dir'' gombra kattintva tehát elküldjük az IPC-n keresztül a main process-nek, ami aztán a ``dialog'' modult felhasználva megnyitnya az operációs rendszer natív párbeszédablakját, ebben az esetben kifejezetten mappák megnyitását engedélyezzük csak, azokból is többet. Az ablakot bezárva az eredményt string tömb formájában visszaküljük a renderer processnek, amely elvégzi a Redux store-ba dispatch-elését. A config objecten belül ``scan paths'' kulcs néven találjuk a beolvasott mappák tömbjét.
+A mappák megnyitásához az Electron egy beépített modulját, a {\it dialog}ot fogjuk használni. A probléma csak az, hogy ezt a modult nem lehet a renderer processben használni csak a main processben, ilyenkor jön jól az IPC renderer és IPC main modulok amelyek kommunikációt tesznek lehetővé a két réteg között. Az {\it Open Dir} gombra kattintva tehát elküldjük az IPC-n keresztül a main process-nek, ami aztán a {\it dialog} modult felhasználva megnyitja az operációs rendszer natív párbeszédablakát, ebben az esetben kifejezetten mappák megnyitását engedélyezzük csak, azokból is többet. Az ablakot bezárva az eredményt string tömb formájában visszaküldjük a renderer processnek, amely elvégzi a Redux storeba dispatch-elését. A config objektumon belül {\it scan\_paths} kulcs néven találjuk a beolvasott mappák tömbjét.
 
 \lstset{caption={Mappák megnyitása}, label=src:python}
 \begin{lstlisting}[language={python}]
@@ -250,9 +250,9 @@ ipcMainCommunication.on('open-dir-sync', (event) => {
 \end{lstlisting}
 
 \subsubsection{Offline scan}
-Az Offline scannelés megkezdéséhez két dologra lesz szükségünk, az egyik a mappák amelyekben keresni fogunk, a másik hogy milyen fájl típusokat fogunk keresni, igencsak hatékonytalan lenne ha minden fájlt beolvasnánk amelyek a program működését tekintve nem lényeges információkat tartalmaznak, éppen ezért szűrni fogjuk a fájlokat. A Redux store-ból tehát behívjuk a ``scan file types'' kulcshoz tartozó objektumot amely egy tematikusan tömböket tartalmazó objektum, ezek előre meghatározott fájltípusok, a felhasználónak lehetősége van megváltoztatni őket. Behívjuk továbbá az előző pontban hozzáadott ``scan paths''-eket.
+Az Offline scannelés megkezdéséhez két dologra lesz szükségünk, az egyik a mappák, amelyekben keresni fogunk, a másik, hogy milyen fájl típusokat fogunk keresni, igencsak hatékonytalan lenne, ha minden fájlt beolvasnánk, amelyek a program működését tekintve nem lényeges információkat tartalmaznak, éppen ezért szűrni fogjuk a fájlokat. A Redux storeból tehát behívjuk a {\it scan\_file\_types} kulcshoz tartozó objektumot, amely egy tematikusan tömböket tartalmazó objektum, ezek előre meghatározott fájltípusok, a felhasználónak lehetősége van megváltoztatni őket. Behívjuk továbbá az előző pontban hozzáadott {\it scan\_paths}-eket.
 
-A megadott mappa elérési utvonalakon végig iterálva minden útvonalra meghívjuk a ``scanDir'' függvényt amely rekurzívan a mappa tartalmán - amennyiben a mappában még több mappa található, ezekben az estekben is hasonlóképpen jár el - és a megadott fájltípusokra szűrve egy tömbbe pusholja a talált fájlokat (videófájlok, például ``.mkv'',``.mp4'' vagy felirat fájlok, például ``.srt'', ``.vtt'', illetve NFO fájlok ``.nfo''). Történik még egy filterezé ezt követően, tekintve nagyon sok példa van rá, hogy az offline videó tartalmaink mellet úgy nevezett ``sample'' vagy minta videó fájlok is helyt kapnak, ezek a fájlok szűrésre kerülnek, ugyanis a program működésének szempontjából lényegtelen fájlokról beszélünk. Eztuán minden talált elemet átalakít egy sokkal kezelhetőbb formátumra, a fentebb már config.json példában bemutatott ``scan\_results'' kulcsban. A lényeg itt annyi, hogy a megfelelő formátumú fájlokat a megfelelelő objektumbra szortírozzuk, tehát média fájlokat a media objektumba, a felirat fájlokat a sub objektumba, az NFO fájlokat pedig az nfo objektumba. Mindezek elvégzése után elmentjük a Redux store-ba megintcsak dispatch útján.
+A megadott mappa elérési útvonalakon végig iterálva minden útvonalra meghívjuk a ``scanDir'' függvényt amely rekurzívan a mappa tartalmán - amennyiben a mappában még több mappa található, ezekben az estekben is hasonlóképpen jár el - és a megadott fájltípusokra szűrve egy tömbbe pusholja a talált fájlokat (videófájlok, például ``.mkv'',``.mp4'' vagy feliratfájlok, például ``.srt'', ``.vtt'', illetve NFO fájlok ``.nfo''). Történik még egy filterezés ezt követően is, tekintve nagyon sok példa van rá, hogy az offline videó tartalmaink mellet úgynevezett ``sample'' vagy minta videófájlok is helyet kapnak, ezek a fájlok szűrésre kerülnek, ugyanis a program működésének szempontjából lényegtelen fájlokról beszélünk. Ezután minden talált elemet átalakít egy sokkal kezelhetőbb formátumra, a fentebb már config.json példában bemutatott {\it scan\_results} kulcsban. A lényeg itt annyi, hogy a megfelelő formátumú fájlokat a megfelelelő objektumra szortírozzuk, tehát média fájlokat a media objektumba, a feliratfájlokat a sub objektumba, az NFO fájlokat pedig az nfo objektumba. Mindezek elvégzése után elmentjük a Redux storeba megintcsak dispatch útján.
 
 \lstset{caption={Offline scan}, label=src:python}
 \begin{lstlisting}[language={python}]
@@ -277,14 +277,14 @@ for (const file in results.media) {
 store.dispatch(addMediaAtOnce(scan.mediaInJSON));
 \end{lstlisting}
 
-A következő for ciklusban már ezeket az átalakított objektumokat fogjuk felhasználni és tovább alakítjuk ``mediaJsonGenerator'' függvény segítségével. A függvény elször összepárosítja a felirat fájlokat a hozzá kapcsolódó videófájlhoz, tekintve a feliratfájloknál eddig is az volt a konvenció, hogy a felirat fájl neve legyen ugyanaz mint a videó fájl neve, ezt felhasználva könnyű dolgunk van. Végeredményben egy tömböt fogunk kapni, amely tartalmazza a videó fájlhoz köthető feliratokat. A felirat fájlokkal történik a program ezen pontján még egy fontos dolog, mégpedig egy ``.vtt'' formátumra konvertálás, ennek oka az, hogy habár asztali alkalmazást készítünk az eszköztár amelyet használunk webes technológiákra épülnek éppen ezért igazodnunk kell a web által támogatott formátumokra, amely jelen esetünkben felirat fájlok esetén a ``.vtt''.
+A következő for ciklusban már ezeket az átalakított objektumokat fogjuk felhasználni és tovább alakítjuk  {\it mediaJsonGenerator} függvény segítségével. A függvény először összepárosítja a feliratfájlokat a hozzá kapcsolódó videófájlhoz, tekintve a feliratfájloknál eddig is az volt a konvenció, hogy a feliratfájl neve legyen ugyanaz, mint a videófájl neve, ezt felhasználva könnyű dolgunk van. Végeredményben egy tömböt fogunk kapni, amely tartalmazza a videófájlhoz köthető feliratokat. A feliratfájlokkal történik a program ezen pontján még egy fontos dolog, mégpedig egy ``.vtt'' formátumra konvertálás, ennek oka az, hogy habár asztali alkalmazást készítünk az eszköztár, amelyet használunk webes technológiákra épülnek, éppen ezért igazodnunk kell a web által támogatott formátumokra, amely jelen esetünkben feliratfájlok esetén a ``.vtt''.
 
-Eztuán az NFO fájl - általában egy NFO fájl köthető egy videó fájlhoz - videófájlhoz párosítása következik. Ez már kicsit bonyolultabb eset, itt is fenn áll ugyan a ``legyen ugyanaz a neve'', de a fájlstruktúrán belül a fájl elhelyezkedése változhat. Sorozatok esetén például általában nincs mindegyik epizódhoz külön NFO fájl, hanem magához az évadhoz vagy az egész sorozathoz, tehát a fájl helye nem feltétlenül a videó fájl mellet található. A scannelés folyamata lekezelei ezeket a különböző eseteket, tehát végeredményben megkapjuk a videófájlhoz köthető NFO fájlt.
-Innentől kezdve rendelkezünk tehát NFO fájllal amely rengeteg hasznos offline információt tartalmaz a filmünkről, azonban itt olyan problémába ütközünk, hogy az NFO fájl tartalmát tekintve semmilyen konvenció vagy szokás nincs, éppen ezért algoritmikus úton kifejezetten nehéz biztosan helyen információkat kinyerni. Ennek következtében az NFO fájlban kifejezetten csak a legfontosabb információt fogjuk keresni, mégpedig egy IMDB linket. Az IMDB a legelterjedtebb filmes adatbázisok egyike jelenleg és az url címében a film egy egyedi azonosítója található, amelyet fel fogunk tudni használni majd a metaadatok letöltésekor. Az NFO fájl tartalmának beolvasását követően, egy reguláris kifejezés segítségével ({\it /tt[0-9]{7,8}/gi}) IMDB azonosítót keresünk, ha találtunk akkor nincs is más dolgunk mint lementeni egy objektumba, amit aztán visszaadunk a ``mediaJsonGenerator'' függvénynek. Abban az esetben ha nem találtunk explicit azonosítót, megpróbálkozunk megképp.
-Számos esetben megfigyelhető, hogy az NFO fájlokban URL rövidítő szolgáltasokat használnak, például TinyURL, Bit.ly stb. Scannelésünk folyamatában rendkívül fontos információ az IMDB ID, éppen ezért az algoritumus az egyik legnépszerűbb a TinyURL visszafejtésével is megpróbálkozik. Abban az esetben ha sikerrel jár és a rezolválás eredménye egy IMDB azonosító akkor a már fentebb ismeretett módon járunk el, ha nem járunk sikerrel akkor az információ nem kerül bele az eredmény objektumba.
+Ezután az NFO fájl - általában egy NFO fájl köthető egy videófájlhoz - videófájlhoz párosítása következik. Ez már kicsit bonyolultabb eset, itt is fenn áll ugyan a ``legyen ugyanaz a neve'', de a fájlstruktúrán belül a fájl elhelyezkedése változhat. Sorozatok esetén például általában nincs mindegyik epizódhoz külön NFO fájl, hanem magához az évadhoz vagy az egész sorozathoz, tehát a fájl helye nem feltétlenül a videófájl mellet található. A scannelés folyamata lekezeli ezeket a különböző eseteket, tehát végeredményben megkapjuk a videófájlhoz köthető NFO fájlt.
+Innentől kezdve rendelkezünk tehát NFO fájllal, amely rengeteg hasznos offline információt tartalmaz a filmünkről, azonban itt olyan problémába ütközünk, hogy az NFO fájl tartalmát tekintve semmilyen konvenció vagy szokás nincs, éppen ezért algoritmikus úton kimondottan nehéz biztosan helyes információkat kinyerni. Ennek következtében az NFO fájlban kifejezetten csak a legfontosabb információt fogjuk keresni, mégpedig egy IMDB linket. Az IMDB a legelterjedtebb filmes adatbázisok egyike jelenleg és az url címében a film egy egyedi azonosítója található, amelyet fel fogunk tudni használni majd a metaadatok letöltésekor. Az NFO fájl tartalmának beolvasását követően, egy reguláris kifejezés segítségével IMDB azonosítót keresünk, ha találtunk akkor nincs is más dolgunk mint lementeni egy objektumba, amit aztán visszaadunk a ``mediaJsonGenerator'' függvénynek. Abban az esetben ha nem találtunk explicit azonosítót, megpróbálkozunk másképp.
+Számos esetben megfigyelhető, hogy az NFO fájlokban URL rövidítő szolgáltatásokat használnak, például TinyURL, Bit.ly stb. Scannelésünk folyamatában rendkívül fontos információ az IMDB ID, éppen ezért az algoritmus az egyik legnépszerűbb a TinyURL visszafejtésével is megpróbálkozik. Abban az esetben ha sikerrel jár és a rezolválás eredménye egy IMDB azonosító, akkor a már fentebb ismertetett módon járunk el, ha nem járunk sikerrel akkor az információ nem kerül bele az eredmény objektumba.
 
-A másik forrás amelyből offline használható információkat tudunk kinyerni, a fájlnév és a mappa neve. Ehhez a fájl név felismerő függvényünket fogjuk használni, amely az NFO-s azonosító felismeréshez hasonlóan regulásris kifejezések szövegre illesztésével fogjuk kivitelezni.
-Az ``fnr'' függvény a következő képpen működik, megkap egy stringet, ami az egyik esteben a fájl neve, a másik esetben a mappa neve. Ezután ezután sorban, reguláris kifejezéseket illeszt a szövegre és ha illeszkedik rá azt a szövegből kivesszük és a visszaadandó eredmény objektumba rakjuk, az eredeti stringben pedig aláhúzás (\_) karakterre cseréljük a talált eredményt. Ezt minden egyes Regex típusra eljátszuk, ennek következtében a végére kapunk egy eredmény objektumot amelyben tematikusan szét van válogatva a talált stringek, illetve a visszamaradó stringet amelyben már csak a cím maradt az egyetlen hasznos információ. Ekkor az algoritmus a string elejétől elkezd ``értelmes karaktereket'' keresni tehát kisbetűs, nagybetűs karakterek illetve számok, és addig megy a szövegben amíg el nem kezd találni minimum kettő vagy annál több ``értelmetlen kataktereket'', ezek az aláhúzás (\_), a pont (.) és a szóköz ( ). Ha 2 vagy több értelm ``értelmetlen kataktert'' találtunk, akkor az addig ``értelmes'' karaktereket kimentjük, ez lesz a cím. Továbbá kicsit szépítünk is rajta például ha a szavak között pont van azt szóközre cseréljük és az első karaktert nagybetűsre cseréljük. Abban az esetben ha valami hiba történik a cím keresésekor a string már üres, vagy rossz formátumú tehát üres stringet adna vissza, az algoritmus az eredeti, még a függvény paraméterül megkapott stringet teszi meg címnek.
+A másik forrás amelyből offline használható információkat tudunk kinyerni, a fájlnév és a mappa neve. Ehhez a fájlnév felismerő függvényünket fogjuk használni, amely az NFO-s azonosító felismeréshez hasonlóan regulásris kifejezések szövegre illesztésével fogjuk kivitelezni.
+Az {\it fnr} függvény a következőképpen működik, megkap egy stringet, ami az egyik esteben a fájl neve, a másik esetben a mappa neve. Ezután sorban reguláris kifejezéseket illeszt a szövegre és ha illeszkedik rá azt a szövegből kivesszük és a visszaadandó eredmény objektumba rakjuk, az eredeti stringben pedig aláhúzás (\_) karakterre cseréljük a talált eredményt. Ezt minden egyes Regex típusra elvégezzük, ennek következtében a végére kapunk egy eredmény objektumot, amelyben tematikusan szét van válogatva a talált stringek, illetve a visszamaradó szöveget, amelyben már valószínűleg csak a cím maradt az egyetlen hasznos információ. Ekkor az algoritmus a string elejétől elkezd ``értelmes karaktereket'' keresni tehát kisbetűs, nagybetűs karakterek illetve számok, és addig megy a szövegben amíg el nem kezd találni minimum kettő vagy annál több ``értelmetlen karaktereket'', ezek az aláhúzás (\_), a pont (.) és a szóköz ( ). Ha kettő vagy több ``értelmetlen karaktert'' találtunk, akkor az addig ``értelmes'' karaktereket kimentjük, ez lesz a cím. Továbbá kicsit szépítünk is rajta például, ha a szavak között pont van azt szóközre cseréljük és az első karaktert is nagybetűsre cseréljük. Abban az esetben ha valami hiba történik a cím keresésekor a string már üres, vagy rossz formátumú, tehát üres stringet adna vissza, az algoritmus az eredeti, még a függvény paraméterül megkapott stringet teszi meg címnek.
 
 \lstset{caption={Példa reguláris kifejezésekre}, label=src:c}
 \begin{lstlisting}[language={c}]
@@ -297,10 +297,11 @@ const fnrPatterns = {
     episode: /[.,\-_ ]E([0-9]{1,3})-(E)?([0-9]{1,3})|E([0-9]{1,3})(?:[^0-9]|$)|[Xx]([0-9]{1,3})(?:[^0-9]|$)|(EP|EPISODE)([0-9]{1,3})(?:[^0-9]|$)/gi,
     codec: /XVID|DIVX|AVC|HEVC|X[.\-_ ]?26[0-9]|H[.\-_ ]?26[0-9]/gi,
     audio: /(DD|DDP|MA|AC3|AAC|PCM|LPCM|FLAC|DTS[._\- ]?(HD)?|TRUEHD[+._\- ]?ATMOS|TRUEHD|ATMOS)[+._\- ]?[0-9]\.?[0-9]|DTS[._\- ]?(HD|ES)?|DUAL[._\- ]?AUDIO|DOLBY[+._\- ]?(DIGITAL[+._\- ]?(PLUS)?|VISION|ATMOS)|HALF-OU/gi,
+    imdb_id: /tt[0-9]{7,8}/gi
 };
 \end{lstlisting}
 
-Végeredményben tehát két objektumot fogunk visszakapni a függvénytől, egyet a fájlnévből kinyert adatokkal és egy másikat a mappa nevéből kinyert adatokkal, ezek egyesítése a következő függvény a ``dataSum'' feladata. Az alap logikánk egyszerű, éppen ezért kivitelezésünk is: az adatok egyesítése során azaz objektum lesz a domináns amelyik több kulcsot tartalmaz, a több kulcs több kinyert információt is jelent. Az eredmény objektumunkba először a kevesebb kulcsú objektumot rakjuk bele aztán ráengedjük a több kulcsú objektumot, ilyenkor kulcs egyezés esetén a másodjára jövő objektum felülírja a már meglévő kulcsot, ezáltal az eredmény objektumban benne lesz mind a két objektum egyedi kulcsai (amik csak a fájlnév objektumban és mappanév objektumban voltak), hasonló kulcsok esetén pedig a domináns, tehát több kulcsú objektum adatai maradnak meg. Ezáltal megkapjuk a metaadatok objektumot.
+Végeredményben tehát két objektumot fogunk visszakapni a függvénytől, egyet a fájlnévből kinyert adatokkal és egy másikat a mappa nevéből kinyert adatokkal, ezek egyesítése a következő függvény a {\it DataSum} feladata. Az alap logikánk egyszerű, éppen ezért kivitelezésünk is: az adatok egyesítése során azaz objektum lesz a domináns, amelyik több kulcsot tartalmaz, a több kulcs több kinyert információt is jelent. Az eredmény objektumunkba először a kevesebb kulcsú objektumot rakjuk bele aztán ráengedjük a több kulcsú objektumot, ilyenkor kulcs egyezés esetén a másodjára jövő objektum felülírja a már meglévő kulcs értékét, ezáltal az eredmény objektumban benne lesznek mind a két objektum egyedi kulcsai (amik csak a fájlnév objektumban és mappanév objektumban voltak), hasonló kulcsok esetén pedig a domináns, tehát több kulcsú objektum adatai maradnak meg. Ezáltal megkapjuk a metaadatok objektumot.
 
 \lstset{caption={Példa az fnr függvény eredményére}, label=src:json}
 \begin{lstlisting}[language={json}]
@@ -319,26 +320,26 @@ Végeredményben tehát két objektumot fogunk visszakapni a függvénytől, egy
       }
 \end{lstlisting}
 
-Legvégül minden fent kiszűrt adatot összesítünk egy nagy objektumban, amely tehát tartalmazni fogja külön kulcsokra szétszedve a videó fájl nevét, kiterjesztését, elérési útvonalát, a felirat fájlok útvonalait (több is lehet), az NFO fájl útvonalát (egy lehet), a metaadatok objektumát, illetve egy egyedi ID azonosítót amelyet MD5-ös hasheléssel hozunk létre a videó fájl útvonalából, ez az azonosító az operációs rendszer által bizosítottan egyedi lesz, hiszen nem lehet 2 ugyanolyan nevű és kiterjesztésű fájl ugyanazon az útvonalon. Az eredményt pedig dispatcheljük a Redux storeba.
+Legvégül minden fent kiszűrt adatot összesítünk egy nagy objektumban, amely tartalmazni fogja külön kulcsokra szétszedve a videófájl nevét, kiterjesztését, elérési útvonalát, a feliratfájlok útvonalait (több is lehet), az NFO fájl útvonalát (egy lehet), a metaadatok objektumát, illetve egy egyedi ID azonosítót, amelyet MD5-ös hasheléssel hozunk létre a videófájl útvonalából, ez az azonosító az operációs rendszer által biztosítottan egyedi lesz, hiszen nem lehet 2 ugyanolyan nevű és kiterjesztésű fájl ugyanazon az útvonalon. Az eredményt pedig dispatcheljük a Redux storeba.
 
-Az Offline scannelésből egy dolog maradt még hátra. Érdemes meggondolni ezen média tartalmak megjelenítését, az egy részet filmek megjelenítésével nincsen probléma, tekintve ezek egy videó fájlból állnak tehát egy ilyen média objektummal le tudjuk írni az összes hozzá köthető adatot. A probléma a többrészes sorozatoknál kezdődik ahol is több videó fájl található tehát több média objektum is. Éppen ezért megjelenítésnél nem az ``all\_media'' kulcson tárolt nagy objektumokat fogjuk megjeleníteni, hanem készítünk egy ``movies'' és egy ``tv\_series'' objektumot amelybe értelem szerűen a filmek és sorozatok kerülnek majd külön. Mindkét objektumba a média tartalmak ID azonosítóit fogjuk tenni, értelemszerűen filmek esetén egy egy azonosítót fog jelenteni, sorozatok esetében pedig midegyik epizód azonosítója bekerül. Az objektumok struktúrája mindkét esetben hasonló, hogy a megjelenítési feldoglozásnál ne kelljen külön lekezelni a két esetet. A 3.2-es forráskódban példát is hozunk minden fentebb leírtakra.
+Az Offline scannelésből egy dolog maradt még hátra. Érdemes meggondolni ezen média tartalmak megjelenítését, az egy részes filmek megjelenítésével nincsen probléma, tekintve ezek egy videófájlból állnak tehát egy ilyen média objektummal le tudjuk írni az összes hozzá köthető adatot. A probléma a többrészes sorozatoknál kezdődik, ahol is több videófájl található, tehát több média objektum is. Éppen ezért megjelenítésnél nem az ``all\_media'' kulcson tárolt nagy objektumokat fogjuk megjeleníteni, hanem készítünk egy ``movies'' és egy ``tv\_series'' objektumot, amelybe értelemszerűen a filmek és sorozatok kerülnek külön. Mindkét objektumba a média tartalmak ID azonosítóit fogjuk tenni, értelemszerűen filmek esetén egy-egy azonosítót fog jelenteni, sorozatok esetében pedig mindegyik epizód azonosítója bele kerül. Az objektumok struktúrája mindkét esetben hasonló, hogy a megjelenítési feldolgozásnál ne kelljen külön lekezelni a két esetet. A 3.2-es forráskódban példát is hozunk minden fentebb leírtakra.
 
 \subsubsection{Online scan}
-Az Online scannelés keretein belül a The Movie Database\footnote{\url{https://www.themoviedb.org/}} (továbbiakban TMDB) API-ját fogjuk használni, amely egy szabadon, ingyenesen felhasználható interfészt biztosít a számunkra, továbbá az API egy Node-os impelentációját fogjuk még használni a ``node-themoviedb'' modult\footnote{\url{https://www.npmjs.com/package/node-themoviedb}}.
+Az Online scannelés keretein belül a The Movie Database\footnote{\url{https://www.themoviedb.org/}} (továbbiakban TMDB) API-ját fogjuk használni, amely egy szabadon, ingyenesen felhasználható interfészt biztosít a számunkra, továbbá az API egy Node-os implementációját fogjuk még használni a ``node-themoviedb'' modult\footnote{\url{https://www.npmjs.com/package/node-themoviedb}}.
 
-Az algoritmus végig iterál a összes beolvasott tartalmon és amennyiben talál IMDB azonosítót - fentebb már részleteztük, hogy mennyire fontos ez, hiszen így biztosan helyes információkat fogunk visszakapni - akkor az azonosító alapján megejti a kérési a TMDB API felé, amely helyes válaszküldés esetén, némi kissebb adatátalakítás - például az API-ból a műfajok szám azonosító formában jönnek vissza ezeket szövegeket tartalmazó tömbökké alakítjuk át - és kulcs átnevezés után bedispatcheljük a Redux storeban a metaadatok objektumba. A dispatchelés során ha egyező kulcsokat talál akkor a régi érték felülíródik az új értékkel, amennyiben pedig nincs egyezés úgy egyszerűen belekerülnek az objektumba.
+Az algoritmus végig iterál a összes beolvasott tartalmon és amennyiben talál IMDB azonosítót - fentebb már részleteztük, hogy mennyire fontos ez, hiszen így biztosan helyes információkat fogunk visszakapni - akkor az azonosító alapján megejti a kérési a TMDB API felé, amely helyes válaszküldés esetén, némi kisebb adatátalakítás - például az API-ból a műfajok szám azonosító formában jönnek vissza, ezeket szövegeket tartalmazó tömbökké alakítjuk át - és kulcs átnevezés után bedispatcheljük a Redux storeban a metaadatok objektumba. A dispatchelés során ha egyező kulcsokat talál, akkor a régi érték felülíródik az új értékkel, amennyiben pedig nincs egyezés úgy egyszerűen belekerülnek az objektumba.
 
-Amennyiben nem talál IMDB azonosítót, de talált évszámot és címet, akkor ezek elapján intéz kérést az API felé, helyes viszontválasz esetén pedig a már fentebb leírtak hajtódnak véghez ebben az esetben is, tehát kissebb adatátalakítás után a Redux storba illesztés történik.
+Amennyiben nem talál IMDB azonosítót, de talált évszámot és címet, akkor ezek alapján intéz kérést az API felé, helyes viszontválasz esetén, pedig a már fentebb leírtak hajtódnak véghez ebben az esetben is, tehát kisebb adatátalakítás után a Redux storba illesztés történik.
 
-Miután ezzel ekészült szintén lefut média típus szétválogatás mint az Offline scannelés végén, tehát a filmek azonosítói a ``movies'' objektumba másoldonak bele, a sorozatok epizdójainak azonosítói pedid egy a ``tv\_series'' objektumon belüli tömmbe másolódnak bele.
+Miután ezzel elkészült szintén lefut a média típus szétválogatás, mint az Offline scannelés végén, tehát a filmek azonosítói a ``movies'' objektumba másolódnak bele, a sorozatok epizódjainak azonosítói pedig egy a ``tv\_series'' objektumon belüli tömbbe másolódnak bele.
 
 % ==========================================================
 % |                 Felhasználói felület                   |
 % ==========================================================
 \subsection{Felhasználói felület}
-A felhasználói felület teljes mértékben React-el, továbbá a Material UI\footnote{\url{https://material-ui.com/}} felhasználói UI keretrendszer segítségével. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívsára az App komponensen. Az App komponensen belül pedig a Layout komponensre megyünk tovább, ahol a fő UI logika található.
+A felhasználói felület teljes mértékben React-el, továbbá a Material UI\footnote{\url{https://material-ui.com/}} felhasználói UI keretrendszer segítségével készült. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívásra az App komponensen. Az App komponensen belül, pedig a Layout komponensre megyünk tovább, ahol a fő UI logika található.
 Az felhasználói felületnek két fő megjelenítési felülete van, az egyik az úgy nevezett Main, ami a fő ablak tartalmát hivatott leírni és változtatni, a másik pedig a Modal, amely a fő ablakon belüli, alárendelt, belső ablakot nyit meg.
-A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre rákattintva nyílik meg az adatlap modál.
+A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre rákattintva nyílik meg az adatlap modal ablak, ahonnan a belső videólejátszó (szintén egy modal) is indítható.
 
 \begin{figure}[H]
 	\centering
@@ -351,18 +352,154 @@ A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre ráka
 % |         Hibás vagy eredménytelen megközelítések        |
 % ==========================================================
 \subsection{Hibás vagy eredménytelen megközelítések}
-A program fejlesztésekor számos alkalommal adódtak implementációs nehézségek, amelyek megoldására az eredeti terv kissebb változtatására vagy kiegészítésére volt szükség.
+A program fejlesztésekor számos alkalommal adódtak implementációs nehézségek, amelyek megoldására az eredeti terv kisebb változtatására vagy kiegészítésére volt szükség.
 
 \subsubsection{Korlátozott belső videólejátszó}
-Az Electron, ahogy azt már tárgyaltuk, webes technológiákat biztosít asztali alkalmazás fejlesztésre, és ennek korlátozottságaival számolnunk kell. A videólejátszó nem képes minden formátumot lejátszani, ez a HTML <video> tag korlátozottságának tudható be, web által támogatott formátumokon ({\it mp4, webm, vtt}) kívül legtöbb esetben sikeresen lejátsza például az {\it mkv} konténer formátumot is, azonban bizosnyos esetkeben nincs hang - ez megint csak nem támogatott audió kodek miatt lehetséges - vagy a lejátszásra se képes. Az {\it avi} videóformátumokat viszont egyáltalán nem támogatja a belső lejátszó.
-További probléma, amely az eredeti tervtől való kissebb eltérésre kényszerített, a belső videó lejátszó továbbá nem képes a videófájlokba égetett feliratok vagy nyelvek észlelésére és annak változtatására a már fent ismeretett okok miatt.
+Az Electron, ahogy azt már tárgyaltuk, webes technológiákat biztosít asztali alkalmazás fejlesztésre, és ennek korlátozottságaival számolnunk kell. A videólejátszó nem képes minden formátumot lejátszani, ez a HTML <video> tag korlátozottságának tudható be, web által támogatott formátumokon ({\it mp4, webm, vtt}) kívül legtöbb esetben sikeresen lejátssza például az {\it mkv} konténer formátumot is, azonban bizonyos esetekben nincs hang - ez megint csak nem támogatott audió kodek miatt lehetséges - vagy a lejátszásra se képes. Az {\it avi} videóformátumokat viszont egyáltalán nem támogatja a belső lejátszó.
+További probléma, amely az eredeti tervtől való kisebb eltérésre kényszerített, a belső videó lejátszó továbbá nem képes a videófájlokba égetett feliratok vagy nyelvek észlelésére és annak változtatására a már fent ismertetett okok miatt.
 
 Ezen probléma megoldására implementálva lett a média tartalom külső videó lejátszóban való megnyitása.
 
 % ==========================================================
 % |                      Tesztelés                         |
 % ==========================================================
+% \cleardoublepage
 \section{Tesztelés}
-A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott.
+A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott. Erre egy saját automatikusan média tartalmat generáló script került megírásra, amely legenerál egy előre megadott string tömb alapján a videófájlokat, feliratfájlokat és NFO fájlokat egyaránt. Az NFO fájlokba valid IMDB linkeket és TinyURL linekeket generál, a feliratfájlokba - merthogy a script random számú, több formátumú feliratot generál minden videó fájl mellé - továbbá egy rövid szöveget. Fontos megjegyezni, hogy a legenerált videófájlok természetesen nem valós, tört vagy hamis fájlok lesznek, a videó lejátszó nem lesz képes őket lejátszani, de a Scannelés szempontjából tökéletesen megfelelő lesz nekünk teszteléshez.
 
-TODO
+A tesztfájlok generálásához az alábbi yarn parancsot lehet használni:
+\lstset{caption={Teszt fájlok generálása}, label=src:bash}
+\begin{lstlisting}[language={Bash}, numbers={none}]
+    yarn generate-media
+\end{lstlisting}
+
+\subsection{Scannelés}
+A tesztelés legfontosabb része természetesen az Offline és Online Scanneléshez köthető, tekintve ez a program egyik legfontosabb alkotó eleme. Az alábbiakban a scannelés hatékonyságát, sebességét vizsgáljuk.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{scan_time.png}
+	\caption{Scannelés időtartamai}
+	\label{fig:scan_time}
+\end{figure}
+
+{\noindent Az {\textbf A konfiguráció} (Teli oszlopok):}
+\begin{itemize}
+    \item {\textbf {Processzor: }} AMD Ryzen 7 4800H with Radeon Graphics, 2.90 GHz
+    \item {\textbf {Memória: }} 32 GB
+    \item {\textbf {Háttértár: }} 500 GB SSD
+    \item {\textbf {Operációs rendszer: }} Microsoft Windows 10
+\end{itemize}
+A {\textbf B konfiguráció} (Csíkos oszlopok):
+\begin{itemize}
+    \item {\textbf {Processzor: }} Intel Celeron N3350, 1.10 GHz
+    \item {\textbf {Memória: }} 4 GB
+    \item {\textbf {Háttértár: }} 250 GB SSD
+    \item {\textbf {Operációs rendszer: }} Microsoft Windows 10
+\end{itemize}
+
+A 3.5 ábráról leolvasható, hogy 10 és 100 média tartalom beolvasása másodpercek vagy tört másodpercek kérdése. 1 000 média tartalom körül lépünk az egy-két perces tartományba, míg 5 000 tartalom esetén tíz-húsz perces tartományba. A két konfiguráció közötti különbség se elhanyagolható, a 10, 100 és 1 000 filmnél még alacsony, de már megfigyelhető különbségek, 5 000 ezer média tartalomnál már viszont szignifikáns különbséget lehet érezni az Offline Scannelés terén, ez a két konfiguráció számítási teljesítményének különbségével magyarázható. Az Online Scannelésnél viszont már nem figyelhető meg olyan számottevő különbség, sőt előfordul, hogy a gyengébb konfigurációjú gépen több ideig tart a Scannelés. Ennek oka az, hogy mindkét gép ugyanarra a hálózatra - ugyanolyan sávszélességel - volt csatolva tesztelés során, tehát az eredmények ezért hasonlóak.
+Ezek a számok sokmindent elmondanak az alkalmazás hatékonyságáról és sebességéről, azonban ki kell térni a reális, mindennapi használatra is. A valóságban már 1000 média tartalom is egy elég nagy adattömeg, ha az egyszerűség kedvéért egy filmet 1 gigabájtosnak veszünk, 1000 film tárolására egy egy terrabájtos tárhelyre van szükség, ötezer film tárolása esetén pedig ez a szám már 5 TB. Ha a valóság irányába mégnagyobb gesztust szeretnénk tenni, az 1 film - 1 GB egyszerűsítés nem állja ki a próbát, ugyanis ma már egy gyengébb minőségű film is minimum 2-3 GB, a HD filmek pedig 8-10 GB között tendálnak és még ezt is meg lehet fejelni a BluRay vagy UHD filmekkel amelyek 40-50 vagy akár 100 gigabájtot is elérhetik, ha így számolunk már 1 000 film tárolására is több tíz terrabájtos tárhelyre lenne szükség.
+
+Az alkalmazás 10 000 film beolvasásával is tesztelve lett, a beolvasási idő kicsit több mint fél óráig, a metaadatok letöltése pedig kicsit több mint húsz percig tartott. A program mindeközben stabilan működött, és le tudta kezelni ezt a nagy mennyiségű beolvasást, majd ezen tartalmak közötti böngészést is.
+
+\subsection{Felhasználói felület}
+A felhasználó felületet a használati esetek diagram alapján teszteltük manuálisan.
+
+\begin{center}
+	\begin{longtable}{ | p{0.3\textwidth} | p{0.7\textwidth} | }
+
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Teszt esetek}}
+		\\ \hline
+
+		\emph{Művelet} & \emph{Várt eredmény}
+		\\ \hline \hline
+		\endfirsthead % első oldal fejléce
+
+		\hline
+		\emph{Művelet} & \emph{Várt eredmény}
+		\\ \hline \hline
+		\endhead % többi oldal fejléce
+
+		\hline
+		\endfoot % többi oldal lábléce
+
+		\endlastfoot % utolsó oldal lábléce
+
+		\emph{Menüpontokra kattintás}
+		& Az adott menüpontokra kattintás esetén a megfelelő tartalmak jelennek meg vagy a főablakban (például Kezdőlap, Filmek, Sorozatok, Lejátszási listák menüpontok esetén) vagy a megfelelő modal ablak nyílik meg (például Source Importer, Beállítások, Média Adatlap).
+		\\ \hline
+
+		\emph{Keresőre kattintás}
+		& A keresőre kattintás esetén megnyílik egy legördülő menü, amely az összes beolvasott filmet, sorozatot tartalmazza, amennyiben nincs beolvasott tartalom a kereső jelzi azt.
+		\\ \hline
+
+        \emph{Menü ikon}
+		& A hamburger ikonra kattintva a menü kinyílik vagy visszazáródik.
+		\\ \hline
+
+        \emph{Lejátszási listák létrehozása}
+		& A menüsorban a Lejátszási listák ikonra kattintva megnyílik az kis ablak amely a már létező lejátszási listákat tartalmazza - amennyiben nincs ilyen a lista üres -, hozzáadni a lista alján ha beírunk egy nevet és Entert nyomunk vagy a + ikonra kattintunk, a lejátszási lista létrejön.
+		\\ \hline
+
+        \emph{Média kártyák listázása}
+		& A Kezdőlapon vagy valamelyik tematikus oldalon alapértelemzetten 10 kártya jelenik meg. Ezt az oldal tetején vagy alján a legördülő menüben egy másik számra kattintva megváltozik, 25, 50 vagy 100 filmre/oldal. Az előre és tovább gombokra kattintva lapozni kezd a filmek között.
+		\\ \hline
+
+		\emph{Mappák kiválasztása}
+		& A Source Improrteren belül a Mappák kiválasztása gombra kattintva, az operációs rendszer párbeszédablaka megnyílik, kiválasztás után a jelölt mappák megjelennek a felületen.
+		\\ \hline
+
+        \emph{Mappák törlése}
+		& A Source Improrteren belül az Összes mappa törlése gombra kattintva, a mappák törlődnek, míg a kuka ikonra kattintva csak az adott mappa kerül törlésre. Amennyiben nincs kiválasztott mappa a felület nem engedi tovább a felhasználót.
+		\\ \hline
+
+        \emph{Offline Scan}
+		& A Source Improrteren belül az Offline Scan gombra kattintva a beolvasás elindul, majd lefutást követően a háttérben megjelennek a filmek a felület pedig tovább engedi a felhasználót.
+		\\ \hline
+
+        \emph{Online Scan}
+		& A Source Improrteren belül az Online Scan gombra kattintva a metaadatok letöltése elindul, befejezést követően a felület tovább enged. Internetkapcsolat hiányában a metadatok letöltése nem lehetséges, ezt a program jelzi is a felhasználó felé.
+		\\ \hline
+
+        \emph{Adatbázis kiürítése}
+		& A Beállításokon belül az Összes média törlése gombra kattintva, egy párbeszéd ablak nyílik meg, amennyiben a válasz beleegyező volt az összes média törlésre kerül, amennyiben a válasz elutasító volt nem történik semmi.
+		\\ \hline
+
+        \emph{Fejlesztői konzol megnyitása}
+		& A Beállításokon belül az Fejlesztői konzol megnyitása gombra kattintva, megnyílik a fejlesztői konzol.
+		\\ \hline
+
+        \emph{Média adatlap megnyitása}
+		& A Kezdőlapon vagy valamelyik tematikus oldalon egy média kártyára kattintva megnyílik annak adatlapja. Az adatlap tartalmazza a beolvasott információkat.
+		\\ \hline
+
+        \emph{Média törlése}
+		& Az adatlapon, az ikonsorban a Kuka ikonra kattintva, egy párbeszéd ablak nyílik meg, amennyiben a válasz beleegyező volt úgy a média törlése kerül, amennyiben a válasz elutasító volt nem történik semmi.
+		\\ \hline
+
+        \emph{IMDB megnyitása}
+		& Az adatlapon, az ikonsorban a IMDB ikonra kattintva, megnyíilik a film IMDB adatlapja az alapértelmezett böngészőben. Ha a program nem talált IMDB azonosítót akkor ez a gomb le van tiltva.
+		\\ \hline
+
+        \emph{Lejátszási listához adás}
+		& Az adatlapon, az ikonsorban az Lejátszási listához adás ikonra kattintva, megjelennek a létező lejátszási listák, a listaikonra rákattintva a film hozzáadódik, az X ikonra kattintva a film törlődik a listából. Amennyiben nincs létező lejátszási lista az ikonra rákattintva ezt jelzi az alkalmazás.
+		\\ \hline
+
+        \emph{Borító cseréje}
+		& Az adatlapon, az ikonsorban az Üres négyzet ikonra kattintva, amennyiben nincs a filmnek borítóképe úgy megnyíilik az operációs rendszer párbeszédablakja, amennyiben már van borítókép beállítva abban az esetben a borítókép törlődik az ikon pedig egy kereső ikonos kép ikonra módosul.
+		\\ \hline
+
+        \emph{Külső lejátszó megnyitása}
+		& Az adatlapon a baloldali kis lejátszás ikonra kattintva megnyíilik az adott média az operációs rendszer szerint alapértelmezett külső lejátszóban.
+		\\ \hline
+
+        \emph{Belső lejátszó megnyitása}
+		& Az adatlapon a lista elemre kattintva megnyíilik az adott média a program belső lejátszójában.
+		\\ \hline
+
+		\caption{A felhasználói felület tesztjei}
+		\label{tab:ui_tests}
+	\end{longtable}
+\end{center}
