@@ -54,12 +54,12 @@ Több mód is elérhető az alkalmazás telepítésére. Az egyik lehetséges m�
 Az alkalmazásból létezik telepíthető, futtatható állomány, ehhez semmi másra nincs szükség csupán a telepítő elindítására. A telepítő ekkor kicsomagolja majd feltelepíti az alkalmazást a számítógépre, parancsikont hoz létre az asztalra és automatikusan el is indítja az alkalmazást.
 
 \subsection{Telepítés és futtatás Yarn segítségével}
-Először is szükség van a megfelelő szoftverek telepítésére, mégpedig a Node.JS-re, Node Package Manager-re (továbbiakban npm) és a Yarn Package Manager-re (továbbiakban yarn). A Node.JS és az npm letölthető a Node.JS hivatalos oldaláról\footnote{\url{https://nodejs.org/en/}}, amellyel együtt az npm is letölésre kerül, ajánlott továbbá az LTS verzió letölése, amely ``hosszú ideig tartó támogatás''-t jelent. A yarn-t pedig a Yarn hivatalos oldaláról\footnote{\url{https://classic.yarnpkg.com/en/docs/install}} érdemes beszerezni.
+Először is szükség van a megfelelő szoftverek telepítésére, mégpedig a Node.JS-re, Node Package Manager-re (továbbiakban npm) és a Yarn Package Manager-re (továbbiakban yarn). A Node.JS és az npm letölthető a Node.JS hivatalos oldaláról\cite{node}, amellyel együtt az npm is letölésre kerül, ajánlott továbbá az LTS verzió letölése, amely ``hosszú ideig tartó támogatás''-t jelent. A yarn-t pedig a Yarn hivatalos oldaláról\cite{yarn} érdemes beszerezni.
 
 Ezen szoftverek telepítése után indítható maga az alkalmazás. A projekt leíró, a {\it package.json} fájlban definiált script-ek, amelyekkel az alkalmazást elindítani és lefordítani tudjuk az alábbiak:
 
 \subsubsection{Repository klónozása}
-Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhez használhatjuk a git clone parancsot - ha telepítve van a gépünkre a Git\footnote{\url{https://git-scm.com/downloads}} - vagy le is tölthetjük azt zip formátumban, az élénk zöld ``Code'', majd a ``Download ZIP'' gombra kattintva.
+Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhez használhatjuk a git clone parancsot - ha telepítve van a gépünkre a Git\cite{git} - vagy le is tölthetjük azt zip formátumban, az élénk zöld ``Code'', majd a ``Download ZIP'' gombra kattintva.
 \lstset{caption={Repository klónozása}, label=src:bash}
 \begin{lstlisting}[language={Bash}, numbers={none}]
     git clone https://github.com/TMD44/mvp
@@ -208,7 +208,7 @@ A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfoland
 \subsection{Beállítások}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{settings.png}
+	\includegraphics[width=0.8\textwidth]{settings.png}
 	\caption{Beállítások}
 	\label{fig:settings}
 \end{figure}

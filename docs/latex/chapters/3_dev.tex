@@ -35,20 +35,20 @@ Az alkalmazás működéséhez és a feladatleírás teljesítéséhez az alább
 \section{Használt technológiák}
 Az alkalmazás fejlesztését JavaScript nyelven kezdtem meg és fejlesztés közben váltottam TypeScript nyelvre. A TypeScript gyakorlatilag egy típusos kiterjesztése a JavaScriptnek, éppen ezért minden kód amit JavaScriptben írtam azok érvényes és valid kódok TypeScriptben is. A TypeScript lényege, hogy típus biztossá teszi az alkalmazást, ami ugyan megnehezíti a fejlesztést, de nagy előnye, hogy sok probléma már a fejlesztés során észlelhető - ezáltal javítható - és nem a kész verzióban történnek katasztrofális dolgok. Váltásom motivációja a TypeScript nyújtotta előnyök mellett az is volt, hogy az ipar jelenlegi trendjei teljes egészében efelé a nyelv felé mutatnak, minden komolyan vehető alkalmazás - amely Electront, Angulart vagy más hasonló webes technológiát használ - már TypeScript nyelven íródik. Ez formálta az én hozzáállásomat is a nyelvhez, tekintve, hogy a legelejétől fogva célom volt a legfrissebb és legnépszerűbb technológiák használata, ezen piacképes tudások elsajátítása.
 
-Az alkalmazás fejlesztése teljes egészében a Visual Studio Code nyílt forráskódú kódszerkesztővel zajlott, Electron-t, React-et és Redux-ot továbbá Git verziókezelő rendszert felhasználva és egy publikus GitHub repositoryban tárolva a kódot, amely elérhető az alábbi címen: \url{https://github.com/TMD44/mvp}
+Az alkalmazás fejlesztése teljes egészében a Visual Studio Code nyílt forráskódú kódszerkesztővel zajlott, Electron-t, React-et és Redux-ot továbbá Git verziókezelő rendszert felhasználva és egy publikus GitHub repositoryban tárolva a kódot, amely elérhető az alábbi címen: \url{https://github.com/TMD44/mvp}\cite{github}
 
 \subsection{Electron}
-Az Electron\footnote{\url{https://www.electronjs.org/}} egy nyílt forráskódú keretrendszer, amely asztali alkalmazások fejlesztéséhez lett kifejlesztve. Különlegessége, hogy a már ismert és bejáratott webes technológiákat - tehát HTML, CSS, JavaScript - lehet használni asztali alkalmazások fejlesztéséhez. Az Electron két külön, egymástól hermetikusan elzárt része a {\it main process} és a {\it renderer process}, melyek között alá-fölé rendelt viszony található.
+Az Electron\cite{electron} egy nyílt forráskódú keretrendszer, amely asztali alkalmazások fejlesztéséhez lett kifejlesztve. Különlegessége, hogy a már ismert és bejáratott webes technológiákat - tehát HTML, CSS, JavaScript - lehet használni asztali alkalmazások fejlesztéséhez. Az Electron két külön, egymástól hermetikusan elzárt része a {\it main process} és a {\it renderer process}, melyek között alá-fölé rendelt viszony található.
 
 Az Electron ``fő szála'' - ezt nem véletlenül tettem idézőjelbe, tekintve a JavaScript egy egyszálú programozási nyelv, tehát JavaScriptben nem tudunk konkurens programokat írni -, vagy hívhatjuk angolul {\it main process}nek is, ami gyakorlatilag egy Node.JS alkalmazás, amely a böngésző ablakok létrehozásáért, az operációs rendszerrel való kommunikációért és az alkalmazás életciklusáért felel. Ez tulajdonképpen egy fájl, amely az alkalmazásunk belépési pontját fogja képezni.
 
 Az előbb említett böngésző ablak pedig az Electron másik elszeparált és alárendelt része, a {\it renderer process}, amelyet a {\it main process} hoz létre és menedzseli is azt. Ez tulajdonképpen egy Chromium böngésző ablakot jelent, amely egy HTML fájlt fog megjeleníteni, ahogy azt a webes világban már megszokhattuk. Lehetőgésünk van továbbá Node integrációra is, amit a {\it main process}-en belül tudunk engedélyezni. Az integráció lényege, hogy a böngésző ablakból használhatjuk a Node által nyújtott funkciókat is, például fájlrendszer elérése, modulok importálása és exportálása.
 
 \subsection{React}
-A React\footnote{\url{https://reactjs.org/}} egy JavaScript könyvtár, amely főleg felhasználó felületek készítésére nyújt egy fölöttébb elegáns megoldást. A segítségével rendkívül egyszerűen tudunk, úgy nevezett Single Page Application-ket készíteni. Az innováció ebben a megközelítésben az, hogy nincs szükség az oldal újbóli betöltésére, hanem a felhasználói interakció során az oldal tartalmai dinamikusan újratöltődnek és nem is az egész oldal, hanem annak kisebb részei, úgy nevezett komponensei.
+A React\cite{react}  egy JavaScript könyvtár, amely főleg felhasználó felületek készítésére nyújt egy fölöttébb elegáns megoldást. A segítségével rendkívül egyszerűen tudunk, úgy nevezett Single Page Application-ket készíteni. Az innováció ebben a megközelítésben az, hogy nincs szükség az oldal újbóli betöltésére, hanem a felhasználói interakció során az oldal tartalmai dinamikusan újratöltődnek és nem is az egész oldal, hanem annak kisebb részei, úgy nevezett komponensei.
 
 \subsection{Redux}
-A Redux\footnote{\url{https://redux.js.org/}} egy state management tool, vagyis magyarul egy állapot kezelő rendszer. A Redux lényege és legnagyobb előnye, hogy az alkalmazásunk állapotát képes egy külön egységként tárolni és menedzselni. Az állapotot a memóriában tárolja, gyakorlatilag egy nagy JSON objektumban, ezen adatok módosítása pedig {\it dispatch} útján valósítható meg.
+A Redux\cite{redux}  egy state management tool, vagyis magyarul egy állapot kezelő rendszer. A Redux lényege és legnagyobb előnye, hogy az alkalmazásunk állapotát képes egy külön egységként tárolni és menedzselni. Az állapotot a memóriában tárolja, gyakorlatilag egy nagy JSON objektumban, ezen adatok módosítása pedig {\it dispatch} útján valósítható meg.
 
 % ==========================================================
 % |               Használati esetek diagram                |
@@ -325,7 +325,7 @@ Legvégül minden fent kiszűrt adatot összesítünk egy nagy objektumban, amel
 Az Offline scannelésből egy dolog maradt még hátra. Érdemes meggondolni ezen média tartalmak megjelenítését, az egy részes filmek megjelenítésével nincsen probléma, tekintve ezek egy videófájlból állnak tehát egy ilyen média objektummal le tudjuk írni az összes hozzá köthető adatot. A probléma a többrészes sorozatoknál kezdődik, ahol is több videófájl található, tehát több média objektum is. Éppen ezért megjelenítésnél nem az ``all\_media'' kulcson tárolt nagy objektumokat fogjuk megjeleníteni, hanem készítünk egy ``movies'' és egy ``tv\_series'' objektumot, amelybe értelemszerűen a filmek és sorozatok kerülnek külön. Mindkét objektumba a média tartalmak ID azonosítóit fogjuk tenni, értelemszerűen filmek esetén egy-egy azonosítót fog jelenteni, sorozatok esetében pedig mindegyik epizód azonosítója bele kerül. Az objektumok struktúrája mindkét esetben hasonló, hogy a megjelenítési feldolgozásnál ne kelljen külön lekezelni a két esetet. A 3.2-es forráskódban példát is hozunk minden fentebb leírtakra.
 
 \subsubsection{Online scan}
-Az Online scannelés keretein belül a The Movie Database\footnote{\url{https://www.themoviedb.org/}} (továbbiakban TMDB) API-ját fogjuk használni, amely egy szabadon, ingyenesen felhasználható interfészt biztosít a számunkra, továbbá az API egy Node-os implementációját fogjuk még használni a ``node-themoviedb'' modult\footnote{\url{https://www.npmjs.com/package/node-themoviedb}}.
+Az Online scannelés keretein belül a The Movie Database\cite{tmdb} (továbbiakban TMDB) API-ját fogjuk használni, amely egy szabadon, ingyenesen felhasználható interfészt biztosít a számunkra, továbbá az API egy Node-os implementációját fogjuk még használni a ``node-themoviedb'' modult\cite{node-themoviedb}.
 
 Az algoritmus végig iterál a összes beolvasott tartalmon és amennyiben talál IMDB azonosítót - fentebb már részleteztük, hogy mennyire fontos ez, hiszen így biztosan helyes információkat fogunk visszakapni - akkor az azonosító alapján megejti a kérési a TMDB API felé, amely helyes válaszküldés esetén, némi kisebb adatátalakítás - például az API-ból a műfajok szám azonosító formában jönnek vissza, ezeket szövegeket tartalmazó tömbökké alakítjuk át - és kulcs átnevezés után bedispatcheljük a Redux storeban a metaadatok objektumba. A dispatchelés során ha egyező kulcsokat talál, akkor a régi érték felülíródik az új értékkel, amennyiben pedig nincs egyezés úgy egyszerűen belekerülnek az objektumba.
 
@@ -337,7 +337,7 @@ Miután ezzel elkészült szintén lefut a média típus szétválogatás, mint 
 % |                 Felhasználói felület                   |
 % ==========================================================
 \subsection{Felhasználói felület}
-A felhasználói felület teljes mértékben React-el, továbbá a Material UI\footnote{\url{https://material-ui.com/}} felhasználói UI keretrendszer segítségével készült. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívásra az App komponensen. Az App komponensen belül, pedig a Layout komponensre megyünk tovább, ahol a fő UI logika található.
+A felhasználói felület teljes mértékben React-el, továbbá a Material UI\cite{material-ui} felhasználói UI keretrendszer segítségével készült. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívásra az App komponensen. Az App komponensen belül, pedig a Layout komponensre megyünk tovább, ahol a fő UI logika található.
 Az felhasználói felületnek két fő megjelenítési felülete van, az egyik az úgy nevezett Main, ami a fő ablak tartalmát hivatott leírni és változtatni, a másik pedig a Modal, amely a fő ablakon belüli, alárendelt, belső ablakot nyit meg.
 A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre rákattintva nyílik meg az adatlap modal ablak, ahonnan a belső videólejátszó (szintén egy modal) is indítható.
 
@@ -401,7 +401,7 @@ A {\textbf B konfiguráció} (Csíkos oszlopok):
 A 3.5 ábráról leolvasható, hogy 10 és 100 média tartalom beolvasása másodpercek vagy tört másodpercek kérdése. 1 000 média tartalom körül lépünk az egy-két perces tartományba, míg 5 000 tartalom esetén tíz-húsz perces tartományba. A két konfiguráció közötti különbség se elhanyagolható, a 10, 100 és 1 000 filmnél még alacsony, de már megfigyelhető különbségek, 5 000 ezer média tartalomnál már viszont szignifikáns különbséget lehet érezni az Offline Scannelés terén, ez a két konfiguráció számítási teljesítményének különbségével magyarázható. Az Online Scannelésnél viszont már nem figyelhető meg olyan számottevő különbség, sőt előfordul, hogy a gyengébb konfigurációjú gépen több ideig tart a Scannelés. Ennek oka az, hogy mindkét gép ugyanarra a hálózatra - ugyanolyan sávszélességel - volt csatolva tesztelés során, tehát az eredmények ezért hasonlóak.
 Ezek a számok sokmindent elmondanak az alkalmazás hatékonyságáról és sebességéről, azonban ki kell térni a reális, mindennapi használatra is. A valóságban már 1000 média tartalom is egy elég nagy adattömeg, ha az egyszerűség kedvéért egy filmet 1 gigabájtosnak veszünk, 1000 film tárolására egy egy terrabájtos tárhelyre van szükség, ötezer film tárolása esetén pedig ez a szám már 5 TB. Ha a valóság irányába mégnagyobb gesztust szeretnénk tenni, az 1 film - 1 GB egyszerűsítés nem állja ki a próbát, ugyanis ma már egy gyengébb minőségű film is minimum 2-3 GB, a HD filmek pedig 8-10 GB között tendálnak és még ezt is meg lehet fejelni a BluRay vagy UHD filmekkel amelyek 40-50 vagy akár 100 gigabájtot is elérhetik, ha így számolunk már 1 000 film tárolására is több tíz terrabájtos tárhelyre lenne szükség.
 
-Az alkalmazás 10 000 film beolvasásával is tesztelve lett, a beolvasási idő kicsit több mint fél óráig, a metaadatok letöltése pedig kicsit több mint húsz percig tartott. A program mindeközben stabilan működött, és le tudta kezelni ezt a nagy mennyiségű beolvasást, majd ezen tartalmak közötti böngészést is.
+Az alkalmazás 10 000 film beolvasásával is tesztelve lett, a beolvasási idő kicsit több mint fél óráig, a metaadatok letöltése pedig kicsit több mint tizenöt percig tartott. A program mindeközben stabilan működött, és le tudta kezelni ezt a nagy mennyiségű beolvasást, majd ezen tartalmak közötti böngészést is.
 
 \subsection{Felhasználói felület}
 A felhasználó felületet a használati esetek diagram alapján teszteltük manuálisan.
@@ -413,12 +413,12 @@ A felhasználó felületet a használati esetek diagram alapján teszteltük man
 		\multicolumn{2}{|c|}{\textbf{Teszt esetek}}
 		\\ \hline
 
-		\emph{Művelet} & \emph{Várt eredmény}
+		\textbf{Művelet} & \textbf{Várt eredmény}
 		\\ \hline \hline
 		\endfirsthead % első oldal fejléce
 
 		\hline
-		\emph{Művelet} & \emph{Várt eredmény}
+		\textbf{Művelet} & \textbf{Várt eredmény}
 		\\ \hline \hline
 		\endhead % többi oldal fejléce
 
