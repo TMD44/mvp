@@ -28,7 +28,7 @@ const mediaMaker = (path) => {
     const movieDir = `${path}\\movies`;
     const seriesDir = `${path}\\series`;
     const ext = ['.mkv', '.mkv', '.mkv', '.avi', '.mp4'];
-    const sub = ['.srt', '.srt', '.srt', '.vtt', '.ass', '.sub'];
+    const sub = ['.srt', '.srt', '.vtt', '.vtt', '.ass', '.sub'];
     const numbers = [1, 1, 2, 2, 3];
 
     if (!existsSync(baseDir)) mkdirSync(baseDir);
@@ -129,7 +129,7 @@ const mediaMaker = (path) => {
         console.log('TV: ', torrentSeriesNames[i]);
     }
 
-    console.log('TEST FILE GENERATION DONE!');
+    console.log('TEST FILES GENERATION DONE!');
 };
 
 module.exports.mediaMaker = mediaMaker;

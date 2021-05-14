@@ -1,5 +1,5 @@
+import React from 'react';
 import { getDataByID } from '@scripts/getDataByID';
-import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { IconButton } from '@material-ui/core';
@@ -11,11 +11,10 @@ interface PropsShape {
 
 export const VideoPlayer = ({ handleVideoPlayerClose, id }: PropsShape) => {
     const currentMedia = getDataByID(id);
-    const [playing, setPlaying] = useState(true);
 
     return (
         <>
-            <div id="videoPlayerTitle" hidden={playing}>
+            <div id="videoPlayerTitle" hidden>
                 <IconButton
                     id="videoPlayerBackButton"
                     aria-label="back"

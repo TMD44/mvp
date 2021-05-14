@@ -67,7 +67,7 @@ export const tmdbRequest = {
         return mdb.search.TVShows(args);
     },
 
-    getExternalIDs: async (id: string, type = 'movie') => {
+    getExternalIDs: async (id: string) => {
         const args = {
             pathParameters: {
                 movie_id: id,

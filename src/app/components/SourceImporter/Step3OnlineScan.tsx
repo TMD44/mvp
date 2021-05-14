@@ -55,7 +55,7 @@ export const Step3OnlineScan = ({
     };
 
     setInterval(() => {
-        resolve('www.google.com', (err: any) => {
+        resolve('www.google.com', (err) => {
             if (err) {
                 setIsOnline(false);
             }

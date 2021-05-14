@@ -11,7 +11,6 @@ import {
 import windowStateKeeper from 'electron-window-state';
 import { getAssetsPath } from '../scripts/getPaths';
 import { ipcMain } from './ipcMain';
-// import MenuBuilder from './menu';
 // import appUpdater from './appUpdater';
 
 const isProductionMode = process.env.NODE_ENV === 'production';
@@ -81,9 +80,6 @@ const createWindow = async () => {
     if (isDevelopmentMode) {
         appWindow.webContents.openDevTools();
     }
-
-    // const menuBuilder = new MenuBuilder(appWindow);
-    // menuBuilder.buildMenu();
 
     // Opens URLs in user's the default browser
     appWindow.webContents.on('new-window', (event, url) => {

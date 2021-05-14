@@ -1,4 +1,4 @@
-import { AllMediaDataType, MetadataType } from '@type/MediaType';
+import { AllMediaDataType } from '@type/MediaType';
 import { genresConvert } from './genresConvert';
 
 export const imdbIdExists = (obj: AllMediaDataType): boolean => {

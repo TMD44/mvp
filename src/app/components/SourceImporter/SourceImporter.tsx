@@ -19,10 +19,6 @@ export const SourceImporter = ({ handleModalClose }: PropsShape) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
-    };
-
     return (
         <Stepper activeStep={activeStep} orientation="vertical">
             <Step key="OpenDir">

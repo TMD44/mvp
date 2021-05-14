@@ -56,7 +56,7 @@
     },
     "build": {
         "productName": "Multimedia Visualization Platform",
-        "appId": "hu.tmd44.mvp",
+        "appId": "hu.elte.tmd44.mvp",
         "copyright": "Copyright © 2021 MVP",
         "files": [
             "dist/",

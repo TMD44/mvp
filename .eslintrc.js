@@ -5,6 +5,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
         'no-plusplus': 'off',
+        'no-console': 'off',
     },
     parserOptions: {
         ecmaVersion: 2020,

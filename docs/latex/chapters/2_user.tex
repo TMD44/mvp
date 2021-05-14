@@ -18,7 +18,7 @@ Az alkalmazás célközönségét nem igazán lehet vagy érdemes leszűkítani 
 % \cleardoublepage
 \section{Rendszerkövetelmények}
 \subsection{Hardveres követelmények}
-Az alkalmazás futtatásához lényegében egy Google Chrome-ot és Node.JS-t futtatni képes konfigurációra van szükség csupán. Ettől függetlenül ajánlott az alábbi technikai követelmények teljesítése:
+Az alkalmazás futtatásához lényegében egy böngészőt és Node.JS-t futtatni képes konfigurációra van szükség csupán. Ettől függetlenül ajánlott az alábbi technikai követelmények teljesítése:
 \begin{itemize}
     \item {\textbf {Kijelző: }} legalább HD, azaz 1280×720 pixel
 	\item {\textbf {Memória: }} legalább 4 GB
@@ -39,9 +39,9 @@ Három előre telepítendő softwarere van szükségünk, amelyek az alkalmazás
 \subsection{Operációs rendszer}
 Az Electron applikációk sajátja, hogy egy kódbázisból - ami jelen esetben HTML, CSS, JavaScript/TypeScript - mindhárom főbb asztali platformra képes teljes funkcionalitású alkalmazást készíteni. Éppen ezért a támogatott operációs rendszerek az alábbiak:
 \begin{itemize}
-	\item Microsoft Windows
-	\item Linux/GNU
-	\item MacOS
+	\item Microsoft Windows 7, 8, 8.1, 10
+	\item Linux: Ubuntu 14.04 vagy újabb, Debian 8 vagy újabb
+	\item MacOS 10.11 vagy újabb
 \end{itemize}
 
 % ==========================================================
@@ -127,9 +127,9 @@ A programot elindítva rögtön a Kezdőlapra jutunk, ahol megjelenik az összes
 \end{figure}
 A további oldalakon az alkalmazás tematikusan szétválogatja a beolvasott filmjeinket és sorozatainkat. A 2.4.1-es pontban megfogalmazottak ezekre az oldalakra is érvényesek, tehát az Applikáció struktúrája, baloldalt a Menüsáv, fent az Alkalmazás sáv, Keresés stb. Alapértelmezetten 10 film jelenik meg, ezt a beállítást lehetőségünk van megváltoztatni.
 
-A {\it Filmek} oldalon értelemszerűen a filmeket találjuk.
+A {\it Filmek} oldalon értelemszerűen a filmeket, {\it Sorozatok} oldalon a televíziós sorozatokat találjuk.
 
-A {\it Sorozatok} oldalon magától értetődően a sorozatokat. A sorozatok megjelenítése kapcsán, egy kártyát fogunk találni amelyre rákattintva az adatlapon megtaláljuk az összes beolvasott epizódot.
+A sorozatok megjelenítése kapcsán, egy kártyát fogunk találni, amelyre rákattintva az adatlapon megtaláljuk az összes beolvasott epizódot.
 
 % \cleardoublepage
 \subsection{Média adatlap}
@@ -141,7 +141,7 @@ A {\it Sorozatok} oldalon magától értetődően a sorozatokat. A sorozatok meg
 \end{figure}
 A kiválasztott média kártyájára kattintva megnyílik annak adatlapja, ahol is a fontosabb adatokat - cím, évszám, összefoglalás, borítókép - találjuk, már amennyiben alkalmaztuk az adatbázisból metaadatok letöltése funkciót.
 
-Az adatlapon különböző műveleteket is el tudunk végezni az adott média tartalommal, például törölni tudjuk, ehhez kattintsunk a kuka ikonra - Figyelem, ez a művelet nem visszavonható! - vagy egyedi borítóképet tudunk beállítani ehhez kattintsunk a megfelelő ikonra, abban az esetben ha létezik már borítókép egy üres négyszög alakú ikont találunk, amelyre rákattintva törlődik a jelenlegi borítókép, ekkor az ikon egy kis kép kereső ikonra változik ezzel jelezve, hogy lehetőségünk nyílt új egyedi borítóképet kiválasztani. Megtudjuk nyitni a film IMDB adatlapját, amennyiben a scannelés során a program talált azonosítót, ehhez kattintsunk az IMDB ikonra. Lejátszási listához adásra is itt van lehetőségünk ezt részletesen a 2.4.4-es Lejátszási listák pontban tárgyaljuk.
+Az adatlapon különböző műveleteket is el tudunk végezni az adott média tartalommal, például törölni tudjuk, ehhez kattintsunk a kuka ikonra - természetesen a videófájl nem kerül törlésre a számítógépről, csupán az alkalmazás belső adatbázisából. Ez a művelet ugyanakkor nem visszavonható, újra scannelés esetén lehet csak a média tartalmat újra használni az alkalmazásban - vagy egyedi borítóképet tudunk beállítani ehhez kattintsunk a megfelelő ikonra, abban az esetben ha létezik már borítókép egy üres négyszög alakú ikont találunk, amelyre rákattintva törlődik a jelenlegi borítókép, ekkor az ikon egy kis kép kereső ikonra változik ezzel jelezve, hogy lehetőségünk nyílt új egyedi borítóképet kiválasztani. Megtudjuk nyitni a film IMDB adatlapját, amennyiben a scannelés során a program talált azonosítót, ehhez kattintsunk az IMDB ikonra. Lejátszási listához adásra is itt van lehetőségünk ezt részletesen a 2.4.4-es Lejátszási listák pontban tárgyaljuk.
 
 Ezen az oldalon találjuk továbbá a film elindításához szükséges gombot vagy sorozatok esetén az epizódok elindítása gombokat. Ha a listában rákattintunk valamelyik epizódra vagy filmre, elindul a beépített videólejátszó. A videólejátszóból visszalépni az ESC gomb lenyomásával lehetséges. Az alkalmazás lehetőséget biztosít, hogy továbbra is kedvenc külső videó lejátszó programunkat használjuk a tartalmak lejátszására, ehhez kattintsunk a lista baloldalán elhelyezkedő lejátszás ikonra, ekkor az alkalmazás megnyitja a fájlt az alapértelmezettnek beállított külső lejátszóban.
 
@@ -227,7 +227,7 @@ A {\it Névjegy} menüponton belül az alkalmazás verziójáról, környezetén
 % ==========================================================
 % |                   Hibaelhárítás                        |
 % ==========================================================
-% \cleardoublepage
+\cleardoublepage
 \section{Hibaelhárítás}
 Az alkalmazás a fejlesztői konzolon belül jelzi az esetleges hibákat, a konzolt a Beállítások ablakból tudunk megnyitni.
 

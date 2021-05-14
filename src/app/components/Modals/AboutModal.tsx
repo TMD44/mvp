@@ -13,14 +13,21 @@ interface PropsShape {
 }
 
 export const AboutModal = ({ handleModalClose, modalIsOpen }: PropsShape) => {
-    const commitHash = child_process
-        .execSync('git rev-parse HEAD')
-        .toString()
-        .trim();
-    const commitDate = child_process
-        .execSync('git log -1 --format=%cd')
-        .toString()
-        .trim();
+    let commitHash = 'main';
+    let commitDate = 'UNKNOWN';
+
+    try {
+        commitHash = child_process
+            .execSync('git rev-parse HEAD')
+            .toString()
+            .trim();
+        commitDate = child_process
+            .execSync('git log -1 --format=%cd')
+            .toString()
+            .trim();
+    } catch (error) {
+        // console.error('Error from AboutModal.tsx: ', error);
+    }
 
     return (
         <Dialog
@@ -66,12 +73,16 @@ export const AboutModal = ({ handleModalClose, modalIsOpen }: PropsShape) => {
                             </i>
                         </span>
                     </ListItem>
-                    <ListItem>
-                        <span>
-                            <b>Last commit date: </b>
-                            <i>{commitDate}</i>
-                        </span>
-                    </ListItem>
+                    {commitDate !== 'UNKNOWN' ? (
+                        <ListItem>
+                            <span>
+                                <b>Last commit date: </b>
+                                <i>{commitDate}</i>
+                            </span>
+                        </ListItem>
+                    ) : (
+                        ''
+                    )}
 
                     <Divider />
 
