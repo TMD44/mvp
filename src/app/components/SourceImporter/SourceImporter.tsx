@@ -26,7 +26,7 @@ export const SourceImporter = ({ handleModalClose }: PropsShape) => {
     return (
         <Stepper activeStep={activeStep} orientation="vertical">
             <Step key="OpenDir">
-                <StepLabel>Open Directiores</StepLabel>
+                <StepLabel>Open Directories</StepLabel>
                 <StepContent>
                     <Step1OpenDir
                         handleNext={handleNext}

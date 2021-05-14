@@ -24,9 +24,9 @@ import { getTMDBdata } from '../tmdb/tmdb';
 import { mediaTypeSorting } from './mediaTypeSorting';
 
 export const scan = {
-    mediaInJSON: {},
-
     offlineScan: async () => {
+        const mediaInJSON = {};
+
         const scanResults = {
             media: [],
             sub: [],
@@ -55,11 +55,11 @@ export const scan = {
                 results.media[file],
                 results
             );
-            scan.mediaInJSON[result.id] = result;
+            mediaInJSON[result.id] = result;
             // store.dispatch(addMedia(result));
         }
 
-        store.dispatch(addMediaAtOnce(scan.mediaInJSON));
+        store.dispatch(addMediaAtOnce(mediaInJSON));
 
         // store.dispatch(purgeMovies());
         // store.dispatch(purgeSeries());
@@ -68,23 +68,21 @@ export const scan = {
 
         const allMedia = getAllMedia();
         for (const [key, value] of Object.entries(allMedia)) {
-            await mediaTypeSorting(key, value, allMedia);
+            mediaTypeSorting(key, value, allMedia);
         }
 
         return true;
     },
 
     onlineScan: async () => {
-        const allMedia = getAllMedia();
-
-        for (const [key, value] of Object.entries(allMedia)) {
+        for (const [key, value] of Object.entries(getAllMedia())) {
             await getTMDBdata(value);
-            // await mediaTypeSorting(key, value);
         }
 
         store.dispatch(purgeMovies());
         store.dispatch(purgeSeries());
 
+        const allMedia = getAllMedia();
         for (const [key, value] of Object.entries(allMedia)) {
             mediaTypeSorting(key, value, allMedia);
         }

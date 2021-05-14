@@ -55,7 +55,7 @@ export const SettingsModal = ({
             aria-describedby="Settings"
             // fullScreen
             fullWidth
-            maxWidth="lg" // 'lg','md','sm','xl','xs'
+            maxWidth="md" // 'lg','md','sm','xl','xs'
             open={modalIsOpen}
             onClose={handleModalClose}
             TransitionComponent={TransitionRight}
@@ -65,9 +65,9 @@ export const SettingsModal = ({
                 timeout: 500,
                 className: 'modalBackdrop',
             }}
-            classes={{
+            /* classes={{
                 paper: classes.settingsHeight,
-            }}
+            }} */
         >
             <AppBar className={classes.appBar}>
                 <Toolbar className="modalTitleBar">

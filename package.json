@@ -13,8 +13,8 @@
         "start:main": "cross-env NODE_ENV=development electron -r ./.erb/scripts/BabelRegister ./src/main/main.dev.ts",
         "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.config.renderer.dev.babel.js",
         "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
-        "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js",
-        "clean:all": "rm -rf src/dist && rm -rf release && rm -rf .erb/dll && rm -f -- src/main/main.prod.js",
+        "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js && rm -f -- assets/.storage/config.json && rm -f -- assets/.storage/mediaDB.json",
+        "clean:all": "rm -rf src/dist && rm -rf release && rm -rf .erb/dll && rm -f -- src/main/main.prod.js && rm -f -- assets/.storage/config.json && rm -f -- assets/.storage/mediaDB.json",
         "test": "jest",
         "generate-media": "node tests/generate-media/generate-media.js"
     },

@@ -49,16 +49,14 @@ const tmdbDataCleaning = (
 };
 
 export const getTMDBdata = async (obj: Record<string, unknown>) => {
-    if (imdbIdExists(obj)) {
-        // TODO: add try catch here
-        const data = await tmdbRequest.findByExternalID(
-            obj.metadata.imdb_id,
-            'imdb_id'
-        );
-        store.dispatch(addToMedia(obj.id, tmdbDataCleaning(data, 'imdb')));
-    } else {
-        // eslint-disable-next-line no-lonely-if
-        if (yearExists(obj)) {
+    try {
+        if (imdbIdExists(obj)) {
+            const data = await tmdbRequest.findByExternalID(
+                obj.metadata.imdb_id,
+                'imdb_id'
+            );
+            store.dispatch(addToMedia(obj.id, tmdbDataCleaning(data, 'imdb')));
+        } else if (yearExists(obj)) {
             if (obj.metadata.media_type === 'movie') {
                 const data = await tmdbRequest.seachForMovies(
                     obj.metadata.title,
@@ -77,5 +75,7 @@ export const getTMDBdata = async (obj: Record<string, unknown>) => {
                 );
             }
         }
+    } catch (error) {
+        console.error('Error from TMDB: ', error);
     }
 };

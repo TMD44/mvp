@@ -46,6 +46,10 @@ export const remodelData = (obj: any) => {
                     filteredData.tmdb_url = `https://www.themoviedb.org/movie/${value}`;
                     break;
 
+                case 'name':
+                    filteredData.title = value;
+                    break;
+
                 case 'poster_path':
                     filteredData.poster_path = `https://image.tmdb.org/t/p/w500${value}`;
                     /* {
@@ -74,6 +78,10 @@ export const remodelData = (obj: any) => {
                 case 'id':
                     filteredData.tmdb_id = value;
                     filteredData.tmdb_url = value;
+                    break;
+
+                case 'name':
+                    filteredData.title = value;
                     break;
 
                 default:

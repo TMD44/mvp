@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { resolve } from 'dns';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Button, CircularProgress } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
@@ -42,6 +43,7 @@ export const Step3OnlineScan = ({
     handleBack,
 }: PropsShape) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [isOnline, setIsOnline] = useState(false);
     const classes = useStyles();
 
     const onlineScan = async () => {
@@ -52,6 +54,15 @@ export const Step3OnlineScan = ({
         }, 500);
     };
 
+    setInterval(() => {
+        resolve('www.google.com', (err: any) => {
+            if (err) {
+                setIsOnline(false);
+            }
+            setIsOnline(true);
+        });
+    }, 2000);
+
     return (
         <>
             <div className={classes.root}>
@@ -59,7 +70,7 @@ export const Step3OnlineScan = ({
                     <Button
                         variant="contained"
                         color="primary"
-                        disabled={isLoading}
+                        disabled={!isOnline || isLoading}
                         onClick={() => {
                             setIsLoading(true);
                             onlineScan();
@@ -72,6 +83,15 @@ export const Step3OnlineScan = ({
                             size={24}
                             className={classes.buttonProgress}
                         />
+                    )}
+                    {isOnline ? (
+                        ' '
+                    ) : (
+                        <h3>
+                            <CircularProgress size={15} />
+                            {'  '} Offline. Checking for internet
+                            connectivity...
+                        </h3>
                     )}
                 </div>
             </div>
