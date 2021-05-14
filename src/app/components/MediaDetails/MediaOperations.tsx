@@ -22,6 +22,8 @@ import {
     deleteMedia,
 } from '@redux/actions/mediaActions';
 import { MediaAddToPlaylist } from './MediaAddToPlaylist';
+import { useSelector } from 'react-redux';
+import { playlistsSelector } from '@redux/selectors/mediaSelector';
 
 type ActionTypes = 'DeleteMedia' | '';
 
@@ -32,6 +34,7 @@ interface PropsShape {
 }
 
 export const MediaOperations = ({ id, obj, handleModalClose }: PropsShape) => {
+    const playlists = useSelector(playlistsSelector);
     const currentMedia = getDataByID(id).metadata;
 
     const [checkModal, setCheckModal] = useState(false);
@@ -42,6 +45,19 @@ export const MediaOperations = ({ id, obj, handleModalClose }: PropsShape) => {
         setCheckModal(true);
     };
 
+    const getPlaylist = (currentID: string): string => {
+        Object.entries(playlists).map(([key, value]) => {
+            if (currentMedia.media_type === 'series') {
+                if (currentMedia.title in value.contents) {
+                    return key;
+                }
+            } else if (currentID in value.contents) {
+                return key;
+            }
+        });
+        return 'Favorites';
+    };
+
     const handleCheckModalClose = (answer: 'YES' | 'NO') => {
         setCheckModal(false);
         if (answer === 'YES') {
@@ -50,7 +66,11 @@ export const MediaOperations = ({ id, obj, handleModalClose }: PropsShape) => {
                     handleModalClose();
                     obj.obj.id.forEach((currentID: string) =>
                         store.dispatch(
-                            deleteMedia(currentID, currentMedia.title)
+                            deleteMedia(
+                                currentID,
+                                currentMedia.title,
+                                getPlaylist(currentID)
+                            )
                         )
                     );
                     break;

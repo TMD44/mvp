@@ -43,9 +43,9 @@ export const deleteCoverFromMedia = (id: string) => ({
     payload: id,
 });
 
-export const deleteMedia = (id: string, title: string) => ({
+export const deleteMedia = (id: string, title: string, playlist: string) => ({
     type: DELETE_MEDIA,
-    payload: { id, title },
+    payload: { id, title, playlist },
 });
 
 // ADD & PURGE MOVIE, SERIES
