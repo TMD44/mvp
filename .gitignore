@@ -1,6 +1,9 @@
 # Private folder
 assets/private/
 
+# Dev plugins
+.erb/dev_plugins
+
 # Storage JSON files
 assets/.storage/config.json
 assets/.storage/mediaDB.json
