@@ -10,7 +10,7 @@ Az alkalmazás segítségével vizualizálni tudjuk offline mozgóképes tartalm
 Az alkalmazás első indításakor még nem fogunk találni semmilyen tartalmat a Fő képernyőn, ehhez ugyanis előszőr be kell importálnunk a tartalmakat. A Source Importer eszközt használva, kiválasztjuk a megfelelő mappákat, ezután a szoftver beolvassa az összes támogatott formátumú fájlt. Ezután ha úgy akarjuk meta-adatokat tudunk letölteni a beolvasott fájlokhoz. Innentől kezdve az alkalmazás minden funkciója készen áll a használatra.
 
 \subsection{Célközönség}
-Az alkalmazás célközönségét nem igazán lehet vagy érdemes leszűkítani egy kisseb csoportra, tekintve, mindenkinek szól, aki kicsit is szereti a filmeket, sorozatokat, hozzászokott a különböző streaming szolgáltatók által nyújtott kényelemhez, funkcionalitáshoz és rendelkezik offline média tartalmakkal, legyenek azok akár filmek, akár sorozatok.
+Az alkalmazás mindenkinek szól, aki kicsit is szereti a filmeket, sorozatokat, hozzászokott a különböző streaming szolgáltatók által nyújtott kényelemhez, funkcionalitáshoz és rendelkezik offline média tartalmakkal, legyenek azok akár filmek, akár sorozatok.
 
 % ==========================================================
 % |               Rendszerkövetelmények                    |
@@ -60,39 +60,40 @@ Ezen szoftverek telepítése után indítható maga az alkalmazás. A projekt le
 
 \subsubsection{Repository klónozása}
 Először is klónoznunk kell a Repository-t, amely a GitHubon található. Ehhez használhatjuk a git clone parancsot - ha telepítve van a gépünkre a Git\cite{git} - vagy le is tölthetjük azt zip formátumban, az élénk zöld ``Code'', majd a ``Download ZIP'' gombra kattintva.
-\lstset{caption={Repository klónozása}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
+\lstset{caption={Repository klónozása}, label=src:cmd}
+\begin{lstlisting}[language={cmd}, numbers={none}]
     git clone https://github.com/TMD44/mvp
     cd mvp
 \end{lstlisting}
 
 \subsubsection{Függőségek telepítése Yarn segítségével}
 Ezután a függőségek telepítése következik, ezek olyan csomagok, modulok amelyek a program futásához (dependencies) vagy fejlesztéséhez (devDependencies) elengedhetelenek.
-\lstset{caption={Függőségek telepítése Yarn segítségével}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
+\lstset{caption={Függőségek telepítése Yarn segítségével}, label=src:cmd}
+\begin{lstlisting}[language={cmd}, numbers={none}]
     yarn
 \end{lstlisting}
 
 \subsubsection{Fejlesztői verzió futtatása}
 Innentől kezdve az alkalmazás indítható, buildelhető. Ezzel a paranccsal az alkalmazás egy fejlesztői verziója indítható el, ebben a módban különböző fejlesztői eszközök is elérhetőek, amelyek a produkciós változatba nem kerülnek bele. Például fejlesztői konzol, React és Redux fejlesztői eszköz.
-\lstset{caption={Fejlesztői verzió futtatása}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
+\lstset{caption={Fejlesztői verzió futtatása}, label=src:cmd}
+\begin{lstlisting}[language={cmd}, numbers={none}]
     yarn start
 \end{lstlisting}
 
-\subsubsection{Produkciós verzió futtatása}
+\subsubsection{Produkciós verzió buildelés}
 Az alábbi paranccsal egy produkciós verzió készíthető el.
-\lstset{caption={Produkciós verzió futtatása}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
+\lstset{caption={Produkciós verzió futtatása}, label=src:cmd}
+\begin{lstlisting}[language={cmd}, numbers={none}]
     yarn build
 \end{lstlisting}
 
+\cleardoublepage
 \subsubsection{Produkciós verzió létrehozása}
 Végül, de nem utolsó sorban az egyik legfontosabb parancs, amellyel az alkalmazás produkciós verziója hozható létre. Ez az utasítás létrehozza magát a telepítő futtatható állományt és egy hordozható állományt, amely telepítés nélküli futtatást tesz lehetővé. Mindezeket a projekt {\it release} mappájába fogjuk találni.
 
 Továbbá a parancshoz különböző kapcsolók társíthatók, amellyel specifikálhatjuk, hogy milyen platformra szeretnénk az alkalmazást buildelni. Az {\it -mwl} kapcsolóval mindhárom platformra tudunk telepítőt létre hozni. (Fontos megjegyezni, hogy MacOS-re csak MacOS-en lehet telepítőt készíteni. Tehát ha például Windowson adjuk ki az -mwl parancsot akkor csak Linuxra és Windowsra tudunk telepítőt készíteni, Macre nem.) A további kapcsolók értelemszerűen specifikusan egy platformra hoznak létre.
-\lstset{caption={Produkciós verzió létrehozása}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
+\lstset{caption={Produkciós verzió létrehozása}, label=src:cmd}
+\begin{lstlisting}[language={cmd}, numbers={none}]
     yarn package
 
     yarn package --[option]
@@ -204,11 +205,10 @@ A scannelés időtartama valamivel több ideig tarthat mint az Offline scannelé
 \end{figure}
 A fenti Alkalmazás sávon található a Kereső, amely nevére nem rácáfolandón a beolvasott tartalmak közötti keresésre szolgál. Ha rákattintunk a kereső sávra akkor egy legördülő listában azonnal megkapjuk az össze alkalmazás által beolvasott média tartalmat. Szöveges mezőbe írással, pedig ezen a listán tudunk szűkíteni, ha nincs olyan film cím, mint amit beírtunk a kereső jelzi ezt számunkra. Amennyiben megtaláltuk keresett filmünket a legördülő menüben rákattintva megnyílik az adott film vagy sorozat adatlapja, ahol is a fent már részletezett módon lehet eljárni.
 
-% \cleardoublepage
 \subsection{Beállítások}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{settings.png}
+	\includegraphics[width=0.9\textwidth]{settings.png}
 	\caption{Beállítások}
 	\label{fig:settings}
 \end{figure}
@@ -218,11 +218,11 @@ Innen tudjuk megnyitni a fejlesztői konzolt is.
 \subsection{Névjegy}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{about.png}
+	\includegraphics[width=0.8\textwidth]{about.png}
 	\caption{Névjegy}
 	\label{fig:about}
 \end{figure}
-A {\it Névjegy} menüponton belül az alkalmazás verziójáról, környezetének verzióiról kapunk hasznos információkat.
+A {\it Névjegy} menüponton belül az alkalmazás verziójáról, környezetének verzióiról - tehát Node.JS, Electron vagy éppen a Chromium telepített verziójáról - kapunk hasznos információkat. Továbbá a legfrissebb GitHub commit hivatkozását is megadja.
 
 % ==========================================================
 % |                   Hibaelhárítás                        |
@@ -232,9 +232,9 @@ A {\it Névjegy} menüponton belül az alkalmazás verziójáról, környezetén
 Az alkalmazás a fejlesztői konzolon belül jelzi az esetleges hibákat, a konzolt a Beállítások ablakból tudunk megnyitni.
 
 \subsection{``Gyári visszaállítás''}
-Bármilyen problémára megoldást nyújthat a ``gyári visszaállítás'', ehhez navigáljunk az alkalmazás telepítési mappájába (Windows esetében, ha a telepítőt használtuk a következő elérési címen találjuk: ``C:/Users/FELHASZNÁLÓ/AppData/Local/Programs/mvp''). A telepítési mappán belül navigáljunk a {\it resources}, majd az {\it assets} mappába, itt a {\it .storage} mappában két JSON fájlt fogunk találni, a {\it config.json} illetve a {\it mediaDB.json} fájlt. Ezen két fájl törlésével vagy a mappából kimozgatásával az alkalmazás eredeti, alapértelmezett állapotába áll vissza.
+Bármilyen problémára megoldást nyújthat a ``gyári visszaállítás'', ehhez navigáljunk az alkalmazás telepítési mappájába (Windows esetében, ha a telepítőt használtuk a következő elérési címen találjuk: ``{\it C:/Users/<FELHASZNÁLÓ>/AppData/Local/Programs/mvp}''). A telepítési mappán belül navigáljunk a {\it resources}, majd az {\it assets} mappába, itt a {\it .storage} mappában két JSON fájlt fogunk találni, a {\it config.json} illetve a {\it mediaDB.json} fájlt. Ezen két fájl törlésével vagy a mappából kimozgatásával az alkalmazás eredeti, alapértelmezett állapotába áll vissza.
 
 \subsection{Hibajelzés}
 A felmerülő problémák, hibák jelzésére a Github Issues fül ad otthont, amelyet az alábbi címen lehet elérni: \url{https://github.com/TMD44/mvp/issues}
 
-Hibajelzésnél kérjük használja az erre létrehozott sablont, és töltse ki a verzió számokat a {\it Névjegy} oldalról.
+Hibajelzésnél kérjük használja az erre létrehozott sablont, és töltse ki megfelelően a verzió számokat a {\it Névjegy} oldalról.

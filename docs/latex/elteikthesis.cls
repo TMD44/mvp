@@ -407,14 +407,15 @@
 \RequirePackage{algorithm}
 \RequirePackage{algorithmic}
 \RequirePackage{listingsutf8}
+
 \lstset{
 	basicstyle=\footnotesize\ttfamily,
 	numbers=left,
     numberstyle=\tiny,
     backgroundcolor=\color{codebackg},
-	keywordstyle=\color{blue},
-	commentstyle=\color{codecomment},
-	stringstyle=\color{codestring},
+	keywordstyle=\color[RGB]{30,120,219}, % blue
+	commentstyle=\color[RGB]{106,153,85}, % green
+	stringstyle=\color[RGB]{206,145,120}, % red-ish
 	stepnumber=1,
 	firstnumber=1,
 	numbersep=5pt,
@@ -438,11 +439,31 @@
 \renewcommand{\ALG@name}{\alglabel}
 
 \lstdefinelanguage{json}{
+    morekeywords=[1]{const},
     string=[s]{"}{"},
-    stringstyle=\color{blue},
+    stringstyle=\color[RGB]{30,120,219}, % blue
     comment=[l]{:},
     morecomment=[l]{:"},
     commentstyle=\color{black},
+}
+
+\lstdefinelanguage{ts}{
+    morekeywords=[1]{break, continue, delete, else, for, function, if, in,
+    new, return, this, typeof, var, void, while, with, await, async, case, catch, class, const, default, do, enum, export, extends, finally, from, implements, import, instanceof, let, static, super, switch, throw, try, then, on, dialog, false, null, true, boolean, number, undefined, Array, Boolean, Date, Math, Number, String, Object},
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]//,
+    morecomment=[s]{/**}{*/},
+    morestring=[b]',
+    morestring=[b]",
+    ndkeywords={getScanFileTypes, getScanResults, addScanResults, addMediaAtOnce,getScanPaths, dispatch, excludedFromScan, scanDir, flat, fileSorting,mediaJSONGenerator, showOpenDialog, getTMDBdata, purgeMovies, purgeSeries, getAllMedia, mediaTypeSorting, entries},
+    ndkeywordstyle=\color[RGB]{208,163,66},
+    sensitive
+}
+
+\lstdefinelanguage{cmd}{
+    morekeywords=[1]{yarn, git, cd},
+    morecomment=[l]{\#},
+    sensitive
 }
 
 % ------------------------------

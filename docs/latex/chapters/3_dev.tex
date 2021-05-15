@@ -32,6 +32,7 @@ Az alkalmazás működéséhez és a feladatleírás teljesítéséhez az alább
 % ==========================================================
 % |                Használt technológiák                   |
 % ==========================================================
+\cleardoublepage
 \section{Használt technológiák}
 Az alkalmazás fejlesztését JavaScript nyelven kezdtem meg és fejlesztés közben váltottam TypeScript nyelvre. A TypeScript gyakorlatilag egy típusos kiterjesztése a JavaScriptnek, éppen ezért minden kód amit JavaScriptben írtam azok érvényes és valid kódok TypeScriptben is. A TypeScript lényege, hogy típus biztossá teszi az alkalmazást, ami ugyan megnehezíti a fejlesztést, de nagy előnye, hogy sok probléma már a fejlesztés során észlelhető - ezáltal javítható - és nem a kész verzióban történnek katasztrofális dolgok. Váltásom motivációja a TypeScript nyújtotta előnyök mellett az is volt, hogy az ipar jelenlegi trendjei teljes egészében efelé a nyelv felé mutatnak, minden komolyan vehető alkalmazás - amely Electront, Angulart vagy más hasonló webes technológiát használ - már TypeScript nyelven íródik. Ez formálta az én hozzáállásomat is a nyelvhez, tekintve, hogy a legelejétől fogva célom volt a legfrissebb és legnépszerűbb technológiák használata, ezen piacképes tudások elsajátítása.
 
@@ -111,49 +112,50 @@ Tehát az alkalmazás futása közben az adatok a Redux storeban tárolódnak, a
 "modification_time": "2021.05.10. 12:00:00",
 "user_info": { "name": "Anonymous" },
 "app_info": {
-    "app_name": "Multimedia Visualization Platform",
-    "app_version": "0.1.0",
-    "app_current_directory": "G:\\mvp\\src\\main",
-    "app_locale": "hu",
-    "app_locale_country_code": "HU",
-    "app_paths": {
-        "home": "C:\\Users\\tmd-pc",
-        "user_data": "C:\\Users\\tmd-pc\\AppData\\Roaming\\Multimedia Visualization Platform",
-        "desktop": "C:\\Users\\tmd-pc\\Desktop",
-        "downloads": "C:\\Users\\tmd-pc\\Downloads",
-    }
+  "app_name": "Multimedia Visualization Platform",
+  "app_version": "0.1.0",
+  "app_current_directory": "G:\\mvp\\src\\main",
+  "app_locale": "hu",
+  "app_locale_country_code": "HU",
+  "app_paths": {
+    "home": "C:\\Users\\tmd-pc",
+    "user_data": "C:\\Users\\tmd-pc\\AppData\\Roaming\\Multimedia Visualization Platform",
+    "desktop": "C:\\Users\\tmd-pc\\Desktop",
+    "downloads": "C:\\Users\\tmd-pc\\Downloads",
+  }
 },
 "scan_preferences": {
-    "scan_language": "en-US",
-    "scan_paths": [ "G:\\SOROZATOK" ],
-    "scan_file_types": {
-        "media": [ ".mkv",".mp4",".avi" ],
-        "sub": [ ".srt",".ass",".vtt",".ssa",".sub",".stl",".scc" ],
-        "nfo": [ ".nfo" ]
-    },
-    "scan_results": {
-        "media": [{
-            "fn": "Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng",
-            "ext": ".mkv",
-            "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
-            "full": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.mkv"
-            }],
-        "sub": [{
-            "fn": "Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng",
-            "ext": ".srt",
-            "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
-            "full": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.srt"
-            }],
-        "nfo": [{
-            "fn": "Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
-            "ext": ".nfo",
-            "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
-            "full": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng.nfo"
-            }],
-    }
+  "scan_language": "en-US",
+  "scan_paths": [ "G:\\SOROZATOK" ],
+  "scan_file_types": {
+    "media": [ ".mkv",".mp4",".avi" ],
+    "sub": [ ".srt",".ass",".vtt",".ssa",".sub",".stl",".scc" ],
+    "nfo": [ ".nfo" ]
+  },
+  "scan_results": {
+    "media": [{
+      "fn": "Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng",
+      "ext": ".mkv",
+      "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
+      "full": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.mkv"
+      }],
+    "sub": [{
+      "fn": "Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng",
+      "ext": ".srt",
+      "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
+      "full": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.srt"
+      }],
+    "nfo": [{
+      "fn": "Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
+      "ext": ".nfo",
+      "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
+      "full": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng.nfo"
+      }],
+  }
 }}
 \end{lstlisting}
 
+\cleardoublepage
 \subsubsection{Példa mediaDB.json fájl}
 
 \lstset{caption={Példa mediaDB.json fájl}, label=src:json}
@@ -162,142 +164,146 @@ Tehát az alkalmazás futása közben az adatok a Redux storeban tárolódnak, a
 "creation_time": "2021.05.09. 14:44:49",
 "modification_time": "2021.05.09. 14:44:49",
 "movies": {
-    "23b5b6d765ac7a28badbd2f6e6d31ea3": {
-        "id": [ "23b5b6d765ac7a28badbd2f6e6d31ea3" ],
-        "media_type": "movie"
-    },
-    "6209ef3cb9451c0def78013521b84d5f": {
-        "id": [ "6209ef3cb9451c0def78013521b84d5f" ],
-        "media_type": "movie"
-    },
+  "23b5b6d765ac7a28badbd2f6e6d31ea3": {
+    "id": [ "23b5b6d765ac7a28badbd2f6e6d31ea3" ],
+    "media_type": "movie"
+  },
+  "6209ef3cb9451c0def78013521b84d5f": {
+    "id": [ "6209ef3cb9451c0def78013521b84d5f" ],
+    "media_type": "movie"
+  },
 },
 "tv_series": {
-    "Game of Thrones": {
-        "id": [
-            "98cddc3eb8b19c7ebb2a84049c5fc4f0",
-            "6a216938ea15d2a1e5282ec47d9a0649",
-            "6044b7976f57147dd35da9c3719fd921",
-        ],
-        "media_type": "series"
-    }
+  "Game of Thrones": {
+    "id": [
+      "98cddc3eb8b19c7ebb2a84049c5fc4f0",
+      "6a216938ea15d2a1e5282ec47d9a0649",
+      "6044b7976f57147dd35da9c3719fd921",
+    ],
+    "media_type": "series"
+  }
 },
 "playlists": {
-    "Favorites": {
-        "contents": {
-            "Game of Thrones": {
-                "id": [
-                    "98cddc3eb8b19c7ebb2a84049c5fc4f0",
-                    "6a216938ea15d2a1e5282ec47d9a0649",
-                    "6044b7976f57147dd35da9c3719fd921",
-                ],
-                "media_type": "series"
-            }
-        },
-        "media_type": "playlist"
-    }
+  "Favorites": {
+    "contents": {
+      "Game of Thrones": {
+        "id": [
+          "98cddc3eb8b19c7ebb2a84049c5fc4f0",
+          "6a216938ea15d2a1e5282ec47d9a0649",
+          "6044b7976f57147dd35da9c3719fd921",
+        ],
+        "media_type": "series"
+      }
+    },
+    "media_type": "playlist"
+  }
 },
 "all_media": {
-    "98cddc3eb8b19c7ebb2a84049c5fc4f0": {
-        "id": "98cddc3eb8b19c7ebb2a84049c5fc4f0",
-        "media_name": "Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng",
-        "extension": ".mkv",
-        "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
-        "full_path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.mkv",
-        "subtitles": [ "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.vtt" ],
-        "nfo": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng.nfo",
-        "metadata": {
-            "title": "Game of Thrones",
-            "season": 1,
-            "episode": 1,
-            "languages": ["HUN", "ENG"],
-            "codec": "X264",
-            "quality": "BDRIP",
-            "media_type": "series",
-            "imdb_id": "tt0944947",
-            "imdb_url": "https://www.imdb.com/title/tt0944947"
-        }
-    },
+  "98cddc3eb8b19c7ebb2a84049c5fc4f0": {
+    "id": "98cddc3eb8b19c7ebb2a84049c5fc4f0",
+    "media_name": "Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng",
+    "extension": ".mkv",
+    "path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng",
+    "full_path": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.mkv",
+    "subtitles": [ "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.S01E01.BDRIP.x264.Hun.Eng.vtt" ],
+    "nfo": "G:\\SOROZATOK\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng\\Game.of.Thrones.COMPLETE.BDRIP.x264.Hun.Eng.nfo",
+    "metadata": {
+      "title": "Game of Thrones",
+      "season": 1,
+      "episode": 1,
+      "languages": ["HUN", "ENG"],
+      "codec": "X264",
+      "quality": "BDRIP",
+      "media_type": "series",
+      "imdb_id": "tt0944947",
+      "imdb_url": "https://www.imdb.com/title/tt0944947"
+    }
+  },
 }}
 \end{lstlisting}
 
 % ==========================================================
 % |               Média tartalmak beolvasása               |
 % ==========================================================
+\cleardoublepage
 \subsection{Média tartalmak beolvasása}
 Az alkalmazás egyértelműen legfontosabb része, a média tartalmak beolvasása. Ezt a folyamatot három részre bontottuk, a mappák kiválasztására, az Offline, illetve Online Scannelésre.
 
 \subsubsection{Mappa kiválasztás}
 A mappák megnyitásához az Electron egy beépített modulját, a {\it dialog}ot fogjuk használni. A probléma csak az, hogy ezt a modult nem lehet a renderer processben használni csak a main processben, ilyenkor jön jól az IPC renderer és IPC main modulok amelyek kommunikációt tesznek lehetővé a két réteg között. Az {\it Open Dir} gombra kattintva tehát elküldjük az IPC-n keresztül a main process-nek, ami aztán a {\it dialog} modult felhasználva megnyitja az operációs rendszer natív párbeszédablakát, ebben az esetben kifejezetten mappák megnyitását engedélyezzük csak, azokból is többet. Az ablakot bezárva az eredményt string tömb formájában visszaküldjük a renderer processnek, amely elvégzi a Redux storeba dispatch-elését. A config objektumon belül {\it scan\_paths} kulcs néven találjuk a beolvasott mappák tömbjét.
 
-\lstset{caption={Mappák megnyitása}, label=src:python}
-\begin{lstlisting}[language={python}]
+\lstset{caption={Mappák megnyitása}, label=src:ts}
+\begin{lstlisting}[language={ts}]
 ipcMainCommunication.on('open-dir-sync', (event) => {
-    dialog
-        .showOpenDialog(window, {
-            properties: ['openDirectory', 'multiSelections'],
-        })
-        .then((result) => {
-            if (result.canceled === false) {
-                event.returnValue = result.filePaths;
-            } else {
-                event.returnValue = [];
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+  dialog
+    .showOpenDialog(window, {
+      properties: ['openDirectory', 'multiSelections'],
+    })
+    .then((result) => {
+      if (result.canceled === false) {
+        event.returnValue = result.filePaths;
+      } else {
+        event.returnValue = [];
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 \end{lstlisting}
 
 \subsubsection{Offline scan}
 Az Offline scannelés megkezdéséhez két dologra lesz szükségünk, az egyik a mappák, amelyekben keresni fogunk, a másik, hogy milyen fájl típusokat fogunk keresni, igencsak hatékonytalan lenne, ha minden fájlt beolvasnánk, amelyek a program működését tekintve nem lényeges információkat tartalmaznak, éppen ezért szűrni fogjuk a fájlokat. A Redux storeból tehát behívjuk a {\it scan\_file\_types} kulcshoz tartozó objektumot, amely egy tematikusan tömböket tartalmazó objektum, ezek előre meghatározott fájltípusok, a felhasználónak lehetősége van megváltoztatni őket. Behívjuk továbbá az előző pontban hozzáadott {\it scan\_paths}-eket.
 
-A megadott mappa elérési útvonalakon végig iterálva minden útvonalra meghívjuk a ``scanDir'' függvényt amely rekurzívan a mappa tartalmán - amennyiben a mappában még több mappa található, ezekben az estekben is hasonlóképpen jár el - és a megadott fájltípusokra szűrve egy tömbbe pusholja a talált fájlokat (videófájlok, például ``.mkv'',``.mp4'' vagy feliratfájlok, például ``.srt'', ``.vtt'', illetve NFO fájlok ``.nfo''). Történik még egy filterezés ezt követően is, tekintve nagyon sok példa van rá, hogy az offline videó tartalmaink mellet úgynevezett ``sample'' vagy minta videófájlok is helyet kapnak, ezek a fájlok szűrésre kerülnek, ugyanis a program működésének szempontjából lényegtelen fájlokról beszélünk. Ezután minden talált elemet átalakít egy sokkal kezelhetőbb formátumra, a fentebb már config.json példában bemutatott {\it scan\_results} kulcsban. A lényeg itt annyi, hogy a megfelelő formátumú fájlokat a megfelelelő objektumra szortírozzuk, tehát média fájlokat a media objektumba, a feliratfájlokat a sub objektumba, az NFO fájlokat pedig az nfo objektumba. Mindezek elvégzése után elmentjük a Redux storeba megintcsak dispatch útján.
-
-\lstset{caption={Offline scan}, label=src:python}
-\begin{lstlisting}[language={python}]
+\lstset{caption={Offline scan}, label=src:ts}
+\begin{lstlisting}[language={ts}]
 const { media, sub, nfo } = getScanFileTypes();
 const paths = getScanPaths();
-
 for (const i in paths) {
-    const files = await scanDir(paths[i], [media, sub, nfo].flat());
-    for (const j in files) {
-        if (!excludedFromScan(files[j])) {
-            fileSorting(files[j], media, sub, nfo, scanResults);
-        }
+  const files = await scanDir(paths[i], [media, sub, nfo].flat());
+  for (const j in files) {
+    if (!excludedFromScan(files[j])) {
+      fileSorting(files[j], media, sub, nfo, scanResults);
     }
+  }
 }
+
 store.dispatch(addScanResults(scanResults));
 const results = getScanResults();
 
 for (const file in results.media) {
-    const result = await mediaJSONGenerator( results.media[file], results );
-    scan.mediaInJSON[result.id] = result;
+  const result = await mediaJSONGenerator(
+    results.media[file],
+    results
+  );
+  mediaInJSON[result.id] = result;
 }
-store.dispatch(addMediaAtOnce(scan.mediaInJSON));
+store.dispatch(addMediaAtOnce(mediaInJSON));
 \end{lstlisting}
 
-A következő for ciklusban már ezeket az átalakított objektumokat fogjuk felhasználni és tovább alakítjuk  {\it mediaJsonGenerator} függvény segítségével. A függvény először összepárosítja a feliratfájlokat a hozzá kapcsolódó videófájlhoz, tekintve a feliratfájloknál eddig is az volt a konvenció, hogy a feliratfájl neve legyen ugyanaz, mint a videófájl neve, ezt felhasználva könnyű dolgunk van. Végeredményben egy tömböt fogunk kapni, amely tartalmazza a videófájlhoz köthető feliratokat. A feliratfájlokkal történik a program ezen pontján még egy fontos dolog, mégpedig egy ``.vtt'' formátumra konvertálás, ennek oka az, hogy habár asztali alkalmazást készítünk az eszköztár, amelyet használunk webes technológiákra épülnek, éppen ezért igazodnunk kell a web által támogatott formátumokra, amely jelen esetünkben feliratfájlok esetén a ``.vtt''.
+A megadott mappa elérési útvonalakon végig iterálva minden útvonalra meghívjuk a {\it scanDir } függvényt amely rekurzívan a mappa tartalmán - amennyiben a mappában még több mappa található, ezekben az estekben is hasonlóképpen jár el - és a megadott fájltípusokra szűrve egy tömbbe pusholja a talált fájlokat (videófájlok, például {\it .mkv },{\it .mp4 } vagy feliratfájlok, például {\it .srt }, {\it .vtt }, illetve NFO fájlok {\it .nfo }). Történik még egy filterezés ezt követően is, tekintve nagyon sok példa van rá, hogy az offline videó tartalmaink mellet úgynevezett {\it sample } vagy minta videófájlok is helyet kapnak, ezek a fájlok szűrésre kerülnek, ugyanis a program működésének szempontjából lényegtelen fájlokról beszélünk. Ezután minden talált elemet átalakít egy sokkal kezelhetőbb formátumra, a fentebb már config.json példában bemutatott {\it scan\_results} kulcsban. A lényeg itt annyi, hogy a megfelelő formátumú fájlokat a megfelelelő objektumra szortírozzuk, tehát média fájlokat a media objektumba, a feliratfájlokat a sub objektumba, az NFO fájlokat pedig az nfo objektumba. Mindezek elvégzése után elmentjük a Redux storeba megintcsak dispatch útján.
+
+A következő for ciklusban már ezeket az átalakított objektumokat fogjuk felhasználni és tovább alakítjuk  {\it mediaJsonGenerator} függvény segítségével. A függvény először összepárosítja a feliratfájlokat a hozzá kapcsolódó videófájlhoz, tekintve a feliratfájloknál eddig is az volt a konvenció, hogy a feliratfájl neve legyen ugyanaz, mint a videófájl neve, ezt felhasználva könnyű dolgunk van. Végeredményben egy tömböt fogunk kapni, amely tartalmazza a videófájlhoz köthető feliratokat. A feliratfájlokkal történik a program ezen pontján még egy fontos dolog, mégpedig egy {\it .vtt } formátumra konvertálás, ennek oka az, hogy habár asztali alkalmazást készítünk az eszköztár, amelyet használunk webes technológiákra épülnek, éppen ezért igazodnunk kell a web által támogatott formátumokra, amely jelen esetünkben feliratfájlok esetén a {\it .vtt }.
 
 Ezután az NFO fájl - általában egy NFO fájl köthető egy videófájlhoz - videófájlhoz párosítása következik. Ez már kicsit bonyolultabb eset, itt is fenn áll ugyan a ``legyen ugyanaz a neve'', de a fájlstruktúrán belül a fájl elhelyezkedése változhat. Sorozatok esetén például általában nincs mindegyik epizódhoz külön NFO fájl, hanem magához az évadhoz vagy az egész sorozathoz, tehát a fájl helye nem feltétlenül a videófájl mellet található. A scannelés folyamata lekezeli ezeket a különböző eseteket, tehát végeredményben megkapjuk a videófájlhoz köthető NFO fájlt.
-Innentől kezdve rendelkezünk tehát NFO fájllal, amely rengeteg hasznos offline információt tartalmaz a filmünkről, azonban itt olyan problémába ütközünk, hogy az NFO fájl tartalmát tekintve semmilyen konvenció vagy szokás nincs, éppen ezért algoritmikus úton kimondottan nehéz biztosan helyes információkat kinyerni. Ennek következtében az NFO fájlban kifejezetten csak a legfontosabb információt fogjuk keresni, mégpedig egy IMDB linket. Az IMDB a legelterjedtebb filmes adatbázisok egyike jelenleg és az url címében a film egy egyedi azonosítója található, amelyet fel fogunk tudni használni majd a metaadatok letöltésekor. Az NFO fájl tartalmának beolvasását követően, egy reguláris kifejezés segítségével IMDB azonosítót keresünk, ha találtunk akkor nincs is más dolgunk mint lementeni egy objektumba, amit aztán visszaadunk a ``mediaJsonGenerator'' függvénynek. Abban az esetben ha nem találtunk explicit azonosítót, megpróbálkozunk másképp.
+Innentől kezdve rendelkezünk tehát NFO fájllal, amely rengeteg hasznos offline információt tartalmaz a filmünkről, azonban itt olyan problémába ütközünk, hogy az NFO fájl tartalmát tekintve semmilyen konvenció vagy szokás nincs, éppen ezért algoritmikus úton kimondottan nehéz biztosan helyes információkat kinyerni. Ennek következtében az NFO fájlban kifejezetten csak a legfontosabb információt fogjuk keresni, mégpedig egy IMDB linket. Az IMDB a legelterjedtebb filmes adatbázisok egyike jelenleg és az url címében a film egy egyedi azonosítója található, amelyet fel fogunk tudni használni majd a metaadatok letöltésekor. Az NFO fájl tartalmának beolvasását követően, egy reguláris kifejezés segítségével IMDB azonosítót keresünk, ha találtunk akkor nincs is más dolgunk mint lementeni egy objektumba, amit aztán visszaadunk a {\it mediaJsonGenerator } függvénynek. Abban az esetben ha nem találtunk explicit azonosítót, megpróbálkozunk másképp.
 Számos esetben megfigyelhető, hogy az NFO fájlokban URL rövidítő szolgáltatásokat használnak, például TinyURL, Bit.ly stb. Scannelésünk folyamatában rendkívül fontos információ az IMDB ID, éppen ezért az algoritmus az egyik legnépszerűbb a TinyURL visszafejtésével is megpróbálkozik. Abban az esetben ha sikerrel jár és a rezolválás eredménye egy IMDB azonosító, akkor a már fentebb ismertetett módon járunk el, ha nem járunk sikerrel akkor az információ nem kerül bele az eredmény objektumba.
 
 A másik forrás amelyből offline használható információkat tudunk kinyerni, a fájlnév és a mappa neve. Ehhez a fájlnév felismerő függvényünket fogjuk használni, amely az NFO-s azonosító felismeréshez hasonlóan regulásris kifejezések szövegre illesztésével fogjuk kivitelezni.
 Az {\it fnr} függvény a következőképpen működik, megkap egy stringet, ami az egyik esteben a fájl neve, a másik esetben a mappa neve. Ezután sorban reguláris kifejezéseket illeszt a szövegre és ha illeszkedik rá azt a szövegből kivesszük és a visszaadandó eredmény objektumba rakjuk, az eredeti stringben pedig aláhúzás (\_) karakterre cseréljük a talált eredményt. Ezt minden egyes Regex típusra elvégezzük, ennek következtében a végére kapunk egy eredmény objektumot, amelyben tematikusan szét van válogatva a talált stringek, illetve a visszamaradó szöveget, amelyben már valószínűleg csak a cím maradt az egyetlen hasznos információ. Ekkor az algoritmus a string elejétől elkezd ``értelmes karaktereket'' keresni tehát kisbetűs, nagybetűs karakterek illetve számok, és addig megy a szövegben amíg el nem kezd találni minimum kettő vagy annál több ``értelmetlen karaktereket'', ezek az aláhúzás (\_), a pont (.) és a szóköz ( ). Ha kettő vagy több ``értelmetlen karaktert'' találtunk, akkor az addig ``értelmes'' karaktereket kimentjük, ez lesz a cím. Továbbá kicsit szépítünk is rajta például, ha a szavak között pont van azt szóközre cseréljük és az első karaktert is nagybetűsre cseréljük. Abban az esetben ha valami hiba történik a cím keresésekor a string már üres, vagy rossz formátumú, tehát üres stringet adna vissza, az algoritmus az eredeti, még a függvény paraméterül megkapott stringet teszi meg címnek.
 
-\lstset{caption={Példa reguláris kifejezésekre}, label=src:c}
-\begin{lstlisting}[language={c}]
+\lstset{caption={Példa reguláris kifejezésekre}, label=src:json}
+\begin{lstlisting}[language={json}]
 const fnrPatterns = {
-    resolution: /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-_ ]?[X][.\-_ ]?[0-9]{3,4}/gi,
-    year: /((?:19[3-9]|20[0123])[0-9])/g,
-    languages: /[.\-_ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi,
-    bluray: /BD[0-9]{2}|BD100/gi,
-    season: /[.,\-_ ]S([0-9]{1,2})-(S)?([0-9]{1,2})|[.,\-_ ]S([0-9]{1,2})|[^0-9]([0-9]{1,2})X/gi,
-    episode: /[.,\-_ ]E([0-9]{1,3})-(E)?([0-9]{1,3})|E([0-9]{1,3})(?:[^0-9]|$)|[Xx]([0-9]{1,3})(?:[^0-9]|$)|(EP|EPISODE)([0-9]{1,3})(?:[^0-9]|$)/gi,
-    codec: /XVID|DIVX|AVC|HEVC|X[.\-_ ]?26[0-9]|H[.\-_ ]?26[0-9]/gi,
-    audio: /(DD|DDP|MA|AC3|AAC|PCM|LPCM|FLAC|DTS[._\- ]?(HD)?|TRUEHD[+._\- ]?ATMOS|TRUEHD|ATMOS)[+._\- ]?[0-9]\.?[0-9]|DTS[._\- ]?(HD|ES)?|DUAL[._\- ]?AUDIO|DOLBY[+._\- ]?(DIGITAL[+._\- ]?(PLUS)?|VISION|ATMOS)|HALF-OU/gi,
-    imdb_id: /tt[0-9]{7,8}/gi
+  "resolution": /[0-9]{3,4}[PI]{1}|[0-9]{3,4}[.\-_ ]?[X][.\-_ ]?[0-9]{3,4}/gi,
+  "year": /((?:19[3-9]|20[0123])[0-9])/g,
+  "languages": /[.\-_ ](ENG|HUN|GER|JAP)[^a-zA-z]/gi,
+  "bluray": /BD[0-9]{2}|BD100/gi,
+  "season": /[.,\-_ ]S([0-9]{1,2})-(S)?([0-9]{1,2})|[.,\-_ ]S([0-9]{1,2})|[^0-9]([0-9]{1,2})X/gi,
+  "episode": /[.,\-_ ]E([0-9]{1,3})-(E)?([0-9]{1,3})|E([0-9]{1,3})(?:[^0-9]|$)|[Xx]([0-9]{1,3})(?:[^0-9]|$)|(EP|EPISODE)([0-9]{1,3})(?:[^0-9]|$)/gi,
+  "codec": /XVID|DIVX|AVC|HEVC|X[.\-_ ]?26[0-9]|H[.\-_ ]?26[0-9]/gi,
+  "audio": /(DD|DDP|MA|AC3|AAC|PCM|LPCM|FLAC|DTS[._\- ]?(HD)?|TRUEHD[+._\- ]?ATMOS|TRUEHD|ATMOS)[+._\- ]?[0-9]\.?[0-9]|DTS[._\- ]?(HD|ES)?|DUAL[._\- ]?AUDIO|DOLBY[+._\- ]?(DIGITAL[+._\- ]?(PLUS)?|VISION|ATMOS)|HALF-OU/gi,
+  "imdb_id": /tt[0-9]{7,8}/gi
 };
 \end{lstlisting}
 
@@ -305,33 +311,50 @@ Végeredményben tehát két objektumot fogunk visszakapni a függvénytől, egy
 
 \lstset{caption={Példa az fnr függvény eredményére}, label=src:json}
 \begin{lstlisting}[language={json}]
-    "filename_data": {
-        "RAW": "Inception.2010.UHD.1440p.BluRay.HUN.x264.HDR.TrueHD.7.1-Trinity",
-        "CLEANED": "Inception._._._._._._._._-Trinity",
-        "languages": "HUN",
-        "resolution": "1440p",
-        "release_date": 2010,
-        "codec": "X264",
-        "hdr": true,
-        "audio": "TRUEHD.7.1",
-        "quality": [ "UHD", "BluRay" ],
-        "media_type": "movie",
-        "title": "Inception"
-      }
+"filename_data": {
+  "RAW": "Game.Of.Thrones.S01E01.2011.UHD.1440p.BluRay.HUN.x264.HDR.TrueHD.7.1-Trinity",
+  "CLEANED": "Game.Of.Thrones.__._._._._._._._._-Trinity",
+  "season": 1,
+  "episode": 1,
+  "languages": "HUN",
+  "resolution": "1440p",
+  "release_date": 2011,
+  "codec": "X264",
+  "hdr": true,
+  "audio": "TRUEHD.7.1",
+  "quality": [ "UHD", "BluRay" ],
+  "media_type": "series",
+  "title": "Game Of Thrones"
+  }
 \end{lstlisting}
 
 Legvégül minden fent kiszűrt adatot összesítünk egy nagy objektumban, amely tartalmazni fogja külön kulcsokra szétszedve a videófájl nevét, kiterjesztését, elérési útvonalát, a feliratfájlok útvonalait (több is lehet), az NFO fájl útvonalát (egy lehet), a metaadatok objektumát, illetve egy egyedi ID azonosítót, amelyet MD5-ös hasheléssel hozunk létre a videófájl útvonalából, ez az azonosító az operációs rendszer által biztosítottan egyedi lesz, hiszen nem lehet 2 ugyanolyan nevű és kiterjesztésű fájl ugyanazon az útvonalon. Az eredményt pedig dispatcheljük a Redux storeba.
 
-Az Offline scannelésből egy dolog maradt még hátra. Érdemes meggondolni ezen média tartalmak megjelenítését, az egy részes filmek megjelenítésével nincsen probléma, tekintve ezek egy videófájlból állnak tehát egy ilyen média objektummal le tudjuk írni az összes hozzá köthető adatot. A probléma a többrészes sorozatoknál kezdődik, ahol is több videófájl található, tehát több média objektum is. Éppen ezért megjelenítésnél nem az ``all\_media'' kulcson tárolt nagy objektumokat fogjuk megjeleníteni, hanem készítünk egy ``movies'' és egy ``tv\_series'' objektumot, amelybe értelemszerűen a filmek és sorozatok kerülnek külön. Mindkét objektumba a média tartalmak ID azonosítóit fogjuk tenni, értelemszerűen filmek esetén egy-egy azonosítót fog jelenteni, sorozatok esetében pedig mindegyik epizód azonosítója bele kerül. Az objektumok struktúrája mindkét esetben hasonló, hogy a megjelenítési feldolgozásnál ne kelljen külön lekezelni a két esetet. A 3.2-es forráskódban példát is hozunk minden fentebb leírtakra.
+Az Offline scannelésből egy dolog maradt még hátra. Érdemes meggondolni ezen média tartalmak megjelenítését, az egy részes filmek megjelenítésével nincsen probléma, tekintve ezek egy videófájlból állnak tehát egy ilyen média objektummal le tudjuk írni az összes hozzá köthető adatot. A probléma a többrészes sorozatoknál kezdődik, ahol is több videófájl található, tehát több média objektum is. Éppen ezért megjelenítésnél nem az {\it all\_media } kulcson tárolt nagy objektumokat fogjuk megjeleníteni, hanem készítünk egy {\it movies } és egy {\it tv\_series } objektumot, amelybe értelemszerűen a filmek és sorozatok kerülnek külön. Mindkét objektumba a média tartalmak ID azonosítóit fogjuk tenni, értelemszerűen filmek esetén egy-egy azonosítót fog jelenteni, sorozatok esetében pedig mindegyik epizód azonosítója bele kerül. Az objektumok struktúrája mindkét esetben hasonló, hogy a megjelenítési feldolgozásnál ne kelljen külön lekezelni a két esetet. A 3.2-es forráskódban példát is hozunk minden fentebb leírtakra.
 
 \subsubsection{Online scan}
-Az Online scannelés keretein belül a The Movie Database\cite{tmdb} (továbbiakban TMDB) API-ját fogjuk használni, amely egy szabadon, ingyenesen felhasználható interfészt biztosít a számunkra, továbbá az API egy Node-os implementációját fogjuk még használni a ``node-themoviedb'' modult\cite{node-themoviedb}.
+Az Online scannelés keretein belül a The Movie Database\cite{tmdb} (továbbiakban TMDB) API-ját fogjuk használni, amely egy szabadon, ingyenesen felhasználható interfészt biztosít a számunkra, továbbá az API egy Node-os implementációját fogjuk még használni a {\it node-themoviedb } modult\cite{node-themoviedb}.
 
 Az algoritmus végig iterál a összes beolvasott tartalmon és amennyiben talál IMDB azonosítót - fentebb már részleteztük, hogy mennyire fontos ez, hiszen így biztosan helyes információkat fogunk visszakapni - akkor az azonosító alapján megejti a kérési a TMDB API felé, amely helyes válaszküldés esetén, némi kisebb adatátalakítás - például az API-ból a műfajok szám azonosító formában jönnek vissza, ezeket szövegeket tartalmazó tömbökké alakítjuk át - és kulcs átnevezés után bedispatcheljük a Redux storeban a metaadatok objektumba. A dispatchelés során ha egyező kulcsokat talál, akkor a régi érték felülíródik az új értékkel, amennyiben pedig nincs egyezés úgy egyszerűen belekerülnek az objektumba.
 
+\lstset{caption={Online scan}, label=src:ts}
+\begin{lstlisting}[language={ts}]
+for (const [key, value] of Object.entries(getAllMedia())) {
+  await getTMDBdata(value);
+}
+
+store.dispatch(purgeMovies());
+store.dispatch(purgeSeries());
+
+const allMedia = getAllMedia();
+for (const [key, value] of Object.entries(allMedia)) {
+  mediaTypeSorting(key, value, allMedia);
+}
+\end{lstlisting}
+
 Amennyiben nem talál IMDB azonosítót, de talált évszámot és címet, akkor ezek alapján intéz kérést az API felé, helyes viszontválasz esetén, pedig a már fentebb leírtak hajtódnak véghez ebben az esetben is, tehát kisebb adatátalakítás után a Redux storba illesztés történik.
 
-Miután ezzel elkészült szintén lefut a média típus szétválogatás, mint az Offline scannelés végén, tehát a filmek azonosítói a ``movies'' objektumba másolódnak bele, a sorozatok epizódjainak azonosítói pedig egy a ``tv\_series'' objektumon belüli tömbbe másolódnak bele.
+Miután ezzel elkészült szintén lefut a média típus szétválogatás, mint az Offline scannelés végén, tehát a filmek azonosítói a {\it movies } objektumba másolódnak bele, a sorozatok epizódjainak azonosítói pedig egy a {\it tv\_series } objektumon belüli tömbbe másolódnak bele.
 
 % ==========================================================
 % |                 Felhasználói felület                   |
@@ -339,7 +362,9 @@ Miután ezzel elkészült szintén lefut a média típus szétválogatás, mint 
 \subsection{Felhasználói felület}
 A felhasználói felület teljes mértékben React-el, továbbá a Material UI\cite{material-ui} felhasználói UI keretrendszer segítségével készült. Az alkalmazás felhasználói felületének belépési pontja az {\it index.html} és {\it index.tsx} fájl, amelyben a React render függvénye kerül meghívásra az App komponensen. Az App komponensen belül, pedig a Layout komponensre megyünk tovább, ahol a fő UI logika található.
 Az felhasználói felületnek két fő megjelenítési felülete van, az egyik az úgy nevezett Main, ami a fő ablak tartalmát hivatott leírni és változtatni, a másik pedig a Modal, amely a fő ablakon belüli, alárendelt, belső ablakot nyit meg.
-A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre rákattintva nyílik meg az adatlap modal ablak, ahonnan a belső videólejátszó (szintén egy modal) is indítható.
+A Main-en leginkább a média tartalmak felsorolása kapott helyet, ezekre rákattintva nyílik meg az adatlap modal ablak, ahonnan a belső videólejátszó (szintén egy modal) is indítható. Ezeket, hogy éppen melyik nyíljon meg a {\it MainController.tsx} és a {\it ModalController.tsx} vezérli. A felhasználói felület minden fontosabb része egy saját dedikált komponenst kapott, ilyen például a {\it SideBar.tsx} komponens, ami a baloldali menüt vezérli, vagy ilyen a média kártyákat verérlő és megjelenítő {\it MediaCardContainer.tsx} is.
+
+Az alkalmazás továbbá Sass-t\cite{sass} vagyis úgy nevezett ``szuper css''-t használ, ami egy css-t fordítás útján generáló, azonban sokkal kényelmesebben és hatékonyabban használható stílusleíró nyelv.
 
 \begin{figure}[H]
 	\centering
@@ -368,8 +393,8 @@ Ezen probléma megoldására implementálva lett a média tartalom külső vide�
 A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott. Erre egy saját automatikusan média tartalmat generáló script került megírásra, amely legenerál egy előre megadott string tömb alapján a videófájlokat, feliratfájlokat és NFO fájlokat egyaránt. Az NFO fájlokba valid IMDB linkeket és TinyURL linekeket generál, a feliratfájlokba - merthogy a script random számú, több formátumú feliratot generál minden videó fájl mellé - továbbá egy rövid szöveget. Fontos megjegyezni, hogy a legenerált videófájlok természetesen nem valós, tört vagy hamis fájlok lesznek, a videó lejátszó nem lesz képes őket lejátszani, de a Scannelés szempontjából tökéletesen megfelelő lesz nekünk teszteléshez.
 
 A tesztfájlok generálásához az alábbi yarn parancsot lehet használni:
-\lstset{caption={Teszt fájlok generálása}, label=src:bash}
-\begin{lstlisting}[language={Bash}, numbers={none}]
+\lstset{caption={Teszt fájlok generálása}, label=src:cmd}
+\begin{lstlisting}[language={cmd}, numbers={none}]
     yarn generate-media
 \end{lstlisting}
 
