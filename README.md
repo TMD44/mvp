@@ -1,3 +1,5 @@
+# SZAKDOLGOZAT LEADVA: 2021.05.15.
+
 <img align="left" width="15%" src="assets/icon.png" />
 
 # Multimedia Visualization Platform
