@@ -56,9 +56,8 @@ const nfoPatternFinder = async (data: string) => {
         const tinyurlFound = data.match(nfoPatterns.tinyurl);
         if (tinyurlFound) {
             for (const url in tinyurlFound) {
-                tinyUrlData[
-                    `tinyurl_${url + 1}`
-                ] = await require('tinyurl').resolve(tinyurlFound[url]);
+                tinyUrlData[`tinyurl_${url + 1}`] =
+                    await require('tinyurl').resolve(tinyurlFound[url]);
             }
         }
         const imdbFoundInTinyUrl = Object.values(tinyUrlData)
@@ -74,7 +73,6 @@ const nfoPatternFinder = async (data: string) => {
 };
 
 export const nfoIdFinder = async (nfoPath: string) => {
-    // const nfoPath = await nfoFileFinder(media);
     if (nfoPath === undefined) return;
 
     const nfoContent = await fsp.readFile(nfoPath, 'utf8');

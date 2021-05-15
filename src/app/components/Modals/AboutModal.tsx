@@ -15,8 +15,10 @@ interface PropsShape {
 export const AboutModal = ({ handleModalClose, modalIsOpen }: PropsShape) => {
     let commitHash = 'main';
     let commitDate = 'UNKNOWN';
+    let appVersion = 'UNKNOWN';
 
     try {
+        appVersion = getAppInfo().app_version;
         commitHash = child_process
             .execSync('git rev-parse HEAD')
             .toString()
@@ -56,7 +58,7 @@ export const AboutModal = ({ handleModalClose, modalIsOpen }: PropsShape) => {
                     <ListItem>
                         <span>
                             <b>Version: </b>
-                            <i>{getAppInfo().app_version}</i>
+                            <i>{appVersion}</i>
                         </span>
                     </ListItem>
                     <ListItem>

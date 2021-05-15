@@ -1,4 +1,3 @@
-// import * as configDataJson from '@assets/.storage/config.json';
 import fs from 'fs';
 import { configureStorageSync } from '@scripts/configureStorage';
 import { configDefaultState } from '@redux/defaultStates/defaultStates';

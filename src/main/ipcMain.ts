@@ -15,8 +15,8 @@ export const ipcMain = {
                         event.returnValue = [];
                     }
                 })
-                .catch((err) => {
-                    console.log(err);
+                .catch((error) => {
+                    console.error('Error from ipcMain.ts: ', error);
                 });
         });
     },
@@ -39,7 +39,7 @@ export const ipcMain = {
                     videos: app.getPath('videos'),
                     music: app.getPath('music'),
                     temp: app.getPath('temp'),
-                    recent: app.getPath('recent'),
+                    // recent: app.getPath('recent'), // Windows only
                     exe: app.getPath('exe'),
                     crash_dumps: app.getPath('crashDumps'),
                 },
@@ -76,8 +76,8 @@ export const ipcMain = {
                         event.returnValue = [];
                     }
                 })
-                .catch((err) => {
-                    console.log(err);
+                .catch((error) => {
+                    console.error('Error from ipcMain.ts: ', error);
                 });
         });
     },

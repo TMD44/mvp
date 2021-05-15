@@ -27,7 +27,7 @@ export interface AppInfoType {
         videos: string;
         music: string;
         temp: string;
-        recent: string;
+        // recent: string;
         exe: string;
         crash_dumps: string;
     };

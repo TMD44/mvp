@@ -1,4 +1,3 @@
-// import * as movieDataJson from '@assets/.storage/movieDB.json';
 import fs from 'fs';
 import { omit } from 'lodash';
 import { configureStorageSync } from '@scripts/configureStorage';
