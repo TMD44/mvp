@@ -9,7 +9,7 @@ Az alkalmazás működéséhez és a feladatleírás teljesítéséhez az alább
 \begin{itemize}
     \item {\textbf {Film felsoroló platform: }} Az alkalmazásnak felületet kell biztosítania a beolvasott média tartalmak megjelenítéséhez, listázásához.
     \item {\textbf {Média tartalmak beolvasása: }} Mappák kiválasztásával az azokban fellelhető média tartalmak beolvasása.
-	\item {\textbf {Keresés a média tartalmak között: }} Az alkalmazásnak lehetőséget kell biztosítania a beolvasott média tartlamak közötti kereséshez.
+	\item {\textbf {Keresés a média tartalmak között: }} Az alkalmazásnak lehetőséget kell biztosítania a beolvasott média tartalmak közötti kereséshez.
 	\item {\textbf {Lejátszás, Megállítás, Pörgetés: }} Biztosítania kell a videók lejátszását.
 	\item {\textbf {Felirat választás: }} Feliratok megjelenítése lejátszáskor, amennyiben elérhető.
 	\item {\textbf {Sorozatok és filmek kezelése: }} A felület kezelje külön a sorozatokat és filmeket, tehát például a sorozat epizódjai ne külön-külön jelenjenek meg a listában, hanem a sorozatra rákattintva, annak adatlapján legyenek listázva az epizódok.
@@ -289,8 +289,8 @@ Ezután az NFO fájl - általában egy NFO fájl köthető egy videófájlhoz - 
 Innentől kezdve rendelkezünk tehát NFO fájllal, amely rengeteg hasznos offline információt tartalmaz a filmünkről, azonban itt olyan problémába ütközünk, hogy az NFO fájl tartalmát tekintve semmilyen konvenció vagy szokás nincs, éppen ezért algoritmikus úton kimondottan nehéz biztosan helyes információkat kinyerni. Ennek következtében az NFO fájlban kifejezetten csak a legfontosabb információt fogjuk keresni, mégpedig egy IMDB linket. Az IMDB a legelterjedtebb filmes adatbázisok egyike jelenleg és az url címében a film egy egyedi azonosítója található, amelyet fel fogunk tudni használni majd a metaadatok letöltésekor. Az NFO fájl tartalmának beolvasását követően, egy reguláris kifejezés segítségével IMDB azonosítót keresünk, ha találtunk akkor nincs is más dolgunk mint lementeni egy objektumba, amit aztán visszaadunk a {\it mediaJsonGenerator } függvénynek. Abban az esetben ha nem találtunk explicit azonosítót, megpróbálkozunk másképp.
 Számos esetben megfigyelhető, hogy az NFO fájlokban URL rövidítő szolgáltatásokat használnak, például TinyURL, Bit.ly stb. Scannelésünk folyamatában rendkívül fontos információ az IMDB ID, éppen ezért az algoritmus az egyik legnépszerűbb a TinyURL visszafejtésével is megpróbálkozik. Abban az esetben ha sikerrel jár és a rezolválás eredménye egy IMDB azonosító, akkor a már fentebb ismertetett módon járunk el, ha nem járunk sikerrel akkor az információ nem kerül bele az eredmény objektumba.
 
-A másik forrás amelyből offline használható információkat tudunk kinyerni, a fájlnév és a mappa neve. Ehhez a fájlnév felismerő függvényünket fogjuk használni, amely az NFO-s azonosító felismeréshez hasonlóan regulásris kifejezések szövegre illesztésével fogjuk kivitelezni.
-Az {\it fnr} függvény a következőképpen működik, megkap egy stringet, ami az egyik esteben a fájl neve, a másik esetben a mappa neve. Ezután sorban reguláris kifejezéseket illeszt a szövegre és ha illeszkedik rá azt a szövegből kivesszük és a visszaadandó eredmény objektumba rakjuk, az eredeti stringben pedig aláhúzás (\_) karakterre cseréljük a talált eredményt. Ezt minden egyes Regex típusra elvégezzük, ennek következtében a végére kapunk egy eredmény objektumot, amelyben tematikusan szét van válogatva a talált stringek, illetve a visszamaradó szöveget, amelyben már valószínűleg csak a cím maradt az egyetlen hasznos információ. Ekkor az algoritmus a string elejétől elkezd ``értelmes karaktereket'' keresni tehát kisbetűs, nagybetűs karakterek illetve számok, és addig megy a szövegben amíg el nem kezd találni minimum kettő vagy annál több ``értelmetlen karaktereket'', ezek az aláhúzás (\_), a pont (.) és a szóköz ( ). Ha kettő vagy több ``értelmetlen karaktert'' találtunk, akkor az addig ``értelmes'' karaktereket kimentjük, ez lesz a cím. Továbbá kicsit szépítünk is rajta például, ha a szavak között pont van azt szóközre cseréljük és az első karaktert is nagybetűsre cseréljük. Abban az esetben ha valami hiba történik a cím keresésekor a string már üres, vagy rossz formátumú, tehát üres stringet adna vissza, az algoritmus az eredeti, még a függvény paraméterül megkapott stringet teszi meg címnek.
+A másik forrás amelyből offline használható információkat tudunk kinyerni, a fájlnév és a mappa neve. Ehhez a fájlnév felismerő függvényünket fogjuk használni, amely az NFO-s azonosító felismeréshez hasonlóan reguláris kifejezések szövegre illesztésével fogjuk kivitelezni.
+Az {\it fnr} függvény a következőképpen működik, megkap egy stringet, ami az egyik esetben a fájl neve, a másik esetben a mappa neve. Ezután sorban reguláris kifejezéseket illeszt a szövegre és ha illeszkedik rá azt a szövegből kivesszük és a visszaadandó eredmény objektumba rakjuk, az eredeti stringben pedig aláhúzás (\_) karakterre cseréljük a talált eredményt. Ezt minden egyes Regex típusra elvégezzük, ennek következtében a végére kapunk egy eredmény objektumot, amelyben tematikusan szét van válogatva a talált stringek, illetve a visszamaradó szöveget, amelyben már valószínűleg csak a cím maradt az egyetlen hasznos információ. Ekkor az algoritmus a string elejétől elkezd ``értelmes karaktereket'' keresni tehát kisbetűs, nagybetűs karakterek illetve számok, és addig megy a szövegben amíg el nem kezd találni minimum kettő vagy annál több ``értelmetlen karaktereket'', ezek az aláhúzás (\_), a pont (.) és a szóköz ( ). Ha kettő vagy több ``értelmetlen karaktert'' találtunk, akkor az addig ``értelmes'' karaktereket kimentjük, ez lesz a cím. Továbbá kicsit szépítünk is rajta például, ha a szavak között pont van azt szóközre cseréljük és az első karaktert is nagybetűsre cseréljük. Abban az esetben ha valami hiba történik a cím keresésekor a string már üres, vagy rossz formátumú, tehát üres stringet adna vissza, az algoritmus az eredeti, még a függvény paraméterül megkapott stringet teszi meg címnek.
 
 \lstset{caption={Példa reguláris kifejezésekre}, label=src:json}
 \begin{lstlisting}[language={json}]
@@ -390,7 +390,7 @@ Ezen probléma megoldására implementálva lett a média tartalom külső vide�
 % ==========================================================
 % \cleardoublepage
 \section{Tesztelés}
-A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott. Erre egy saját automatikusan média tartalmat generáló script került megírásra, amely legenerál egy előre megadott string tömb alapján a videófájlokat, feliratfájlokat és NFO fájlokat egyaránt. Az NFO fájlokba valid IMDB linkeket és TinyURL linekeket generál, a feliratfájlokba - merthogy a script random számú, több formátumú feliratot generál minden videó fájl mellé - továbbá egy rövid szöveget. Fontos megjegyezni, hogy a legenerált videófájlok természetesen nem valós, tört vagy hamis fájlok lesznek, a videó lejátszó nem lesz képes őket lejátszani, de a Scannelés szempontjából tökéletesen megfelelő lesz nekünk teszteléshez.
+A fejlesztés a legelejétől kezdve gyakorlatilag folyamatos kézi tesztelés mellett zajlott. Erre egy saját automatikusan média tartalmat generáló script került megírásra, amely legenerál egy előre megadott string tömb alapján a videófájlokat, feliratfájlokat és NFO fájlokat egyaránt. Az NFO fájlokba valid IMDB linkeket és TinyURL linkeket generál, a feliratfájlokba - merthogy a script random számú, több formátumú feliratot generál minden videó fájl mellé - továbbá egy rövid szöveget. Fontos megjegyezni, hogy a legenerált videófájlok természetesen nem valós, tört vagy hamis fájlok lesznek, a videó lejátszó nem lesz képes őket lejátszani, de a Scannelés szempontjából tökéletesen megfelelő lesz nekünk teszteléshez.
 
 A tesztfájlok generálásához az alábbi yarn parancsot lehet használni:
 \lstset{caption={Teszt fájlok generálása}, label=src:cmd}
@@ -423,7 +423,7 @@ A {\textbf B konfiguráció} (Csíkos oszlopok):
     \item {\textbf {Operációs rendszer: }} Microsoft Windows 10
 \end{itemize}
 
-A 3.5 ábráról leolvasható, hogy 10 és 100 média tartalom beolvasása másodpercek vagy tört másodpercek kérdése. 1 000 média tartalom körül lépünk az egy-két perces tartományba, míg 5 000 tartalom esetén tíz-húsz perces tartományba. A két konfiguráció közötti különbség se elhanyagolható, a 10, 100 és 1 000 filmnél még alacsony, de már megfigyelhető különbségek, 5 000 ezer média tartalomnál már viszont szignifikáns különbséget lehet érezni az Offline Scannelés terén, ez a két konfiguráció számítási teljesítményének különbségével magyarázható. Az Online Scannelésnél viszont már nem figyelhető meg olyan számottevő különbség, sőt előfordul, hogy a gyengébb konfigurációjú gépen több ideig tart a Scannelés. Ennek oka az, hogy mindkét gép ugyanarra a hálózatra - ugyanolyan sávszélességel - volt csatolva tesztelés során, tehát az eredmények ezért hasonlóak.
+A 3.5 ábráról leolvasható, hogy 10 és 100 média tartalom beolvasása másodpercek vagy tört másodpercek kérdése. 1 000 média tartalom körül lépünk az egy-két perces tartományba, míg 5 000 tartalom esetén tíz-húsz perces tartományba. A két konfiguráció közötti különbség se elhanyagolható, a 10, 100 és 1 000 filmnél még alacsony, de már megfigyelhető különbségek, 5 000 ezer média tartalomnál már viszont szignifikáns különbséget lehet érezni az Offline Scannelés terén, ez a két konfiguráció számítási teljesítményének különbségével magyarázható. Az Online Scannelésnél viszont már nem figyelhető meg olyan számottevő különbség, sőt előfordul, hogy a gyengébb konfigurációjú gépen több ideig tart a Scannelés. Ennek oka az, hogy mindkét gép ugyanarra a hálózatra - ugyanolyan sávszélességgel - volt csatolva tesztelés során, tehát az eredmények ezért hasonlóak.
 Ezek a számok sokmindent elmondanak az alkalmazás hatékonyságáról és sebességéről, azonban ki kell térni a reális, mindennapi használatra is. A valóságban már 1000 média tartalom is egy elég nagy adattömeg, ha az egyszerűség kedvéért egy filmet 1 gigabájtosnak veszünk, 1000 film tárolására egy egy terrabájtos tárhelyre van szükség, ötezer film tárolása esetén pedig ez a szám már 5 TB. Ha a valóság irányába mégnagyobb gesztust szeretnénk tenni, az 1 film - 1 GB egyszerűsítés nem állja ki a próbát, ugyanis ma már egy gyengébb minőségű film is minimum 2-3 GB, a HD filmek pedig 8-10 GB között tendálnak és még ezt is meg lehet fejelni a BluRay vagy UHD filmekkel amelyek 40-50 vagy akár 100 gigabájtot is elérhetik, ha így számolunk már 1 000 film tárolására is több tíz terrabájtos tárhelyre lenne szükség.
 
 Az alkalmazás 10 000 film beolvasásával is tesztelve lett, a beolvasási idő kicsit több mint fél óráig, a metaadatok letöltése pedig kicsit több mint tizenöt percig tartott. A program mindeközben stabilan működött, és le tudta kezelni ezt a nagy mennyiségű beolvasást, majd ezen tartalmak közötti böngészést is.
@@ -466,7 +466,15 @@ A felhasználó felületet a használati esetek diagram alapján teszteltük man
 		\\ \hline
 
         \emph{Lejátszási listák létrehozása}
-		& A menüsorban a Lejátszási listák ikonra kattintva megnyílik az kis ablak amely a már létező lejátszási listákat tartalmazza - amennyiben nincs ilyen a lista üres -, hozzáadni a lista alján ha beírunk egy nevet és Entert nyomunk vagy a + ikonra kattintunk, a lejátszási lista létrejön.
+		& A menüsorban a Lejátszási listák ikonra kattintva megnyílik az kis ablak amely a már létező lejátszási listákat tartalmazza - amennyiben nincs ilyen, a lista üres -, hozzáadni a lista alján ha beírunk egy nevet és Entert nyomunk vagy a + ikonra kattintunk, a lejátszási lista létrejön.
+		\\ \hline
+
+        \emph{Lejátszási listák törlése}
+		& A menüsorban a Lejátszási listák ikonra, a kiválaszott lejátszási lista bal oldalán lévő kuka ikonra kattintva a lista törlődik. A média tartalmak viszont nem.
+		\\ \hline
+
+        \emph{Lejátszási listához adás}
+		& Az adatlapon, az ikonsorban az Lejátszási listához adás ikonra kattintva, megjelennek a létező lejátszási listák, a listaikonra rákattintva a film hozzáadódik, az X ikonra kattintva a film törlődik a listából. Amennyiben nincs létező lejátszási lista az ikonra rákattintva ezt jelzi az alkalmazás.
 		\\ \hline
 
         \emph{Média kártyák listázása}
@@ -506,23 +514,23 @@ A felhasználó felületet a használati esetek diagram alapján teszteltük man
 		\\ \hline
 
         \emph{IMDB megnyitása}
-		& Az adatlapon, az ikonsorban a IMDB ikonra kattintva, megnyíilik a film IMDB adatlapja az alapértelmezett böngészőben. Ha a program nem talált IMDB azonosítót akkor ez a gomb le van tiltva.
+		& Az adatlapon, az ikonsorban a IMDB ikonra kattintva, megnyílik a film IMDB adatlapja az alapértelmezett böngészőben. Ha a program nem talált IMDB azonosítót akkor ez a gomb le van tiltva.
 		\\ \hline
 
-        \emph{Lejátszási listához adás}
-		& Az adatlapon, az ikonsorban az Lejátszási listához adás ikonra kattintva, megjelennek a létező lejátszási listák, a listaikonra rákattintva a film hozzáadódik, az X ikonra kattintva a film törlődik a listából. Amennyiben nincs létező lejátszási lista az ikonra rákattintva ezt jelzi az alkalmazás.
+        \emph{GitHub megnyitása}
+		& A menüsorban a Github ikonra kattintva, megnyílik az alkalmazás GitHub repository-ja az alapértelmezett böngészőben.
 		\\ \hline
 
         \emph{Borító cseréje}
-		& Az adatlapon, az ikonsorban az Üres négyzet ikonra kattintva, amennyiben nincs a filmnek borítóképe úgy megnyíilik az operációs rendszer párbeszédablakja, amennyiben már van borítókép beállítva abban az esetben a borítókép törlődik az ikon pedig egy kereső ikonos kép ikonra módosul.
+		& Az adatlapon, az ikonsorban az Üres négyzet ikonra kattintva, amennyiben nincs a filmnek borítóképe úgy megnyílik az operációs rendszer párbeszédablakja, amennyiben már van borítókép beállítva abban az esetben a borítókép törlődik az ikon pedig egy kereső ikonos kép ikonra módosul.
 		\\ \hline
 
         \emph{Külső lejátszó megnyitása}
-		& Az adatlapon a baloldali kis lejátszás ikonra kattintva megnyíilik az adott média az operációs rendszer szerint alapértelmezett külső lejátszóban.
+		& Az adatlapon a baloldali kis lejátszás ikonra kattintva megnyílik az adott média az operációs rendszer szerint alapértelmezett külső lejátszóban.
 		\\ \hline
 
         \emph{Belső lejátszó megnyitása}
-		& Az adatlapon a lista elemre kattintva megnyíilik az adott média a program belső lejátszójában.
+		& Az adatlapon a lista elemre kattintva megnyílik az adott média a program belső lejátszójában.
 		\\ \hline
 
 		\caption{A felhasználói felület tesztjei}
