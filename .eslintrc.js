@@ -20,7 +20,7 @@ module.exports = {
             node: {},
             webpack: {
                 config: require.resolve(
-                    './.erb/configs/webpack.config.eslint.js'
+                    './.dev/configs/webpack.config.eslint.js'
                 ),
             },
         },

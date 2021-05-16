@@ -1,10 +1,10 @@
-# Custom changes in .erb folder
+# Custom changes in .dev folder
 
 ## Folder rename
 
 1. Folder rename:
     - from: `.erb`
-    - to: NOT YET
+    - to: `.dev`
 
 ---
 

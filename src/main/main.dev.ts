@@ -34,11 +34,11 @@ if (isDevelopmentMode) {
 const installExtensions = async () => {
     const REACT_PATH = path.join(
         __dirname,
-        '../../.erb/dev_plugins/ReactDevTools/4.12.3_0'
+        '../../.dev/dev_plugins/ReactDevTools/4.12.3_0'
     );
     const REDUX_PATH = path.join(
         __dirname,
-        '../../.erb/dev_plugins/ReduxDevTools/2.17.0_0'
+        '../../.dev/dev_plugins/ReduxDevTools/2.17.0_0'
     );
     await session.defaultSession.loadExtension(REACT_PATH, {
         allowFileAccess: true,

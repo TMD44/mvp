@@ -5,7 +5,7 @@
     "version": "0.1.0",
     "main": "./main/main.prod.js",
     "scripts": {
-        "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
+        "electron-rebuild": "node -r ../.dev/scripts/BabelRegister.js ../.dev/scripts/ElectronRebuild.js",
         "postinstall": "yarn electron-rebuild"
     },
     "homepage": "https://github.com/TMD44/mvp#readme",

@@ -5,16 +5,16 @@
     "scripts": {
         "package": "yarn clean && yarn build && electron-builder build --publish never",
         "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
-        "build:main": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.main.prod.babel.js",
-        "build:renderer": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.renderer.prod.babel.js",
+        "build:main": "cross-env NODE_ENV=production webpack --config ./.dev/configs/webpack.config.main.prod.babel.js",
+        "build:renderer": "cross-env NODE_ENV=production webpack --config ./.dev/configs/webpack.config.renderer.prod.babel.js",
         "rebuild": "electron-rebuild --parallel --types prod,dev,optional --module-dir src",
-        "postinstall": "node -r @babel/register .erb/scripts/CheckNativeDep.js && electron-builder install-app-deps && yarn cross-env NODE_ENV=development webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.babel.js && opencollective-postinstall && yarn-deduplicate yarn.lock",
-        "start": "node -r @babel/register ./.erb/scripts/CheckPortInUse.js && yarn start:renderer",
-        "start:main": "cross-env NODE_ENV=development electron -r ./.erb/scripts/BabelRegister ./src/main/main.dev.ts",
-        "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.erb/configs/webpack.config.renderer.dev.babel.js",
+        "postinstall": "node -r @babel/register .dev/scripts/CheckNativeDep.js && electron-builder install-app-deps && yarn cross-env NODE_ENV=development webpack --config ./.dev/configs/webpack.config.renderer.dev.dll.babel.js && opencollective-postinstall && yarn-deduplicate yarn.lock",
+        "start": "node -r @babel/register ./.dev/scripts/CheckPortInUse.js && yarn start:renderer",
+        "start:main": "cross-env NODE_ENV=development electron -r ./.dev/scripts/BabelRegister ./src/main/main.dev.ts",
+        "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.dev/configs/webpack.config.renderer.dev.babel.js",
         "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
         "clean": "rm -rf src/dist && rm -rf release && rm -f -- src/main/main.prod.js && rm -f -- assets/.storage/config.json && rm -f -- assets/.storage/mediaDB.json",
-        "clean:all": "rm -rf src/dist && rm -rf release && rm -rf .erb/dll && rm -f -- src/main/main.prod.js && rm -f -- assets/.storage/config.json && rm -f -- assets/.storage/mediaDB.json",
+        "clean:all": "rm -rf src/dist && rm -rf release && rm -rf .dev/dll && rm -f -- src/main/main.prod.js && rm -f -- assets/.storage/config.json && rm -f -- assets/.storage/mediaDB.json",
         "test": "jest",
         "generate-media": "node tests/generate-media/generate-media.js"
     },
@@ -66,7 +66,7 @@
             "main/main.prod.js.map",
             "package.json"
         ],
-        "afterSign": ".erb/scripts/Notarize.js",
+        "afterSign": ".dev/scripts/Notarize.js",
         "mac": {
             "target": [
                 "dmg"
@@ -119,7 +119,7 @@
     "jest": {
         "testURL": "http://localhost/",
         "moduleNameMapper": {
-            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/.erb/mocks/fileMock.js",
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/.dev/mocks/fileMock.js",
             "\\.(css|less|sass|scss)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
@@ -134,7 +134,7 @@
             "src/node_modules"
         ],
         "setupFiles": [
-            "./.erb/scripts/CheckBuildsExist.js"
+            "./.dev/scripts/CheckBuildsExist.js"
         ]
     },
     "devDependencies": {

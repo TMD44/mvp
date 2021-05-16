@@ -87,6 +87,6 @@
         "src/main/main.prod.js",
         "src/renderer.prod.js",
         "src/dist",
-        ".erb/dll"
+        ".dev/dll"
     ]
 }
